@@ -2,7 +2,7 @@
 
 ### project_base_libs_pkg
 
-使用方法如下：
+在```pubspec.yaml```的```dependencies:```中引入：
 ```
   project_base_libs_pkg:
     git:
@@ -10,7 +10,7 @@
       path: project_base_libs_pkg
 ```
 
-该基础组件库不依赖于任何项目，自带了example，可以单独运行。以下是该组件库中一些重要的类：
+该基础组件库不依赖于任何项目的业务，自带了example，可以单独运行。以下是该组件库中一些重要的类：
 
 名字|描述
 --|:--:
