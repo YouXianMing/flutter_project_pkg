@@ -17,7 +17,7 @@
 DioNetwork|对DioNetwork的初级封装
 AnimationsManager|简化动画使用的管理器
 SliverSection|将Sliver家族的控件封装到了SliverSection对象，简化Sliver家族控件的使用并添加了瀑布流、SectionHeader悬停的支持
-app_print|打印信息将包含完整的文件路径，点击后可以直达app_print说在的行
+app_print|打印信息将包含完整的文件路径，点击后可以直达app_print所在的行
 InformationView|实现了各种Toast、AlertView、SheetView的基础控件，可高度定制各种效果，可以在页面里或者overlay中显示，与实现了MaybePopMixin的类配合可以在overlay中处理maybePop事件（安卓物理返回键事件）。
 AnimatedRotate|子控件按照顺时针或者逆时针旋转，可暂停
 BaseAppBar|（抽象）对AppBar的封装
