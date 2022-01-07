@@ -181,7 +181,6 @@ class SliverAppBarSection extends BaseSliverSection {
       shape: shape,
       toolbarHeight: toolbarHeight,
       leadingWidth: leadingWidth,
-      backwardsCompatibility: backwardsCompatibility,
       toolbarTextStyle: toolbarTextStyle,
       titleTextStyle: titleTextStyle,
       systemOverlayStyle: systemOverlayStyle,

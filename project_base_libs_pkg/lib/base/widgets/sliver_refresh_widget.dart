@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../base_file_headers.dart';
-import '../others/sliver_section/base_sliver_section.dart';
 
 typedef SliversRefreshWidgetBlock = Function(SliversRefreshWidget widget);
 typedef SliversRefreshWidgetHeaderFooterBuilder = Widget Function(bool);
@@ -103,15 +102,23 @@ class SliversRefreshWidget extends StatelessWidget {
 
   /// 手动调用刷新
   SliversRefreshWidget requestRefresh(
-      {bool needMove = true, bool needCallback = true, Duration duration = const Duration(milliseconds: 500), Curve curve = Curves.linear}) {
-    _controller.refreshController.requestRefresh(needMove: needMove, needCallback: needCallback, duration: duration, curve: curve);
+      {bool needMove = true,
+      bool needCallback = true,
+      Duration duration = const Duration(milliseconds: 500),
+      Curve curve = Curves.linear}) {
+    _controller.refreshController
+        .requestRefresh(needMove: needMove, needCallback: needCallback, duration: duration, curve: curve);
     return this;
   }
 
   /// 手动调用加载更多
   SliversRefreshWidget requestLoading(
-      {bool needMove = true, bool needCallback = true, Duration duration = const Duration(milliseconds: 300), Curve curve = Curves.linear}) {
-    _controller.refreshController.requestLoading(needMove: needMove, needCallback: needCallback, duration: duration, curve: curve);
+      {bool needMove = true,
+      bool needCallback = true,
+      Duration duration = const Duration(milliseconds: 300),
+      Curve curve = Curves.linear}) {
+    _controller.refreshController
+        .requestLoading(needMove: needMove, needCallback: needCallback, duration: duration, curve: curve);
     return this;
   }
 
@@ -158,9 +165,12 @@ class SliversRefreshWidget extends StatelessWidget {
         controller: _controller.refreshController,
         enablePullDown: _controller.pullRefreshEnable,
         enablePullUp: _controller.loadMoreEnable,
-        header: _controller.headerBuilder != null ? _controller.headerBuilder!(_controller.refreshHeaderWidgetAddSafeTop) : defaultHeader(context),
-        footer:
-        _controller.footerBuilder != null ? _controller.footerBuilder!(_controller.loadMoreFooterWidgetAddSafeBottom) : defaultFooter(context),
+        header: _controller.headerBuilder != null
+            ? _controller.headerBuilder!(_controller.refreshHeaderWidgetAddSafeTop)
+            : defaultHeader(context),
+        footer: _controller.footerBuilder != null
+            ? _controller.footerBuilder!(_controller.loadMoreFooterWidgetAddSafeBottom)
+            : defaultFooter(context),
         onRefresh: () {
           if (_controller.onRefreshBlock != null) _controller.onRefreshBlock!(this);
         },

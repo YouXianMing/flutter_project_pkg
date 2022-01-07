@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../base_file_headers.dart';
-import 'information_view_enums_and_configs.dart';
 
 class AnimatedSheetView extends StatefulWidget {
   final InformationViewStatus? step;
@@ -142,7 +141,9 @@ class _AnimatedSheetViewState extends State<AnimatedSheetView> with TickerProvid
               child: GestureDetector(
                 onTap: widget.backgroundTapCallback,
                 child: Container(
-                  color: config.backgroundColor == null ? Colors.transparent : _animationsManager!.animationByKey(containerColorKey).value,
+                  color: config.backgroundColor == null
+                      ? Colors.transparent
+                      : _animationsManager!.animationByKey(containerColorKey).value,
                 ),
               ),
             ),
