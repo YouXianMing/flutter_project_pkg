@@ -9,10 +9,10 @@ class ToastWidgetPage extends NormalStatefulWidget {
   const ToastWidgetPage({Key? key, this.arguments}) : super(key: key);
 
   @override
-  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => ToastWidgetPageState();
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => _ToastWidgetPageState();
 }
 
-class ToastWidgetPageState extends NormalStatefulWidgetState<ToastWidgetPage> {
+class _ToastWidgetPageState extends NormalStatefulWidgetState<ToastWidgetPage> {
   final ToastWidget toastWidget = ToastWidget();
 
   @override
@@ -35,7 +35,9 @@ class ToastWidgetPageState extends NormalStatefulWidgetState<ToastWidgetPage> {
                       return Container(
                         alignment: Alignment.center,
                         child: Container(
-                          decoration: BoxDecoration(borderRadius: const BorderRadius.all(Radius.circular(10)), color: Colors.white.withOpacity(0.85)),
+                          decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(Radius.circular(10)),
+                              color: Colors.white.withOpacity(0.85)),
                           padding: const EdgeInsets.all(20),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,

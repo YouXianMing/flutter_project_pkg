@@ -9,12 +9,13 @@ class MaybePopPage extends NormalStatefulWidget {
   const MaybePopPage({Key? key, this.arguments}) : super(key: key);
 
   @override
-  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => LoadingAnimationPageState();
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => _MaybePopPageState();
 }
 
-class LoadingAnimationPageState extends NormalStatefulWidgetState<MaybePopPage> {
+class _MaybePopPageState extends NormalStatefulWidgetState<MaybePopPage> {
   @override
-  PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(context: context, title: NormalAppBar.titleWidget(widget.arguments?.mark ?? ''));
+  PreferredSizeWidget? appBar(BuildContext context) =>
+      NormalAppBar(context: context, title: NormalAppBar.titleWidget(widget.arguments?.mark ?? ''));
 
   @override
   Widget body(BuildContext context) {
@@ -77,11 +78,12 @@ class LoadingAnimationPageState extends NormalStatefulWidgetState<MaybePopPage> 
                             Util.randomWordPairAsCamelCase,
                             Util.randomWordPairAsCamelCase,
                           ],
-                          builder: (c, i, d) =>
-                              WidgetsFactory.textContainer(d, height: 45, textColor: Util.randomOpaqueColor, alignment: Alignment.center)
-                                  .addDefaultTextStyle(),
+                          builder: (c, i, d) => WidgetsFactory.textContainer(d,
+                                  height: 45, textColor: Util.randomOpaqueColor, alignment: Alignment.center)
+                              .addDefaultTextStyle(),
                         ),
-                        SliverBoxAdapterSection.widget(builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
+                        SliverBoxAdapterSection.widget(
+                            builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
                       ],
                     ),
                   ),

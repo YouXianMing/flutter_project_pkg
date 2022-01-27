@@ -1,7 +1,7 @@
 name: project_base_libs_pkg
 description: A new Flutter project.
 version: 1.0.0
-homepage:
+homepage: 'https://github.com/YouXianMing/flutter_project_pkg'
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -26,7 +26,7 @@ dependencies:
   # DART: Native JS
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.dev/packages/mime
-  mime: ^1.0.0
+  mime: ^1.0.1
 
   # [jakobservices.ch] 消息通知工具
   # DART: Native JS
@@ -38,7 +38,7 @@ dependencies:
   # DART: Native JS
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/dio
-  dio: ^4.0.1
+  dio: ^4.0.4
 
   # [tekartik.com] Lock
   # DART: Native JS
@@ -69,17 +69,17 @@ dependencies:
   # [flutter.dev] 本地持久化工具
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/shared_preferences
-  shared_preferences: ^2.0.7
+  shared_preferences: ^2.0.12
 
   # [fluttercandies.com] 瀑布流
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/waterfall_flow
-  waterfall_flow: ^3.0.1
+  waterfall_flow: ^3.0.2
 
   # [getx.site] 状态管理,依赖注入,路由管理等工具合集
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/get
-  get: ^4.3.8
+  get: ^4.6.1
 
   # 加载动画合集
   # FLUTTER: Android iOS Linux MacOS Web Windows

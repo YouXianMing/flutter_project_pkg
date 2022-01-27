@@ -59,6 +59,10 @@ class TabBarPageState extends NormalStatefulWidgetState<TabBarPage> with WidgetE
             callback: widgetEventCallback,
           ),
           CartItemWidget(
+            model: CartItemModel(title: '网络请求', routeEnum: PageRouteEnum.networks),
+            callback: widgetEventCallback,
+          ),
+          CartItemWidget(
             model: CartItemModel(title: 'SpVal', routeEnum: PageRouteEnum.spVal),
             callback: widgetEventCallback,
           ),

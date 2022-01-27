@@ -43,6 +43,7 @@ class WidgetsFactory {
     Color? color,
     FontWeight? fontWeight,
     TextOverflow? overflow,
+    String? fontFamily,
     TextAlign? textAlign,
   }) {
     return Text(
@@ -50,7 +51,7 @@ class WidgetsFactory {
       maxLines: maxLines,
       overflow: overflow,
       textAlign: textAlign,
-      style: TextStyle(fontSize: fontSize, color: color, fontWeight: fontWeight),
+      style: TextStyle(fontSize: fontSize, color: color, fontWeight: fontWeight, fontFamily: fontFamily),
     );
   }
 

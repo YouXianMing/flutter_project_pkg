@@ -9,12 +9,13 @@ class FlutterSpinKitPage extends NormalStatefulWidget {
   const FlutterSpinKitPage({Key? key, this.arguments}) : super(key: key);
 
   @override
-  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => FlutterSpinKitPageState();
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => _FlutterSpinKitPageState();
 }
 
-class FlutterSpinKitPageState extends NormalStatefulWidgetState<FlutterSpinKitPage> {
+class _FlutterSpinKitPageState extends NormalStatefulWidgetState<FlutterSpinKitPage> {
   @override
-  PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(context: context, title: NormalAppBar.titleWidget(widget.arguments?.mark ?? ''));
+  PreferredSizeWidget? appBar(BuildContext context) =>
+      NormalAppBar(context: context, title: NormalAppBar.titleWidget(widget.arguments?.mark ?? ''));
 
   @override
   Widget body(BuildContext context) {

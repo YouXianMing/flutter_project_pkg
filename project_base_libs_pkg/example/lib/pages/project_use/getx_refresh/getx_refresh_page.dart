@@ -10,10 +10,10 @@ class GetxRefreshPage extends NormalStatefulWidget {
   const GetxRefreshPage({Key? key, this.arguments}) : super(key: key);
 
   @override
-  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => GetxRefreshPageState();
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => _GetxRefreshPageState();
 }
 
-class GetxRefreshPageState extends NormalStatefulWidgetState<GetxRefreshPage> {
+class _GetxRefreshPageState extends NormalStatefulWidgetState<GetxRefreshPage> {
   final RxInt step = 0.obs;
   final GetCounterLogic logic = GetCounterLogic();
 

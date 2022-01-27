@@ -9,10 +9,10 @@ class LoadingAnimationPage extends NormalStatefulWidget {
   const LoadingAnimationPage({Key? key, this.arguments}) : super(key: key);
 
   @override
-  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => LoadingAnimationPageState();
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => _LoadingAnimationPageState();
 }
 
-class LoadingAnimationPageState extends NormalStatefulWidgetState<LoadingAnimationPage> {
+class _LoadingAnimationPageState extends NormalStatefulWidgetState<LoadingAnimationPage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(context: context, title: NormalAppBar.titleWidget(widget.arguments?.mark ?? ''));
 

@@ -8,13 +8,21 @@ class Message {
     String text, {
     bool success = true,
     Duration duration = const Duration(seconds: 2),
+    Function? didHide,
   }) {
     InformationView(
       type: AnimatedWidgetType.simpleToast,
       waitForBuild: true,
       // debugPrintInfo: true,
       data: text,
-    ).inOverlay(context).setWidgetBuilder((v) => _informationViewContentWidget(v.data as String, success)).show().hide(afterDelay: duration);
+    ).inOverlay(context).setWidgetBuilder((v) => _informationViewContentWidget(v.data as String, success)).show().hide(
+          afterDelay: duration,
+          complete: (_) {
+            if (didHide != null) {
+              didHide();
+            }
+          },
+        );
   }
 
   Widget _informationViewContentWidget(String text, bool success) {

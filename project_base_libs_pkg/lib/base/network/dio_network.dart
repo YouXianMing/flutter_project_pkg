@@ -4,6 +4,8 @@ import 'base_network.dart';
 class DioNetwork extends BaseNetwork {
   late dio.Dio _dio;
   bool _isRunning = false;
+  // 如何使用cancelToken https://stackguides.com/questions/68581009/dio-canceltoken
+  dio.CancelToken? _cancelToken;
 
   DioNetwork({
     String? url,
@@ -12,6 +14,8 @@ class DioNetwork extends BaseNetwork {
     Map<String, dynamic>? headers,
     int requestTimeOut = 5000,
     NetworkMethod method = NetworkMethod.get,
+    NetworkProgressCallback? onReceiveProgress,
+    NetworkProgressCallback? onSendProgress,
     BaseNetworkConfig? config,
     BaseNetworkResultTransform? resultDataTransform,
     BaseRequestCallback? requestCallback,
@@ -22,6 +26,8 @@ class DioNetwork extends BaseNetwork {
     this.headers = headers;
     this.requestTimeOut = requestTimeOut;
     this.method = method;
+    this.onReceiveProgress = onReceiveProgress;
+    this.onSendProgress = onSendProgress;
 
     // 如果配置为空,则默认使用DioNetworkConfig
     if (config != null) {
@@ -34,35 +40,89 @@ class DioNetwork extends BaseNetwork {
     if (requestCallback != null) this.requestCallback = requestCallback;
   }
 
+  /// 此处的网络请求close会导致请求关闭并报错
   @override
   void close({bool force = false}) => _dio.close(force: false);
 
   @override
+  void cancel() {
+    if (_cancelToken != null) {
+      // 调用取消的话,会在catch (e) 的e中,使用 if (e is DioError && e.error is String && e.error == 'cancelled') 来判断
+      // 网络请求的取消
+      _cancelToken?.cancel('cancelled');
+    }
+  }
+
+  @override
   Future<dynamic> startRequest() async {
     _dio = dio.Dio();
+    _cancelToken = dio.CancelToken();
+    // 设置正在网络请求当中
     _isRunning = true;
     try {
-      /// 请求开始之前进行一些配置
+      // 请求开始之前进行一些配置
       dynamic object = {'obj': this, 'dio': _dio};
       config.startConfig(object);
+
       if (method == NetworkMethod.get) {
+        // 请求开始前回调
         requestCallback.startRequestCallback(this);
-        dio.Response result = await _dio.get(url!, options: config.configValue(object), queryParameters: parameters);
+
+        // 开始请求
+        dio.Response result = await _dio.get(
+          url!,
+          options: config.configValue(object),
+          queryParameters: parameters,
+          cancelToken: _cancelToken,
+          onReceiveProgress: onReceiveProgress,
+        );
+
+        // 清空cancelToken
+        _cancelToken = null;
+
+        // 请求结束回调
         requestCallback.endRequestCallback(this);
+
+        // 设置网路请求结束了
         _isRunning = false;
+
         // 此处的result被dio的Response包裹着,注意
         return resultDataTransform.successDataTransform(result, this);
-      } else if (method == NetworkMethod.post) {
+      } else if (method == NetworkMethod.post || method == NetworkMethod.upload) {
+        // 请求开始前回调
         requestCallback.startRequestCallback(this);
-        dio.Response result = await _dio.post(url!, options: config.configValue(object), data: data, queryParameters: parameters);
+
+        // 开始请求
+        dio.Response result = await _dio.post(
+          url!,
+          options: config.configValue(object),
+          data: data,
+          queryParameters: parameters,
+          cancelToken: _cancelToken,
+          onReceiveProgress: onReceiveProgress,
+          onSendProgress: onSendProgress,
+        );
+
+        // 清空cancelToken
+        _cancelToken = null;
+
+        // 请求结束回调
         requestCallback.endRequestCallback(this);
+
+        // 设置网路请求结束了
         _isRunning = false;
+
         // 此处的result被dio的Response包裹着,注意
         return resultDataTransform.successDataTransform(result, this);
       }
     } catch (e) {
+      // 请求结束回调
       requestCallback.endRequestCallback(this);
+
+      // 设置网路请求结束了
       _isRunning = false;
+
+      // 此处的result是一个失败的网络请求
       return resultDataTransform.errorDataTransform(e, this);
     }
   }

@@ -9,10 +9,10 @@ class SliverRefreshWidgetPage extends NormalStatefulWidget {
   const SliverRefreshWidgetPage({Key? key, this.arguments}) : super(key: key);
 
   @override
-  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => SliverRefreshWidgetPageState();
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => _SliverRefreshWidgetPageState();
 }
 
-class SliverRefreshWidgetPageState extends NormalStatefulWidgetState<SliverRefreshWidgetPage> {
+class _SliverRefreshWidgetPageState extends NormalStatefulWidgetState<SliverRefreshWidgetPage> {
   final SliversRefreshWidget refreshWidget = SliversRefreshWidget(loadMoreFooterWidgetAddSafeBottom: true);
   final SliverWaterfallFlowSection itemsSection = SliverWaterfallFlowSection();
 
@@ -25,7 +25,8 @@ class SliverRefreshWidgetPageState extends NormalStatefulWidgetState<SliverRefre
   }
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(context: context, title: NormalAppBar.titleWidget(widget.arguments?.mark ?? ''));
+  PreferredSizeWidget? appBar(BuildContext context) =>
+      NormalAppBar(context: context, title: NormalAppBar.titleWidget(widget.arguments?.mark ?? ''));
 
   void onLoad(SliversRefreshWidget widget) {
     Future.delayed(const Duration(seconds: 1), () {

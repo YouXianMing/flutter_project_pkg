@@ -9,12 +9,13 @@ class RegExpPage extends NormalStatefulWidget {
   const RegExpPage({Key? key, this.arguments}) : super(key: key);
 
   @override
-  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => RegExpPageState();
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => _RegExpPageState();
 }
 
-class RegExpPageState extends NormalStatefulWidgetState<RegExpPage> {
+class _RegExpPageState extends NormalStatefulWidgetState<RegExpPage> {
   @override
-  PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(context: context, title: NormalAppBar.titleWidget(widget.arguments?.mark ?? ''));
+  PreferredSizeWidget? appBar(BuildContext context) =>
+      NormalAppBar(context: context, title: NormalAppBar.titleWidget(widget.arguments?.mark ?? ''));
 
   @override
   Widget body(BuildContext context) {

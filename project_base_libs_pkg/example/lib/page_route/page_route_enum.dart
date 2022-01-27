@@ -4,6 +4,7 @@ import 'package:example/pages/project_use/getx_refresh/getx_refresh_page.dart';
 import 'package:example/pages/project_use/information_view/infomation_view_page.dart';
 import 'package:example/pages/project_use/loading_animation/loading_animation_page.dart';
 import 'package:example/pages/project_use/maybe_pop/maybe_pop_page.dart';
+import 'package:example/pages/project_use/networks/networks_page.dart';
 import 'package:example/pages/project_use/reg_exp/reg_exp_page.dart';
 import 'package:example/pages/project_use/sliver_refresh_widget/slivers_refresh_widget_page.dart';
 import 'package:example/pages/project_use/sliver_sections/sliver_sections_page.dart';
@@ -27,6 +28,7 @@ enum PageRouteEnum {
   flutterSpinKit,
   getxRefresh,
   maybePop,
+  networks,
 }
 
 // pageRouteEnum的准备操作,请放在main里
@@ -73,11 +75,14 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => GetxRefreshPage(arguments: arguments));
       case PageRouteEnum.maybePop:
         return MaterialPageRoute(settings: settings, builder: (_) => MaybePopPage(arguments: arguments));
+      case PageRouteEnum.networks:
+        return MaterialPageRoute(settings: settings, builder: (_) => NetworksPage(arguments: arguments));
     }
   }
 
   // pushName的调用
-  Future push(BuildContext context, {dynamic arguments}) => Navigator.pushNamed(context, routeName, arguments: arguments);
+  Future push(BuildContext context, {dynamic arguments}) =>
+      Navigator.pushNamed(context, routeName, arguments: arguments);
 
   // 将需要的一些值存储到map中
   void _storeValueToMap() {
@@ -122,6 +127,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.maybePop:
         pageRouteName = _pageRouteNameFrom(MaybePopPage);
+        break;
+      case PageRouteEnum.networks:
+        pageRouteName = _pageRouteNameFrom(NetworksPage);
         break;
     }
 

@@ -1,5 +1,9 @@
 enum NetworkMethod { get, post, upload }
 
+/// 网络请求进度回调
+typedef NetworkProgressCallback = void Function(int count, int total);
+
+/// 网络请求的基类,抽象类
 abstract class BaseNetwork {
   /// url地址
   String? url;
@@ -22,6 +26,12 @@ abstract class BaseNetwork {
   /// 请求的方法
   NetworkMethod method = NetworkMethod.get;
 
+  /// 网络请求上传数据时的进度 (只有post请求此参数才有效)
+  NetworkProgressCallback? onSendProgress;
+
+  /// 网络请求获取数据时的进度
+  NetworkProgressCallback? onReceiveProgress;
+
   /// 网络请求配置
   BaseNetworkConfig config = const BaseNetworkConfig();
 
@@ -42,8 +52,11 @@ abstract class BaseNetwork {
   /// (abstract) 是否正在运行中
   bool get isRunning;
 
-  /// (abstract) 网络请求关闭
+  /// (abstract) 网络请求关闭(根据子类实现,有可能是强制关闭)
   void close();
+
+  /// (abstract) 网络请求取消
+  void cancel();
 
   /* setter方法 */
 
@@ -77,6 +90,16 @@ abstract class BaseNetwork {
     return this;
   }
 
+  BaseNetwork setOnSendProgress(NetworkProgressCallback callback) {
+    onSendProgress = callback;
+    return this;
+  }
+
+  BaseNetwork setOnReceiveProgress(NetworkProgressCallback callback) {
+    onReceiveProgress = callback;
+    return this;
+  }
+
   BaseNetwork setConfig(BaseNetworkConfig newVal) {
     config = newVal;
     return this;
@@ -88,6 +111,7 @@ abstract class BaseNetwork {
   }
 }
 
+/// 网络请求的回调信息,包含请求开始时的回调以及请求结束的回调
 class BaseRequestCallback {
   const BaseRequestCallback();
 
@@ -98,6 +122,7 @@ class BaseRequestCallback {
   void endRequestCallback(BaseNetwork network) {}
 }
 
+/// 网络请求数据转换的工具,默认实现为空实现,子类根据需要重写功能
 class BaseNetworkResultTransform {
   const BaseNetworkResultTransform();
 
@@ -108,6 +133,7 @@ class BaseNetworkResultTransform {
   Future<dynamic> errorDataTransform(dynamic data, BaseNetwork network) => Future.error(data);
 }
 
+/// 网络请求的配置类,子类根据需要重写功能
 class BaseNetworkConfig {
   const BaseNetworkConfig();
 

@@ -13,10 +13,10 @@ class FilesScanPage extends NormalStatefulWidget {
   const FilesScanPage({Key? key, this.arguments}) : super(key: key);
 
   @override
-  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => FilesScanPageState();
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => _FilesScanPageState();
 }
 
-class FilesScanPageState extends NormalStatefulWidgetState<FilesScanPage> {
+class _FilesScanPageState extends NormalStatefulWidgetState<FilesScanPage> {
   bool canLoadData = false;
   Completer completer = Completer();
   late ScanFilesTool scanFilesTool;

@@ -11,10 +11,10 @@ class SliverSectionsPage extends NormalStatefulWidget {
   const SliverSectionsPage({Key? key, this.arguments}) : super(key: key);
 
   @override
-  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => SliverSectionsPageState();
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => _SliverSectionsPageState();
 }
 
-class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPage> {
+class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPage> {
   final LinearEquation linearEquation = LinearEquation();
   final ScrollController scrollController = ScrollController();
   final StickyHeaderController stickyHeaderController = StickyHeaderController();
