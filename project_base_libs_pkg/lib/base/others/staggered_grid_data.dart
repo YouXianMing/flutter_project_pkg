@@ -1,4 +1,4 @@
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:project_base_libs_pkg/base/third_libs_mod/staggered_grid_view_0_4_0/mod_staggered_tile.dart';
 
 abstract class StaggeredGridData {
   /// (abstract) 数据
@@ -6,7 +6,7 @@ abstract class StaggeredGridData {
   set data(dynamic val);
 
   /// (abstract) SliverStaggeredGrid.countBuilder需要的数据
-  StaggeredTile get tile;
+  ModStaggeredTile get tile;
 }
 
 /// 用于非标准瀑布流(控件的宽度可以不一致)
@@ -15,8 +15,8 @@ class StaggeredGridCountData extends StaggeredGridData {
   dynamic data;
 
   @override
-  StaggeredTile get tile => _tile;
-  late StaggeredTile _tile;
+  ModStaggeredTile get tile => _tile;
+  late ModStaggeredTile _tile;
 
   /// 横向cell个数
   late int _crossAxisCellCount;
@@ -30,14 +30,14 @@ class StaggeredGridCountData extends StaggeredGridData {
   StaggeredGridCountData update(int crossAxisCellCount, double mainAxisCellCount) {
     _crossAxisCellCount = crossAxisCellCount;
     _mainAxisCellCount = mainAxisCellCount;
-    _tile = StaggeredTile.count(crossAxisCellCount, mainAxisCellCount);
+    _tile = ModStaggeredTile.count(crossAxisCellCount, mainAxisCellCount);
     return this;
   }
 
   StaggeredGridCountData(int crossAxisCellCount, double mainAxisCellCount, {this.data}) {
     _crossAxisCellCount = crossAxisCellCount;
     _mainAxisCellCount = mainAxisCellCount;
-    _tile = StaggeredTile.count(crossAxisCellCount, mainAxisCellCount);
+    _tile = ModStaggeredTile.count(crossAxisCellCount, mainAxisCellCount);
   }
 }
 
@@ -47,8 +47,8 @@ class StaggeredGridFixedCountData extends StaggeredGridData {
   dynamic data;
 
   @override
-  StaggeredTile get tile => _tile;
-  late StaggeredTile _tile;
+  ModStaggeredTile get tile => _tile;
+  late ModStaggeredTile _tile;
 
   /// 宽高比
   late double _aspectRatio;
@@ -57,12 +57,12 @@ class StaggeredGridFixedCountData extends StaggeredGridData {
   /// 更新aspectRatio
   StaggeredGridFixedCountData update(double val) {
     _aspectRatio = val;
-    _tile = StaggeredTile.count(1, 1 / val);
+    _tile = ModStaggeredTile.count(1, 1 / val);
     return this;
   }
 
   StaggeredGridFixedCountData(double aspectRatio, {this.data}) {
-    _tile = StaggeredTile.count(1, 1 / aspectRatio);
+    _tile = ModStaggeredTile.count(1, 1 / aspectRatio);
     _aspectRatio = aspectRatio;
   }
 }

@@ -48,7 +48,8 @@ extension StringRegExpExtensions on String {
       bool caseSensitive = true,
       bool unicode = false,
       bool dotAll = false}) {
-    return replaceAllMapped(RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive, unicode: unicode, dotAll: dotAll), (match) => source);
+    return replaceAllMapped(
+        RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive, unicode: unicode, dotAll: dotAll), (match) => source);
   }
 
   /// 通过正则表达式替换字符串

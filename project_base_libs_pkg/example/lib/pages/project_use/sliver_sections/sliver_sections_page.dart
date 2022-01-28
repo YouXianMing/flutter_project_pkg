@@ -249,7 +249,8 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                   double max = constraints.viewportMainAxisExtent;
                   double height1 = 50;
                   double height2 = height1 + 30;
-                  linearEquation.startCalculateOnlyOnceWith(pointA: MATHPoint(x: max - height2, y: height1), pointB: MATHPoint(x: max, y: height2));
+                  linearEquation.startCalculateOnlyOnceWith(
+                      pointA: MATHPoint(x: max - height2, y: height1), pointB: MATHPoint(x: max, y: height2));
                   double height = linearEquation.k * constraints.remainingPaintExtent + linearEquation.b;
                   if (height < height1) {
                     height = height1;

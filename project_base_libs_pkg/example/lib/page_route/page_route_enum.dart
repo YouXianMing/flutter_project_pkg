@@ -81,8 +81,7 @@ extension PageRouteEnumExtension on PageRouteEnum {
   }
 
   // pushName的调用
-  Future push(BuildContext context, {dynamic arguments}) =>
-      Navigator.pushNamed(context, routeName, arguments: arguments);
+  Future push(BuildContext context, {dynamic arguments}) => Navigator.pushNamed(context, routeName, arguments: arguments);
 
   // 将需要的一些值存储到map中
   void _storeValueToMap() {

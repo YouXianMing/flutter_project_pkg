@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:project_base_libs_pkg/base/third_libs_mod/staggered_grid_view_0_4_0/mod_sliver.dart';
+import 'package:project_base_libs_pkg/base/third_libs_mod/staggered_grid_view_0_4_0/mod_staggered_tile.dart';
 import '../../staggered_grid_data.dart';
 import '../base_sliver_section.dart';
 import '../sliver_section.dart';
@@ -121,13 +122,13 @@ class SliverStaggeredGridCountBuilderSection<T extends StaggeredGridData> extend
     Widget? widget;
     if (useCountBuilderMode == false) {
       List<Widget> widgets = [];
-      List<StaggeredTile> tiles = [];
+      List<ModStaggeredTile> tiles = [];
       for (int i = 0; i < items!.length; i++) {
         widgets.add(builder!(null, i, items![i]));
         tiles.add(items![i].tile);
       }
 
-      widget = SliverStaggeredGrid.count(
+      widget = ModSliverStaggeredGrid.count(
         crossAxisCount: crossAxisCount,
         mainAxisSpacing: mainAxisSpacing,
         crossAxisSpacing: crossAxisSpacing,
@@ -138,7 +139,7 @@ class SliverStaggeredGridCountBuilderSection<T extends StaggeredGridData> extend
 
     return processingBuildWidget(
       useCountBuilderMode
-          ? SliverStaggeredGrid.countBuilder(
+          ? ModSliverStaggeredGrid.countBuilder(
               crossAxisCount: crossAxisCount,
               staggeredTileBuilder: (index) => items![index].tile,
               itemBuilder: (context, index) => builder!(context, index, items![index]),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:project_base_libs_pkg/base/third_libs_mod/staggered_grid_view_0_4_0/mod_staggered_grid_view.dart';
+import 'package:project_base_libs_pkg/base/third_libs_mod/staggered_grid_view_0_4_0/mod_staggered_tile.dart';
 import '../../base_file_headers.dart';
 
 class StaggeredGridViewCountWidget<T extends StaggeredGridData> extends StatelessWidget {
@@ -70,7 +71,7 @@ class StaggeredGridViewCountWidget<T extends StaggeredGridData> extends Stateles
 
   @override
   Widget build(BuildContext context) {
-    List<StaggeredTile> tiles = [];
+    List<ModStaggeredTile> tiles = [];
     List<Widget> widgets = [];
     for (int i = 0; i < items.length; i++) {
       tiles.add(items[i].tile);
@@ -78,7 +79,7 @@ class StaggeredGridViewCountWidget<T extends StaggeredGridData> extends Stateles
       widgets.add(builder(context, i, items[i]));
     }
 
-    return StaggeredGridView.count(
+    return ModStaggeredGridView.count(
       scrollDirection: scrollDirection,
       reverse: reverse,
       controller: controller,
