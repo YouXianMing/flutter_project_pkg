@@ -3,6 +3,7 @@ import 'package:example/pages/project_use/flutter_spin_kit/flutter_spin_kit_page
 import 'package:example/pages/project_use/getx_refresh/getx_refresh_page.dart';
 import 'package:example/pages/project_use/information_view/infomation_view_page.dart';
 import 'package:example/pages/project_use/loading_animation/loading_animation_page.dart';
+import 'package:example/pages/project_use/loading_indicator/loading_indicator_page.dart';
 import 'package:example/pages/project_use/maybe_pop/maybe_pop_page.dart';
 import 'package:example/pages/project_use/networks/networks_page.dart';
 import 'package:example/pages/project_use/reg_exp/reg_exp_page.dart';
@@ -29,6 +30,7 @@ enum PageRouteEnum {
   getxRefresh,
   maybePop,
   networks,
+  loadingIndicator,
 }
 
 // pageRouteEnum的准备操作,请放在main里
@@ -77,6 +79,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => MaybePopPage(arguments: arguments));
       case PageRouteEnum.networks:
         return MaterialPageRoute(settings: settings, builder: (_) => NetworksPage(arguments: arguments));
+      case PageRouteEnum.loadingIndicator:
+        return MaterialPageRoute(settings: settings, builder: (_) => LoadingIndicatorPage(arguments: arguments));
     }
   }
 
@@ -129,6 +133,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.networks:
         pageRouteName = _pageRouteNameFrom(NetworksPage);
+        break;
+      case PageRouteEnum.loadingIndicator:
+        pageRouteName = _pageRouteNameFrom(LoadingIndicatorPage);
         break;
     }
 

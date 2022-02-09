@@ -177,6 +177,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.1"
+  loading_animation_widget:
+    dependency: transitive
+    description:
+      name: loading_animation_widget
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.1.0+0"
   loading_animations:
     dependency: transitive
     description:
@@ -184,6 +191,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.2.0"
+  loading_indicator:
+    dependency: transitive
+    description:
+      name: loading_indicator
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.0.2"
   matcher:
     dependency: transitive
     description:
@@ -302,7 +316,7 @@ packages:
       name: shared_preferences
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.0.12"
+    version: "2.0.13"
   shared_preferences_android:
     dependency: transitive
     description:

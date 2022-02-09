@@ -31,7 +31,7 @@ class _FlutterSpinKitPageState extends NormalStatefulWidgetState<FlutterSpinKitP
                 children: [
                   FlutterSpinKitWidget(type: d, color: Util.randomOpaqueColor),
                   const SizedBox(height: 20),
-                  WidgetsFactory.text(d.toString().split('.').last, fontSize: 13),
+                  WidgetsFactory.text(d.toString().split('.').last, fontSize: 12),
                 ],
               ),
             );
