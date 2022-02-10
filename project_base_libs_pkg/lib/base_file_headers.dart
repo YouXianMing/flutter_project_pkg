@@ -66,6 +66,7 @@ export 'base/widgets/indicators/indicator_widget.dart'; // 菊花控件
 export 'base/widgets/indicators/indicator_configs/spin_kit_indicator_config.dart'; // 菊花控件配置
 export 'base/widgets/indicators/indicator_configs/tino_guo_indicator_config.dart'; // 菊花控件配置
 export 'base/widgets/indicators/indicator_configs/cytryn_indicator_config.dart'; // 菊花控件配置
+export 'base/widgets/indicators/indicator_configs/watery_desert_indicator_config.dart'; // 菊花控件配置
 export 'base/widgets/custom_wrap_widget.dart'; // 仿制Wrap控件,可以设置宽高
 export 'base/widgets/custom_tab_bar_widget.dart'; // 常用自定义TabBar
 export 'base/widgets/toast_widget.dart'; // toast

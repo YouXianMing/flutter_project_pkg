@@ -102,6 +102,35 @@ class _IndicatorWidgetPageState extends NormalStatefulWidgetState<IndicatorWidge
             );
           },
         ),
+        SliverGridSection.builderTypeWidget(
+          headerBuilder: (_) => Container(
+            color: Colors.blueGrey,
+            height: 40,
+            child: Center(child: WidgetsFactory.text('loading_animation_widget', color: Colors.white)),
+          ),
+          crossAxisCount: 3,
+          items: WateryDesertIndicatorType.values,
+          builder: (c, i, d) {
+            return Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IndicatorWidget(
+                    config: WateryDesertIndicatorConfig(
+                      indicatorType: d,
+                      size: 45,
+                      color: Util.randomOpaqueColor,
+                      secondColor: Util.randomOpaqueColor,
+                      thirdColor: Util.randomOpaqueColor,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  WidgetsFactory.text(d.toString().split('.').last, fontSize: 12),
+                ],
+              ),
+            );
+          },
+        ),
       ],
     );
   }
