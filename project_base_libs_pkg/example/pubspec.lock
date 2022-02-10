@@ -302,7 +302,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.0.2"
+    version: "1.0.3"
   pull_to_refresh:
     dependency: transitive
     description:
