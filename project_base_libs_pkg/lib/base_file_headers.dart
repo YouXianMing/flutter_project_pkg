@@ -62,9 +62,10 @@ export 'base/widgets/first_time_loading_widget.dart'; // 首次加载控件
 export 'base/widgets/status_widget.dart'; // 点击事件相关的基类
 export 'base/widgets/stack_container.dart'; // Stack的容器
 export 'base/widgets/safe_area_padding_widget.dart'; // 安全间隙widget
-export 'base/widgets/indicators/loading_animation_widget.dart'; // 菊花控件
-export 'base/widgets/indicators/flutter_spinkit_widget.dart'; // 菊花控件
-export 'base/widgets/indicators/loading_animation_widget.dart'; // 菊花控件
+export 'base/widgets/indicators/indicator_widget.dart'; // 菊花控件
+export 'base/widgets/indicators/indicator_configs/spin_kit_indicator_config.dart'; // 菊花控件配置
+export 'base/widgets/indicators/indicator_configs/tino_guo_indicator_config.dart'; // 菊花控件配置
+export 'base/widgets/indicators/indicator_configs/cytryn_indicator_config.dart'; // 菊花控件配置
 export 'base/widgets/custom_wrap_widget.dart'; // 仿制Wrap控件,可以设置宽高
 export 'base/widgets/custom_tab_bar_widget.dart'; // 常用自定义TabBar
 export 'base/widgets/toast_widget.dart'; // toast

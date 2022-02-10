@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import '../indicator_widget.dart';
 
-enum FlutterSpinKit {
+// 对开源库flutter_spinkit的简易封装,名字取SpinKit
+// https://pub.dev/packages/flutter_spinkit
+
+enum SpinKitIndicatorType {
   rotatingPlain,
   doubleBounce,
   wave,
@@ -32,8 +36,9 @@ enum FlutterSpinKit {
   threeInOut,
 }
 
-class FlutterSpinKitWidget extends StatelessWidget {
-  final FlutterSpinKit type;
+class SpinKitIndicatorConfig extends BaseIndicatorConfig {
+  final Key? key;
+  final SpinKitIndicatorType type;
   final Color? color;
   final double? size;
   final Duration? duration;
@@ -51,9 +56,9 @@ class FlutterSpinKitWidget extends StatelessWidget {
   final double? borderWidth; // ripple专用
   final Duration? delay; // threeInOut专用
 
-  const FlutterSpinKitWidget({
+  SpinKitIndicatorConfig({
     required this.type,
-    Key? key,
+    this.key,
     this.color,
     this.size,
     this.itemBuilder,
@@ -67,29 +72,32 @@ class FlutterSpinKitWidget extends StatelessWidget {
     this.borderWidth,
     this.pianoWaveType,
     this.delay,
-  }) : super(key: key);
+  });
 
   @override
-  Widget build(BuildContext context) {
+  Widget get indicator {
     switch (type) {
-      case FlutterSpinKit.rotatingPlain:
+      case SpinKitIndicatorType.rotatingPlain:
         return SpinKitRotatingPlain(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
           duration: duration ?? const Duration(milliseconds: 1200),
           controller: controller,
         );
-      case FlutterSpinKit.doubleBounce:
+      case SpinKitIndicatorType.doubleBounce:
         return SpinKitDoubleBounce(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
           duration: duration ?? const Duration(milliseconds: 2000),
           controller: controller,
         );
-      case FlutterSpinKit.wave:
+      case SpinKitIndicatorType.wave:
         return SpinKitWave(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
@@ -98,16 +106,18 @@ class FlutterSpinKitWidget extends StatelessWidget {
           itemCount: itemCount ?? 5,
           type: waveType ?? SpinKitWaveType.start,
         );
-      case FlutterSpinKit.wanderingCubes:
+      case SpinKitIndicatorType.wanderingCubes:
         return SpinKitWanderingCubes(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
           duration: duration ?? const Duration(milliseconds: 1800),
           shape: shape ?? BoxShape.rectangle,
         );
-      case FlutterSpinKit.fadingFour:
+      case SpinKitIndicatorType.fadingFour:
         return SpinKitFadingFour(
+          key: key,
           color: color,
           size: size ?? 50,
           shape: shape ?? BoxShape.circle,
@@ -115,110 +125,124 @@ class FlutterSpinKitWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 1200),
           controller: controller,
         );
-      case FlutterSpinKit.fadingCube:
+      case SpinKitIndicatorType.fadingCube:
         return SpinKitFadingCube(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
           duration: duration ?? const Duration(milliseconds: 2400),
           controller: controller,
         );
-      case FlutterSpinKit.pulse:
+      case SpinKitIndicatorType.pulse:
         return SpinKitPulse(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
           duration: duration ?? const Duration(seconds: 1),
           controller: controller,
         );
-      case FlutterSpinKit.chasingDots:
+      case SpinKitIndicatorType.chasingDots:
         return SpinKitChasingDots(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
           duration: duration ?? const Duration(milliseconds: 2000),
         );
-      case FlutterSpinKit.threeBounce:
+      case SpinKitIndicatorType.threeBounce:
         return SpinKitThreeBounce(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
           duration: duration ?? const Duration(milliseconds: 1400),
           controller: controller,
         );
-      case FlutterSpinKit.circle:
+      case SpinKitIndicatorType.circle:
         return SpinKitCircle(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
           duration: duration ?? const Duration(milliseconds: 1200),
           controller: controller,
         );
-      case FlutterSpinKit.cubeGrid:
+      case SpinKitIndicatorType.cubeGrid:
         return SpinKitCubeGrid(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
           duration: duration ?? const Duration(milliseconds: 1200),
           controller: controller,
         );
-      case FlutterSpinKit.fadingCircle:
+      case SpinKitIndicatorType.fadingCircle:
         return SpinKitFadingCircle(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
           duration: duration ?? const Duration(milliseconds: 1200),
           controller: controller,
         );
-      case FlutterSpinKit.rotatingCircle:
+      case SpinKitIndicatorType.rotatingCircle:
         return SpinKitRotatingCircle(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
           duration: duration ?? const Duration(milliseconds: 1200),
           controller: controller,
         );
-      case FlutterSpinKit.foldingCube:
+      case SpinKitIndicatorType.foldingCube:
         return SpinKitFoldingCube(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
           duration: duration ?? const Duration(milliseconds: 2400),
           controller: controller,
         );
-      case FlutterSpinKit.pumpingHeart:
+      case SpinKitIndicatorType.pumpingHeart:
         return SpinKitPumpingHeart(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
           duration: duration ?? const Duration(milliseconds: 2400),
           controller: controller,
         );
-      case FlutterSpinKit.hourGlass:
+      case SpinKitIndicatorType.hourGlass:
         return SpinKitHourGlass(
+          key: key,
           color: color ?? Colors.red,
           size: size ?? 50,
           duration: duration ?? const Duration(milliseconds: 1200),
           controller: controller,
         );
-      case FlutterSpinKit.pouringHourGlass:
+      case SpinKitIndicatorType.pouringHourGlass:
         return SpinKitPouringHourGlass(
+          key: key,
           color: color ?? Colors.deepOrangeAccent,
           size: size ?? 50,
           strokeWidth: strokeWidth,
           duration: duration ?? const Duration(milliseconds: 2400),
           controller: controller,
         );
-      case FlutterSpinKit.pouringHourGlassRefined:
+      case SpinKitIndicatorType.pouringHourGlassRefined:
         return SpinKitPouringHourGlassRefined(
+          key: key,
           color: color ?? Colors.deepOrangeAccent,
           size: size ?? 50,
           strokeWidth: strokeWidth,
           duration: duration ?? const Duration(milliseconds: 2400),
           controller: controller,
         );
-      case FlutterSpinKit.fadingGrid:
+      case SpinKitIndicatorType.fadingGrid:
         return SpinKitFadingGrid(
+          key: key,
           color: color,
           size: size ?? 50,
           shape: shape ?? BoxShape.circle,
@@ -226,16 +250,18 @@ class FlutterSpinKitWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 1200),
           controller: controller,
         );
-      case FlutterSpinKit.ring:
+      case SpinKitIndicatorType.ring:
         return SpinKitRing(
+          key: key,
           color: color ?? Colors.blueAccent,
           size: size ?? 50,
           lineWidth: lineWidth ?? 7,
           duration: duration ?? const Duration(milliseconds: 1200),
           controller: controller,
         );
-      case FlutterSpinKit.ripple:
+      case SpinKitIndicatorType.ripple:
         return SpinKitRipple(
+          key: key,
           color: color,
           size: size ?? 50,
           borderWidth: borderWidth ?? 6,
@@ -243,8 +269,9 @@ class FlutterSpinKitWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 1800),
           controller: controller,
         );
-      case FlutterSpinKit.spinningCircle:
+      case SpinKitIndicatorType.spinningCircle:
         return SpinKitSpinningCircle(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
@@ -252,8 +279,9 @@ class FlutterSpinKitWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 1200),
           controller: controller,
         );
-      case FlutterSpinKit.spinningLines:
+      case SpinKitIndicatorType.spinningLines:
         return SpinKitSpinningLines(
+          key: key,
           color: color ?? Colors.black,
           size: size ?? 70,
           itemCount: itemCount ?? 5,
@@ -261,24 +289,27 @@ class FlutterSpinKitWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 3000),
           controller: controller,
         );
-      case FlutterSpinKit.squareCircle:
+      case SpinKitIndicatorType.squareCircle:
         return SpinKitSquareCircle(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
           duration: duration ?? const Duration(milliseconds: 500),
           controller: controller,
         );
-      case FlutterSpinKit.dualRing:
+      case SpinKitIndicatorType.dualRing:
         return SpinKitDualRing(
+          key: key,
           color: color ?? Colors.red,
           size: size ?? 50,
           lineWidth: lineWidth ?? 7,
           duration: duration ?? const Duration(milliseconds: 1200),
           controller: controller,
         );
-      case FlutterSpinKit.pianoWave:
+      case SpinKitIndicatorType.pianoWave:
         return SpinKitPianoWave(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,
@@ -287,16 +318,18 @@ class FlutterSpinKitWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 1200),
           controller: controller,
         );
-      case FlutterSpinKit.dancingSquare:
+      case SpinKitIndicatorType.dancingSquare:
         return SpinKitDancingSquare(
+          key: key,
           color: color,
           size: size ?? 60,
           itemBuilder: itemBuilder,
           duration: duration ?? const Duration(milliseconds: 1200),
           controller: controller,
         );
-      case FlutterSpinKit.threeInOut:
+      case SpinKitIndicatorType.threeInOut:
         return SpinKitThreeInOut(
+          key: key,
           color: color,
           size: size ?? 50,
           itemBuilder: itemBuilder,

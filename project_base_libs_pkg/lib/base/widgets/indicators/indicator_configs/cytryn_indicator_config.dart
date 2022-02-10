@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animations/loading_animations.dart';
+import '../indicator_widget.dart';
 
-enum LoadingAnimation {
+// 对开源库loading_indicator的简易封装,名字Cytryn取其GitHub的人名
+// https://pub.flutter-io.cn/packages/loading_animations
+
+enum CytrynIndicatorType {
   flippingCircle,
   flippingSquare,
   rotatingSquare,
@@ -20,11 +24,13 @@ enum LoadingAnimation {
   bumpingLineSquare,
 }
 
-class LoadingAnimationWidget extends StatelessWidget {
+class CytrynIndicatorConfig extends BaseIndicatorConfig {
+  final Key? key;
+
   /// Loading animation type.
   ///
   /// Default color is set to [Colors.blueGrey].
-  final LoadingAnimation type;
+  final CytrynIndicatorType type;
 
   /// Sets an [AnimationController] is case you need to do something
   /// specific with it like play/pause animation.
@@ -59,9 +65,9 @@ class LoadingAnimationWidget extends StatelessWidget {
   /// your own customized widget.
   final IndexedWidgetBuilder? itemBuilder;
 
-  const LoadingAnimationWidget({
-    Key? key,
+  CytrynIndicatorConfig({
     required this.type,
+    this.key,
     this.controller,
     this.backgroundColor = Colors.blueGrey,
     this.borderColor = Colors.transparent,
@@ -69,14 +75,14 @@ class LoadingAnimationWidget extends StatelessWidget {
     this.borderSize,
     this.duration,
     this.itemBuilder,
-  }) : super(key: key);
+  });
 
   @override
-  Widget build(BuildContext context) {
+  Widget get indicator {
     late Widget animationWidget;
 
     switch (type) {
-      case LoadingAnimation.flippingCircle:
+      case CytrynIndicatorType.flippingCircle:
         animationWidget = LoadingFlipping.circle(
           key: key,
           controller: controller,
@@ -88,7 +94,7 @@ class LoadingAnimationWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 1500),
         );
         break;
-      case LoadingAnimation.flippingSquare:
+      case CytrynIndicatorType.flippingSquare:
         animationWidget = LoadingFlipping.square(
           key: key,
           controller: controller,
@@ -100,7 +106,7 @@ class LoadingAnimationWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 1500),
         );
         break;
-      case LoadingAnimation.rotatingSquare:
+      case CytrynIndicatorType.rotatingSquare:
         animationWidget = LoadingRotating.square(
           key: key,
           controller: controller,
@@ -112,7 +118,7 @@ class LoadingAnimationWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 1500),
         );
         break;
-      case LoadingAnimation.doubleFlippingCircle:
+      case CytrynIndicatorType.doubleFlippingCircle:
         animationWidget = LoadingDoubleFlipping.circle(
           key: key,
           controller: controller,
@@ -124,7 +130,7 @@ class LoadingAnimationWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 1500),
         );
         break;
-      case LoadingAnimation.doubleFlippingSquare:
+      case CytrynIndicatorType.doubleFlippingSquare:
         animationWidget = LoadingDoubleFlipping.square(
           key: key,
           controller: controller,
@@ -136,7 +142,7 @@ class LoadingAnimationWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 1500),
         );
         break;
-      case LoadingAnimation.bouncingGridCircle:
+      case CytrynIndicatorType.bouncingGridCircle:
         animationWidget = LoadingBouncingGrid.circle(
           key: key,
           controller: controller,
@@ -148,7 +154,7 @@ class LoadingAnimationWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 1500),
         );
         break;
-      case LoadingAnimation.bouncingGridSquare:
+      case CytrynIndicatorType.bouncingGridSquare:
         animationWidget = LoadingBouncingGrid.square(
           key: key,
           controller: controller,
@@ -160,7 +166,7 @@ class LoadingAnimationWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 1500),
         );
         break;
-      case LoadingAnimation.fillingSquare:
+      case CytrynIndicatorType.fillingSquare:
         animationWidget = LoadingFilling.square(
           key: key,
           controller: controller,
@@ -172,7 +178,7 @@ class LoadingAnimationWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 3000),
         );
         break;
-      case LoadingAnimation.fadingLineCircle:
+      case CytrynIndicatorType.fadingLineCircle:
         animationWidget = LoadingFadingLine.circle(
           key: key,
           controller: controller,
@@ -184,7 +190,7 @@ class LoadingAnimationWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 1500),
         );
         break;
-      case LoadingAnimation.fadingLineSquare:
+      case CytrynIndicatorType.fadingLineSquare:
         animationWidget = LoadingFadingLine.square(
           key: key,
           controller: controller,
@@ -196,7 +202,7 @@ class LoadingAnimationWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 1500),
         );
         break;
-      case LoadingAnimation.bouncingLineCircle:
+      case CytrynIndicatorType.bouncingLineCircle:
         animationWidget = LoadingBouncingLine.circle(
           key: key,
           controller: controller,
@@ -208,7 +214,7 @@ class LoadingAnimationWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 3000),
         );
         break;
-      case LoadingAnimation.bouncingLineSquare:
+      case CytrynIndicatorType.bouncingLineSquare:
         animationWidget = LoadingBouncingLine.square(
           key: key,
           controller: controller,
@@ -220,7 +226,7 @@ class LoadingAnimationWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 3000),
         );
         break;
-      case LoadingAnimation.jumpingLineCircle:
+      case CytrynIndicatorType.jumpingLineCircle:
         animationWidget = LoadingJumpingLine.circle(
           key: key,
           controller: controller,
@@ -232,7 +238,7 @@ class LoadingAnimationWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 1500),
         );
         break;
-      case LoadingAnimation.jumpingLineSquare:
+      case CytrynIndicatorType.jumpingLineSquare:
         animationWidget = LoadingJumpingLine.square(
           key: key,
           controller: controller,
@@ -244,7 +250,7 @@ class LoadingAnimationWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 1500),
         );
         break;
-      case LoadingAnimation.bumpingLineCircle:
+      case CytrynIndicatorType.bumpingLineCircle:
         animationWidget = LoadingBumpingLine.circle(
           key: key,
           controller: controller,
@@ -256,7 +262,7 @@ class LoadingAnimationWidget extends StatelessWidget {
           duration: duration ?? const Duration(milliseconds: 800),
         );
         break;
-      case LoadingAnimation.bumpingLineSquare:
+      case CytrynIndicatorType.bumpingLineSquare:
         animationWidget = LoadingBumpingLine.square(
           key: key,
           controller: controller,

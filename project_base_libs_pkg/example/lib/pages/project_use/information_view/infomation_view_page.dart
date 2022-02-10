@@ -127,20 +127,15 @@ class InformationViewTestModel {
                   color: Colors.transparent,
                   child: Container(
                     padding: const EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8.0),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey.withAlpha(35),
-                              offset: const Offset(0.0, 0.0),
-                              blurRadius: 8.0,
-                              spreadRadius: 2.0)
-                        ]),
-                    child: LoadingAnimationWidget(
-                      type: Util.randomObjectFromList(LoadingAnimation.values),
-                      borderColor: Colors.transparent,
-                      backgroundColor: Colors.blueGrey,
+                    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(8.0), boxShadow: [
+                      BoxShadow(color: Colors.grey.withAlpha(35), offset: const Offset(0.0, 0.0), blurRadius: 8.0, spreadRadius: 2.0)
+                    ]),
+                    child: IndicatorWidget(
+                      config: CytrynIndicatorConfig(
+                        type: CytrynIndicatorType.bouncingGridCircle,
+                        borderColor: Colors.transparent,
+                        backgroundColor: Colors.blueGrey,
+                      ),
                     ),
                   ),
                 );
@@ -198,8 +193,7 @@ class InformationViewTestModel {
               child: Container(
                 width: 300,
                 padding: const EdgeInsets.only(top: 10),
-                decoration:
-                    const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(10))),
+                decoration: const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(10))),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -284,8 +278,7 @@ class InformationViewTestModel {
                                         height: 45, textColor: Util.randomOpaqueColor, alignment: Alignment.center)
                                     .addDefaultTextStyle(),
                               ),
-                              SliverBoxAdapterSection.widget(
-                                  builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
+                              SliverBoxAdapterSection.widget(builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
                             ],
                           ),
                         ),
@@ -307,8 +300,7 @@ class InformationViewTestModel {
           InformationView(
             type: AnimatedWidgetType.sheetView,
             waitForBuild: true,
-            config: AnimatedSheetViewConfig(
-                backgroundColor: Colors.black.withAlpha(75), type: AnimatedSheetType.fromTopToBottom),
+            config: AnimatedSheetViewConfig(backgroundColor: Colors.black.withAlpha(75), type: AnimatedSheetType.fromTopToBottom),
           ).inStackContainer(page.innerStackContainer).setWidgetBuilder((v) {
             return Column(
               children: [
@@ -341,8 +333,7 @@ class InformationViewTestModel {
                                         height: 45, textColor: Util.randomOpaqueColor, alignment: Alignment.center)
                                     .addDefaultTextStyle(),
                               ),
-                              SliverBoxAdapterSection.widget(
-                                  builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
+                              SliverBoxAdapterSection.widget(builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
                             ],
                           ),
                         ),
@@ -379,8 +370,7 @@ class InformationViewTestModel {
           InformationView(
             type: AnimatedWidgetType.sheetView,
             waitForBuild: true,
-            config: AnimatedSheetViewConfig(
-                backgroundColor: Colors.black.withAlpha(75), type: AnimatedSheetType.fromLeftToRight),
+            config: AnimatedSheetViewConfig(backgroundColor: Colors.black.withAlpha(75), type: AnimatedSheetType.fromLeftToRight),
           ).inStackContainer(page.outerStackContainer).setWidgetBuilder((v) {
             return Row(
               children: [
@@ -413,8 +403,7 @@ class InformationViewTestModel {
                                         height: 45, textColor: Util.randomOpaqueColor, alignment: Alignment.center)
                                     .addDefaultTextStyle(),
                               ),
-                              SliverBoxAdapterSection.widget(
-                                  builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
+                              SliverBoxAdapterSection.widget(builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
                             ],
                           ),
                         ),
@@ -437,8 +426,7 @@ class InformationViewTestModel {
           InformationView(
             type: AnimatedWidgetType.sheetView,
             waitForBuild: true,
-            config: AnimatedSheetViewConfig(
-                backgroundColor: Colors.black.withAlpha(75), type: AnimatedSheetType.fromRightToLeft),
+            config: AnimatedSheetViewConfig(backgroundColor: Colors.black.withAlpha(75), type: AnimatedSheetType.fromRightToLeft),
           ).inStackContainer(page.innerStackContainer).setWidgetBuilder((v) {
             return Row(
               children: [
@@ -472,8 +460,7 @@ class InformationViewTestModel {
                                         height: 45, textColor: Util.randomOpaqueColor, alignment: Alignment.center)
                                     .addDefaultTextStyle(),
                               ),
-                              SliverBoxAdapterSection.widget(
-                                  builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
+                              SliverBoxAdapterSection.widget(builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
                             ],
                           ),
                         ),

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:loading_indicator/loading_indicator.dart';
+import '../indicator_widget.dart';
+
+// 对开源库loading_indicator的简易封装,名字TinoGuo取其GitHub的人名
+// https://pub.dev/packages/loading_indicator
 
 /// 34 different types animation enums.
-enum LoadingIndicatorType {
+enum TinoGuoIndicatorType {
   ballPulse,
   ballGridPulse,
   ballClipRotate,
@@ -39,9 +43,11 @@ enum LoadingIndicatorType {
   circleStrokeSpin,
 }
 
-class LoadingIndicatorWidget extends StatelessWidget {
+class TinoGuoIndicatorConfig extends BaseIndicatorConfig {
+  final Key? key;
+
   /// Indicate which type.
-  final LoadingIndicatorType indicatorType;
+  final TinoGuoIndicatorType indicatorType;
 
   /// The color you draw on the shape.
   final List<Color>? colors;
@@ -53,119 +59,119 @@ class LoadingIndicatorWidget extends StatelessWidget {
   /// Applicable to which has cut edge of the shape
   final Color? pathBackgroundColor;
 
-  const LoadingIndicatorWidget({
-    Key? key,
+  TinoGuoIndicatorConfig({
     required this.indicatorType,
+    this.key,
     this.colors,
     this.backgroundColor,
     this.strokeWidth,
     this.pathBackgroundColor,
-  }) : super(key: key);
+  });
 
   @override
-  Widget build(BuildContext context) {
+  Widget get indicator {
     late Indicator type;
     switch (indicatorType) {
-      case LoadingIndicatorType.ballPulse:
+      case TinoGuoIndicatorType.ballPulse:
         type = Indicator.ballPulse;
         break;
-      case LoadingIndicatorType.ballGridPulse:
+      case TinoGuoIndicatorType.ballGridPulse:
         type = Indicator.ballGridPulse;
         break;
-      case LoadingIndicatorType.ballClipRotate:
+      case TinoGuoIndicatorType.ballClipRotate:
         type = Indicator.ballClipRotate;
         break;
-      case LoadingIndicatorType.squareSpin:
+      case TinoGuoIndicatorType.squareSpin:
         type = Indicator.squareSpin;
         break;
-      case LoadingIndicatorType.ballClipRotatePulse:
+      case TinoGuoIndicatorType.ballClipRotatePulse:
         type = Indicator.ballClipRotatePulse;
         break;
-      case LoadingIndicatorType.ballClipRotateMultiple:
+      case TinoGuoIndicatorType.ballClipRotateMultiple:
         type = Indicator.ballClipRotateMultiple;
         break;
-      case LoadingIndicatorType.ballPulseRise:
+      case TinoGuoIndicatorType.ballPulseRise:
         type = Indicator.ballPulseRise;
         break;
-      case LoadingIndicatorType.ballRotate:
+      case TinoGuoIndicatorType.ballRotate:
         type = Indicator.ballRotate;
         break;
-      case LoadingIndicatorType.cubeTransition:
+      case TinoGuoIndicatorType.cubeTransition:
         type = Indicator.cubeTransition;
         break;
-      case LoadingIndicatorType.ballZigZag:
+      case TinoGuoIndicatorType.ballZigZag:
         type = Indicator.ballZigZag;
         break;
-      case LoadingIndicatorType.ballZigZagDeflect:
+      case TinoGuoIndicatorType.ballZigZagDeflect:
         type = Indicator.ballZigZagDeflect;
         break;
-      case LoadingIndicatorType.ballTrianglePath:
+      case TinoGuoIndicatorType.ballTrianglePath:
         type = Indicator.ballTrianglePath;
         break;
-      case LoadingIndicatorType.ballTrianglePathColored:
+      case TinoGuoIndicatorType.ballTrianglePathColored:
         type = Indicator.ballTrianglePathColored;
         break;
-      case LoadingIndicatorType.ballTrianglePathColoredFilled:
+      case TinoGuoIndicatorType.ballTrianglePathColoredFilled:
         type = Indicator.ballTrianglePathColoredFilled;
         break;
-      case LoadingIndicatorType.ballScale:
+      case TinoGuoIndicatorType.ballScale:
         type = Indicator.ballScale;
         break;
-      case LoadingIndicatorType.lineScale:
+      case TinoGuoIndicatorType.lineScale:
         type = Indicator.lineScale;
         break;
-      case LoadingIndicatorType.lineScaleParty:
+      case TinoGuoIndicatorType.lineScaleParty:
         type = Indicator.lineScaleParty;
         break;
-      case LoadingIndicatorType.ballScaleMultiple:
+      case TinoGuoIndicatorType.ballScaleMultiple:
         type = Indicator.ballScaleMultiple;
         break;
-      case LoadingIndicatorType.ballPulseSync:
+      case TinoGuoIndicatorType.ballPulseSync:
         type = Indicator.ballPulseSync;
         break;
-      case LoadingIndicatorType.ballBeat:
+      case TinoGuoIndicatorType.ballBeat:
         type = Indicator.ballBeat;
         break;
-      case LoadingIndicatorType.lineScalePulseOut:
+      case TinoGuoIndicatorType.lineScalePulseOut:
         type = Indicator.lineScalePulseOut;
         break;
-      case LoadingIndicatorType.lineScalePulseOutRapid:
+      case TinoGuoIndicatorType.lineScalePulseOutRapid:
         type = Indicator.lineScalePulseOutRapid;
         break;
-      case LoadingIndicatorType.ballScaleRipple:
+      case TinoGuoIndicatorType.ballScaleRipple:
         type = Indicator.ballScaleRipple;
         break;
-      case LoadingIndicatorType.ballScaleRippleMultiple:
+      case TinoGuoIndicatorType.ballScaleRippleMultiple:
         type = Indicator.ballScaleRippleMultiple;
         break;
-      case LoadingIndicatorType.ballSpinFadeLoader:
+      case TinoGuoIndicatorType.ballSpinFadeLoader:
         type = Indicator.ballSpinFadeLoader;
         break;
-      case LoadingIndicatorType.lineSpinFadeLoader:
+      case TinoGuoIndicatorType.lineSpinFadeLoader:
         type = Indicator.lineSpinFadeLoader;
         break;
-      case LoadingIndicatorType.triangleSkewSpin:
+      case TinoGuoIndicatorType.triangleSkewSpin:
         type = Indicator.triangleSkewSpin;
         break;
-      case LoadingIndicatorType.pacman:
+      case TinoGuoIndicatorType.pacman:
         type = Indicator.pacman;
         break;
-      case LoadingIndicatorType.ballGridBeat:
+      case TinoGuoIndicatorType.ballGridBeat:
         type = Indicator.ballGridBeat;
         break;
-      case LoadingIndicatorType.semiCircleSpin:
+      case TinoGuoIndicatorType.semiCircleSpin:
         type = Indicator.semiCircleSpin;
         break;
-      case LoadingIndicatorType.ballRotateChase:
+      case TinoGuoIndicatorType.ballRotateChase:
         type = Indicator.ballRotateChase;
         break;
-      case LoadingIndicatorType.orbit:
+      case TinoGuoIndicatorType.orbit:
         type = Indicator.orbit;
         break;
-      case LoadingIndicatorType.audioEqualizer:
+      case TinoGuoIndicatorType.audioEqualizer:
         type = Indicator.audioEqualizer;
         break;
-      case LoadingIndicatorType.circleStrokeSpin:
+      case TinoGuoIndicatorType.circleStrokeSpin:
         type = Indicator.circleStrokeSpin;
         break;
     }

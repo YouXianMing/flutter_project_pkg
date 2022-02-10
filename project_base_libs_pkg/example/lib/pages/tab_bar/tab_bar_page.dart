@@ -51,15 +51,7 @@ class TabBarPageState extends NormalStatefulWidgetState<TabBarPage> with WidgetE
             callback: widgetEventCallback,
           ),
           CartItemWidget(
-            model: CartItemModel(title: 'LoadingAnimation', subTitle: '第三方indicator的封装', routeEnum: PageRouteEnum.loadingAnimation),
-            callback: widgetEventCallback,
-          ),
-          CartItemWidget(
-            model: CartItemModel(title: 'LoadingIndicator', subTitle: '第三方indicator的封装', routeEnum: PageRouteEnum.loadingIndicator),
-            callback: widgetEventCallback,
-          ),
-          CartItemWidget(
-            model: CartItemModel(title: 'FlutterSpinKit', subTitle: '第三方indicator的封装', routeEnum: PageRouteEnum.flutterSpinKit),
+            model: CartItemModel(title: 'IndicatorWidget', subTitle: '第三方indicator的封装', routeEnum: PageRouteEnum.indicatorWidget),
             callback: widgetEventCallback,
           ),
           CartItemWidget(

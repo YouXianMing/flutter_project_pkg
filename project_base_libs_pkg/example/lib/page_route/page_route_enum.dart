@@ -1,9 +1,7 @@
 import 'package:example/pages/project_use/files_scan/files_scan_page.dart';
-import 'package:example/pages/project_use/flutter_spin_kit/flutter_spin_kit_page.dart';
+import 'package:example/pages/project_use/indicator_widget/indicator_widget_page.dart';
 import 'package:example/pages/project_use/getx_refresh/getx_refresh_page.dart';
 import 'package:example/pages/project_use/information_view/infomation_view_page.dart';
-import 'package:example/pages/project_use/loading_animation/loading_animation_page.dart';
-import 'package:example/pages/project_use/loading_indicator/loading_indicator_page.dart';
 import 'package:example/pages/project_use/maybe_pop/maybe_pop_page.dart';
 import 'package:example/pages/project_use/networks/networks_page.dart';
 import 'package:example/pages/project_use/reg_exp/reg_exp_page.dart';
@@ -25,12 +23,10 @@ enum PageRouteEnum {
   spVal,
   fileScan,
   regExp,
-  loadingAnimation,
-  flutterSpinKit,
+  indicatorWidget,
   getxRefresh,
   maybePop,
   networks,
-  loadingIndicator,
 }
 
 // pageRouteEnum的准备操作,请放在main里
@@ -69,18 +65,14 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => FilesScanPage(arguments: arguments));
       case PageRouteEnum.regExp:
         return MaterialPageRoute(settings: settings, builder: (_) => RegExpPage(arguments: arguments));
-      case PageRouteEnum.loadingAnimation:
-        return MaterialPageRoute(settings: settings, builder: (_) => LoadingAnimationPage(arguments: arguments));
-      case PageRouteEnum.flutterSpinKit:
-        return MaterialPageRoute(settings: settings, builder: (_) => FlutterSpinKitPage(arguments: arguments));
+      case PageRouteEnum.indicatorWidget:
+        return MaterialPageRoute(settings: settings, builder: (_) => IndicatorWidgetPage(arguments: arguments));
       case PageRouteEnum.getxRefresh:
         return MaterialPageRoute(settings: settings, builder: (_) => GetxRefreshPage(arguments: arguments));
       case PageRouteEnum.maybePop:
         return MaterialPageRoute(settings: settings, builder: (_) => MaybePopPage(arguments: arguments));
       case PageRouteEnum.networks:
         return MaterialPageRoute(settings: settings, builder: (_) => NetworksPage(arguments: arguments));
-      case PageRouteEnum.loadingIndicator:
-        return MaterialPageRoute(settings: settings, builder: (_) => LoadingIndicatorPage(arguments: arguments));
     }
   }
 
@@ -119,11 +111,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
       case PageRouteEnum.regExp:
         pageRouteName = _pageRouteNameFrom(RegExpPage);
         break;
-      case PageRouteEnum.loadingAnimation:
-        pageRouteName = _pageRouteNameFrom(LoadingAnimationPage);
-        break;
-      case PageRouteEnum.flutterSpinKit:
-        pageRouteName = _pageRouteNameFrom(FlutterSpinKitPage);
+      case PageRouteEnum.indicatorWidget:
+        pageRouteName = _pageRouteNameFrom(IndicatorWidgetPage);
         break;
       case PageRouteEnum.getxRefresh:
         pageRouteName = _pageRouteNameFrom(GetxRefreshPage);
@@ -133,9 +122,6 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.networks:
         pageRouteName = _pageRouteNameFrom(NetworksPage);
-        break;
-      case PageRouteEnum.loadingIndicator:
-        pageRouteName = _pageRouteNameFrom(LoadingIndicatorPage);
         break;
     }
 
