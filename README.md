@@ -13,7 +13,7 @@
 该基础组件库不依赖于任何项目的业务，自带了example，可以单独运行。你也可以在[flutter_projects](https://github.com/YouXianMing/flutter_projects)中查看具体的使用情形。以下是该组件库中一些重要的类：
 
 名字|描述
---|:--:
+:-|:-
 DioNetwork|对DioNetwork的初级封装
 AnimationsManager|简化动画使用的管理器
 SliverSection|将Sliver家族的控件封装到了SliverSection对象，简化Sliver家族控件的使用并添加了瀑布流、SectionHeader悬停的支持
