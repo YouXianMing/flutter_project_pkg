@@ -34,6 +34,7 @@ export 'base/others/sliver_section/sliver_list/sliver_fixed_extent_list_section.
 export 'base/others/sliver_section/sliver_list/sliver_prototype_extent_list_section.dart'; // sliverSection相关
 export 'base/others/sliver_section/sliver_layout_builder/sliver_layout_builder_section.dart'; // sliverSection相关
 export 'base/others/sliver_section/sliver_third_libs/sliver_staggered_grid_count_builder_section.dart'; // sliverSection相关
+export 'base/others/sliver_section/sliver_third_libs/sliver_quilted_grid_section.dart'; // sliverSection相关
 export 'base/others/sliver_section/sliver_third_libs/sliver_waterfall_flow_section.dart'; // sliverSection相关
 export 'base/others/widgets_factory.dart'; // 常用widget的工厂类
 export 'base/others/staggered_grid_data.dart';

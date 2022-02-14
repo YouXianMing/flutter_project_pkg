@@ -18,7 +18,8 @@ class _GetxRefreshPageState extends NormalStatefulWidgetState<GetxRefreshPage> {
   final GetCounterLogic logic = GetCounterLogic();
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(context: context, title: NormalAppBar.titleWidget(widget.arguments?.mark ?? ''));
+  PreferredSizeWidget? appBar(BuildContext context) =>
+      NormalAppBar(context: context, title: NormalAppBar.titleWidget(widget.arguments?.mark ?? ''));
 
   @override
   Widget body(BuildContext context) {

@@ -87,16 +87,13 @@ class _NetworksPageState extends NormalStatefulWidgetState<NetworksPage> {
                       .then((value) {
                         pictureState.value = GetPictureState.success;
                         appPrint(value.runtimeType);
-                        showMessage(context, '成功',
-                            success: true, didHide: () => pictureState.value = GetPictureState.idle);
+                        showMessage(context, '成功', success: true, didHide: () => pictureState.value = GetPictureState.idle);
                       }, onError: (e) {
                         if (e is dio.DioError && e.error is String && e.error == 'cancelled') {
-                          showMessage(context, '网络请求取消了',
-                              success: false, didHide: () => pictureState.value = GetPictureState.idle);
+                          showMessage(context, '网络请求取消了', success: false, didHide: () => pictureState.value = GetPictureState.idle);
                         } else {
                           pictureState.value = GetPictureState.error;
-                          showMessage(context, e.toString(),
-                              success: false, didHide: () => pictureState.value = GetPictureState.idle);
+                          showMessage(context, e.toString(), success: false, didHide: () => pictureState.value = GetPictureState.idle);
                         }
                       });
                 }

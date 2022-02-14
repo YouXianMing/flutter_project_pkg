@@ -1,6 +1,7 @@
 import 'package:example/page_route/page_arguments.dart';
 import 'package:example/pages/base/normal_stateful_widget.dart';
 import 'package:example/widgets/custom_app_bar.dart';
+import 'package:example/widgets/static_func_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:project_base_libs_pkg/base/others/linear_equation.dart';
@@ -65,7 +66,7 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
           child: CustomScrollView(
             controller: scrollController,
             slivers: [
-              /// SliverAppBarSection
+              // SliverAppBarSection
               useSliverAppBar
                   ? SliverAppBarSection.widget(
                       backgroundColor: Colors.grey,
@@ -79,14 +80,14 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                     )
                   : SliverBoxAdapterSection(builder: (d) => const SizedBox()).buildWidget(),
 
-              /// SliverListSection.builder
+              // SliverListSection.builder
               SliverListSection.builderTypeWidget(
                 headerBuilder: (_) => header('SliverListSection.builder'),
                 items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                 builder: (c, i, d) => SizedBox(height: 60, child: Card(child: Center(child: Text(d.toString())))),
               ),
 
-              /// SliverListSection.static
+              // SliverListSection.static
               SliverListSection.staticTypeWidget(
                 headerBuilder: (_) => header('SliverListSection.static'),
                 children: [
@@ -96,7 +97,7 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                 ],
               ),
 
-              /// SliverFixedExtentListSection.builder
+              // SliverFixedExtentListSection.builder
               SliverFixedExtentListSection.builderTypeWidget(
                 itemExtent: 40,
                 headerBuilder: (_) => header('SliverFixedExtentListSection.builder'),
@@ -104,7 +105,7 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                 builder: (c, i, d) => SizedBox(height: 60, child: Card(child: Center(child: Text(d.toString())))),
               ),
 
-              /// SliverFixedExtentListSection.static
+              // SliverFixedExtentListSection.static
               SliverFixedExtentListSection.staticTypeWidget(
                 itemExtent: 40,
                 headerBuilder: (_) => header('SliverFixedExtentListSection.static'),
@@ -115,7 +116,7 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                 ],
               ),
 
-              /// SliverPrototypeExtentListSection.builder
+              // SliverPrototypeExtentListSection.builder
               SliverPrototypeExtentListSection.builderTypeWidget(
                 prototypeItemBuilder: () => const SizedBox(height: 50),
                 headerBuilder: (_) => header('SliverPrototypeExtentListSection.builder'),
@@ -123,7 +124,7 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                 builder: (c, i, d) => Center(child: Text(d.toString())),
               ),
 
-              /// SliverPrototypeExtentListSection.static
+              // SliverPrototypeExtentListSection.static
               SliverPrototypeExtentListSection.staticTypeWidget(
                 prototypeItemBuilder: () => const SizedBox(height: 40),
                 headerBuilder: (_) => header('SliverPrototypeExtentListSection.static'),
@@ -134,7 +135,7 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                 ],
               ),
 
-              /// SliverGridSection.builder
+              // SliverGridSection.builder
               SliverGridSection.builderTypeWidget(
                 crossAxisCount: 3,
                 childAspectRatio: 0.75,
@@ -143,7 +144,7 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                 builder: (c, i, d) => SizedBox(child: Card(child: Center(child: Text(d.toString())))),
               ),
 
-              /// SliverGridSection.static
+              // SliverGridSection.static
               SliverGridSection.staticTypeWidget(
                 crossAxisCount: 3,
                 childAspectRatio: 0.75,
@@ -155,7 +156,7 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                 ],
               ),
 
-              /// SliverGridCrossAxisExtentSection.builder
+              // SliverGridCrossAxisExtentSection.builder
               SliverGridCrossAxisExtentSection.builderTypeWidget(
                 maxCrossAxisExtent: 100, // 最大宽度100
                 mainAxisExtent: 100, // 高度100,设置了mainAxisExtent后,childAspectRatio会失效
@@ -165,7 +166,7 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                 builder: (c, i, d) => SizedBox(child: Card(child: Center(child: Text(d.toString())))),
               ),
 
-              /// SliverGridCrossAxisExtentSection.static
+              // SliverGridCrossAxisExtentSection.static
               SliverGridCrossAxisExtentSection.staticTypeWidget(
                 maxCrossAxisExtent: 100, // 最大宽度100
                 mainAxisExtent: 50, // 高度50,设置了mainAxisExtent后,childAspectRatio会失效
@@ -180,7 +181,7 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                 ],
               ),
 
-              /// SliverWaterfallFlowSection.builder
+              // SliverWaterfallFlowSection.builder
               SliverWaterfallFlowSection.builderTypeWidget(
                 stickyHeaderController: stickyHeaderController,
                 headerBuilder: (_) => header('SliverWaterfallFlowSection.builder (点击我)').addTapEvent(
@@ -222,7 +223,7 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                 },
               ),
 
-              /// SliverWaterfallFlowSection.static
+              // SliverWaterfallFlowSection.static
               SliverWaterfallFlowSection.staticTypeWidget(
                 headerBuilder: (_) => header('SliverWaterfallFlowSection.static'),
                 crossAxisCount: 4,
@@ -240,7 +241,7 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                 ],
               ),
 
-              /// SliverLayoutBuilderSection
+              // SliverLayoutBuilderSection
               SliverLayoutBuilderSection.widget(
                 data: 'SliverLayoutBuilderSection\nSliverPersistentHeaderSection',
                 builder: (context, constraints, data) {
@@ -278,7 +279,7 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                 },
               ),
 
-              /// SliverHorizontalGridSection
+              // SliverHorizontalGridSection
               SliverHorizontalGridSection.widget(
                 height: 200,
                 backgroundColor: Colors.white,
@@ -289,7 +290,7 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                 builder: (c, i, d) => SizedBox(height: 60, child: Card(child: Center(child: Text(d.toString())))),
               ),
 
-              /// SliverPersistentHeaderSection
+              // SliverPersistentHeaderSection
               SliverPersistentHeaderSection.widget(
                   data: 'SliverPersistentHeaderSection',
                   maxExtent: 100,
@@ -300,7 +301,7 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                             backgroundColor: Colors.blueGrey, textColor: Colors.white, padding: const EdgeInsets.all(5)));
                   }),
 
-              /// SliverVerticalGridSection
+              // SliverVerticalGridSection
               SliverVerticalGridSection.widget(
                 crossAxisCount: 3,
                 backgroundColor: Colors.white,
@@ -310,14 +311,14 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                 builder: (c, i, d) => SizedBox(child: Card(child: Center(child: Text(d.toString())))),
               ),
 
-              /// SliverBoxAdapterSection
+              // SliverBoxAdapterSection
               SliverBoxAdapterSection.widget(
                 headerBuilder: (_) => header('SliverBoxAdapterSection'),
                 data: '数据',
                 builder: (d) => SizedBox(height: 150, child: Card(child: Center(child: Text(d.toString())))),
               ),
 
-              /// SliverWrapSection
+              // SliverWrapSection
               SliverWrapSection.widget(
                 padding: const EdgeInsets.all(10),
                 headerBuilder: (_) => header('SliverWrapSection'),
@@ -327,7 +328,50 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                 builder: (i, d) => wrapItem(d),
               ),
 
-              /// SliverStaggeredGridCountBuilderSection
+              // SliverQuiltedGridSection.builder
+              SliverQuiltedGridSection.builderTypeWidget(
+                headerBuilder: (_) => header('SliverQuiltedGridSection.builder'),
+                items: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                builder: (c, i, d) => Tile(index: i),
+                crossAxisCount: 4,
+                crossAxisSpacing: 5,
+                mainAxisSpacing: 5,
+                padding: const EdgeInsets.all(5),
+                pattern: [
+                  const SliverQuiltedGridTile(2, 2),
+                  const SliverQuiltedGridTile(1, 1),
+                  const SliverQuiltedGridTile(1, 1),
+                  const SliverQuiltedGridTile(1, 2),
+                ],
+              ),
+
+              // SliverQuiltedGridSection.static
+              SliverQuiltedGridSection.staticTypeWidget(
+                headerBuilder: (_) => header('SliverQuiltedGridSection.static'),
+                crossAxisCount: 4,
+                crossAxisSpacing: 5,
+                mainAxisSpacing: 5,
+                padding: const EdgeInsets.all(5),
+                children: [
+                  const Tile(index: 0),
+                  const Tile(index: 1),
+                  const Tile(index: 2),
+                  const Tile(index: 3),
+                  const Tile(index: 4),
+                  const Tile(index: 5),
+                  const Tile(index: 6),
+                  const Tile(index: 7),
+                ],
+                repeatPattern: QuiltedGridSectionRepeatPattern.inverted,
+                pattern: [
+                  const SliverQuiltedGridTile(2, 2),
+                  const SliverQuiltedGridTile(1, 1),
+                  const SliverQuiltedGridTile(1, 1),
+                  const SliverQuiltedGridTile(1, 2),
+                ],
+              ),
+
+              // SliverStaggeredGridCountBuilderSection
               SliverStaggeredGridCountBuilderSection.widget(
                 headerBuilder: (_) => header('SliverStaggeredGridCountBuilderSection\n瀑布流不建议使用此控件的sliver版本,有bug'),
                 crossAxisSpacing: 10,
@@ -360,7 +404,7 @@ class _SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsP
                 ),
               ),
 
-              /// SliverBoxAdapterSection
+              // SliverBoxAdapterSection
               SliverBoxAdapterSection.widget(
                 headerBuilder: (_) => header('SliverBoxAdapterSection\nStaggeredGridViewCountWidget.inScrollView'),
                 builder: (_) => StaggeredGridViewCountWidget.inScrollView(
