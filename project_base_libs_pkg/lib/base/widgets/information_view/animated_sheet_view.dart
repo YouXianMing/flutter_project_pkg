@@ -141,9 +141,7 @@ class _AnimatedSheetViewState extends State<AnimatedSheetView> with TickerProvid
               child: GestureDetector(
                 onTap: widget.backgroundTapCallback,
                 child: Container(
-                  color: config.backgroundColor == null
-                      ? Colors.transparent
-                      : _animationsManager!.animationByKey(containerColorKey).value,
+                  color: config.backgroundColor == null ? Colors.transparent : _animationsManager!.animationByKey(containerColorKey).value,
                 ),
               ),
             ),

@@ -51,7 +51,7 @@ class SharedPreferencesUtil {
   /// get Sp.
   static SharedPreferences? getSp() => _prefs;
 
-  ///////////// get & set 方法 /////////////
+  /* get & set 方法 */
 
   /// 获取对象
   static Object? getObject(String key) => _prefs?.get(key);

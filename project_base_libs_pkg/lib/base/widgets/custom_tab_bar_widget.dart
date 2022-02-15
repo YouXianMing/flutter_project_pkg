@@ -6,6 +6,7 @@ class CustomTabBarItem {
 
   /// TabBarView上的widget
   Widget widget;
+
   CustomTabBarItem({required this.tab, required this.widget});
 }
 

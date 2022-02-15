@@ -5,7 +5,8 @@ typedef SliverSectionHeaderBuilder = Widget Function(dynamic);
 typedef SliverSectionWrapItemBuilder = Widget Function(int index, dynamic data);
 typedef SliverSectionListItemBuilder = Widget Function(BuildContext context, int index, dynamic data);
 typedef SliverSectionLayoutBuilder = Widget Function(BuildContext context, SliverConstraints constraints, dynamic data);
-typedef SliverSectionPersistentHeaderBuilder = Widget Function(BuildContext context, double shrinkOffset, bool overlapsContent, dynamic data);
+typedef SliverSectionPersistentHeaderBuilder = Widget Function(
+    BuildContext context, double shrinkOffset, bool overlapsContent, dynamic data);
 
 /// [基类] BaseSliverSection
 abstract class BaseSliverSection {
@@ -28,7 +29,7 @@ extension SliverSectionList<T extends BaseSliverSection> on List<T> {
     return list;
   }
 
-  /// 根据mark找到SliverSection
+  /// 根据mark找到第一个出现的SliverSection
   BaseSliverSection? sliverSectionByMark(String mark) {
     BaseSliverSection? section;
     for (int i = 0; i < length; i++) {

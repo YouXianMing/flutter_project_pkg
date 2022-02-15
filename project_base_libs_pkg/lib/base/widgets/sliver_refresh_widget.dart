@@ -106,8 +106,7 @@ class SliversRefreshWidget extends StatelessWidget {
       bool needCallback = true,
       Duration duration = const Duration(milliseconds: 500),
       Curve curve = Curves.linear}) {
-    _controller.refreshController
-        .requestRefresh(needMove: needMove, needCallback: needCallback, duration: duration, curve: curve);
+    _controller.refreshController.requestRefresh(needMove: needMove, needCallback: needCallback, duration: duration, curve: curve);
     return this;
   }
 
@@ -117,8 +116,7 @@ class SliversRefreshWidget extends StatelessWidget {
       bool needCallback = true,
       Duration duration = const Duration(milliseconds: 300),
       Curve curve = Curves.linear}) {
-    _controller.refreshController
-        .requestLoading(needMove: needMove, needCallback: needCallback, duration: duration, curve: curve);
+    _controller.refreshController.requestLoading(needMove: needMove, needCallback: needCallback, duration: duration, curve: curve);
     return this;
   }
 
@@ -144,7 +142,7 @@ class SliversRefreshWidget extends StatelessWidget {
   /// 结束加载更多(请在处理完数据后再调用此方法)
   void endLoadData({bool noMoreData = false, bool failed = false, bool update = true}) {
     if (noMoreData == true && failed == true) {
-      /// 如果noMoreData与failed同时为true,则failed优先级最高
+      // 如果noMoreData与failed同时为true,则failed优先级最高
       _controller.refreshController.loadFailed();
     } else if (noMoreData == true) {
       _controller.refreshController.loadNoData();

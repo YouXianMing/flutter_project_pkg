@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 enum SafeAreaPadding { top, bottom, left, right }
 
 class SafeAreaPaddingWidget extends StatelessWidget {
+  /// 背景色,如果为空,则默认为透明色
   final Color? backgroundColor;
+
+  /// 安全距离类型,分为左,右,上,下
   final SafeAreaPadding type;
+
   const SafeAreaPaddingWidget({
     Key? key,
     this.backgroundColor,
@@ -28,7 +32,7 @@ class SafeAreaPaddingWidget extends StatelessWidget {
     return Container(
       height: _height(context),
       width: _width(context),
-      color: backgroundColor ?? Colors.white,
+      color: backgroundColor ?? Colors.transparent,
     );
   }
 

@@ -27,7 +27,7 @@ class _StackContainerController extends GetxController {
       if (_removeWidgetImmediately == true) {
         _updateObx();
       } else {
-        /// 如果没有设置删除后立即删除,则在Stack中没有控件时才触发重新构建Stack
+        // 如果没有设置删除后立即删除,则在Stack中没有控件时才触发重新构建Stack
         if (_widgetsList.isEmpty) {
           _updateObx();
         }

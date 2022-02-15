@@ -149,7 +149,7 @@ class SliverHorizontalGridSection extends SliverSection {
 
   @override
   Widget processingBuildWidget(Widget widget) {
-    /// 根据需要构建SliverStickyHeader
+    // 根据需要构建SliverStickyHeader
     if (removeHeaderIfHaveNoData == true && items!.isEmpty) {
     } else {
       if (headerBuilder != null) {
@@ -162,7 +162,7 @@ class SliverHorizontalGridSection extends SliverSection {
       }
     }
 
-    /// 如果设置了透明度,则构建SliverOpacity
+    // 如果设置了透明度,则构建SliverOpacity
     if (opacity != null) widget = SliverOpacity(opacity: opacity!, sliver: widget);
 
     return widget;

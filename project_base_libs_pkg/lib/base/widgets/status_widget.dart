@@ -239,7 +239,7 @@ class StatusWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        /// 如果开启了自动选择,则自动选中
+        // 如果开启了自动选择,则自动选中
         if (type == StatusWidgetType.selectedButton && enableAutoSelect == true) {
           setSelect(!selected);
         }
@@ -252,7 +252,7 @@ class StatusWidget extends StatelessWidget {
       onTapDown: (_) => _normalButtonStatusChangeTo(_StatusWidgetController.highlighted),
       onTapUp: (_) => _normalButtonStatusChangeTo(_StatusWidgetController.normal),
       child: Obx(() {
-        /// 为了能实时刷新用
+        // 为了能实时刷新用
         if (_controller._update.value > 0) {}
         if (type == StatusWidgetType.normalButton) {
           if (disable == false) {

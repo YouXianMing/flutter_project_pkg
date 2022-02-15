@@ -28,7 +28,7 @@ class EventBusManager {
 
   /// 订阅一个事件
   StreamSubscription<T> listen<T extends AppBaseEvent>(Function(T event) onData) {
-    /// 内部流属于广播模式，可以有多个订阅者
+    // 内部流属于广播模式，可以有多个订阅者
     return EventBusManager.getInstance._getEventBus.on<T>().listen(onData);
   }
 

@@ -74,7 +74,9 @@ void appPrintError(Object? object) {
 
 void _printLog(String info, Object? message) {
   StringBuffer sb = StringBuffer();
-  sb..write(info)..write(message);
+  sb
+    ..write(info)
+    ..write(message);
   debugPrint(sb.toString());
 }
 

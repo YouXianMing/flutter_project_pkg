@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
-// InformationView状态值
+/// InformationView状态值
 enum InformationViewStatus {
   idle,
   show,
   hide,
 }
 
-// AnimatedWidgetFactory需要的枚举值
+/// AnimatedWidgetFactory需要的枚举值
 enum AnimatedWidgetType {
   simpleToast, // 没有背景点击事件,只有简单的alpha动画效果
   popView, // 弹出框,有背景点击事件
   sheetView, // 弹出表单,有背景点击事件
 }
 
-// InformationView显示的配置,是一个抽象类
+/// InformationView显示的配置,是一个抽象类
 abstract class BaseInformationViewConfig {}
 
-///////////////// AnimatedSheetView的配置 /////////////////
+/// AnimatedSheetView的配置
 
 enum AnimatedSheetType {
   fromBottomToTop, // 从底部到顶部
@@ -44,7 +44,7 @@ class AnimatedSheetViewConfig extends BaseInformationViewConfig {
   });
 }
 
-///////////////// AnimatedPopView的配置 /////////////////
+/// AnimatedPopView的配置
 
 class AnimatedPopViewConfig extends BaseInformationViewConfig {
   final double showScale;

@@ -50,7 +50,7 @@ mixin BasePageBuildMixin {
         useWillPopScope(context) == true
             ? WillPopScope(
                 onWillPop: () async {
-                  /// 检查是否可以pop,只有返回了Future<bool>才有效(在canPopBack调用之前先拦截下)
+                  // 检查是否可以pop,只有返回了Future<bool>才有效(在canPopBack调用之前先拦截下)
                   var willPop = checkWillPop(context);
                   if (willPop != null) {
                     dynamic value = await willPop;

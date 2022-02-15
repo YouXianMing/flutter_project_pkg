@@ -2,9 +2,9 @@
 /// 需要结合WillPopScope使用,是一个单例,用以响应物理返回键的工具类
 ///
 class MaybePopManager {
-  /// --------------
-  /// 单例相关操作
-  /// --------------
+  // --------------
+  // 单例相关操作
+  // --------------
 
   static MaybePopManager? _popManager;
 
@@ -21,9 +21,9 @@ class MaybePopManager {
     return _popManager!;
   }
 
-  /// --------------
-  /// 属性与方法
-  /// --------------
+  // --------------
+  // 属性与方法
+  // --------------
 
   /// 管理MaybePopMixin的数组
   late List<MaybePopMixin> maybePopItems;
@@ -38,7 +38,7 @@ class MaybePopManager {
   bool? canPop() {
     bool? canPop;
 
-    /// 获取最后一个弹出框来判断能否pop
+    // 获取最后一个弹出框来判断能否pop
     if (maybePopItems.isNotEmpty) {
       canPop = maybePopItems.last.pageMaybePop();
     }

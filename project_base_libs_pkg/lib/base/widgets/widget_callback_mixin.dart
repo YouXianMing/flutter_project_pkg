@@ -12,6 +12,7 @@ class WidgetEventItem {
 
   /// 其他数据
   final dynamic extraData;
+
   const WidgetEventItem({this.widget, this.mark, this.data, this.extraData});
 }
 

@@ -31,11 +31,23 @@ abstract class BaseAppBar extends StatelessWidget implements PreferredSizeWidget
               child: Stack(
                 children: [
                   Positioned(
-                      left: leadingWidgetWidth, right: trailingWidgetWidth, top: 0, bottom: 0, child: buildContentWidget(context) ?? Container()),
+                      left: leadingWidgetWidth,
+                      right: trailingWidgetWidth,
+                      top: 0,
+                      bottom: 0,
+                      child: buildContentWidget(context) ?? Container()),
                   Positioned(
-                      left: value1, top: 0, bottom: 0, right: value2, child: buildLeadingWidget(context) ?? Container(width: leadingWidgetWidth)),
+                      left: value1,
+                      top: 0,
+                      bottom: 0,
+                      right: value2,
+                      child: buildLeadingWidget(context) ?? Container(width: leadingWidgetWidth)),
                   Positioned(
-                      right: value1, top: 0, bottom: 0, left: value2, child: buildTrailingWidget(context) ?? Container(width: trailingWidgetWidth)),
+                      right: value1,
+                      top: 0,
+                      bottom: 0,
+                      left: value2,
+                      child: buildTrailingWidget(context) ?? Container(width: trailingWidgetWidth)),
                 ],
               ),
             ),

@@ -95,7 +95,8 @@ class SliverPersistentHeaderSectionDelegate extends SliverPersistentHeaderDelega
   });
 
   @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) => widgetBuilder(context, shrinkOffset, overlapsContent, data);
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) =>
+      widgetBuilder(context, shrinkOffset, overlapsContent, data);
 
   @override
   double get maxExtent => maxExtentValue;

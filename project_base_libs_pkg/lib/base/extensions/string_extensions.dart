@@ -3,7 +3,7 @@ import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 
 extension StringExtensions on String {
-  // crypto: ^3.0.1
+  // https://pub.flutter-io.cn/packages/crypto
   String get md5String => md5.convert(const Utf8Encoder().convert(this)).toString();
   String get sha1String => sha1.convert(const Utf8Encoder().convert(this)).toString();
   String get sha224String => sha224.convert(const Utf8Encoder().convert(this)).toString();

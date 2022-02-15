@@ -51,18 +51,18 @@ class SpVal {
 
 /// SpAbstractModel
 abstract class SpAbstractValue {
-  // key值
+  /// key值
   String get key;
   set key(String val);
 
-  // value值
+  /// value值
   dynamic get value;
   set value(dynamic val);
 
-  // 默认值
+  /// 默认值
   dynamic get defaultValue;
 
-  // 类型
+  /// 类型
   SpValType get type;
 }
 

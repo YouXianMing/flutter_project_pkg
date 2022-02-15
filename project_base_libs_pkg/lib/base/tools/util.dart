@@ -4,7 +4,7 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
 class Util {
-  /// [english_words: ^4.0.0] 随机字符串
+  /// https://pub.flutter-io.cn/packages/english_words
   static WordPair get randomWordPair => WordPair.random();
   static String get randomWordPairAsString => WordPair.random().asString;
   static String get randomWordPairAsLowerCase => WordPair.random().asLowerCase;
@@ -67,15 +67,22 @@ class Util {
   /// 获取图片(需要设置assertsImagePath,如果没设置,默认为lib/images/)
   static set assertsImagePath(String val) => _assetsImagePath = val;
   static String _assetsImagePath = 'lib/images/';
-  static Image image(String name, {double? scale, double? width, double? height, BoxFit? fit, Color? color}) =>
-      Image.asset(_assetsImagePath + name, scale: scale, width: width, height: height, fit: fit, color: color,);
+  static Image image(String name, {double? scale, double? width, double? height, BoxFit? fit, Color? color}) => Image.asset(
+        _assetsImagePath + name,
+        scale: scale,
+        width: width,
+        height: height,
+        fit: fit,
+        color: color,
+      );
 
   /// 延时毫秒
   static Future<T> delayedMilliseconds<T>(int milliseconds, FutureOr<T> Function()? computation) =>
       Future.delayed(Duration(milliseconds: milliseconds), computation);
 
   /// 延时秒
-  static Future<T> delayedSeconds<T>(int seconds, FutureOr<T> Function()? computation) => Future.delayed(Duration(seconds: seconds), computation);
+  static Future<T> delayedSeconds<T>(int seconds, FutureOr<T> Function()? computation) =>
+      Future.delayed(Duration(seconds: seconds), computation);
 }
 
 class CalculateText {

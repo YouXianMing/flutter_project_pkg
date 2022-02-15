@@ -1,10 +1,32 @@
 import 'package:flutter/material.dart';
 
+/// 基础的按钮控件状态枚举值
+enum BaseButtonWidgetStatus {
+  /// 默认状态
+  idle,
+
+  /// 高亮状态
+  highlighted,
+
+  /// 禁用状态
+  disabled,
+}
+
+/// 基础的按钮控件
 class BaseButtonWidget extends StatefulWidget {
+  /// 默认状态widget构造器,必须有
   final Widget Function() childBuilder;
+
+  /// 高亮状态widget构造器
   final Widget Function()? highlightedChildBuilder;
+
+  /// 禁用状态
   final Widget Function()? disabledChildBuilder;
+
+  /// 点击回调
   final GestureTapCallback? onTap;
+
+  /// 按钮是否禁用,默认为false
   final bool disable;
 
   const BaseButtonWidget({
@@ -74,10 +96,4 @@ class _BaseButtonWidgetState extends State<BaseButtonWidget> {
       if (mounted) setState(() {});
     }
   }
-}
-
-enum BaseButtonWidgetStatus {
-  idle,
-  highlighted,
-  disabled,
 }

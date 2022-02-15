@@ -46,13 +46,11 @@ class _AnimatedPopViewState extends State<AnimatedPopView> with TickerProviderSt
     Color color_2 = config.backgroundColor ?? Colors.black.withOpacity(0.2);
 
     if (widget.step == InformationViewStatus.idle || widget.step == InformationViewStatus.show) {
-      map[scaleKey] =
-          CurveTweenObject(tween: Tween<double>(begin: config.showScale, end: 1.0), curve: config.showCurve);
+      map[scaleKey] = CurveTweenObject(tween: Tween<double>(begin: config.showScale, end: 1.0), curve: config.showCurve);
       map[alphaKey] = CurveTweenObject(tween: Tween<double>(begin: 0.0, end: 1.0));
       map[containerColorKey] = CurveTweenObject(tween: ColorTween(begin: color_1, end: color_2));
     } else if (widget.step == InformationViewStatus.hide) {
-      map[scaleKey] =
-          CurveTweenObject(tween: Tween<double>(begin: 1.0, end: config.hideScale), curve: config.hideCurve);
+      map[scaleKey] = CurveTweenObject(tween: Tween<double>(begin: 1.0, end: config.hideScale), curve: config.hideCurve);
       map[alphaKey] = CurveTweenObject(tween: Tween<double>(begin: 1.0, end: 0.0));
       map[containerColorKey] = CurveTweenObject(tween: ColorTween(begin: color_2, end: color_1));
     }
@@ -131,7 +129,7 @@ class _AnimatedPopViewState extends State<AnimatedPopView> with TickerProviderSt
               child: IgnorePointer(
                 ignoring: isAnimating ? false : true,
 
-                /// 动画期间屏蔽事件响应
+                // 动画期间屏蔽事件响应
                 child: Container(color: Colors.transparent),
               ),
             ),

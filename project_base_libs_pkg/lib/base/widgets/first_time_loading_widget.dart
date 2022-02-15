@@ -158,7 +158,7 @@ class FirstTimeLoadingWidget extends StatefulWidget {
 
   /// 单个Future的请求
   void _startFutureIfNeeded() {
-    /// 单个请求
+    // 单个请求
     Future? future;
     if (_controller.future != null) {
       future = _controller.future!();
@@ -179,7 +179,7 @@ class FirstTimeLoadingWidget extends StatefulWidget {
 
   /// 多个异步Future的请求
   void _startFuturesIfNeeded() {
-    /// 多个请求
+    // 多个请求
     List<Future>? futures;
     if (_controller.futures != null) {
       futures = _controller.futures!();
@@ -223,51 +223,51 @@ class _FirstTimeLoadingWidgetState extends State<FirstTimeLoadingWidget> with Au
   Widget build(BuildContext context) {
     super.build(context);
     return Obx(() {
-      /// 外层Stack设置
+      // 外层Stack设置
       double? stackOpacity;
       Duration? stackOpacityDuration;
 
-      /// loading层设置
+      // loading层设置
       double? loadingViewOpacity;
       Duration? loadingViewOpacityDuration;
       if (controller.status.value == FirstTimeLoadingWidgetStatus.idle) {
         widget._debugInfo('IDLE');
 
-        /// 外层Stack设置
+        // 外层Stack设置
         stackOpacity = 1;
         stackOpacityDuration = const Duration(milliseconds: 0);
 
-        /// loading层设置
+        // loading层设置
         loadingViewOpacity = 1;
         loadingViewOpacityDuration = const Duration(milliseconds: 0);
       } else if (controller.status.value == FirstTimeLoadingWidgetStatus.start) {
         widget._debugInfo('START');
 
-        /// 外层Stack设置
+        // 外层Stack设置
         stackOpacity = 1;
         stackOpacityDuration = const Duration(milliseconds: 100);
 
-        /// loading层设置
+        // loading层设置
         loadingViewOpacity = 1;
         loadingViewOpacityDuration = const Duration(milliseconds: 100);
       } else if (controller.status.value == FirstTimeLoadingWidgetStatus.success) {
         widget._debugInfo('SUCCESS');
 
-        /// 外层Stack设置
+        // 外层Stack设置
         stackOpacity = 0;
         stackOpacityDuration = const Duration(milliseconds: 100);
 
-        /// loading层设置
+        // loading层设置
         loadingViewOpacity = 1;
         loadingViewOpacityDuration = const Duration(milliseconds: 0);
       } else if (controller.status.value == FirstTimeLoadingWidgetStatus.failed) {
         widget._debugInfo('FAILED');
 
-        /// 外层Stack设置
+        // 外层Stack设置
         stackOpacity = 1;
         stackOpacityDuration = const Duration(milliseconds: 0);
 
-        /// loading层设置
+        // loading层设置
         loadingViewOpacity = 0;
         loadingViewOpacityDuration = const Duration(milliseconds: 100);
       }

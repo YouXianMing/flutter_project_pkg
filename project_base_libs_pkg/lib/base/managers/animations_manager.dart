@@ -61,18 +61,18 @@ class AnimationsManager<T extends BaseAnimationObject> {
   void _accessAnimationObject(String key, T obj) {
     if (obj is CurveTweenObject) {
       if (curve != null) {
-        /// 如果设置了全局曲线,则所有Map中的动画都使用这个曲线
+        // 如果设置了全局曲线,则所有Map中的动画都使用这个曲线
         _animationsMap[key] = obj.tween.animate(CurvedAnimation(parent: _controller, curve: curve!));
       } else {
         if (obj.curve == null) {
-          /// 如果Map中的动画对象没有设置曲线,则直接使用Controller的直线
+          // 如果Map中的动画对象没有设置曲线,则直接使用Controller的直线
           _animationsMap[key] = obj.tween.animate(_controller);
         } else {
           _animationsMap[key] = obj.tween.animate(CurvedAnimation(parent: _controller, curve: obj.curve!));
         }
       }
     } else if (obj is TweenSequenceObject) {
-      /// 动画序列
+      // 动画序列
       _animationsMap[key] = TweenSequence(obj.items).animate(_controller);
     }
   }

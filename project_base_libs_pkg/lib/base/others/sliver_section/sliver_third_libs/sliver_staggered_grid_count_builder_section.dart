@@ -153,10 +153,10 @@ class SliverStaggeredGridCountBuilderSection<T extends StaggeredGridData> extend
 
   @override
   Widget processingBuildWidget(Widget widget) {
-    /// 根据需要构建SliverPadding
+    // 根据需要构建SliverPadding
     if (padding != null) widget = SliverPadding(padding: padding!, sliver: widget);
 
-    /// 根据需要构建SliverStickyHeader
+    // 根据需要构建SliverStickyHeader
     if (removeHeaderIfHaveNoData == true && items!.isEmpty) {
     } else {
       if (headerBuilder != null) {
@@ -169,7 +169,7 @@ class SliverStaggeredGridCountBuilderSection<T extends StaggeredGridData> extend
       }
     }
 
-    /// 如果设置了透明度,则构建SliverOpacity
+    // 如果设置了透明度,则构建SliverOpacity
     if (opacity != null) widget = SliverOpacity(opacity: opacity!, sliver: widget);
 
     return widget;

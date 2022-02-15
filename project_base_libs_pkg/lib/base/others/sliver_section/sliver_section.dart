@@ -3,8 +3,11 @@ import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'base_sliver_section.dart';
 
 enum SliverChildDelegateType {
-  static, // 使用children模式
-  builder, // 使用builder模式
+  /// 使用children模式(跟ListView的children模式类似)
+  static,
+
+  /// 使用builder模式(跟ListView的builder模式类似)
+  builder,
 }
 
 /// [基类] SliverSection
