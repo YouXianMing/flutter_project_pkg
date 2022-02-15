@@ -31,6 +31,7 @@ IndicatorWidget|这是一个Indicator的容器类,使用了外观设计模式,�
 SpinKitIndicatorConfig|对第三方库[flutter_spinkit](https://pub.dev/packages/flutter_spinkit)进行的封装，用于IndicatorWidget
 CytrynIndicatorConfig|对第三方库[loading_animations](https://pub.flutter-io.cn/packages/loading_animations)进行的封装，用于IndicatorWidget
 TinoGuoIndicatorConfig|对第三方库[loading_indicator](https://pub.dev/packages/loading_indicator)进行的封装，用于IndicatorWidget
+WateryDesertIndicatorConfig|对第三方库[loading_animation_widget](https://pub.dev/packages/loading_animation_widget)进行的封装，用于IndicatorWidget
 SafeAreaPaddingWidget|添加安全距离的Widget
 SliversRefreshWidget|对[pull_to_refresh](https://pub.flutter-io.cn/packages/pull_to_refresh)进行封装，简化其使用
 StackContainer|一个Stack的管理器
