@@ -14,7 +14,7 @@
 
 名字|描述
 :-|:-
-DioNetwork|对DioNetwork的初级封装
+DioNetwork|对dio的初级封装
 AnimationsManager|简化动画使用的管理器
 SliverSection|将Sliver家族的控件封装到了SliverSection对象，简化Sliver家族控件的使用并添加了瀑布流、SectionHeader悬停的支持
 app_print|打印信息将包含完整的文件路径，点击后可以直达app_print所在的行
