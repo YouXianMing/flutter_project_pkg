@@ -42,7 +42,8 @@ OpacityButtonWidget|基于BaseButtonWidget封装的支持透明度动画的Butto
 ToastWidget|一个Toast控件
 ScanFilesTool|一个用于递归扫描文件夹用的工具类，支持设定扫描深度
 SpVal|通过枚举值的方式设置SharedPreferences，不需要手动设置key
+BaseButtonWidget|一个包含了普通、高亮、禁用状态的Button控件，可用于封装Button用
 
 ### BaseStatelessWidget与BaseStatefulWidget的继承关系
 ![Image 界面继承关系](./project_base_libs_pkg/example/lib/界面继承关系.png)
-BaseButtonWidget|一个包含了普通、高亮、禁用状态的Button控件，可用于封装Button用
+
