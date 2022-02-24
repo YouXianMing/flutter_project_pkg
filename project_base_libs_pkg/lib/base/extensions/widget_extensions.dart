@@ -3,7 +3,12 @@ import 'dart:math' as math;
 
 extension WidgetExtensions on Widget {
   /// 控件添加点击事件(用GestureDetector包裹)
-  Widget addTapEvent(GestureTapCallback? tap) => GestureDetector(onTap: tap, child: this);
+  /// 注意:includeContainer为true时,当前控件会被Container包裹之后再被GestureDetector包裹,此时的Container的颜色设置为透明色,被Container包裹的区域均可以响应事件
+  Widget addTapEvent(
+    GestureTapCallback? tap, {
+    bool includeContainer = false,
+  }) =>
+      GestureDetector(onTap: tap, child: includeContainer ? Container(color: Colors.transparent, child: this) : this);
 
   /// 控件旋转180°
   Widget get rotate180 => Transform.rotate(angle: math.pi, child: this);
