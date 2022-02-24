@@ -43,15 +43,24 @@ class WidgetsFactory {
     Color? color,
     FontWeight? fontWeight,
     TextOverflow? overflow,
-    String? fontFamily,
     TextAlign? textAlign,
+    String? fontFamily, // 字体家族
+    double? lineHeight, // 行间距倍数
+    double? wordSpacing, // 字体间距
   }) {
     return Text(
       data,
       maxLines: maxLines,
       overflow: overflow,
       textAlign: textAlign,
-      style: TextStyle(fontSize: fontSize, color: color, fontWeight: fontWeight, fontFamily: fontFamily),
+      style: TextStyle(
+        fontSize: fontSize,
+        color: color,
+        fontWeight: fontWeight,
+        fontFamily: fontFamily,
+        height: lineHeight,
+        wordSpacing: wordSpacing,
+      ),
     );
   }
 
@@ -79,6 +88,9 @@ class WidgetsFactory {
     double? fontSize,
     FontWeight? fontWeight,
     int? textMaxLines,
+    String? fontFamily, // 字体家族
+    double? lineHeight, // 行间距倍数
+    double? wordSpacing, // 字体间距
   }) {
     return Container(
       width: width,
@@ -100,7 +112,14 @@ class WidgetsFactory {
         softWrap: textSoftWrap,
         textScaleFactor: textScaleFactor,
         maxLines: textMaxLines,
-        style: TextStyle(color: textColor, fontSize: fontSize, fontWeight: fontWeight),
+        style: TextStyle(
+          color: textColor,
+          fontSize: fontSize,
+          fontWeight: fontWeight,
+          height: lineHeight,
+          wordSpacing: wordSpacing,
+          fontFamily: fontFamily,
+        ),
       ),
     );
   }
