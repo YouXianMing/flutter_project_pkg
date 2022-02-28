@@ -88,20 +88,34 @@ class DioNetwork extends BaseNetwork {
 
         // 此处的result被dio的Response包裹着,注意
         return resultDataTransform.successDataTransform(result, this);
-      } else if (method == NetworkMethod.post || method == NetworkMethod.upload) {
+      } else if (method == NetworkMethod.post || method == NetworkMethod.upload || method == NetworkMethod.put) {
         // 请求开始前回调
         requestCallback.startRequestCallback(this);
 
         // 开始请求
-        dio.Response result = await _dio.post(
-          url!,
-          options: config.configValue(object),
-          data: data,
-          queryParameters: parameters,
-          cancelToken: _cancelToken,
-          onReceiveProgress: onReceiveProgress,
-          onSendProgress: onSendProgress,
-        );
+        late dio.Response result;
+
+        if (method == NetworkMethod.post || method == NetworkMethod.upload) {
+          result = await _dio.post(
+            url!,
+            options: config.configValue(object),
+            data: data,
+            queryParameters: parameters,
+            cancelToken: _cancelToken,
+            onReceiveProgress: onReceiveProgress,
+            onSendProgress: onSendProgress,
+          );
+        } else if (method == NetworkMethod.put) {
+          result = await _dio.put(
+            url!,
+            options: config.configValue(object),
+            data: data,
+            queryParameters: parameters,
+            cancelToken: _cancelToken,
+            onReceiveProgress: onReceiveProgress,
+            onSendProgress: onSendProgress,
+          );
+        }
 
         // 清空cancelToken
         _cancelToken = null;

@@ -1,4 +1,4 @@
-enum NetworkMethod { get, post, upload }
+enum NetworkMethod { get, post, put, upload }
 
 /// 网络请求进度回调
 typedef NetworkProgressCallback = void Function(int count, int total);
