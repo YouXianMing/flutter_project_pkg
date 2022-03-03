@@ -30,6 +30,8 @@ class SliverSectionsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 直接设置ScrollController会导致CustomScrollView内容过少时无法滑动
+    // https://stackoverflow.com/questions/65369458/customscrollview-scroll-behavior-changes-when-scrollcontroller-is-passed
     return Obx(() {
       if (controller._reloadData.value > 0) {}
       return CustomScrollView(
