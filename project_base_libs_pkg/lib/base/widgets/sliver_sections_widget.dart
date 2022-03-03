@@ -9,10 +9,7 @@ class SliverSectionsWidgetController extends GetxController {
   /// SliverSection相关对象的数组
   List<SliverSection> sliverSections = [];
 
-  /// ScrollController对象
-  final ScrollController scrollController = ScrollController();
-
-  /// 更新控件
+  /// 更新控件(更新数据源后调用此方法才可以更新数据)
   void updateWidget() => _reloadData.value++;
 
   @override
@@ -23,15 +20,20 @@ class SliverSectionsWidgetController extends GetxController {
 }
 
 class SliverSectionsWidget extends StatelessWidget {
+  /// 逻辑控制器
   final SliverSectionsWidgetController controller;
-  const SliverSectionsWidget({Key? key, required this.controller}) : super(key: key);
+
+  /// scrollController
+  final ScrollController? scrollController;
+
+  const SliverSectionsWidget({Key? key, required this.controller, this.scrollController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       if (controller._reloadData.value > 0) {}
       return CustomScrollView(
-        controller: controller.scrollController,
+        controller: scrollController,
         slivers: controller.sliverSections.buildAllSliverSectionsWidget(),
       );
     });

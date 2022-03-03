@@ -43,6 +43,10 @@ mixin BasePageBuildMixin {
   /// 隐藏键盘
   void hideKeyBoard(BuildContext context) => FocusScope.of(context).requestFocus(FocusNode());
 
+  /// 获取当前的context
+  /// 注意: 只在BaseStatefulWidgetState中进行重写,根据mounted来判断是否返回context
+  BuildContext? get currentContext => null;
+
   /// 根控件
   Widget buildRootWidget(BuildContext context) {
     return Stack(

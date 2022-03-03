@@ -15,4 +15,10 @@ abstract class BaseStatefulWidget extends StatefulWidget {
 abstract class BaseStatefulWidgetState<T extends BaseStatefulWidget> extends State<T> with BasePageBuildMixin {
   @override
   Widget build(BuildContext context) => buildRootWidget(context);
+
+  @override
+  BuildContext? get currentContext {
+    if (mounted) return context;
+    return null;
+  }
 }
