@@ -83,3 +83,4 @@ export 'base/widgets/base_page_build_mixin.dart'; // 页面构建mixin
 export 'base/widgets/button/base_button_widget.dart'; // 按钮基础控件
 export 'base/widgets/button/animated_button_widget.dart'; // 动画按钮控件
 export 'base/widgets/button/opacity_button_widget.dart'; // 透明度动画按钮控件
+export 'base/widgets/button/scale_button_widget.dart'; // 缩放动画按钮控件
