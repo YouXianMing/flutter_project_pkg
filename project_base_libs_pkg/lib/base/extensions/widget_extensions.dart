@@ -7,14 +7,81 @@ extension WidgetExtensions on Widget {
   Widget addTapEvent(
     GestureTapCallback? tap, {
     bool includeContainer = false,
+    EdgeInsets? padding,
+    EdgeInsets? margin,
   }) =>
-      GestureDetector(onTap: tap, child: includeContainer ? Container(color: Colors.transparent, child: this) : this);
+      GestureDetector(
+        onTap: tap,
+        child: includeContainer ? Container(color: Colors.transparent, padding: padding, margin: margin, child: this) : this,
+      );
 
   /// 控件旋转180°
   Widget get rotate180 => Transform.rotate(angle: math.pi, child: this);
 
   /// 添加padding
   Padding addPadding(EdgeInsets padding) => Padding(padding: padding, child: this);
+
+  /// 添加垂直方向的padding
+  Padding addVerticalPadding(double value) => Padding(padding: EdgeInsets.symmetric(vertical: value), child: this);
+
+  /// 添加水平方向的padding
+  Padding addHorizontalPadding(double value) => Padding(padding: EdgeInsets.symmetric(horizontal: value), child: this);
+
+  /// 添加指定方向的padding
+  Padding addPaddingOnly({double left = 0, double right = 0, double top = 0, double bottom = 0}) =>
+      Padding(padding: EdgeInsets.only(left: left, right: right, top: top, bottom: bottom), child: this);
+
+  /// 添加Container所有的圆角
+  Container addContainerBorderRadius({
+    Color? color,
+    double? width,
+    double? height,
+    double radius = 0,
+    AlignmentGeometry? alignment,
+    EdgeInsets? padding,
+    EdgeInsets? margin,
+  }) =>
+      Container(
+        width: width,
+        height: height,
+        clipBehavior: Clip.hardEdge,
+        padding: padding,
+        margin: margin,
+        alignment: alignment,
+        decoration: BoxDecoration(color: color, borderRadius: BorderRadius.all(Radius.circular(radius))),
+        child: this,
+      );
+
+  /// 添加Container独立的圆角
+  Container addContainerBorderRadiusOnly({
+    Color? color,
+    double? width,
+    double? height,
+    double topLeftRadius = 0,
+    double topRightRadius = 0,
+    double bottomLeftRadius = 0,
+    double bottomRightRadius = 0,
+    AlignmentGeometry? alignment,
+    EdgeInsets? padding,
+    EdgeInsets? margin,
+  }) =>
+      Container(
+        width: width,
+        height: height,
+        clipBehavior: Clip.hardEdge,
+        padding: padding,
+        margin: margin,
+        alignment: alignment,
+        decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(topLeftRadius),
+              topRight: Radius.circular(topRightRadius),
+              bottomLeft: Radius.circular(bottomLeftRadius),
+              bottomRight: Radius.circular(bottomRightRadius),
+            )),
+        child: this,
+      );
 
   /// 给Text设置默认的style
   DefaultTextStyle addDefaultTextStyle({
