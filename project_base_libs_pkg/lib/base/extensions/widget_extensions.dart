@@ -83,6 +83,13 @@ extension WidgetExtensions on Widget {
         child: this,
       );
 
+  /// 添加Opacity
+  Opacity addOpacity(double opacity, {bool alwaysIncludeSemantics = false}) => Opacity(
+        opacity: opacity,
+        alwaysIncludeSemantics: alwaysIncludeSemantics,
+        child: this,
+      );
+
   /// 给Text设置默认的style
   DefaultTextStyle addDefaultTextStyle({
     TextStyle style = const TextStyle(decoration: TextDecoration.none, color: Colors.black, fontSize: 14),
