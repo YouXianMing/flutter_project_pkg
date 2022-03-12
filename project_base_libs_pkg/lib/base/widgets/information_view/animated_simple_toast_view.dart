@@ -19,6 +19,16 @@ class AnimatedSimpleToastView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool ignoring = false;
+    Duration showDuration = const Duration(milliseconds: 200);
+    Duration hideDuration = const Duration(milliseconds: 200);
+    var configValue = config as AnimatedSimpleToastViewConfig?;
+    if (configValue != null) {
+      if (configValue.blockEvent == false) ignoring = true;
+      showDuration = configValue.showDuration;
+      hideDuration = configValue.hideDuration;
+    }
+
     double opacity = 0;
     Duration? duration;
     Widget? widget;
@@ -29,10 +39,10 @@ class AnimatedSimpleToastView extends StatelessWidget {
     } else if (step == InformationViewStatus.show) {
       opacity = 1;
       widget = contentWidget!;
-      duration = const Duration(milliseconds: 200);
+      duration = showDuration;
     } else if (step == InformationViewStatus.hide) {
       opacity = 0;
-      duration = const Duration(milliseconds: 200);
+      duration = hideDuration;
       widget = contentWidget!;
     }
 
@@ -42,6 +52,7 @@ class AnimatedSimpleToastView extends StatelessWidget {
       Future.delayed(duration!, () => didCompleteHideCallback());
     }
 
-    return AnimatedOpacity(opacity: opacity, duration: duration!, child: widget);
+    var returnWidget = AnimatedOpacity(opacity: opacity, duration: duration!, child: widget);
+    return ignoring ? IgnorePointer(ignoring: true, child: returnWidget) : returnWidget;
   }
 }

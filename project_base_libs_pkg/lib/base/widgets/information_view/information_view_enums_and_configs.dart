@@ -17,13 +17,33 @@ enum AnimatedWidgetType {
 /// InformationView显示的配置,是一个抽象类
 abstract class BaseInformationViewConfig {}
 
+/// AnimatedSimpleToastView的配置
+
+class AnimatedSimpleToastViewConfig extends BaseInformationViewConfig {
+  final bool blockEvent;
+  final Duration showDuration;
+  final Duration hideDuration;
+  AnimatedSimpleToastViewConfig({
+    this.blockEvent = true,
+    this.showDuration = const Duration(milliseconds: 200),
+    this.hideDuration = const Duration(milliseconds: 200),
+  });
+}
+
 /// AnimatedSheetView的配置
 
 enum AnimatedSheetType {
-  fromBottomToTop, // 从底部到顶部
-  fromTopToBottom, // 从顶部到底部
-  fromLeftToRight, // 从左到右
-  fromRightToLeft, // 从右到左
+  /// 从底部到顶部
+  fromBottomToTop,
+
+  /// 从顶部到底部
+  fromTopToBottom,
+
+  /// 从左到右
+  fromLeftToRight,
+
+  /// 从右到左
+  fromRightToLeft,
 }
 
 class AnimatedSheetViewConfig extends BaseInformationViewConfig {
