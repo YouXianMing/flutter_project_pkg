@@ -88,7 +88,10 @@ class DioNetwork extends BaseNetwork {
 
         // 此处的result被dio的Response包裹着,注意
         return resultDataTransform.successDataTransform(result, this);
-      } else if (method == NetworkMethod.post || method == NetworkMethod.upload || method == NetworkMethod.put) {
+      } else if (method == NetworkMethod.post ||
+          method == NetworkMethod.upload ||
+          method == NetworkMethod.put ||
+          method == NetworkMethod.delete) {
         // 请求开始前回调
         requestCallback.startRequestCallback(this);
 
@@ -114,6 +117,14 @@ class DioNetwork extends BaseNetwork {
             cancelToken: _cancelToken,
             onReceiveProgress: onReceiveProgress,
             onSendProgress: onSendProgress,
+          );
+        } else if (method == NetworkMethod.delete) {
+          result = await _dio.delete(
+            url!,
+            options: config.configValue(object),
+            data: data,
+            queryParameters: parameters,
+            cancelToken: _cancelToken,
           );
         }
 
