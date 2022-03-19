@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// 可是设置显示几行的Wrap自定义控件
+/// 可以设置显示几行的Wrap自定义控件
 class CustomWrapWidget extends StatelessWidget {
   final List<Widget> children;
   final double width;
