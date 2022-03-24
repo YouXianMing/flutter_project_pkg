@@ -26,7 +26,31 @@ class SliverSectionsWidget extends StatelessWidget {
   /// scrollController
   final ScrollController? scrollController;
 
-  const SliverSectionsWidget({Key? key, required this.controller, this.scrollController}) : super(key: key);
+  /// 是否使用紧缩模式,默认为false
+  final bool shrinkWrap;
+
+  /// 缓存的距离
+  final double? cacheExtent;
+
+  /// 边缘裁剪方式,默认为Clip.hardEdge
+  final Clip clipBehavior;
+
+  /// 滑动方向,默认为垂直方向
+  final Axis scrollDirection;
+
+  /// 滑动的模式
+  final ScrollBehavior? scrollBehavior;
+
+  const SliverSectionsWidget({
+    Key? key,
+    required this.controller,
+    this.scrollController,
+    this.shrinkWrap = false,
+    this.cacheExtent,
+    this.clipBehavior = Clip.hardEdge,
+    this.scrollDirection = Axis.vertical,
+    this.scrollBehavior,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +60,11 @@ class SliverSectionsWidget extends StatelessWidget {
       if (controller._reloadData.value > 0) {}
       return CustomScrollView(
         controller: scrollController,
+        shrinkWrap: shrinkWrap,
+        cacheExtent: cacheExtent,
+        clipBehavior: clipBehavior,
+        scrollDirection: scrollDirection,
+        scrollBehavior: scrollBehavior,
         slivers: controller.sliverSections.buildAllSliverSectionsWidget(),
       );
     });
