@@ -38,8 +38,11 @@ class SliverSectionsWidget extends StatelessWidget {
   /// 滑动方向,默认为垂直方向
   final Axis scrollDirection;
 
-  /// 滑动的模式
+  /// 滑动的行为
   final ScrollBehavior? scrollBehavior;
+
+  /// 滑动的模式
+  final ScrollPhysics? physics;
 
   const SliverSectionsWidget({
     Key? key,
@@ -50,6 +53,7 @@ class SliverSectionsWidget extends StatelessWidget {
     this.clipBehavior = Clip.hardEdge,
     this.scrollDirection = Axis.vertical,
     this.scrollBehavior,
+    this.physics,
   }) : super(key: key);
 
   @override
@@ -65,6 +69,7 @@ class SliverSectionsWidget extends StatelessWidget {
         clipBehavior: clipBehavior,
         scrollDirection: scrollDirection,
         scrollBehavior: scrollBehavior,
+        physics: physics,
         slivers: controller.sliverSections.buildAllSliverSectionsWidget(),
       );
     });
