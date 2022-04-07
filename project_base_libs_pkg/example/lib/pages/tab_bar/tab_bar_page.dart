@@ -8,7 +8,6 @@ import 'package:project_base_libs_pkg/base_file_headers.dart';
 
 class TabBarPage extends NormalStatefulWidget {
   final PageArguments? arguments;
-
   const TabBarPage({Key? key, this.arguments}) : super(key: key);
 
   @override
@@ -48,6 +47,10 @@ class TabBarPageState extends NormalStatefulWidgetState<TabBarPage> with WidgetE
           ),
           CartItemWidget(
             model: CartItemModel(title: 'ToastWidget', routeEnum: PageRouteEnum.toastWidget),
+            callback: widgetEventCallback,
+          ),
+          CartItemWidget(
+            model: CartItemModel(title: 'TextField', routeEnum: PageRouteEnum.textField),
             callback: widgetEventCallback,
           ),
           CartItemWidget(
