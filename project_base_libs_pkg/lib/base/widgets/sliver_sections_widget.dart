@@ -7,7 +7,7 @@ class SliverSectionsWidgetController extends GetxController {
   final RxInt _reloadData = 0.obs;
 
   /// SliverSection相关对象的数组
-  List<SliverSection> sliverSections = [];
+  List<BaseSliverSection> sliverSections = [];
 
   /// 更新控件(更新数据源后调用此方法才可以更新数据)
   void updateWidget() => _reloadData.value++;

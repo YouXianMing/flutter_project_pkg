@@ -11,7 +11,7 @@ class _SliversRefreshWidgetController extends GetxController {
   RxInt reloadData = 0.obs;
   late bool pullRefreshEnable;
   late bool loadMoreEnable;
-  late List<SliverSection> sliverSections = [];
+  late List<BaseSliverSection> sliverSections = [];
   late bool refreshHeaderWidgetAddSafeTop;
   late bool loadMoreFooterWidgetAddSafeBottom;
   SliversRefreshWidgetBlock? onRefreshBlock;
@@ -121,7 +121,7 @@ class SliversRefreshWidget extends StatelessWidget {
   }
 
   /// 获取SliverSection的数组
-  List<SliverSection> get sliversSections => _controller.sliverSections;
+  List<BaseSliverSection> get sliversSections => _controller.sliverSections;
 
   /// 获取ScrollController的实例
   ScrollController get scrollController => _controller.scrollController;
