@@ -1,6 +1,6 @@
 name: project_base_libs_pkg
 description: A new Flutter project.
-version: 1.0.3
+version: 1.0.4
 homepage: 'https://github.com/YouXianMing/flutter_project_pkg'
 
 environment:
@@ -20,13 +20,13 @@ dependencies:
   # DART: Native JS
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/crypto
-  crypto: 3.0.1
+  crypto: 3.0.2
 
   # [tools.dart.dev] 文件元数据信息
   # DART: Native JS
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.dev/packages/mime
-  mime: 1.0.1
+  mime: 1.0.2
 
   # [jakobservices.ch] 消息通知工具
   # DART: Native JS
@@ -38,13 +38,13 @@ dependencies:
   # DART: Native JS
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/dio
-  dio: 4.0.4
+  dio: 4.0.6
 
   # [tekartik.com] Lock
   # DART: Native JS
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/synchronized
-  synchronized: 3.0.0
+  synchronized: 3.0.0+2
 
   # [filiph.net] 随机英文单词
   # DART: Native JS
@@ -59,7 +59,7 @@ dependencies:
   # [romainrastel.com] iOS的section herder悬停效果
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/flutter_sticky_header
-  flutter_sticky_header: 0.6.0
+  flutter_sticky_header: 0.6.1
 
   # [romainrastel.com] 不规则瀑布流
   # FLUTTER: Android iOS Linux MacOS Web Windows
@@ -94,12 +94,12 @@ dependencies:
   # 加载动画合集
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.dev/packages/loading_indicator
-  loading_indicator: 3.0.2
+  loading_indicator: 3.0.3
 
   # 加载动画合集
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.dev/packages/loading_animation_widget
-  loading_animation_widget: ^1.1.0+0
+  loading_animation_widget: ^1.1.0+5
 
   # 上拉加载,下拉刷新
   # FLUTTER: Android iOS Linux MacOS Web Windows

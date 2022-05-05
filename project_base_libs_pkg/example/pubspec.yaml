@@ -29,13 +29,12 @@ dependencies:
   # https://pub.flutter-io.cn/packages/path_provider
   path_provider: ^2.0.3
 
-  # [flutter.dev] cupertino图标
-  # FLUTTER: Android iOS Linux MacOS Windows
-  # https://pub.flutter-io.cn/packages/cupertino_icons
-  cupertino_icons: ^1.0.4
-
   project_base_libs_pkg:
     path: ../
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_lints: ^1.0.4

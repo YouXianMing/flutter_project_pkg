@@ -6,15 +6,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 
-class TabBarPage extends NormalStatefulWidget {
+class HomePage extends NormalStatefulWidget {
   final PageArguments? arguments;
-  const TabBarPage({Key? key, this.arguments}) : super(key: key);
+  const HomePage({Key? key, this.arguments}) : super(key: key);
 
   @override
-  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => TabBarPageState();
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => HomePageState();
 }
 
-class TabBarPageState extends NormalStatefulWidgetState<TabBarPage> with WidgetEventCallbackMixin {
+class HomePageState extends NormalStatefulWidgetState<HomePage> with WidgetEventCallbackMixin {
   @override
   void widgetEventCallback(BuildContext? context, WidgetEventItem eventItem) {
     CartItemModel model = eventItem.data;
@@ -29,6 +29,10 @@ class TabBarPageState extends NormalStatefulWidgetState<TabBarPage> with WidgetE
     return CustomScrollView(
       slivers: [
         SliverListSection.staticTypeWidget(children: [
+          CartItemWidget(
+            model: CartItemModel(title: 'CustomTabBarWidget', routeEnum: PageRouteEnum.tabBar),
+            callback: widgetEventCallback,
+          ),
           CartItemWidget(
             model: CartItemModel(title: 'InformationView', routeEnum: PageRouteEnum.informationView),
             callback: widgetEventCallback,

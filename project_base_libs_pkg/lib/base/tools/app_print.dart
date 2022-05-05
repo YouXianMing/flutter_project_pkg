@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-enum PrintLevel { verbose, debug, info, warning, error }
+enum PrintLevel { verbose, debug, info, warning, error, success }
 
 const int _printTraceIndex = 1;
 
@@ -12,6 +12,7 @@ Set<PrintLevel> _printDebugSet = {
   PrintLevel.info,
   PrintLevel.warning,
   PrintLevel.error,
+  PrintLevel.success,
 };
 
 void setAppPrint({Set<PrintLevel> levelsSet = const {}}) {
@@ -22,29 +23,47 @@ void setAppPrint({Set<PrintLevel> levelsSet = const {}}) {
 void appPrint(Object? object, {PrintLevel level = PrintLevel.info}) {
   if (_printDebugSet.contains(level) && _isReleasePrintCheck == false) {
     if (kIsWeb) {
-      if (level == PrintLevel.info) {
-        _printLog('[🔍]:', object);
-      } else if (level == PrintLevel.verbose) {
-        _printLog('[🖥]:', object);
-      } else if (level == PrintLevel.error) {
-        _printLog('[❌]:', object);
-      } else if (level == PrintLevel.debug) {
-        _printLog('[🛠]:', object);
-      } else if (level == PrintLevel.warning) {
-        _printLog('[⚠️]:', object);
+      switch (level) {
+        case PrintLevel.verbose:
+          _printLog('[🖥]:', object);
+          break;
+        case PrintLevel.debug:
+          _printLog('[🛠]:', object);
+          break;
+        case PrintLevel.info:
+          _printLog('[🔍]:', object);
+          break;
+        case PrintLevel.warning:
+          _printLog('[⚠️]:', object);
+          break;
+        case PrintLevel.error:
+          _printLog('[❌]:', object);
+          break;
+        case PrintLevel.success:
+          _printLog('[✅️]:', object);
+          break;
       }
     } else {
       _StackTraceParse tp = _StackTraceParse(StackTrace.current, traceIndex: _printTraceIndex);
-      if (level == PrintLevel.info) {
-        _printLog('[🔍 ${tp.fileName}]:', object);
-      } else if (level == PrintLevel.verbose) {
-        _printLog('[🖥 ${tp.fileName}]:', object);
-      } else if (level == PrintLevel.error) {
-        _printLog('[❌ ${tp.fileName}]:', object);
-      } else if (level == PrintLevel.debug) {
-        _printLog('[🛠 ${tp.fileName}]:', object);
-      } else if (level == PrintLevel.warning) {
-        _printLog('[⚠️ ${tp.fileName}]:', object);
+      switch (level) {
+        case PrintLevel.verbose:
+          _printLog('[🖥 ${tp.fileName}]:', object);
+          break;
+        case PrintLevel.debug:
+          _printLog('[🛠 ${tp.fileName}]:', object);
+          break;
+        case PrintLevel.info:
+          _printLog('[🔍 ${tp.fileName}]:', object);
+          break;
+        case PrintLevel.warning:
+          _printLog('[⚠️ ${tp.fileName}]:', object);
+          break;
+        case PrintLevel.error:
+          _printLog('[❌ ${tp.fileName}]:', object);
+          break;
+        case PrintLevel.success:
+          _printLog('[✅️ ${tp.fileName}]:', object);
+          break;
       }
     }
   }
@@ -68,6 +87,17 @@ void appPrintError(Object? object) {
     } else {
       _StackTraceParse tp = _StackTraceParse(StackTrace.current, traceIndex: _printTraceIndex);
       _printLog('[❌ ${tp.fileName}]:', object);
+    }
+  }
+}
+
+void appPrintSuccess(Object? object) {
+  if (_printDebugSet.contains(PrintLevel.error) && _isReleasePrintCheck == false) {
+    if (kIsWeb) {
+      _printLog('[✅]:', object);
+    } else {
+      _StackTraceParse tp = _StackTraceParse(StackTrace.current, traceIndex: _printTraceIndex);
+      _printLog('[✅ ${tp.fileName}]:', object);
     }
   }
 }

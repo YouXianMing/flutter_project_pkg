@@ -9,13 +9,14 @@ import 'package:example/pages/project_use/sliver_refresh_widget/slivers_refresh_
 import 'package:example/pages/project_use/sliver_sections/sliver_sections_page.dart';
 import 'package:example/pages/project_use/sp_val/sp_val_page.dart';
 import 'package:example/pages/project_use/status_widget/status_widget_page.dart';
+import 'package:example/pages/project_use/tab_bar/tab_bar_page.dart';
 import 'package:example/pages/project_use/text_field/text_field_page.dart';
 import 'package:example/pages/project_use/toast_widget/toast_widget_page.dart';
-import 'package:example/pages/tab_bar/tab_bar_page.dart';
+import 'package:example/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 enum PageRouteEnum {
-  tabBar,
+  home,
   informationView,
   sliverRefreshWidget,
   sliverSections,
@@ -29,6 +30,7 @@ enum PageRouteEnum {
   getxRefresh,
   maybePop,
   networks,
+  tabBar,
 }
 
 // pageRouteEnum的准备操作,请放在main里
@@ -49,8 +51,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
   MaterialPageRoute getMaterialPageRouteFromSetting(RouteSettings settings) {
     dynamic arguments = settings.arguments;
     switch (this) {
-      case PageRouteEnum.tabBar:
-        return MaterialPageRoute(settings: settings, builder: (_) => TabBarPage(arguments: arguments));
+      case PageRouteEnum.home:
+        return MaterialPageRoute(settings: settings, builder: (_) => HomePage(arguments: arguments));
       case PageRouteEnum.informationView:
         return MaterialPageRoute(settings: settings, builder: (_) => InformationViewPage(arguments: arguments));
       case PageRouteEnum.sliverRefreshWidget:
@@ -77,6 +79,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => NetworksPage(arguments: arguments));
       case PageRouteEnum.textField:
         return MaterialPageRoute(settings: settings, builder: (_) => TextFieldPage(arguments: arguments));
+      case PageRouteEnum.tabBar:
+        return MaterialPageRoute(settings: settings, builder: (_) => TabBarPage(arguments: arguments));
     }
   }
 
@@ -88,8 +92,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
     String pageRouteName = '';
 
     switch (this) {
-      case PageRouteEnum.tabBar:
-        pageRouteName = _pageRouteNameFrom(TabBarPage);
+      case PageRouteEnum.home:
+        pageRouteName = _pageRouteNameFrom(HomePage);
         break;
       case PageRouteEnum.informationView:
         pageRouteName = _pageRouteNameFrom(InformationViewPage);
@@ -129,6 +133,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.textField:
         pageRouteName = _pageRouteNameFrom(TextFieldPage);
+        break;
+      case PageRouteEnum.tabBar:
+        pageRouteName = _pageRouteNameFrom(TabBarPage);
         break;
     }
 

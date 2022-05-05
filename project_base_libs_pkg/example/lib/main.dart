@@ -1,5 +1,5 @@
 import 'package:example/page_route/page_route_enum.dart';
-import 'package:example/pages/tab_bar/tab_bar_page.dart';
+import 'package:example/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       builder: (context, widget) => widget!,
       unknownRoute: GetPage(name: '/notFound', page: () => const UnknownPage()),
-      routes: {'/': (_) => const TabBarPage()},
+      routes: {'/': (_) => const HomePage()},
       onGenerateRoute: (settings) {
         PageRouteEnum? routePage = pageRouteEnumFromName(settings.name ?? '');
         if (routePage != null) return routePage.getMaterialPageRouteFromSetting(settings);
