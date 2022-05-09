@@ -28,8 +28,8 @@ class _TabBarPageState extends NormalStatefulWidgetState<TabBarPage> {
       indicatorWeight: 3,
       appBarHeight: 35,
       tabBarItems: [
-        CustomTabBarItem(tab: const Tab(text: 'Video'), widget: Container(color: Util.randomColor)),
-        CustomTabBarItem(tab: const Tab(text: 'Media'), widget: Container(color: Util.randomColor)),
+        CustomTabBarItem(tab: const Tab(text: 'Video'), widget: Container(color: Util.randomColor.withOpacity(0.3))),
+        CustomTabBarItem(tab: const Tab(text: 'Media'), widget: Container(color: Util.randomColor.withOpacity(0.3))),
       ],
       onTap: (index) => appPrint(index),
     );

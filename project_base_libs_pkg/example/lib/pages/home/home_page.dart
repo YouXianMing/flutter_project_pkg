@@ -54,6 +54,10 @@ class HomePageState extends NormalStatefulWidgetState<HomePage> with WidgetEvent
             callback: widgetEventCallback,
           ),
           CartItemWidget(
+            model: CartItemModel(title: 'LayoutMaskWidget', routeEnum: PageRouteEnum.layoutMask),
+            callback: widgetEventCallback,
+          ),
+          CartItemWidget(
             model: CartItemModel(title: 'TextField', routeEnum: PageRouteEnum.textField),
             callback: widgetEventCallback,
           ),

@@ -72,6 +72,7 @@ export 'base/widgets/indicators/indicator_configs/watery_desert_indicator_config
 export 'base/widgets/custom_wrap_widget.dart'; // 仿制Wrap控件,可以设置宽高
 export 'base/widgets/custom_tab_bar_widget.dart'; // 常用自定义TabBar
 export 'base/widgets/custom_text_field.dart'; // 常用自定义TextField
+export 'base/widgets/layout_mask_widget.dart'; // 在遮罩中进行镂空的widget
 export 'base/widgets/toast_widget.dart'; // toast
 export 'base/widgets/base_stateful_widget.dart'; // statefulWidget基类
 export 'base/widgets/base_stateless_widget.dart'; // stateflessWidget基类

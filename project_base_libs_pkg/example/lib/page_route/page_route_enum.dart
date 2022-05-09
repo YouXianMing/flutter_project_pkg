@@ -2,6 +2,7 @@ import 'package:example/pages/project_use/files_scan/files_scan_page.dart';
 import 'package:example/pages/project_use/indicator_widget/indicator_widget_page.dart';
 import 'package:example/pages/project_use/getx_refresh/getx_refresh_page.dart';
 import 'package:example/pages/project_use/information_view/infomation_view_page.dart';
+import 'package:example/pages/project_use/layout_mask/layout_mask_page.dart';
 import 'package:example/pages/project_use/maybe_pop/maybe_pop_page.dart';
 import 'package:example/pages/project_use/networks/networks_page.dart';
 import 'package:example/pages/project_use/reg_exp/reg_exp_page.dart';
@@ -28,6 +29,7 @@ enum PageRouteEnum {
   regExp,
   indicatorWidget,
   getxRefresh,
+  layoutMask,
   maybePop,
   networks,
   tabBar,
@@ -81,6 +83,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => TextFieldPage(arguments: arguments));
       case PageRouteEnum.tabBar:
         return MaterialPageRoute(settings: settings, builder: (_) => TabBarPage(arguments: arguments));
+      case PageRouteEnum.layoutMask:
+        return MaterialPageRoute(settings: settings, builder: (_) => LayoutMaskPage(arguments: arguments));
     }
   }
 
@@ -136,6 +140,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.tabBar:
         pageRouteName = _pageRouteNameFrom(TabBarPage);
+        break;
+      case PageRouteEnum.layoutMask:
+        pageRouteName = _pageRouteNameFrom(LayoutMaskPage);
         break;
     }
 

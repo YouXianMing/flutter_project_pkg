@@ -24,8 +24,9 @@ class TabBarNoneHeightAppBar extends BaseAppBar {
   Widget buildRootWidget(BuildContext context) => const SizedBox(height: 0);
 }
 
+/// 将Tab与TabBarView上的widget进行捆绑用的数据
 class CustomTabBarItem {
-  /// tab(最好是Tab,因为TabBar中的labelColor与labelStyle等参数设置只会对Tab的widget生效)
+  /// tab(最好里面包含了Tab控件,因为TabBar中的labelColor与labelStyle等参数设置只会对Tab的widget生效)
   Widget tab;
 
   /// TabBarView上的widget

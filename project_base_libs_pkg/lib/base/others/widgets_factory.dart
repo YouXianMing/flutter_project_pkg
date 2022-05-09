@@ -4,8 +4,9 @@ typedef ItemWidgetBuilder = Widget Function(BuildContext? context, int index, dy
 
 class WidgetsFactory {
   /// ListView.builder构造器
-  static ListView listViewBuilder({required ListViewBuilderConfig build}) {
+  static ListView listViewBuilder({required ListViewBuilderConfig build, Key? key}) {
     return ListView.builder(
+      key: key,
       padding: build.padding,
       shrinkWrap: build.shrinkWrap,
       physics: build.physics,
@@ -17,8 +18,9 @@ class WidgetsFactory {
   }
 
   /// GridView.builder构造器
-  static GridView gridViewBuilder({required GridViewBuilderConfig build}) {
+  static GridView gridViewBuilder({required GridViewBuilderConfig build, Key? key}) {
     return GridView.builder(
+      key: key,
       shrinkWrap: build.shrinkWrap,
       physics: build.physics,
       itemCount: build.items.length,
@@ -38,6 +40,7 @@ class WidgetsFactory {
   /// Text的构造器
   static Text text(
     String data, {
+    Key? key,
     double? fontSize,
     int? maxLines,
     Color? color,
@@ -50,6 +53,7 @@ class WidgetsFactory {
   }) {
     return Text(
       data,
+      key: key,
       maxLines: maxLines,
       overflow: overflow,
       textAlign: textAlign,
@@ -67,6 +71,8 @@ class WidgetsFactory {
   /// text与container合集构造器
   static Container textContainer(
     String text, {
+    Key? containerKey,
+    Key? textKey,
     double? width,
     double? height,
     EdgeInsetsGeometry? margin,
@@ -93,6 +99,7 @@ class WidgetsFactory {
     double? wordSpacing, // 字体间距
   }) {
     return Container(
+      key: containerKey,
       width: width,
       height: height,
       margin: margin,
@@ -106,6 +113,7 @@ class WidgetsFactory {
       alignment: alignment,
       child: Text(
         text,
+        key: textKey,
         textAlign: textAlign,
         textDirection: textDirection,
         overflow: textOverflow,
