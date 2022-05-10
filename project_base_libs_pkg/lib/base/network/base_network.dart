@@ -20,7 +20,7 @@ abstract class BaseNetwork {
   /// debug用信息
   dynamic debugInfo;
 
-  /// 网络超时时间设置
+  /// 网络超时时间设置,默认5秒
   int requestTimeOut = 5000;
 
   /// 请求的方法

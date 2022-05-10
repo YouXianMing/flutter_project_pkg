@@ -67,8 +67,9 @@ class Util {
   /// 获取图片(需要设置assertsImagePath,如果没设置,默认为lib/images/)
   static set assertsImagePath(String val) => _assetsImagePath = val;
   static String _assetsImagePath = 'lib/images/';
-  static Image image(String name, {double? scale, double? width, double? height, BoxFit? fit, Color? color}) => Image.asset(
+  static Image image(String name, {Key? key, double? scale, double? width, double? height, BoxFit? fit, Color? color}) => Image.asset(
         _assetsImagePath + name,
+        key: key,
         scale: scale,
         width: width,
         height: height,
