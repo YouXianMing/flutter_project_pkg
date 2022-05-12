@@ -174,7 +174,7 @@ class DioNetworkConfig extends BaseNetworkConfig {
   DioNetworkConfig({
     this.contentType = 'application/x-www-form-urlencoded; charset=UTF-8',
     this.responseType = dio.ResponseType.json,
-    this.receiveTimeout = 6000,
+    this.receiveTimeout = 60000,
     this.sendTimeout = 60000,
   });
 
