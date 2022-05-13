@@ -100,6 +100,8 @@ class ScanFilesTool {
       _isScanning = false;
       return rootFileInfo;
     }
+
+    return null;
   }
 
   /// 开始递归调用查找文件

@@ -1,10 +1,15 @@
 import 'package:dio/dio.dart' as dio;
 import 'base_network.dart';
 
+/// 用dio的网络库实现了BaseNetwork中的所有抽象方法,符合里氏替换原则
 class DioNetwork extends BaseNetwork {
+  /// dio的实体
   late dio.Dio _dio;
+
+  /// 当前网络是否正在运行
   bool _isRunning = false;
-  // 如何使用cancelToken https://stackguides.com/questions/68581009/dio-canceltoken
+
+  /// 取消请求的token(如何使用cancelToken https://stackguides.com/questions/68581009/dio-canceltoken)
   dio.CancelToken? _cancelToken;
 
   DioNetwork({
@@ -12,7 +17,7 @@ class DioNetwork extends BaseNetwork {
     Map<String, dynamic>? parameters,
     dynamic data,
     Map<String, dynamic>? headers,
-    int requestTimeOut = 5000,
+    int requestTimeOut = 10000,
     NetworkMethod method = NetworkMethod.get,
     NetworkProgressCallback? onReceiveProgress,
     NetworkProgressCallback? onSendProgress,
@@ -30,11 +35,7 @@ class DioNetwork extends BaseNetwork {
     this.onSendProgress = onSendProgress;
 
     // 如果配置为空,则默认使用DioNetworkConfig
-    if (config != null) {
-      this.config = config;
-    } else {
-      this.config = DioNetworkConfig();
-    }
+    this.config = config ?? DioNetworkConfig();
 
     if (resultDataTransform != null) this.resultDataTransform = resultDataTransform;
     if (requestCallback != null) this.requestCallback = requestCallback;
@@ -42,7 +43,7 @@ class DioNetwork extends BaseNetwork {
 
   /// 此处的网络请求close会导致请求关闭并报错
   @override
-  void close({bool force = false}) => _dio.close(force: false);
+  void close({bool force = false}) => _dio.close(force: force);
 
   @override
   void cancel() {
@@ -57,8 +58,9 @@ class DioNetwork extends BaseNetwork {
   Future<dynamic> startRequest() async {
     _dio = dio.Dio();
     _cancelToken = dio.CancelToken();
-    // 设置正在网络请求当中
+    // 设置当前正在执行网络请求
     _isRunning = true;
+    requestStartTime = DateTime.now();
     try {
       // 请求开始之前进行一些配置
       dynamic object = {'obj': this, 'dio': _dio};
@@ -85,6 +87,7 @@ class DioNetwork extends BaseNetwork {
 
         // 设置网路请求结束了
         _isRunning = false;
+        requestFinishedTime = DateTime.now();
 
         // 此处的result被dio的Response包裹着,注意
         return resultDataTransform.successDataTransform(result, this);
@@ -136,6 +139,7 @@ class DioNetwork extends BaseNetwork {
 
         // 设置网路请求结束了
         _isRunning = false;
+        requestFinishedTime = DateTime.now();
 
         // 此处的result被dio的Response包裹着,注意
         return resultDataTransform.successDataTransform(result, this);
@@ -146,6 +150,7 @@ class DioNetwork extends BaseNetwork {
 
       // 设置网路请求结束了
       _isRunning = false;
+      requestFinishedTime = DateTime.now();
 
       // 此处的result是一个失败的网络请求
       return resultDataTransform.errorDataTransform(e, this);
@@ -165,17 +170,25 @@ class DioNetwork extends BaseNetwork {
   bool get isRunning => _isRunning;
 }
 
+/// 针对dio网络库的默认配置文件,可以通过继承BaseNetworkConfig来实现新的配置文件
 class DioNetworkConfig extends BaseNetworkConfig {
+  /// 请求头部的content-type字段
   final String contentType;
+
+  /// 设置返回数据的格式
   final dio.ResponseType responseType;
+
+  /// 获取数据时的超时时间(此时已和服务器建立链接,等待服务器发送数据的间隔时间,如果为0,则表示不会超时,一直等待服务器的回应)
   final int receiveTimeout;
+
+  /// 发送数据时的超时时间(此时已经向网络发送了数据,等待网络回应的时间)
   final int sendTimeout;
 
   DioNetworkConfig({
     this.contentType = 'application/x-www-form-urlencoded; charset=UTF-8',
     this.responseType = dio.ResponseType.json,
-    this.receiveTimeout = 60000,
-    this.sendTimeout = 60000,
+    this.receiveTimeout = 20000,
+    this.sendTimeout = 20000,
   });
 
   @override
@@ -183,8 +196,8 @@ class DioNetworkConfig extends BaseNetworkConfig {
     DioNetwork network = object['obj'];
     dio.Dio dioObj = object['dio'];
     dioObj.options.receiveTimeout = receiveTimeout;
-    dioObj.options.connectTimeout = network.requestTimeOut;
     dioObj.options.sendTimeout = sendTimeout;
+    dioObj.options.connectTimeout = network.requestTimeOut;
   }
 
   @override

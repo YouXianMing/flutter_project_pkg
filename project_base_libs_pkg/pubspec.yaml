@@ -69,7 +69,7 @@ dependencies:
   # [flutter.dev] 本地持久化工具
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/shared_preferences
-  shared_preferences: 2.0.13
+  shared_preferences: 2.0.15
 
   # [fluttercandies.com] 瀑布流
   # FLUTTER: Android iOS Linux MacOS Web Windows

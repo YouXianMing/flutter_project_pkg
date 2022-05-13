@@ -20,13 +20,19 @@ abstract class BaseNetwork {
   /// debug用信息
   dynamic debugInfo;
 
-  /// 网络超时时间设置,默认5秒
-  int requestTimeOut = 5000;
+  /// 网络超时时间设置,默认10秒
+  int requestTimeOut = 10000;
+
+  /// 请求开始时的时间
+  DateTime? requestStartTime;
+
+  /// 请求结束时的时间(不区分请求取消报错等情形)
+  DateTime? requestFinishedTime;
 
   /// 请求的方法
   NetworkMethod method = NetworkMethod.get;
 
-  /// 网络请求上传数据时的进度 (只有post请求此参数才有效)
+  /// 网络请求上传数据时的进度 (只有设置包体的请求如post类型此参数才有效)
   NetworkProgressCallback? onSendProgress;
 
   /// 网络请求获取数据时的进度
