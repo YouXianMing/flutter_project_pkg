@@ -4,23 +4,50 @@ import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../base_file_headers.dart';
 
+/// 定义的刷新用block
 typedef SliversRefreshWidgetBlock = Function(SliversRefreshWidget widget);
-typedef SliversRefreshWidgetHeaderFooterBuilder = Widget Function(bool);
+
+/// 定义的RefreshWidgetHeaderFooter构造器
+typedef SliversRefreshWidgetHeaderFooterBuilder = Widget Function(bool addSafePadding);
 
 class _SliversRefreshWidgetController extends GetxController {
+  /// 用于更新组件用
   RxInt reloadData = 0.obs;
+
+  /// 设置下拉数字量是否开启
   late bool pullRefreshEnable;
+
+  /// 设置加载更多是否开启
   late bool loadMoreEnable;
+
+  /// 存储BaseSliverSection相关子类的数组
   late List<BaseSliverSection> sliverSections = [];
+
+  /// 刷新组件是否添加顶部安全距离(刷新控件与屏幕顶部对齐时,可能根据需要要增加额外的安全距离,比如iPhone的刘海屏)
   late bool refreshHeaderWidgetAddSafeTop;
+
+  /// 加载更多组件是否添加底部安全距离(刷新控件与屏幕底部对齐时,可能根据需要要增加额外的安全距离,比如iPhoneX底部的黑条区域)
   late bool loadMoreFooterWidgetAddSafeBottom;
+
+  /// 刷新回调block
   SliversRefreshWidgetBlock? onRefreshBlock;
+
+  /// 加载更多回调block
   SliversRefreshWidgetBlock? onLoadBlock;
+
+  /// RefreshWidgetHeader构造器
   SliversRefreshWidgetHeaderFooterBuilder? headerBuilder;
+
+  /// RefreshWidgetFooter构造器
   SliversRefreshWidgetHeaderFooterBuilder? footerBuilder;
+
+  /// 刷新整个控件用
   void updateWidget() => reloadData.value++;
 
+  /// 刷新组件的控制器
   final RefreshController refreshController = RefreshController();
+
+  /// ScrollView的控制器
   final ScrollController scrollController = ScrollController();
 }
 
@@ -183,6 +210,7 @@ class SliversRefreshWidget extends StatelessWidget {
     });
   }
 
+  /// 默认的RefreshWidgetHeader
   Widget defaultHeader(BuildContext context) {
     double paddingTop = 0;
     double containerHeight = 55;
@@ -213,6 +241,7 @@ class SliversRefreshWidget extends StatelessWidget {
     );
   }
 
+  /// 默认的RefreshWidgetFooter
   Widget defaultFooter(BuildContext context) {
     double paddingBottom = 0;
     double containerHeight = 55;
