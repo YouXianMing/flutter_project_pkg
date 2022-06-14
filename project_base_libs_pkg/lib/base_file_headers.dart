@@ -89,3 +89,4 @@ export 'base/widgets/button/animated_button_widget.dart'; // 动画按钮控件
 export 'base/widgets/button/opacity_button_widget.dart'; // 透明度动画按钮控件
 export 'base/widgets/button/scale_button_widget.dart'; // 缩放动画按钮控件
 export 'base/widgets/line_percent_widget.dart'; // 线条样式的百分比控件(没有动画效果)
+export 'base/widgets/read_more_text_widget.dart'; // ReadMore文本控件
