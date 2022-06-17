@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 /// 参考 https://pub.flutter-io.cn/packages/readmore 的源码进行修改
 
 enum TrimMode {
+  /// 设定文本长度的模式
   length,
+
+  /// 设定行数的模式
   line,
 }
 
@@ -30,7 +33,7 @@ class ReadMoreTextWidget extends StatefulWidget {
     this.colorClickableText,
     this.trimLength = 240,
     this.trimLines = 2,
-    this.trimMode = TrimMode.length,
+    this.trimMode = TrimMode.line,
     this.style,
     this.textAlign,
     this.textDirection,

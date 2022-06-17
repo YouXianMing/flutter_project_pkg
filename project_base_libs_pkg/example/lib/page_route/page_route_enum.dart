@@ -5,6 +5,7 @@ import 'package:example/pages/project_use/information_view/infomation_view_page.
 import 'package:example/pages/project_use/layout_mask/layout_mask_page.dart';
 import 'package:example/pages/project_use/maybe_pop/maybe_pop_page.dart';
 import 'package:example/pages/project_use/networks/networks_page.dart';
+import 'package:example/pages/project_use/read_more_text_widget/read_more_text_widget_page.dart';
 import 'package:example/pages/project_use/reg_exp/reg_exp_page.dart';
 import 'package:example/pages/project_use/sliver_refresh_widget/slivers_refresh_widget_page.dart';
 import 'package:example/pages/project_use/sliver_sections/sliver_sections_page.dart';
@@ -33,6 +34,7 @@ enum PageRouteEnum {
   maybePop,
   networks,
   tabBar,
+  readMoreTextWidget,
 }
 
 // pageRouteEnum的准备操作,请放在main里
@@ -85,6 +87,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => TabBarPage(arguments: arguments));
       case PageRouteEnum.layoutMask:
         return MaterialPageRoute(settings: settings, builder: (_) => LayoutMaskPage(arguments: arguments));
+      case PageRouteEnum.readMoreTextWidget:
+        return MaterialPageRoute(settings: settings, builder: (_) => ReadMoreTextWidgetPage(arguments: arguments));
     }
   }
 
@@ -143,6 +147,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.layoutMask:
         pageRouteName = _pageRouteNameFrom(LayoutMaskPage);
+        break;
+      case PageRouteEnum.readMoreTextWidget:
+        pageRouteName = _pageRouteNameFrom(ReadMoreTextWidgetPage);
         break;
     }
 
