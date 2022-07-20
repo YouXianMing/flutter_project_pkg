@@ -1,6 +1,6 @@
 name: project_base_libs_pkg
 description: A new Flutter project.
-version: 1.0.4
+version: 1.0.5
 homepage: 'https://github.com/YouXianMing/flutter_project_pkg'
 
 environment:
@@ -52,6 +52,11 @@ dependencies:
   # https://pub.flutter-io.cn/packages/english_words
   english_words: 4.0.0
 
+  # [dart.dev] 路径
+  # FLUTTER: Android iOS Linux MacOS Web Windows
+  # https://pub.flutter-io.cn/packages/path
+  path: 1.8.1
+
   ####################################################
   # Flutter: Android iOS Linux MacOS Web Windows
   ####################################################
@@ -59,7 +64,7 @@ dependencies:
   # [romainrastel.com] iOS的section herder悬停效果
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/flutter_sticky_header
-  flutter_sticky_header: 0.6.1
+  flutter_sticky_header: 0.6.3
 
   # [romainrastel.com] 不规则瀑布流
   # FLUTTER: Android iOS Linux MacOS Web Windows
@@ -79,7 +84,7 @@ dependencies:
   # [getx.site] 状态管理,依赖注入,路由管理等工具合集
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/get
-  get: 4.6.1
+  get: 4.6.5
 
   # 加载动画合集
   # FLUTTER: Android iOS Linux MacOS Web Windows
@@ -99,12 +104,17 @@ dependencies:
   # 加载动画合集
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.dev/packages/loading_animation_widget
-  loading_animation_widget: ^1.1.0+5
+  loading_animation_widget: ^1.2.0+2
+
+  # [作者退圈了] 上拉加载,下拉刷新
+  # FLUTTER: Android iOS Linux MacOS Web Windows
+  # https://pub.flutter-io.cn/packages/pull_to_refresh
+  # pull_to_refresh: 2.0.0
 
   # 上拉加载,下拉刷新
   # FLUTTER: Android iOS Linux MacOS Web Windows
-  # https://pub.flutter-io.cn/packages/pull_to_refresh
-  pull_to_refresh: 2.0.0
+  # https://pub.flutter-io.cn/packages/pull_to_refresh_flutter3
+  pull_to_refresh_flutter3: 2.0.1
 
 dev_dependencies:
 
@@ -116,7 +126,7 @@ dev_dependencies:
   # DART: Native JS
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/flutter_lints
-  flutter_lints: 1.0.4
+  flutter_lints: 2.0.1
 
   flutter_test:
     sdk: flutter

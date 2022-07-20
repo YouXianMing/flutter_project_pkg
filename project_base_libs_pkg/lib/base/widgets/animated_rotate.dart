@@ -23,10 +23,10 @@ class AnimatedRotate extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _AnimatedRotateState createState() => _AnimatedRotateState();
+  AnimatedRotateState createState() => AnimatedRotateState();
 }
 
-class _AnimatedRotateState extends State<AnimatedRotate> with SingleTickerProviderStateMixin {
+class AnimatedRotateState extends State<AnimatedRotate> with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
 
   @override

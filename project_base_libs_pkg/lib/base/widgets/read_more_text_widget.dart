@@ -42,7 +42,7 @@ class ReadMoreTextWidget extends StatefulWidget {
     this.semanticsLabel,
     this.moreStyle,
     this.lessStyle,
-    this.delimiter = _kEllipsis + ' ',
+    this.delimiter = '$_kEllipsis ',
     this.delimiterStyle,
     this.callback,
   }) : super(key: key);
@@ -94,14 +94,14 @@ class ReadMoreTextWidgetState extends State<ReadMoreTextWidget> {
   bool _readMore = true;
 
   void _onTapLink() {
-    // 如果设置了不可点击,则不会响应点击事件
-    if (widget.controller != null && widget.controller!.canTapReadMoreLink == false) return;
-
     setState(() {
       _readMore = !_readMore;
       widget.callback?.call(_readMore);
     });
   }
+
+  /// 是否可以点击链接
+  bool get canTapLink => !(widget.controller != null && widget.controller!.canTapReadMoreLink == false);
 
   @override
   Widget build(BuildContext context) {
@@ -118,17 +118,17 @@ class ReadMoreTextWidgetState extends State<ReadMoreTextWidget> {
     final locale = widget.locale ?? Localizations.maybeLocaleOf(context);
 
     final colorClickableText = widget.colorClickableText ?? Theme.of(context).colorScheme.secondary;
-    final _defaultLessStyle = widget.lessStyle ?? effectiveTextStyle?.copyWith(color: colorClickableText);
-    final _defaultMoreStyle = widget.moreStyle ?? effectiveTextStyle?.copyWith(color: colorClickableText);
-    final _defaultDelimiterStyle = widget.delimiterStyle ?? effectiveTextStyle;
+    final defaultLessStyle = widget.lessStyle ?? effectiveTextStyle?.copyWith(color: colorClickableText);
+    final defaultMoreStyle = widget.moreStyle ?? effectiveTextStyle?.copyWith(color: colorClickableText);
+    final defaultDelimiterStyle = widget.delimiterStyle ?? effectiveTextStyle;
 
     TextSpan link = TextSpan(
       text: _readMore ? widget.trimCollapsedText : widget.trimExpandedText,
-      style: _readMore ? _defaultMoreStyle : _defaultLessStyle,
-      recognizer: TapGestureRecognizer()..onTap = _onTapLink,
+      style: _readMore ? defaultMoreStyle : defaultLessStyle,
+      recognizer: canTapLink ? (TapGestureRecognizer()..onTap = _onTapLink) : null,
     );
 
-    TextSpan _delimiter = TextSpan(
+    TextSpan delimiter = TextSpan(
       text: _readMore
           ? widget.trimCollapsedText.isNotEmpty
               ? widget.delimiter
@@ -136,8 +136,8 @@ class ReadMoreTextWidgetState extends State<ReadMoreTextWidget> {
           : widget.trimExpandedText.isNotEmpty
               ? widget.delimiter
               : '',
-      style: _defaultDelimiterStyle,
-      recognizer: TapGestureRecognizer()..onTap = _onTapLink,
+      style: defaultDelimiterStyle,
+      recognizer: canTapLink ? (TapGestureRecognizer()..onTap = _onTapLink) : null,
     );
 
     Widget result = LayoutBuilder(
@@ -165,7 +165,7 @@ class ReadMoreTextWidgetState extends State<ReadMoreTextWidget> {
         final linkSize = textPainter.size;
 
         // Layout and measure delimiter
-        textPainter.text = _delimiter;
+        textPainter.text = delimiter;
         textPainter.layout(minWidth: 0, maxWidth: maxWidth);
         final delimiterSize = textPainter.size;
 
@@ -203,7 +203,7 @@ class ReadMoreTextWidgetState extends State<ReadMoreTextWidget> {
               textSpan = TextSpan(
                 style: effectiveTextStyle,
                 text: _readMore ? widget.data.substring(0, widget.trimLength) : widget.data,
-                children: <TextSpan>[_delimiter, link],
+                children: <TextSpan>[delimiter, link],
               );
             } else {
               if (widget.controller != null) widget.controller!._haveReadMore = false;
@@ -222,7 +222,7 @@ class ReadMoreTextWidgetState extends State<ReadMoreTextWidget> {
               textSpan = TextSpan(
                 style: effectiveTextStyle,
                 text: _readMore ? widget.data.substring(0, endIndex) + (linkLongerThanLine ? _kLineSeparator : '') : widget.data,
-                children: <TextSpan>[_delimiter, link],
+                children: <TextSpan>[delimiter, link],
               );
             } else {
               if (widget.controller != null) widget.controller!._haveReadMore = false;

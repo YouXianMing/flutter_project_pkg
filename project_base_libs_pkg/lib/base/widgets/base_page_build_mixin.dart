@@ -28,13 +28,14 @@ mixin BasePageBuildMixin {
   /// (overwrite) 是否使用WillPopScope,默认使用(iOS使用后会导致侧滑返回失效)
   bool useWillPopScope(BuildContext context) => true;
 
-  ///  WillPopScope方法会调用此方法,返回上一级
+  /// WillPopScope方法会调用此方法,返回上一级
+  /// 注意: 子类重写该方法需要子类自行判断context的mounted的情形
   Future<bool> canPopBack(BuildContext context) => Future.value(true);
 
   /// 检查是否可以pop,只有返回了Future<bool>才有效(在canPopBack调用之前先拦截下)
   Future<dynamic>? checkWillPop(BuildContext context) => null;
 
-  ///  直接返回上一级
+  /// 直接返回上一级
   void pop(BuildContext context, {dynamic result}) => Navigator.of(context).pop(result);
 
   /// 调用此方法会会触发WillPopScope中的onWillPop方法调用(如果当前页面设置了WillPopScope),不要在canPopBack方法中调用此方法,否则会导致死循环
@@ -62,7 +63,7 @@ mixin BasePageBuildMixin {
                       return Future.value(value);
                     }
                   }
-
+                  // ignore: use_build_context_synchronously
                   return canPopBack(context);
                 },
                 child: buildMainWidget(context))

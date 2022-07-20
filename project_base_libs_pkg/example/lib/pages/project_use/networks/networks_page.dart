@@ -4,8 +4,8 @@ import 'package:example/widgets/app_button.dart';
 import 'package:example/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
-import 'package:dio/dio.dart' as dio;
 import 'package:project_base_libs_pkg/third_lib_get.dart';
+import 'package:project_base_libs_pkg/third_lib_dio.dart' as dio;
 
 class NetworksPage extends NormalStatefulWidget {
   final PageArguments? arguments;

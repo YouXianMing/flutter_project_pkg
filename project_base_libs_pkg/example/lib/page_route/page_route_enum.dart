@@ -158,6 +158,6 @@ extension PageRouteEnumExtension on PageRouteEnum {
   }
 }
 
-String _pageRouteNameFrom(var className) => '/' + className.toString();
-late Map<String, PageRouteEnum> _stringEnumMap = {};
-late Map<PageRouteEnum, String> _enumStringMap = {};
+String _pageRouteNameFrom(var className) => '/$className';
+Map<String, PageRouteEnum> _stringEnumMap = {};
+Map<PageRouteEnum, String> _enumStringMap = {};

@@ -35,10 +35,10 @@ class LazyLoadIndexedStack extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _LazyLoadIndexedStackState createState() => _LazyLoadIndexedStackState();
+  LazyLoadIndexedStackState createState() => LazyLoadIndexedStackState();
 }
 
-class _LazyLoadIndexedStackState extends State<LazyLoadIndexedStack> {
+class LazyLoadIndexedStackState extends State<LazyLoadIndexedStack> {
   /// 存储children是否加载过的数组
   List<_LoadedItem> _alreadyLoadedItems = [];
 

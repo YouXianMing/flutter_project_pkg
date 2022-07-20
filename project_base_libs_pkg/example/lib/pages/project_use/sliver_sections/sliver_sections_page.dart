@@ -3,9 +3,9 @@ import 'package:example/pages/base/normal_stateful_widget.dart';
 import 'package:example/widgets/custom_app_bar.dart';
 import 'package:example/widgets/static_func_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:project_base_libs_pkg/base/others/linear_equation.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
+import 'package:project_base_libs_pkg/third_lib_flutter_sticky_header.dart';
 
 class SliverSectionsPage extends NormalStatefulWidget {
   final PageArguments? arguments;
