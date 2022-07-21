@@ -72,13 +72,15 @@ export 'base/widgets/indicators/indicator_configs/watery_desert_indicator_config
 export 'base/widgets/custom_wrap_widget.dart'; // 仿制Wrap控件,可以设置宽高
 export 'base/widgets/custom_tab_bar_widget.dart'; // 常用自定义TabBar
 export 'base/widgets/custom_text_field.dart'; // 常用自定义TextField
+export 'base/widgets/custom_stateful_widget_mixin.dart'; // 常用自定义StatefulWidget中的State
 export 'base/widgets/layout_mask_widget.dart'; // 在遮罩中进行镂空的widget
 export 'base/widgets/toast_widget.dart'; // toast
 export 'base/widgets/base_stateful_widget.dart'; // statefulWidget基类
 export 'base/widgets/base_stateless_widget.dart'; // stateflessWidget基类
 export 'base/widgets/staggered_grid_view_count_widget.dart'; // staggered_grid_view_count_widget
 export 'base/widgets/sliver_refresh_widget.dart'; // 刷新用控件
-export 'base/widgets/sliver_sections_widget.dart'; // 不带刷新功能的SliverSections控件
+// export 'base/widgets/sliver_sections_widget.dart'; // 不带刷新功能的SliverSections控件
+export 'base/widgets/sliver_sections_v2_widget.dart'; // 不带刷新功能的SliverSections控件
 export 'base/widgets/base_app_bar.dart'; // appBar
 export 'base/widgets/lazy_load_indexed_stack.dart'; // 懒加载版本的IndexedStack
 export 'base/widgets/animated_rotate.dart'; // 旋转动画控件
