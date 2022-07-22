@@ -64,7 +64,7 @@ dependencies:
   # [romainrastel.com] iOS的section herder悬停效果
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/flutter_sticky_header
-  flutter_sticky_header: 0.6.3
+  flutter_sticky_header: 0.6.4
 
   # [romainrastel.com] 不规则瀑布流
   # FLUTTER: Android iOS Linux MacOS Web Windows
@@ -99,7 +99,7 @@ dependencies:
   # 加载动画合集
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.dev/packages/loading_indicator
-  loading_indicator: 3.0.3
+  loading_indicator: 3.1.0
 
   # 加载动画合集
   # FLUTTER: Android iOS Linux MacOS Web Windows
