@@ -37,7 +37,6 @@ export 'base/others/sliver_section/sliver_layout_builder/sliver_layout_builder_s
 export 'base/others/sliver_section/sliver_third_libs/sliver_staggered_grid_count_builder_section.dart'; // sliverSection相关
 export 'base/others/sliver_section/sliver_third_libs/sliver_quilted_grid_section.dart'; // sliverSection相关
 export 'base/others/sliver_section/sliver_third_libs/sliver_waterfall_flow_section.dart'; // sliverSection相关
-export 'base/others/widgets_factory.dart'; // 常用widget的工厂类
 export 'base/others/staggered_grid_data.dart';
 export 'base/others/no_splash_theme.dart';
 
@@ -92,3 +91,5 @@ export 'base/widgets/button/opacity_button_widget.dart'; // 透明度动画按�
 export 'base/widgets/button/scale_button_widget.dart'; // 缩放动画按钮控件
 export 'base/widgets/line_percent_widget.dart'; // 线条样式的百分比控件(没有动画效果)
 export 'base/widgets/read_more_text_widget.dart'; // ReadMore文本控件
+export 'base/widgets/rich_text_widget.dart'; // 富文本简化用widget
+export 'base/widgets/widgets_factory.dart'; // 常用widget的工厂类
