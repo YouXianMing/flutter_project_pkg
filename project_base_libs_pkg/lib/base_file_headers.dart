@@ -70,6 +70,7 @@ export 'base/widgets/indicators/indicator_configs/cytryn_indicator_config.dart';
 export 'base/widgets/indicators/indicator_configs/watery_desert_indicator_config.dart'; // 菊花控件配置
 export 'base/widgets/custom_wrap_widget.dart'; // 仿制Wrap控件,可以设置宽高
 export 'base/widgets/custom_tab_bar_widget.dart'; // 常用自定义TabBar
+export 'base/widgets/drag_area_widget.dart'; // 可拖拽组件
 export 'base/widgets/custom_text_field.dart'; // 常用自定义TextField
 export 'base/widgets/custom_stateful_widget_mixin.dart'; // 常用自定义StatefulWidget中的State
 export 'base/widgets/layout_mask_widget.dart'; // 在遮罩中进行镂空的widget
