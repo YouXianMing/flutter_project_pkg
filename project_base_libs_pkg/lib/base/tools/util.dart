@@ -6,11 +6,17 @@ import 'package:flutter/material.dart';
 class Util {
   /// https://pub.flutter-io.cn/packages/english_words
   static WordPair get randomWordPair => WordPair.random();
+
   static String get randomWordPairAsString => WordPair.random().asString;
+
   static String get randomWordPairAsLowerCase => WordPair.random().asLowerCase;
+
   static String get randomWordPairAsSnakeCase => WordPair.random().asSnakeCase;
+
   static String get randomWordPairAsPascalCase => WordPair.random().asPascalCase;
+
   static String get randomWordPairAsCamelCase => WordPair.random().asCamelCase;
+
   static String get randomWordPairAsUpperCase => WordPair.random().asUpperCase;
 
   /// 随机色(透明度也是随机的)
@@ -67,6 +73,7 @@ class Util {
   /// 获取图片(需要设置assertsImagePath,如果没设置,默认为lib/images/)
   static set assertsImagePath(String val) => _assetsImagePath = val;
   static String _assetsImagePath = 'lib/images/';
+
   static Image image(String name, {Key? key, double? scale, double? width, double? height, BoxFit? fit, Color? color}) => Image.asset(
         _assetsImagePath + name,
         key: key,
@@ -84,11 +91,21 @@ class Util {
   /// 延时秒
   static Future<T> delayedSeconds<T>(int seconds, FutureOr<T> Function()? computation) =>
       Future.delayed(Duration(seconds: seconds), computation);
+
+  /// 获取秒时间戳
+  static int get secondsTimestamp => DateTime.now().millisecondsSinceEpoch ~/ 1000;
+
+  /// 获取毫秒时间戳
+  static int get millisecondsTimestamp => DateTime.now().millisecondsSinceEpoch;
+
+  /// 获取微秒时间戳
+  static int get microsecondsTimestamp => DateTime.now().microsecondsSinceEpoch;
 }
 
 class CalculateText {
   String string;
   TextStyle style;
   TextDirection? direction;
+
   CalculateText(this.string, this.style, {this.direction});
 }
