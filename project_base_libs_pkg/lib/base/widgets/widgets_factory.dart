@@ -172,15 +172,15 @@ class WidgetsFactory {
 
 /// listViewBuilder专用
 class ListViewBuilderConfig {
-  List<dynamic> items;
-  ItemWidgetBuilder builder;
-  Axis scrollDirection;
-  ScrollController? controller;
-  EdgeInsets? padding;
-  bool shrinkWrap; // shrinkWrap为false会尽可能的填充满parent组件给的空间大小.而shrinkWrap为true则是只满足自身大小。
-  ScrollPhysics? physics; // 确定可滚动控件的物理特性
+  final List<dynamic> items;
+  final ItemWidgetBuilder builder;
+  final Axis scrollDirection;
+  final ScrollController? controller;
+  final EdgeInsets? padding;
+  final bool shrinkWrap; // shrinkWrap为false会尽可能的填充满parent组件给的空间大小.而shrinkWrap为true则是只满足自身大小。
+  final ScrollPhysics? physics; // 确定可滚动控件的物理特性
 
-  ListViewBuilderConfig({
+  const ListViewBuilderConfig({
     required this.items,
     required this.builder,
     this.scrollDirection = Axis.vertical,
@@ -193,19 +193,19 @@ class ListViewBuilderConfig {
 
 /// gridViewBuilder专用
 class GridViewBuilderConfig {
-  List<dynamic> items;
-  ItemWidgetBuilder builder;
-  Axis scrollDirection;
-  ScrollController? controller;
-  int crossAxisCount;
-  double childAspectRatio;
-  double mainAxisSpacing;
-  double crossAxisSpacing;
-  EdgeInsetsGeometry? padding;
-  bool shrinkWrap; // shrinkWrap为false会尽可能的填充满parent组件给的空间大小.而shrinkWrap为true则是只满足自身大小。
-  ScrollPhysics? physics; // 确定可滚动控件的物理特性
+  final List<dynamic> items;
+  final ItemWidgetBuilder builder;
+  final Axis scrollDirection;
+  final ScrollController? controller;
+  final int crossAxisCount;
+  final double childAspectRatio;
+  final double mainAxisSpacing;
+  final double crossAxisSpacing;
+  final EdgeInsetsGeometry? padding;
+  final bool shrinkWrap; // shrinkWrap为false会尽可能的填充满parent组件给的空间大小.而shrinkWrap为true则是只满足自身大小。
+  final ScrollPhysics? physics; // 确定可滚动控件的物理特性
 
-  GridViewBuilderConfig({
+  const GridViewBuilderConfig({
     required this.items,
     required this.builder,
     this.scrollDirection = Axis.vertical,
