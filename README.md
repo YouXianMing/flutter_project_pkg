@@ -35,7 +35,6 @@ WateryDesertIndicatorConfig|对第三方库[loading_animation_widget](https://pu
 SafeAreaPaddingWidget|添加安全距离的Widget
 SliversRefreshWidget|对[pull_to_refresh](https://pub.flutter-io.cn/packages/pull_to_refresh)进行封装，简化其使用
 StackContainer|一个Stack的管理器
-StatusWidget|一个包含了普通、高亮、禁用、选中、未选中状态以及处理逻辑的基础控件，可用于封装Button用
 BaseButtonWidget|一个包含了普通、高亮、禁用状态的Button控件，可用于封装Button用
 AnimatedButtonWidget|基于BaseButtonWidget封装的支持交互动画的Button
 OpacityButtonWidget|基于BaseButtonWidget封装的支持透明度动画的Button
