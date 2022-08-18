@@ -6,29 +6,20 @@ class CartItemModel {
   final String title;
   final String? route;
 
-  CartItemModel({
-    required this.title,
-    this.route,
-  });
+  const CartItemModel({required this.title, this.route});
 }
 
 class CartItemWidget extends StatelessWidget {
   final CartItemModel? model;
   final WidgetEventCallback? callback;
 
-  const CartItemWidget({
-    Key? key,
-    this.model,
-    this.callback,
-  }) : super(key: key);
+  const CartItemWidget({Key? key, this.model, this.callback}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (callback != null) {
-          callback!(context, WidgetEventItem(widget: this, data: model));
-        }
+        if (callback != null) callback!(context, WidgetEventItem(widget: this, data: model));
       },
       child: Container(
         alignment: Alignment.centerLeft,

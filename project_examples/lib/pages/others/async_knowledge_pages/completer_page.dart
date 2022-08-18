@@ -27,10 +27,7 @@ class CompleterPageState extends NormalStatefulWidgetState<CompleterPage> {
   }
 
   void startFuture() async {
-    Future.delayed(Duration(seconds: Util.randomInt(max: 4, min: 1)), () {
-      completer.complete('结果');
-    });
-
+    Future.delayed(Duration(seconds: Util.randomInt(max: 4, min: 1)), () => completer.complete('结果'));
     info = await completer.future;
     setState(() {});
   }

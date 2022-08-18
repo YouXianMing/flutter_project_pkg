@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
-import 'package:project_examples/pages/base/normal_stateless_widget.dart';
-import 'package:project_examples/route/route_config.dart';
+import 'package:project_examples/pages/base/normal_stateful_widget.dart';
+import 'package:project_examples/route/getx_route_config.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 
-class ProjectUsePage extends NormalStatelessWidget with WidgetEventCallbackMixin {
-  ProjectUsePage({Key? key}) : super(key: key);
+class ProjectUsePage extends NormalStatefulWidget {
+  const ProjectUsePage({Key? key}) : super(key: key);
 
+  @override
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => ProjectUsePageState();
+}
+
+class ProjectUsePageState extends NormalStatefulWidgetState<ProjectUsePage> with WidgetEventCallbackMixin {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
         context: context,
@@ -26,7 +31,6 @@ class ProjectUsePage extends NormalStatelessWidget with WidgetEventCallbackMixin
           items: [
             CartItemModel(title: 'SliverSections的使用', route: RouteConfig.sliverSectionsPage),
             CartItemModel(title: 'SliverRefreshWidget', route: RouteConfig.sliverRefreshWidgetPage),
-            CartItemModel(title: 'StatusWidget', route: RouteConfig.statusWidgetPage),
             CartItemModel(title: 'InformationView', route: RouteConfig.informationViewPage),
             CartItemModel(title: 'ToastWidget', route: RouteConfig.toastWidgetPage),
           ],
@@ -38,8 +42,6 @@ class ProjectUsePage extends NormalStatelessWidget with WidgetEventCallbackMixin
 
   @override
   void widgetEventCallback(BuildContext? context, WidgetEventItem eventItem) {
-    if (eventItem.data is CartItemModel) {
-      Get.toNamed(eventItem.data.route!, arguments: eventItem.data);
-    }
+    if (eventItem.data is CartItemModel) Get.toNamed(eventItem.data.route!, arguments: eventItem.data);
   }
 }

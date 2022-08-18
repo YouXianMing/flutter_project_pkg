@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:project_examples/pages/base/normal_stateless_widget.dart';
+import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
+import 'package:project_examples/pages/base/normal_stateful_widget.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 
-class GroupAnimationPage extends NormalStatelessWidget {
-  GroupAnimationPage({Key? key}) : super(key: key);
+class GroupAnimationPage extends NormalStatefulWidget {
+  const GroupAnimationPage({Key? key}) : super(key: key);
 
+  @override
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => GroupAnimationPageState();
+}
+
+class GroupAnimationPageState extends NormalStatefulWidgetState<GroupAnimationPage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
         context: context,
@@ -38,8 +44,8 @@ class _GroupAnimationDemoState extends State<_GroupAnimationDemo> with SingleTic
     /// Interval(0.0, 0.80) 表示从0秒到4秒(总时间的4/5,通过百分比计算得出)
     /// Interval(0.80, 1.0) 表示从4秒到5秒(总时间的1/5,通过百分比计算得出)
 
-    _colorAnimation =
-        ColorTween(begin: Colors.red, end: Colors.blue).animate(CurvedAnimation(parent: _animationController, curve: const Interval(0.0, 0.80)));
+    _colorAnimation = ColorTween(begin: Colors.red, end: Colors.blue)
+        .animate(CurvedAnimation(parent: _animationController, curve: const Interval(0.0, 0.80)));
 
     _sizeAnimation = Tween(begin: 100.0, end: 300.0)
         .animate(CurvedAnimation(parent: _animationController, curve: const Interval(0.80, 1.0, curve: Curves.bounceOut)));

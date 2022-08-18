@@ -1,15 +1,20 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:project_examples/pages/base/normal_stateless_widget.dart';
+import 'package:project_examples/pages/base/normal_stateful_widget.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 
-class AnimationsManagerRandomPage extends NormalStatelessWidget {
-  AnimationsManagerRandomPage({Key? key}) : super(key: key);
+class AnimationsManagerRandomPage extends NormalStatefulWidget {
+  const AnimationsManagerRandomPage({Key? key}) : super(key: key);
 
+  @override
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => AnimationsManagerRandomPageState();
+}
+
+class AnimationsManagerRandomPageState extends NormalStatefulWidgetState<AnimationsManagerRandomPage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
         context: context,
@@ -68,11 +73,13 @@ class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> wit
 
   void startAnimation() {
     // 更新动画对象
-    manager.setAnimationObject(key: bgColor, value: CurveTweenObject(tween: ColorTween(begin: beginColor, end: endColor), curve: Curves.linear));
+    manager.setAnimationObject(
+        key: bgColor, value: CurveTweenObject(tween: ColorTween(begin: beginColor, end: endColor), curve: Curves.linear));
 
     // 更新动画对象
     manager.setAnimationObject(
-        key: percent, value: CurveTweenObject(tween: Tween<double>(begin: beginPercentValue, end: endPercentValue), curve: Curves.easeOutQuint));
+        key: percent,
+        value: CurveTweenObject(tween: Tween<double>(begin: beginPercentValue, end: endPercentValue), curve: Curves.easeOutQuint));
 
     // 更新动画参数
     beginPercentValue = endPercentValue;

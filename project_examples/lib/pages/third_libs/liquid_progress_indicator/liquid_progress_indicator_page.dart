@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:project_examples/pages/base/normal_stateless_widget.dart';
+import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
+import 'package:project_examples/pages/base/normal_stateful_widget.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 
-class LiquidProgressIndicatorPage extends NormalStatelessWidget {
-  LiquidProgressIndicatorPage({Key? key}) : super(key: key);
+class LiquidProgressIndicatorPage extends NormalStatefulWidget {
+  const LiquidProgressIndicatorPage({Key? key}) : super(key: key);
 
+  @override
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => LiquidProgressIndicatorPageState();
+}
+
+class LiquidProgressIndicatorPageState extends NormalStatefulWidgetState<LiquidProgressIndicatorPage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
         context: context,
@@ -123,7 +129,9 @@ class LiquidProgressIndicatorPage extends NormalStatelessWidget {
                 height: 35,
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: LiquidLinearProgressIndicator(
-                    backgroundColor: Colors.lightGreen, valueColor: const AlwaysStoppedAnimation(Colors.blueGrey), direction: Axis.vertical),
+                    backgroundColor: Colors.lightGreen,
+                    valueColor: const AlwaysStoppedAnimation(Colors.blueGrey),
+                    direction: Axis.vertical),
               ),
             ],
           ),
@@ -164,7 +172,8 @@ class _AnimatedLiquidCircularProgressIndicator extends StatefulWidget {
   State<StatefulWidget> createState() => _AnimatedLiquidCircularProgressIndicatorState();
 }
 
-class _AnimatedLiquidCircularProgressIndicatorState extends State<_AnimatedLiquidCircularProgressIndicator> with SingleTickerProviderStateMixin {
+class _AnimatedLiquidCircularProgressIndicatorState extends State<_AnimatedLiquidCircularProgressIndicator>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 
   @override
@@ -207,7 +216,8 @@ class _AnimatedLiquidCustomProgressIndicator extends StatefulWidget {
   State<StatefulWidget> createState() => _AnimatedLiquidCustomProgressIndicatorState();
 }
 
-class _AnimatedLiquidCustomProgressIndicatorState extends State<_AnimatedLiquidCustomProgressIndicator> with SingleTickerProviderStateMixin {
+class _AnimatedLiquidCustomProgressIndicatorState extends State<_AnimatedLiquidCustomProgressIndicator>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 
   @override
@@ -258,7 +268,8 @@ class _AnimatedLiquidLinearProgressIndicator extends StatefulWidget {
   State<StatefulWidget> createState() => _AnimatedLiquidLinearProgressIndicatorState();
 }
 
-class _AnimatedLiquidLinearProgressIndicatorState extends State<_AnimatedLiquidLinearProgressIndicator> with SingleTickerProviderStateMixin {
+class _AnimatedLiquidLinearProgressIndicatorState extends State<_AnimatedLiquidLinearProgressIndicator>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 
   @override

@@ -96,12 +96,17 @@ dependencies:
   # Flutter: Android iOS Linux MacOS Web Windows
   snapping_sheet: ^3.1.0
 
-  # 组件库
+  # 基础组件库(通过Git的方式引入)
+  # Flutter: Android iOS Linux MacOS Web Windows
+#  project_base_libs_pkg:
+#    git:
+#      url: https://github.com/YouXianMing/flutter_project_pkg.git
+#      path: project_base_libs_pkg
+
+  # 基础组件库(通过本地的方式引入)
   # Flutter: Android iOS Linux MacOS Web Windows
   project_base_libs_pkg:
-    git:
-      url: https://github.com/YouXianMing/flutter_project_pkg.git
-      path: project_base_libs_pkg
+    path: ../project_base_libs_pkg
 
 dev_dependencies:
   flutter_test:

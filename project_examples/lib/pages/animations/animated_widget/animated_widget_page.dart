@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:project_examples/pages/base/normal_stateless_widget.dart';
+import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
+import 'package:project_examples/pages/base/normal_stateful_widget.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 
-class AnimatedWidgetPage extends NormalStatelessWidget {
-  AnimatedWidgetPage({Key? key}) : super(key: key);
+class AnimatedWidgetPage extends NormalStatefulWidget {
+  const AnimatedWidgetPage({Key? key}) : super(key: key);
 
+  @override
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => AnimatedWidgetPageState();
+}
+
+class AnimatedWidgetPageState extends NormalStatefulWidgetState<AnimatedWidgetPage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
         context: context,

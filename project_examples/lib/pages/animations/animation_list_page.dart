@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:project_examples/pages/base/normal_stateless_widget.dart';
-import 'package:project_examples/route/route_config.dart';
+import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
+import 'package:project_examples/pages/base/normal_stateful_widget.dart';
+import 'package:project_examples/route/getx_route_config.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/base/others/sliver_section/sliver_list/sliver_list_section.dart';
 import 'package:project_base_libs_pkg/base/widgets/widget_callback_mixin.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 
-class AnimationListPage extends NormalStatelessWidget with WidgetEventCallbackMixin {
-  AnimationListPage({Key? key}) : super(key: key);
+class AnimationListPage extends NormalStatefulWidget {
+  const AnimationListPage({Key? key}) : super(key: key);
 
+  @override
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => AnimationListPageState();
+}
+
+class AnimationListPageState extends NormalStatefulWidgetState<AnimationListPage> with WidgetEventCallbackMixin {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
         context: context,

@@ -14,7 +14,6 @@ import 'package:project_examples/pages/project_use/information_view/infomation_v
 import 'package:project_examples/pages/project_use/project_use_page.dart';
 import 'package:project_examples/pages/project_use/sliver_refresh_widget/slivers_refresh_widget_page.dart';
 import 'package:project_examples/pages/project_use/sliver_sections/sliver_sections_page.dart';
-import 'package:project_examples/pages/project_use/status_widget/status_widget_page.dart';
 import 'package:project_examples/pages/project_use/toast_widget/toast_widget_page.dart';
 import 'package:project_examples/pages/root/account/account_page.dart';
 import 'package:project_examples/pages/root/cart/cart_page.dart';
@@ -50,7 +49,6 @@ class RouteConfig {
   /// 项目用
   static const String projectUsePage = '/ProjectUsePage';
   static const String sliverSectionsPage = '/SliverSectionsPage';
-  static const String statusWidgetPage = '/StatusWidgetPage';
   static const String informationViewPage = '/InformationViewPage';
   static const String sliverRefreshWidgetPage = '/SliverRefreshWidgetPage';
   static const String toastWidgetPage = '/ToastWidgetPage';
@@ -100,44 +98,43 @@ class RouteConfig {
       GetPage(name: RouteConfig.accountPage, page: () => const AccountPage()),
 
       /// 项目用
-      GetPage(name: RouteConfig.projectUsePage, page: () => ProjectUsePage()),
+      GetPage(name: RouteConfig.projectUsePage, page: () => const ProjectUsePage()),
       GetPage(name: RouteConfig.sliverSectionsPage, page: () => const SliverSectionsPage()),
-      GetPage(name: RouteConfig.statusWidgetPage, page: () => StatusWidgetPage()),
-      GetPage(name: RouteConfig.informationViewPage, page: () => InformationViewPage()),
-      GetPage(name: RouteConfig.sliverRefreshWidgetPage, page: () => SliverRefreshWidgetPage()),
-      GetPage(name: RouteConfig.toastWidgetPage, page: () => ToastWidgetPage()),
+      GetPage(name: RouteConfig.informationViewPage, page: () => const InformationViewPage()),
+      GetPage(name: RouteConfig.sliverRefreshWidgetPage, page: () => const SliverRefreshWidgetPage()),
+      GetPage(name: RouteConfig.toastWidgetPage, page: () => const ToastWidgetPage()),
 
       /// 其他
-      GetPage(name: RouteConfig.screenInfoPage, page: () => ScreenInfoPage()),
-      GetPage(name: RouteConfig.asyncKnowledgePage, page: () => AsyncKnowledgePage()),
+      GetPage(name: RouteConfig.screenInfoPage, page: () => const ScreenInfoPage()),
+      GetPage(name: RouteConfig.asyncKnowledgePage, page: () => const AsyncKnowledgePage()),
 
       /// 动画相关内容
-      GetPage(name: RouteConfig.animationListPage, page: () => AnimationListPage()),
-      GetPage(name: RouteConfig.groupAnimationPage, page: () => GroupAnimationPage()),
-      GetPage(name: RouteConfig.tweenSequenceAnimationPage, page: () => TweenSequenceAnimationPage()),
-      GetPage(name: RouteConfig.baseAnimatedPage, page: () => BaseAnimatedPage()),
-      GetPage(name: RouteConfig.animatedWidgetPage, page: () => AnimatedWidgetPage()),
-      GetPage(name: RouteConfig.animationsManagerPage, page: () => AnimationsManagerPage()),
-      GetPage(name: RouteConfig.goodsAddToCartPage, page: () => GoodsAddToCartPage()),
-      GetPage(name: RouteConfig.animationsManagerIntervalPage, page: () => AnimationsManagerIntervalPage()),
-      GetPage(name: RouteConfig.animationsManagerRandomPage, page: () => AnimationsManagerRandomPage()),
-      GetPage(name: RouteConfig.animationsManagerSequencePage, page: () => AnimationsManagerSequencePage()),
-      GetPage(name: RouteConfig.animationsManagerCurvesPage, page: () => AnimationsManagerCurvesPage()),
+      GetPage(name: RouteConfig.animationListPage, page: () => const AnimationListPage()),
+      GetPage(name: RouteConfig.groupAnimationPage, page: () => const GroupAnimationPage()),
+      GetPage(name: RouteConfig.tweenSequenceAnimationPage, page: () => const TweenSequenceAnimationPage()),
+      GetPage(name: RouteConfig.baseAnimatedPage, page: () => const BaseAnimatedPage()),
+      GetPage(name: RouteConfig.animatedWidgetPage, page: () => const AnimatedWidgetPage()),
+      GetPage(name: RouteConfig.animationsManagerPage, page: () => const AnimationsManagerPage()),
+      GetPage(name: RouteConfig.goodsAddToCartPage, page: () => const GoodsAddToCartPage()),
+      GetPage(name: RouteConfig.animationsManagerIntervalPage, page: () => const AnimationsManagerIntervalPage()),
+      GetPage(name: RouteConfig.animationsManagerRandomPage, page: () => const AnimationsManagerRandomPage()),
+      GetPage(name: RouteConfig.animationsManagerSequencePage, page: () => const AnimationsManagerSequencePage()),
+      GetPage(name: RouteConfig.animationsManagerCurvesPage, page: () => const AnimationsManagerCurvesPage()),
 
       /// third_libs
-      GetPage(name: RouteConfig.thirdLibPage, page: () => ThirdLibPage()),
-      GetPage(name: RouteConfig.htmlToTextSpanPage, page: () => HtmlToTextSpanPage()),
-      GetPage(name: RouteConfig.loadingAnimationsPage, page: () => LoadingAnimationsPage()),
-      GetPage(name: RouteConfig.shimmerPage, page: () => ShimmerPage()),
+      GetPage(name: RouteConfig.thirdLibPage, page: () => const ThirdLibPage()),
+      GetPage(name: RouteConfig.htmlToTextSpanPage, page: () => const HtmlToTextSpanPage()),
+      GetPage(name: RouteConfig.loadingAnimationsPage, page: () => const LoadingAnimationsPage()),
+      GetPage(name: RouteConfig.shimmerPage, page: () => const ShimmerPage()),
       GetPage(name: RouteConfig.snappingSheetPage, page: () => const SnappingSheetPage()),
       GetPage(name: RouteConfig.staggeredGridViewPage, page: () => const StaggeredGridViewPage()),
-      GetPage(name: RouteConfig.lineIconsPage, page: () => LineIconsPage()),
-      GetPage(name: RouteConfig.readMorePage, page: () => ReadMorePage()),
-      GetPage(name: RouteConfig.timerCountDownPage, page: () => TimerCountDownPage()),
-      GetPage(name: RouteConfig.cachedNetworkImagePage, page: () => CachedNetworkImagePage()),
-      GetPage(name: RouteConfig.scratcherPage, page: () => ScratcherPage()),
+      GetPage(name: RouteConfig.lineIconsPage, page: () => const LineIconsPage()),
+      GetPage(name: RouteConfig.readMorePage, page: () => const ReadMorePage()),
+      GetPage(name: RouteConfig.timerCountDownPage, page: () => const TimerCountDownPage()),
+      GetPage(name: RouteConfig.cachedNetworkImagePage, page: () => const CachedNetworkImagePage()),
+      GetPage(name: RouteConfig.scratcherPage, page: () => const ScratcherPage()),
       GetPage(name: RouteConfig.flipCardPage, page: () => const FlipCardPage()),
-      GetPage(name: RouteConfig.liquidProgressIndicatorPage, page: () => LiquidProgressIndicatorPage()),
+      GetPage(name: RouteConfig.liquidProgressIndicatorPage, page: () => const LiquidProgressIndicatorPage()),
     ];
   }
 }

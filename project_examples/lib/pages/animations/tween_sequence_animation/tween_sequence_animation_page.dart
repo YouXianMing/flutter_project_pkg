@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:project_examples/pages/base/normal_stateless_widget.dart';
+import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
+import 'package:project_examples/pages/base/normal_stateful_widget.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 
-class TweenSequenceAnimationPage extends NormalStatelessWidget {
-  TweenSequenceAnimationPage({Key? key}) : super(key: key);
+class TweenSequenceAnimationPage extends NormalStatefulWidget {
+  const TweenSequenceAnimationPage({Key? key}) : super(key: key);
 
+  @override
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => TweenSequenceAnimationPageState();
+}
+
+class TweenSequenceAnimationPageState extends NormalStatefulWidgetState<TweenSequenceAnimationPage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
         context: context,

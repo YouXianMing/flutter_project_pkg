@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 ///
 class NormalAppBar extends BaseAppBar {
   static Widget titleWidget(String text) {
-    return WidgetsFactory.text(text, fontSize: 38.sp, maxLines: 1, overflow: TextOverflow.ellipsis);
+    return WidgetsFactory.text(text, fontSize: 32.sp, maxLines: 2, overflow: TextOverflow.ellipsis, textAlign: TextAlign.center);
   }
 
   /// title的widget,可以是图片
@@ -61,22 +61,14 @@ class NormalAppBar extends BaseAppBar {
               color: Colors.transparent,
               width: leadingWidgetWidth,
               height: double.infinity,
-              child: Row(
-                children: [
-                  Container(width: 10),
-                  const Icon(Icons.arrow_back_ios),
-                ],
-              ),
+              child: Row(children: [Container(width: 10), const Icon(Icons.arrow_back_ios)]),
             ),
           );
   }
 
   @override
   Widget? buildContentWidget(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      child: title ?? const Text(''),
-    );
+    return Container(alignment: Alignment.center, child: title ?? const Text(''));
   }
 
   @override

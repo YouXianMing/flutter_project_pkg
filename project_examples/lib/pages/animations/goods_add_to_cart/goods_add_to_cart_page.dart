@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:project_examples/pages/base/normal_stateless_widget.dart';
+import 'package:project_examples/pages/base/normal_stateful_widget.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'dart:math' as math;
 
-class GoodsAddToCartPage extends NormalStatelessWidget {
-  GoodsAddToCartPage({Key? key}) : super(key: key);
+class GoodsAddToCartPage extends NormalStatefulWidget {
+  const GoodsAddToCartPage({Key? key}) : super(key: key);
 
+  @override
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => GoodsAddToCartPageState();
+}
+
+class GoodsAddToCartPageState extends NormalStatefulWidgetState<GoodsAddToCartPage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
         context: context,
@@ -53,7 +58,8 @@ class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> wit
         rotate: TweenSequenceObject(
           items: [
             TweenSequenceItem(tween: Tween<double>(begin: 0, end: math.pi * 0.15).chain(CurveTween(curve: Curves.linear)), weight: 1),
-            TweenSequenceItem(tween: Tween<double>(begin: math.pi * 0.15, end: -math.pi * 0.15).chain(CurveTween(curve: Curves.linear)), weight: 1),
+            TweenSequenceItem(
+                tween: Tween<double>(begin: math.pi * 0.15, end: -math.pi * 0.15).chain(CurveTween(curve: Curves.linear)), weight: 1),
             TweenSequenceItem(tween: Tween<double>(begin: -math.pi * 0.15, end: 0).chain(CurveTween(curve: Curves.linear)), weight: 1),
           ],
         ),
@@ -139,8 +145,8 @@ class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> wit
         opacity: cartAnimationsManager.animationByKey(alpha).value,
         child: Transform.translate(
           offset: Offset(cartAnimationsManager.animationByKey(offsetX).value, cartAnimationsManager.animationByKey(offsetY).value),
-          child:
-              Transform.scale(scale: cartAnimationsManager.animationByKey(scale).value, child: Container(alignment: Alignment.center, child: child)),
+          child: Transform.scale(
+              scale: cartAnimationsManager.animationByKey(scale).value, child: Container(alignment: Alignment.center, child: child)),
         ),
       ),
     );

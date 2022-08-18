@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
-import 'package:project_examples/pages/base/normal_stateless_widget.dart';
+import 'package:project_examples/pages/base/normal_stateful_widget.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
@@ -8,10 +8,15 @@ import 'package:line_icons/line_icons.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ToastWidgetPage extends NormalStatelessWidget {
-  final ToastWidget toastWidget = ToastWidget();
+class ToastWidgetPage extends NormalStatefulWidget {
+  const ToastWidgetPage({Key? key}) : super(key: key);
 
-  ToastWidgetPage({Key? key}) : super(key: key);
+  @override
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => ToastWidgetPageState();
+}
+
+class ToastWidgetPageState extends NormalStatefulWidgetState<ToastWidgetPage> {
+  final ToastWidget toastWidget = ToastWidget();
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
@@ -33,7 +38,8 @@ class ToastWidgetPage extends NormalStatelessWidget {
                       return Container(
                         alignment: Alignment.center,
                         child: Container(
-                          decoration: BoxDecoration(borderRadius: const BorderRadius.all(Radius.circular(10)), color: Colors.white.withOpacity(0.85)),
+                          decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(Radius.circular(10)), color: Colors.white.withOpacity(0.85)),
                           padding: const EdgeInsets.all(20),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,

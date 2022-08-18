@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:project_examples/pages/base/normal_stateless_widget.dart';
+import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
+import 'package:project_examples/pages/base/normal_stateful_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 
-class AsyncAwaitExamplePage extends NormalStatelessWidget {
-  final RxString info = ''.obs;
-  AsyncAwaitExamplePage({Key? key}) : super(key: key);
-  void updateInfo(text) => info.value = text;
+class AsyncAwaitExamplePage extends NormalStatefulWidget {
+  const AsyncAwaitExamplePage({Key? key}) : super(key: key);
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(context: context, title: NormalAppBar.titleWidget(Get.arguments));
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => AsyncAwaitExamplePageState();
+}
+
+class AsyncAwaitExamplePageState extends NormalStatefulWidgetState<AsyncAwaitExamplePage> {
+  final info = ''.obs;
+
+  void updateInfo(text) => info.value = text;
 
   Future<String> futureEvent() => Future.delayed(const Duration(seconds: 2), () => '数据');
 
@@ -21,8 +26,14 @@ class AsyncAwaitExamplePage extends NormalStatelessWidget {
   }
 
   @override
-  Widget body(BuildContext context) {
+  void initState() {
+    super.initState();
     start();
-    return Center(child: Obx(() => Text(info.value)));
   }
+
+  @override
+  PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(context: context, title: NormalAppBar.titleWidget(Get.arguments));
+
+  @override
+  Widget body(BuildContext context) => Center(child: Obx(() => Text(info.value)));
 }

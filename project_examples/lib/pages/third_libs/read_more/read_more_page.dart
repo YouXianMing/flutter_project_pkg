@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:project_examples/pages/base/normal_stateless_widget.dart';
+import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
+import 'package:project_examples/pages/base/normal_stateful_widget.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 import 'package:readmore/readmore.dart';
 
-class ReadMorePage extends NormalStatelessWidget {
-  ReadMorePage({Key? key}) : super(key: key);
+class ReadMorePage extends NormalStatefulWidget {
+  const ReadMorePage({Key? key}) : super(key: key);
 
+  @override
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => ReadMorePageState();
+}
+
+class ReadMorePageState extends NormalStatefulWidgetState<ReadMorePage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
         context: context,

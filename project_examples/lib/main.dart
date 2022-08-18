@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_examples/pages/unknown/unknown_page.dart';
-import 'package:project_examples/route/route_config.dart';
+import 'package:project_examples/route/getx_route_config.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';

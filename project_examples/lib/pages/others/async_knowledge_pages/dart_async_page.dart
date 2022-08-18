@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:project_examples/pages/base/normal_stateless_widget.dart';
+import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
+import 'package:project_examples/pages/base/normal_stateful_widget.dart';
 import 'package:project_examples/widgets/app_widgets.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 
-class DartAsyncPage extends NormalStatelessWidget {
-  DartAsyncPage({Key? key}) : super(key: key);
+class DartAsyncPage extends NormalStatefulWidget {
+  const DartAsyncPage({Key? key}) : super(key: key);
 
+  @override
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => DartAsyncPageState();
+}
+
+class DartAsyncPageState extends NormalStatefulWidgetState<DartAsyncPage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(context: context, title: NormalAppBar.titleWidget(Get.arguments));
 
