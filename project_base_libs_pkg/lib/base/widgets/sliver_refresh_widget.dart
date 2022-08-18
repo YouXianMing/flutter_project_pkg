@@ -16,7 +16,7 @@ class _SliversRefreshWidgetController extends GetxController {
   /// 用于更新组件用
   RxInt reloadData = 0.obs;
 
-  /// 设置下拉数字量是否开启
+  /// 设置下拉刷新是否开启
   late bool pullRefreshEnable;
 
   /// 设置加载更多是否开启

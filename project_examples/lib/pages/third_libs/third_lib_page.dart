@@ -34,6 +34,7 @@ class ThirdLibPage extends NormalStatelessWidget with WidgetEventCallbackMixin {
             CartItemModel(title: 'CachedNetworkImage', route: RouteConfig.cachedNetworkImagePage),
             CartItemModel(title: 'Scratcher', route: RouteConfig.scratcherPage),
             CartItemModel(title: 'FlipCard', route: RouteConfig.flipCardPage),
+            CartItemModel(title: 'SnappingSheet', route: RouteConfig.snappingSheetPage),
             CartItemModel(title: 'LiquidProgressIndicator', route: RouteConfig.liquidProgressIndicatorPage),
           ],
           builder: (c, i, d) => CartItemWidget(model: d, callback: widgetEventCallback),

@@ -7,6 +7,7 @@ import 'package:project_base_libs_pkg/base_file_headers.dart';
 
 class InformationViewPage extends NormalStatefulWidget {
   final PageArguments? arguments;
+
   const InformationViewPage({Key? key, this.arguments}) : super(key: key);
 
   @override
@@ -53,6 +54,7 @@ class InformationViewTestModel {
   final String title;
   final Function? tap;
   final BuildContext context;
+
   InformationViewTestModel({required this.context, required this.title, this.tap});
 
   static InformationViewTestModel use1(BuildContext context, NormalPageBuildMixin page) {
@@ -146,37 +148,16 @@ class InformationViewTestModel {
   }
 
   static InformationViewTestModel use5(BuildContext context, NormalPageBuildMixin page) {
-    // ignore: prefer_function_declarations_over_variables
-    Widget Function(InformationView, StatusWidget, StatusWidgetStatus) blueButtonBlock = (v, s, status) {
-      return Container(
+    Widget button({required String title, required Color color, FontWeight fontWeight = FontWeight.normal}) {
+      return AnimatedContainer(
         color: Colors.transparent,
         width: double.infinity,
         alignment: Alignment.center,
         height: 40,
-        child: WidgetsFactory.text(
-          s.data,
-          fontSize: 15,
-          fontWeight: FontWeight.bold,
-          color: status == StatusWidgetStatus.normal ? Colors.blueAccent : Colors.blueAccent.withOpacity(0.5),
-        ),
+        duration: const Duration(milliseconds: 150),
+        child: WidgetsFactory.text(title, fontSize: 15, fontWeight: fontWeight, color: color),
       );
-    };
-
-    // ignore: prefer_function_declarations_over_variables
-    Widget Function(InformationView, StatusWidget, StatusWidgetStatus) redButtonBlock = (v, s, status) {
-      return Container(
-        color: Colors.transparent,
-        width: double.infinity,
-        alignment: Alignment.center,
-        height: 45,
-        child: WidgetsFactory.text(
-          s.data,
-          fontSize: 15,
-          fontWeight: FontWeight.w300,
-          color: status == StatusWidgetStatus.normal ? Colors.redAccent : Colors.redAccent.withOpacity(0.5),
-        ),
-      );
-    };
+    }
 
     return InformationViewTestModel(
         title: 'InformationView用作AlertView',
@@ -201,18 +182,27 @@ class InformationViewTestModel {
                     WidgetsFactory.text('这是一个AlertView,用于展示警告信息!', fontSize: 14, textAlign: TextAlign.center)
                         .addPadding(const EdgeInsets.symmetric(horizontal: 25, vertical: 15)),
                     Container(height: 0.5, color: Colors.grey.withOpacity(0.2)),
-                    StatusWidget.normalButton(
-                      initData: '确定',
-                      normalStatusBuilder: (s) => blueButtonBlock(v, s, StatusWidgetStatus.normal),
-                      highlightedStatusBuilder: (s) => blueButtonBlock(v, s, StatusWidgetStatus.highlighted),
-                      onTap: (s) => v.hide(),
-                    ),
-                    Container(height: 0.5, color: Colors.grey.withOpacity(0.2)),
-                    StatusWidget.normalButton(
-                      initData: '取消',
-                      normalStatusBuilder: (s) => redButtonBlock(v, s, StatusWidgetStatus.normal),
-                      highlightedStatusBuilder: (s) => redButtonBlock(v, s, StatusWidgetStatus.highlighted),
-                      onTap: (s) => v.hide(),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: BaseButtonWidget(
+                            onTap: () => v.hide(),
+                            childBuilder: () => button(title: '取消', color: Colors.red),
+                            highlightedChildBuilder: () => button(title: '取消', color: Colors.red.withOpacity(0.5)),
+                          ),
+                        ),
+                        Container(width: 1, color: Colors.grey.withOpacity(0.2), height: 40),
+                        Expanded(
+                          flex: 1,
+                          child: BaseButtonWidget(
+                            onTap: () => v.hide(),
+                            childBuilder: () => button(title: '确定', color: Colors.blueAccent, fontWeight: FontWeight.bold),
+                            highlightedChildBuilder: () =>
+                                button(title: '确定', color: Colors.blueAccent.withOpacity(0.5), fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

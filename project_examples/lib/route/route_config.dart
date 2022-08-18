@@ -32,6 +32,7 @@ import 'package:project_examples/pages/third_libs/loading_animations/loading_ani
 import 'package:project_examples/pages/third_libs/read_more/read_more_page.dart';
 import 'package:project_examples/pages/third_libs/scratcher/scratcher_page.dart';
 import 'package:project_examples/pages/third_libs/shimmer/shimmer_page.dart';
+import 'package:project_examples/pages/third_libs/snapping_sheet/snapping_sheet_page.dart';
 import 'package:project_examples/pages/third_libs/third_lib_page.dart';
 import 'package:project_examples/pages/third_libs/timer_count_down/timer_count_donw_page.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
@@ -76,6 +77,7 @@ class RouteConfig {
   static const String htmlToTextSpanPage = '/HtmlToTextSpanPage';
   static const String loadingAnimationsPage = '/LoadingAnimationsPage';
   static const String shimmerPage = '/ShimmerPage';
+  static const String snappingSheetPage = '/SnappingSheetPage';
   static const String staggeredGridViewPage = '/StaggeredGridViewPage';
   static const String lineIconsPage = '/LineIconsPage';
   static const String readMorePage = '/ReadMorePage';
@@ -127,6 +129,7 @@ class RouteConfig {
       GetPage(name: RouteConfig.htmlToTextSpanPage, page: () => HtmlToTextSpanPage()),
       GetPage(name: RouteConfig.loadingAnimationsPage, page: () => LoadingAnimationsPage()),
       GetPage(name: RouteConfig.shimmerPage, page: () => ShimmerPage()),
+      GetPage(name: RouteConfig.snappingSheetPage, page: () => const SnappingSheetPage()),
       GetPage(name: RouteConfig.staggeredGridViewPage, page: () => const StaggeredGridViewPage()),
       GetPage(name: RouteConfig.lineIconsPage, page: () => LineIconsPage()),
       GetPage(name: RouteConfig.readMorePage, page: () => ReadMorePage()),

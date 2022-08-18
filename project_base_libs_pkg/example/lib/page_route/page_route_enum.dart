@@ -10,7 +10,6 @@ import 'package:example/pages/project_use/reg_exp/reg_exp_page.dart';
 import 'package:example/pages/project_use/sliver_refresh_widget/slivers_refresh_widget_page.dart';
 import 'package:example/pages/project_use/sliver_sections/sliver_sections_page.dart';
 import 'package:example/pages/project_use/sp_val/sp_val_page.dart';
-import 'package:example/pages/project_use/status_widget/status_widget_page.dart';
 import 'package:example/pages/project_use/tab_bar/tab_bar_page.dart';
 import 'package:example/pages/project_use/text_field/text_field_page.dart';
 import 'package:example/pages/project_use/toast_widget/toast_widget_page.dart';
@@ -22,7 +21,6 @@ enum PageRouteEnum {
   informationView,
   sliverRefreshWidget,
   sliverSections,
-  statusWidget,
   toastWidget,
   spVal,
   textField,
@@ -63,8 +61,6 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => SliverRefreshWidgetPage(arguments: arguments));
       case PageRouteEnum.sliverSections:
         return MaterialPageRoute(settings: settings, builder: (_) => SliverSectionsPage(arguments: arguments));
-      case PageRouteEnum.statusWidget:
-        return MaterialPageRoute(settings: settings, builder: (_) => StatusWidgetPage(arguments: arguments));
       case PageRouteEnum.toastWidget:
         return MaterialPageRoute(settings: settings, builder: (_) => ToastWidgetPage(arguments: arguments));
       case PageRouteEnum.spVal:
@@ -111,9 +107,6 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.sliverSections:
         pageRouteName = _pageRouteNameFrom(SliverSectionsPage);
-        break;
-      case PageRouteEnum.statusWidget:
-        pageRouteName = _pageRouteNameFrom(StatusWidgetPage);
         break;
       case PageRouteEnum.toastWidget:
         pageRouteName = _pageRouteNameFrom(ToastWidgetPage);

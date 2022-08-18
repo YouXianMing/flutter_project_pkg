@@ -8,6 +8,7 @@ import 'package:project_base_libs_pkg/base_file_headers.dart';
 
 class HomePage extends NormalStatefulWidget {
   final PageArguments? arguments;
+
   const HomePage({Key? key, this.arguments}) : super(key: key);
 
   @override
@@ -43,10 +44,6 @@ class HomePageState extends NormalStatefulWidgetState<HomePage> with WidgetEvent
           ),
           CartItemWidget(
             model: CartItemModel(title: 'SliverSection', routeEnum: PageRouteEnum.sliverSections),
-            callback: widgetEventCallback,
-          ),
-          CartItemWidget(
-            model: CartItemModel(title: 'StatusWidget', routeEnum: PageRouteEnum.statusWidget),
             callback: widgetEventCallback,
           ),
           CartItemWidget(
@@ -95,6 +92,7 @@ class HomePageState extends NormalStatefulWidgetState<HomePage> with WidgetEvent
             model: CartItemModel(title: 'GetxRefresh', routeEnum: PageRouteEnum.getxRefresh),
             callback: widgetEventCallback,
           ),
+          SafeAreaPaddingWidget.bottom(),
         ]),
       ],
     );
