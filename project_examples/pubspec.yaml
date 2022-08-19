@@ -91,6 +91,11 @@ dependencies:
   # Flutter: Android iOS MacOS
   cached_network_image: ^3.2.1
 
+  # 带动画的按钮组件
+  # https://pub.flutter-io.cn/packages/flutter_animated_button
+  # Flutter: Android iOS Linux MacOS Web Windows
+  flutter_animated_button: ^2.0.1
+
   # [adamjonsson.dev] 弹框控件
   # https://pub.flutter-io.cn/packages/snapping_sheet
   # Flutter: Android iOS Linux MacOS Web Windows

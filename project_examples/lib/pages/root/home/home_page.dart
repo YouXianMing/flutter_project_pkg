@@ -33,11 +33,11 @@ class HomePageState extends NormalStatefulWidgetState<HomePage> with WidgetEvent
         slivers: [
           SliverListSection.builderTypeWidget(
             items: [
-              CartItemModel(title: '屏幕信息', route: RouteConfig.screenInfoPage),
-              CartItemModel(title: '异步编程', route: RouteConfig.asyncKnowledgePage),
-              CartItemModel(title: '项目用库', route: RouteConfig.projectUsePage),
-              CartItemModel(title: '第三方库', route: RouteConfig.thirdLibPage),
-              CartItemModel(title: '动画', route: RouteConfig.animationListPage),
+              const CartItemModel(title: '屏幕信息', route: RouteConfig.screenInfoPage),
+              const CartItemModel(title: '异步编程', route: RouteConfig.asyncKnowledgePage),
+              const CartItemModel(title: '项目用库', route: RouteConfig.projectUsePage),
+              const CartItemModel(title: '第三方库', route: RouteConfig.thirdLibPage),
+              const CartItemModel(title: '动画', route: RouteConfig.animationListPage),
             ],
             builder: (c, i, d) => CartItemWidget(model: d, callback: widgetEventCallback),
           ),

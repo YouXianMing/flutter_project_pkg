@@ -29,10 +29,10 @@ class ProjectUsePageState extends NormalStatefulWidgetState<ProjectUsePage> with
       slivers: [
         SliverListSection(
           items: [
-            CartItemModel(title: 'SliverSections的使用', route: RouteConfig.sliverSectionsPage),
-            CartItemModel(title: 'SliverRefreshWidget', route: RouteConfig.sliverRefreshWidgetPage),
-            CartItemModel(title: 'InformationView', route: RouteConfig.informationViewPage),
-            CartItemModel(title: 'ToastWidget', route: RouteConfig.toastWidgetPage),
+            const CartItemModel(title: 'SliverSections的使用', route: RouteConfig.sliverSectionsPage),
+            const CartItemModel(title: 'SliverRefreshWidget', route: RouteConfig.sliverRefreshWidgetPage),
+            const CartItemModel(title: 'InformationView', route: RouteConfig.informationViewPage),
+            const CartItemModel(title: 'ToastWidget', route: RouteConfig.toastWidgetPage),
           ],
           builder: (c, i, d) => CartItemWidget(model: d, callback: widgetEventCallback),
         ).buildWidget(),

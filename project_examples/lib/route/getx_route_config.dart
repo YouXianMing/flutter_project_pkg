@@ -23,6 +23,7 @@ import 'package:project_examples/pages/others/screen_info/screen_info_page.dart'
 import 'package:project_examples/pages/tab_bar/tab_bar_page.dart';
 import 'package:project_examples/pages/third_libs/cached_network_image/cached_network_image_page.dart';
 import 'package:project_examples/pages/third_libs/flip_card/flip_card_page.dart';
+import 'package:project_examples/pages/third_libs/flutter_animated_button/flutter_animated_button_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_staggered_grid_view/flutter_staggered_grid_view_page.dart';
 import 'package:project_examples/pages/third_libs/html_text/html_to_text_span_page.dart';
 import 'package:project_examples/pages/third_libs/line_icons/line_icons_page.dart';
@@ -83,6 +84,7 @@ class RouteConfig {
   static const String cachedNetworkImagePage = '/CachedNetworkImagePage';
   static const String scratcherPage = '/ScratcherPage';
   static const String flipCardPage = '/FlipCardPage';
+  static const String flutterAnimatedButtonPage = '/FlutterAnimatedButtonPage';
   static const String liquidProgressIndicatorPage = '/LiquidProgressIndicatorPage';
 
   /// 所有注册的page
@@ -134,6 +136,7 @@ class RouteConfig {
       GetPage(name: RouteConfig.cachedNetworkImagePage, page: () => const CachedNetworkImagePage()),
       GetPage(name: RouteConfig.scratcherPage, page: () => const ScratcherPage()),
       GetPage(name: RouteConfig.flipCardPage, page: () => const FlipCardPage()),
+      GetPage(name: RouteConfig.flutterAnimatedButtonPage, page: () => const FlutterAnimatedButtonPage()),
       GetPage(name: RouteConfig.liquidProgressIndicatorPage, page: () => const LiquidProgressIndicatorPage()),
     ];
   }
