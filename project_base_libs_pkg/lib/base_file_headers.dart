@@ -48,6 +48,7 @@ export 'base/tools/shared_preferences_util.dart'; // 本地化存储工具
 export 'base/tools/util.dart'; // 常用工具
 export 'base/tools/dart_semaphore.dart'; // 信号量工具
 export 'base/tools/file_util.dart'; // 文件相关处理工具
+export 'base/tools/files_manager.dart'; // 文件相关处理工具
 export 'base/tools/plat_form_info.dart'; // 平台信息
 export 'base/tools/scan_files_tool.dart'; // 文件夹扫描工具
 export 'base/tools/check_value.dart'; // 检验获取参数的类型

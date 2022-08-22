@@ -1,6 +1,6 @@
 name: project_base_libs_pkg
 description: A new Flutter project.
-version: 1.0.5
+version: 1.0.6
 homepage: 'https://github.com/YouXianMing/flutter_project_pkg'
 
 environment:
@@ -12,118 +12,91 @@ dependencies:
     sdk: flutter
 
   ####################################################
-  # DART: Native JS
   # Flutter: Android iOS Linux MacOS Web Windows
   ####################################################
 
   # [dart.dev] SHA-1,SHA-224,SHA-256,SHA-384,SHA-515,SHA-512/224,SHA-512/256,MD5加密工具
-  # DART: Native JS
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/crypto
   crypto: 3.0.2
 
   # [tools.dart.dev] 文件元数据信息
-  # DART: Native JS
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.dev/packages/mime
   mime: 1.0.2
 
   # [jakobservices.ch] 消息通知工具
-  # DART: Native JS
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/event_bus
   event_bus: 2.0.0
 
   # [flutterchina.club] 网络请求
-  # DART: Native JS
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/dio
   dio: 4.0.6
 
   # [tekartik.com] Lock
-  # DART: Native JS
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/synchronized
   synchronized: 3.0.0+2
 
   # [filiph.net] 随机英文单词
-  # DART: Native JS
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/english_words
   english_words: 4.0.0
 
+  # [dart.dev] path_provider
+  # https://pub.flutter-io.cn/packages/path_provider
+  path_provider: 2.0.11
+
   # [dart.dev] 路径
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/path
   path: 1.8.1
 
-  ####################################################
-  # Flutter: Android iOS Linux MacOS Web Windows
-  ####################################################
-
   # [romainrastel.com] iOS的section herder悬停效果
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/flutter_sticky_header
   flutter_sticky_header: 0.6.4
 
   # [romainrastel.com] 不规则瀑布流
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/flutter_staggered_grid_view
   flutter_staggered_grid_view: 0.6.2
 
   # [flutter.dev] 本地持久化工具
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/shared_preferences
   shared_preferences: 2.0.15
 
   # [fluttercandies.com] 瀑布流
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/waterfall_flow
   waterfall_flow: 3.0.2
 
   # [getx.site] 状态管理,依赖注入,路由管理等工具合集
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/get
   get: 4.6.5
 
   # 加载动画合集
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/loading_animations
   loading_animations: 2.2.0
 
   # 加载动画合集
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.dev/packages/flutter_spinkit
   flutter_spinkit: 5.1.0
 
   # 加载动画合集
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.dev/packages/loading_indicator
   loading_indicator: 3.1.0
 
   # 加载动画合集
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.dev/packages/loading_animation_widget
   loading_animation_widget: ^1.2.0+2
 
-  # [作者退圈了] 上拉加载,下拉刷新
-  # FLUTTER: Android iOS Linux MacOS Web Windows
+  # [作者退圈了] 上拉加载,下拉刷新,请使用下面的 'pull_to_refresh_flutter3'
   # https://pub.flutter-io.cn/packages/pull_to_refresh
   # pull_to_refresh: 2.0.0
 
   # 上拉加载,下拉刷新
-  # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/pull_to_refresh_flutter3
   pull_to_refresh_flutter3: 2.0.1
 
 dev_dependencies:
 
   ####################################################
-  # DART: Native JS
   # Flutter: Android iOS Linux MacOS Web Windows
   ####################################################
 
-  # DART: Native JS
   # FLUTTER: Android iOS Linux MacOS Web Windows
   # https://pub.flutter-io.cn/packages/flutter_lints
   flutter_lints: 2.0.1
