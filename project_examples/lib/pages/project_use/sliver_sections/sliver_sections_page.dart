@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base/others/linear_equation.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
-import 'package:project_examples/pages/base/normal_stateful_widget.dart';
+import 'package:project_examples/base/normal_stateful_widget.dart';
+import 'package:project_examples/route/app_route_manager.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
@@ -9,7 +10,9 @@ import 'package:project_base_libs_pkg/third_lib_flutter_sticky_header.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SliverSectionsPage extends NormalStatefulWidget {
-  const SliverSectionsPage({Key? key}) : super(key: key);
+  final PageArguments? arguments;
+
+  const SliverSectionsPage({Key? key, this.arguments}) : super(key: key);
 
   @override
   BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => SliverSectionsPageState();
@@ -158,8 +161,10 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
 
               /// SliverGridCrossAxisExtentSection.builder
               SliverGridCrossAxisExtentSection.builderTypeWidget(
-                maxCrossAxisExtent: 100, // 最大宽度100
-                mainAxisExtent: 100, // 高度100,设置了mainAxisExtent后,childAspectRatio会失效
+                maxCrossAxisExtent: 100,
+                // 最大宽度100
+                mainAxisExtent: 100,
+                // 高度100,设置了mainAxisExtent后,childAspectRatio会失效
                 // childAspectRatio: 0.75,
                 headerBuilder: (_) => header('SliverGridWithMaxCrossAxisExtentSection.builder'),
                 items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -250,7 +255,8 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
                   double max = constraints.viewportMainAxisExtent;
                   double height1 = 50;
                   double height2 = height1 + 30;
-                  linearEquation.startCalculateOnlyOnceWith(pointA: MATHPoint(x: max - height2, y: height1), pointB: MATHPoint(x: max, y: height2));
+                  linearEquation.startCalculateOnlyOnceWith(
+                      pointA: MATHPoint(x: max - height2, y: height1), pointB: MATHPoint(x: max, y: height2));
                   double height = linearEquation.k * constraints.remainingPaintExtent + linearEquation.b;
                   if (height < height1) {
                     height = height1;

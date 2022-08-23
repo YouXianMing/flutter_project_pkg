@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
-import 'package:project_examples/pages/base/normal_stateful_widget.dart';
+import 'package:project_examples/base/normal_stateful_widget.dart';
+import 'package:project_examples/route/app_route_manager.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
@@ -9,7 +10,9 @@ import 'package:shimmer/shimmer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ToastWidgetPage extends NormalStatefulWidget {
-  const ToastWidgetPage({Key? key}) : super(key: key);
+  final PageArguments? arguments;
+
+  const ToastWidgetPage({Key? key, this.arguments}) : super(key: key);
 
   @override
   BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => ToastWidgetPageState();

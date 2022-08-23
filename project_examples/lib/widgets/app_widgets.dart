@@ -33,10 +33,7 @@ class ListItemCell extends StatelessWidget {
           alignment: Alignment.centerLeft,
           padding: const EdgeInsets.only(left: 10),
           height: 50,
-          child: Text(
-            content,
-            style: const TextStyle(color: Colors.blueAccent, fontSize: 18),
-          ),
+          child: Text(content, style: const TextStyle(color: Colors.blueAccent, fontSize: 18)),
         );
         break;
       case ListItemViewType.info:

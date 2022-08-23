@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
-import 'package:project_examples/pages/base/normal_stateful_widget.dart';
+import 'package:project_examples/base/normal_stateful_widget.dart';
+import 'package:project_examples/route/app_route_manager.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 import 'package:project_base_libs_pkg/mod_staggered_grid_view_0_4_0.dart';
 
 class StaggeredGridViewPage extends NormalStatefulWidget {
-  const StaggeredGridViewPage({Key? key}) : super(key: key);
+  final PageArguments? arguments;
+
+  const StaggeredGridViewPage({Key? key, this.arguments}) : super(key: key);
 
   @override
   BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => StaggeredGridViewPageState();

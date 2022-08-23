@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_examples/pages/base/normal_page_build_mixin.dart';
+import 'package:project_examples/base/normal_page_build_mixin.dart';
 import 'package:project_base_libs_pkg/base/tools/hex_color.dart';
 import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
 

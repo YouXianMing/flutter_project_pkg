@@ -9,17 +9,16 @@ import 'package:project_examples/pages/animations/base_animated/base_animated_pa
 import 'package:project_examples/pages/animations/goods_add_to_cart/goods_add_to_cart_page.dart';
 import 'package:project_examples/pages/animations/group_animation/group_animation_page.dart';
 import 'package:project_examples/pages/animations/tween_sequence_animation/tween_sequence_animation_page.dart';
-import 'package:project_examples/pages/others/async_knowledge_pages/async_knowledge_page.dart';
+import 'package:project_examples/pages/async_knowledge/async_knowledge_page.dart';
 import 'package:project_examples/pages/project_use/information_view/infomation_view_page.dart';
 import 'package:project_examples/pages/project_use/project_use_page.dart';
 import 'package:project_examples/pages/project_use/sliver_refresh_widget/slivers_refresh_widget_page.dart';
 import 'package:project_examples/pages/project_use/sliver_sections/sliver_sections_page.dart';
 import 'package:project_examples/pages/project_use/toast_widget/toast_widget_page.dart';
-import 'package:project_examples/pages/root/account/account_page.dart';
-import 'package:project_examples/pages/root/cart/cart_page.dart';
-import 'package:project_examples/pages/root/category/category_page.dart';
-import 'package:project_examples/pages/root/home/home_page.dart';
-import 'package:project_examples/pages/others/screen_info/screen_info_page.dart';
+import 'package:project_examples/pages/tab_bar/account_page.dart';
+import 'package:project_examples/pages/tab_bar/cart_page.dart';
+import 'package:project_examples/pages/tab_bar/category_page.dart';
+import 'package:project_examples/pages/tab_bar/home_page.dart';
 import 'package:project_examples/pages/tab_bar/tab_bar_page.dart';
 import 'package:project_examples/pages/third_libs/cached_network_image/cached_network_image_page.dart';
 import 'package:project_examples/pages/third_libs/flip_card/flip_card_page.dart';
@@ -31,6 +30,7 @@ import 'package:project_examples/pages/third_libs/liquid_progress_indicator/liqu
 import 'package:project_examples/pages/third_libs/loading_animations/loading_animations_page.dart';
 import 'package:project_examples/pages/third_libs/read_more/read_more_page.dart';
 import 'package:project_examples/pages/third_libs/scratcher/scratcher_page.dart';
+import 'package:project_examples/pages/third_libs/screen_info/screen_info_page.dart';
 import 'package:project_examples/pages/third_libs/shimmer/shimmer_page.dart';
 import 'package:project_examples/pages/third_libs/snapping_sheet/snapping_sheet_page.dart';
 import 'package:project_examples/pages/third_libs/third_lib_page.dart';
@@ -55,7 +55,6 @@ class RouteConfig {
   static const String toastWidgetPage = '/ToastWidgetPage';
 
   /// others
-  static const String screenInfoPage = '/ScreenInfoPage';
   static const String asyncKnowledgePage = '/AsyncKnowledgePage';
 
   /// 动画相关内容
@@ -86,6 +85,7 @@ class RouteConfig {
   static const String flipCardPage = '/FlipCardPage';
   static const String flutterAnimatedButtonPage = '/FlutterAnimatedButtonPage';
   static const String liquidProgressIndicatorPage = '/LiquidProgressIndicatorPage';
+  static const String screenUtilPage = '/ScreenUtilPage';
 
   /// 所有注册的page
   static List<GetPage> getPages() {
@@ -106,8 +106,7 @@ class RouteConfig {
       GetPage(name: RouteConfig.sliverRefreshWidgetPage, page: () => const SliverRefreshWidgetPage()),
       GetPage(name: RouteConfig.toastWidgetPage, page: () => const ToastWidgetPage()),
 
-      /// 其他
-      GetPage(name: RouteConfig.screenInfoPage, page: () => const ScreenInfoPage()),
+      /// 学习
       GetPage(name: RouteConfig.asyncKnowledgePage, page: () => const AsyncKnowledgePage()),
 
       /// 动画相关内容
@@ -124,6 +123,7 @@ class RouteConfig {
       GetPage(name: RouteConfig.animationsManagerCurvesPage, page: () => const AnimationsManagerCurvesPage()),
 
       /// third_libs
+      GetPage(name: RouteConfig.screenUtilPage, page: () => const ScreenUtilPage()),
       GetPage(name: RouteConfig.thirdLibPage, page: () => const ThirdLibPage()),
       GetPage(name: RouteConfig.htmlToTextSpanPage, page: () => const HtmlToTextSpanPage()),
       GetPage(name: RouteConfig.loadingAnimationsPage, page: () => const LoadingAnimationsPage()),

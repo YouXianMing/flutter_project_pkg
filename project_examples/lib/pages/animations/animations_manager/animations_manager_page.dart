@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
-import 'package:project_examples/pages/base/normal_stateful_widget.dart';
+import 'package:project_examples/base/normal_stateful_widget.dart';
+import 'package:project_examples/route/app_route_manager.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/base/managers/animations_manager.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 
 class AnimationsManagerPage extends NormalStatefulWidget {
-  const AnimationsManagerPage({Key? key}) : super(key: key);
+  final PageArguments? arguments;
+
+  const AnimationsManagerPage({Key? key, this.arguments}) : super(key: key);
 
   @override
   BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => AnimationsManagerPageState();

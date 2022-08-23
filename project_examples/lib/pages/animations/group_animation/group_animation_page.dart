@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
-import 'package:project_examples/pages/base/normal_stateful_widget.dart';
+import 'package:project_examples/base/normal_stateful_widget.dart';
+import 'package:project_examples/route/app_route_manager.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 
 class GroupAnimationPage extends NormalStatefulWidget {
-  const GroupAnimationPage({Key? key}) : super(key: key);
+  final PageArguments? arguments;
+
+  const GroupAnimationPage({Key? key, this.arguments}) : super(key: key);
 
   @override
   BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => GroupAnimationPageState();

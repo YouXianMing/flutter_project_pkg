@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:project_examples/pages/root/account/account_page.dart';
-import 'package:project_examples/pages/root/cart/cart_page.dart';
-import 'package:project_examples/pages/root/category/category_page.dart';
-import 'package:project_examples/pages/root/home/home_page.dart';
+import 'package:project_examples/pages/tab_bar/account_page.dart';
+import 'package:project_examples/pages/tab_bar/cart_page.dart';
+import 'package:project_examples/pages/tab_bar/category_page.dart';
+import 'package:project_examples/pages/tab_bar/home_page.dart';
 import 'package:project_examples/pages/tab_bar/widgets/tab_bar_button_view.dart';
 import 'package:project_examples/pages/tab_bar/widgets/tar_bar_button.dart';
 import 'package:project_base_libs_pkg/base/managers/page_view_manager.dart';

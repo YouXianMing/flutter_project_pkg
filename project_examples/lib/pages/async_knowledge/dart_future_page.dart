@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:project_examples/pages/base/normal_stateful_widget.dart';
+import 'package:project_examples/base/normal_stateful_widget.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
+import 'package:project_examples/route/app_route_manager.dart';
 import 'package:project_examples/widgets/app_widgets.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 
 class DartFuturePage extends NormalStatefulWidget {
-  const DartFuturePage({Key? key}) : super(key: key);
+  final PageArguments? arguments;
+
+  const DartFuturePage({Key? key, this.arguments}) : super(key: key);
 
   @override
   BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => DartFuturePageState();

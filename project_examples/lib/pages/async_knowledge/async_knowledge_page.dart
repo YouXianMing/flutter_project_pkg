@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
-import 'package:project_examples/pages/base/normal_stateful_widget.dart';
-import 'package:project_examples/pages/others/async_knowledge_pages/async_await_example_page.dart';
-import 'package:project_examples/pages/others/async_knowledge_pages/completer_page.dart';
-import 'package:project_examples/pages/others/async_knowledge_pages/dart_async_page.dart';
-import 'package:project_examples/pages/others/async_knowledge_pages/dart_future_page.dart';
-import 'package:project_examples/pages/others/async_knowledge_pages/dart_stream_page.dart';
-import 'package:project_examples/pages/others/async_knowledge_pages/future_builder_page.dart';
-import 'package:project_examples/pages/others/async_knowledge_pages/isolate_page.dart';
-import 'package:project_examples/pages/others/async_knowledge_pages/stream_builder_page.dart';
+import 'package:project_examples/base/normal_stateful_widget.dart';
+import 'package:project_examples/pages/async_knowledge/async_await_example_page.dart';
+import 'package:project_examples/pages/async_knowledge/completer_page.dart';
+import 'package:project_examples/pages/async_knowledge/dart_async_page.dart';
+import 'package:project_examples/pages/async_knowledge/dart_future_page.dart';
+import 'package:project_examples/pages/async_knowledge/dart_stream_page.dart';
+import 'package:project_examples/pages/async_knowledge/future_builder_page.dart';
+import 'package:project_examples/pages/async_knowledge/isolate_page.dart';
+import 'package:project_examples/pages/async_knowledge/stream_builder_page.dart';
+import 'package:project_examples/route/app_route_manager.dart';
 import 'package:project_examples/widgets/app_widgets.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 
 class AsyncKnowledgePage extends NormalStatefulWidget {
-  const AsyncKnowledgePage({Key? key}) : super(key: key);
+  final PageArguments? arguments;
+
+  const AsyncKnowledgePage({Key? key, this.arguments}) : super(key: key);
 
   @override
   BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => AsyncKnowledgePageState();

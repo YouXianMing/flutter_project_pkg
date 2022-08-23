@@ -414,7 +414,7 @@ packages:
       path: "../project_base_libs_pkg"
       relative: true
     source: path
-    version: "1.0.5"
+    version: "1.0.6"
   pull_to_refresh_flutter3:
     dependency: transitive
     description:

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_examples/pages/base/message.dart';
+import 'package:project_examples/base/message.dart';
 import 'package:project_examples/widgets/static_func_widgets.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 
