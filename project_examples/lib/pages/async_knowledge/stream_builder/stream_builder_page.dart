@@ -19,9 +19,10 @@ class _StreamBuilderPageState extends NormalStatefulWidgetState<StreamBuilderPag
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
-    context: context,
-    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
-  );
+        context: context,
+        title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+      );
+
   @override
   void initState() {
     super.initState();

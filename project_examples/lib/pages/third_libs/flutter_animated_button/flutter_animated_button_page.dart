@@ -18,9 +18,9 @@ class FlutterAnimatedButtonPage extends NormalStatefulWidget {
 class FlutterAnimatedButtonPageState extends NormalStatefulWidgetState<FlutterAnimatedButtonPage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
-    context: context,
-    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
-  );
+        context: context,
+        title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+      );
 
   @override
   Widget backgroundWidget(BuildContext context) => Container(color: Colors.black);

@@ -18,9 +18,10 @@ class DartFuturePage extends NormalStatefulWidget {
 class DartFuturePageState extends NormalStatefulWidgetState<DartFuturePage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
-    context: context,
-    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
-  );
+        context: context,
+        title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+      );
+
   @override
   Widget body(BuildContext context) {
     return ListItemView(

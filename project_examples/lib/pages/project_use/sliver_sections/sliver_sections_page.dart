@@ -193,6 +193,7 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
                 stickyHeaderController: stickyHeaderController,
                 headerBuilder: (_) => header('SliverWaterfallFlowSection.builder (点击我)').addTapEvent(
                   () {
+                    if (stickyHeaderController.stickyHeaderScrollOffset <= 0) return;
                     if (useSliverAppBar) {
                       // 使用SliverAppBar高度计算
                       if (scrollController.offset >

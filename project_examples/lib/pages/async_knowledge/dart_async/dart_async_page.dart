@@ -18,9 +18,10 @@ class DartAsyncPage extends NormalStatefulWidget {
 class DartAsyncPageState extends NormalStatefulWidgetState<DartAsyncPage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
-    context: context,
-    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
-  );
+        context: context,
+        title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+      );
+
   @override
   Widget body(BuildContext context) {
     return const ListItemView(

@@ -22,4 +22,7 @@ abstract class NormalStatelessWidget extends BaseStatelessWidget with NormalPage
 
   @override
   Widget backgroundWidget(BuildContext context) => Container(color: HexColor('#f6f6f6'));
+
+  @override
+  Future? checkWillPop(BuildContext context) => Future.value(MaybePopManager.getInstance.canPop());
 }

@@ -50,7 +50,7 @@ class NormalAppBar extends BaseAppBar {
   Widget? buildLeadingWidget(BuildContext context) {
     return hideBackButton == true
         ? null
-        : GestureDetector(
+        : OpacityButtonWidget(
             onTap: popBackTap ??
                 () {
                   /// 隐藏键盘
@@ -73,11 +73,6 @@ class NormalAppBar extends BaseAppBar {
 
   @override
   Widget? buildTrailingWidget(BuildContext context) {
-    return trailingWidgets.isEmpty
-        ? Container(width: trailingWidgetWidth)
-        : Row(
-            mainAxisSize: MainAxisSize.min,
-            children: trailingWidgets,
-          );
+    return trailingWidgets.isEmpty ? Container(width: trailingWidgetWidth) : Row(mainAxisSize: MainAxisSize.min, children: trailingWidgets);
   }
 }

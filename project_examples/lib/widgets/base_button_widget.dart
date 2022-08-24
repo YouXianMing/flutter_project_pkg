@@ -38,7 +38,8 @@ class BaseButtonWidget extends StatelessWidget {
   final GestureTapCallback? onTap;
   final bool disable;
 
-  BaseButtonWidget({Key? key, required this.childBuilder, this.highlightedChildBuilder, this.disabledChildBuilder, this.onTap, this.disable = false})
+  BaseButtonWidget(
+      {Key? key, required this.childBuilder, this.highlightedChildBuilder, this.disabledChildBuilder, this.onTap, this.disable = false})
       : super(key: key) {
     if (disable) {
       _controller.currentStatus = BaseButtonWidgetStatus.disabled;

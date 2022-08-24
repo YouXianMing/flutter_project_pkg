@@ -34,6 +34,7 @@ class ThirdLibPageState extends NormalStatefulWidgetState<ThirdLibPage> with Wid
         SliverListSection(
           items: [
             const CartItemModel(title: 'ScreenUtil', pageRouteEnum: PageRouteEnum.screenUtilPage),
+            const CartItemModel(title: 'CarouselSlider', pageRouteEnum: PageRouteEnum.carouselSliderPage),
             const CartItemModel(title: 'HTML.toTextSpan', pageRouteEnum: PageRouteEnum.htmlToTextSpanPage),
             const CartItemModel(title: 'Loading Animations', pageRouteEnum: PageRouteEnum.loadingAnimationsPage),
             const CartItemModel(title: 'Shimmer', pageRouteEnum: PageRouteEnum.shimmerPage),

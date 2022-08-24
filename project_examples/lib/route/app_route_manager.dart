@@ -18,6 +18,7 @@ abstract class BasePageInfo {}
 class NormalPageInfo extends BasePageInfo {
   PageArguments? arguments;
   PageRouteEnum pageRoute;
+
   NormalPageInfo({required this.pageRoute, this.arguments});
 }
 

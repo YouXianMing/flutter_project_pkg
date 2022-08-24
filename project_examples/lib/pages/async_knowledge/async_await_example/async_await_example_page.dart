@@ -37,9 +37,10 @@ class AsyncAwaitExamplePageState extends NormalStatefulWidgetState<AsyncAwaitExa
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
-    context: context,
-    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
-  );
+        context: context,
+        title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+      );
+
   @override
   Widget body(BuildContext context) => Center(child: Obx(() => Text(info.value)));
 }

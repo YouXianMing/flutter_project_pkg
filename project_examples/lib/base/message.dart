@@ -14,7 +14,11 @@ class Message {
       waitForBuild: true,
       // debugPrintInfo: true,
       data: text,
-    ).inOverlay(context).setWidgetBuilder((v) => _informationViewContentWidget(v.data as String, success)).show().hide(afterDelay: duration);
+    )
+        .inOverlay(context)
+        .setWidgetBuilder((v) => _informationViewContentWidget(v.data as String, success))
+        .show()
+        .hide(afterDelay: duration);
   }
 
   Widget _informationViewContentWidget(String text, bool success) {

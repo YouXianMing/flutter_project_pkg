@@ -20,9 +20,9 @@ class SliverRefreshWidgetPageState extends NormalStatefulWidgetState<SliverRefre
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
-    context: context,
-    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
-  );
+        context: context,
+        title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+      );
 
   void onLoad(SliversRefreshWidget widget) {
     Future.delayed(const Duration(seconds: 1), () {

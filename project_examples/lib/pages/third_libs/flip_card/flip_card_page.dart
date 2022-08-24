@@ -21,9 +21,9 @@ class FlipCardPageState extends NormalStatefulWidgetState<FlipCardPage> {
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
-    context: context,
-    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
-  );
+        context: context,
+        title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+      );
 
   @override
   void initState() {

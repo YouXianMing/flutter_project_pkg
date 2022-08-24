@@ -19,9 +19,9 @@ class InformationViewPage extends NormalStatefulWidget {
 class InformationViewPageState extends NormalStatefulWidgetState<InformationViewPage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
-    context: context,
-    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
-  );
+        context: context,
+        title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+      );
 
   @override
   Widget body(BuildContext context) {
@@ -180,9 +180,9 @@ class InformationViewTestModel {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    WidgetsFactory.text('标题', fontSize: 18).addPadding(const EdgeInsets.only(top: 10)),
+                    WidgetsFactory.text('标题', fontSize: 18, fontWeight: FontWeight.bold).addPadding(const EdgeInsets.only(top: 10)),
                     WidgetsFactory.text('这是一个AlertView,用于展示警告信息!', fontSize: 14, textAlign: TextAlign.center)
-                        .addPadding(const EdgeInsets.symmetric(horizontal: 25, vertical: 15)),
+                        .addPaddingOnly(left: 25.w, right: 25.w, top: 30.w, bottom: 40.w),
                     Container(height: 0.5, color: Colors.grey.withOpacity(0.2)),
                     Row(
                       children: [
@@ -223,7 +223,7 @@ class InformationViewTestModel {
             type: AnimatedWidgetType.sheetView,
             waitForBuild: true,
             config: AnimatedSheetViewConfig(backgroundColor: Colors.black.withAlpha(75)),
-          ).inOverlay(context).setWidgetBuilder((v) {
+          ).managerMaybePopEvent(blockMaybePopEvent: true).inOverlay(context).setWidgetBuilder((v) {
             return Column(
               children: [
                 Flexible(flex: 2, child: Container(color: Colors.transparent).addTapEvent(() => v.hide())),

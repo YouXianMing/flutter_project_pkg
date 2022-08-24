@@ -9,15 +9,15 @@ import 'package:project_examples/pages/animations/base_animated/base_animated_pa
 import 'package:project_examples/pages/animations/goods_add_to_cart/goods_add_to_cart_page.dart';
 import 'package:project_examples/pages/animations/group_animation/group_animation_page.dart';
 import 'package:project_examples/pages/animations/tween_sequence_animation/tween_sequence_animation_page.dart';
-import 'package:project_examples/pages/async_knowledge/async_await_example_page.dart';
+import 'package:project_examples/pages/async_knowledge/async_await_example/async_await_example_page.dart';
 import 'package:project_examples/pages/async_knowledge/async_knowledge_page.dart';
-import 'package:project_examples/pages/async_knowledge/completer_page.dart';
-import 'package:project_examples/pages/async_knowledge/dart_async_page.dart';
-import 'package:project_examples/pages/async_knowledge/dart_future_page.dart';
-import 'package:project_examples/pages/async_knowledge/dart_stream_page.dart';
-import 'package:project_examples/pages/async_knowledge/future_builder_page.dart';
-import 'package:project_examples/pages/async_knowledge/isolate_page.dart';
-import 'package:project_examples/pages/async_knowledge/stream_builder_page.dart';
+import 'package:project_examples/pages/async_knowledge/completer/completer_page.dart';
+import 'package:project_examples/pages/async_knowledge/dart_async/dart_async_page.dart';
+import 'package:project_examples/pages/async_knowledge/dart_future/dart_future_page.dart';
+import 'package:project_examples/pages/async_knowledge/dart_stream/dart_stream_page.dart';
+import 'package:project_examples/pages/async_knowledge/future_builder/future_builder_page.dart';
+import 'package:project_examples/pages/async_knowledge/isolate/isolate_page.dart';
+import 'package:project_examples/pages/async_knowledge/stream_builder/stream_builder_page.dart';
 import 'package:project_examples/pages/project_use/information_view/information_view_page.dart';
 import 'package:project_examples/pages/project_use/project_use_page.dart';
 import 'package:project_examples/pages/project_use/sliver_refresh_widget/sliver_refresh_widget_page.dart';
@@ -25,6 +25,7 @@ import 'package:project_examples/pages/project_use/sliver_sections/sliver_sectio
 import 'package:project_examples/pages/project_use/toast_widget/toast_widget_page.dart';
 import 'package:project_examples/pages/tab_bar/tab_bar_page.dart';
 import 'package:project_examples/pages/third_libs/cached_network_image/cached_network_image_page.dart';
+import 'package:project_examples/pages/third_libs/carousel_slider/carousel_slider_page.dart';
 import 'package:project_examples/pages/third_libs/flip_card/flip_card_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_animated_button/flutter_animated_button_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_staggered_grid_view/flutter_staggered_grid_view_page.dart';
@@ -133,6 +134,8 @@ class RouteConfig {
                 return const IsolatePage();
               case PageRouteEnum.streamBuilderPage:
                 return const StreamBuilderPage();
+              case PageRouteEnum.carouselSliderPage:
+                return const CarouselSliderPage();
             }
           },
         ),

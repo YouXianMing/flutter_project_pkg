@@ -19,9 +19,10 @@ class DartStreamPage extends NormalStatefulWidget {
 class _DartStreamPageState extends NormalStatefulWidgetState<DartStreamPage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
-    context: context,
-    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
-  );
+        context: context,
+        title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+      );
+
   @override
   Widget body(BuildContext context) {
     // https://www.dartcn.com/articles/libraries/broadcast-streams

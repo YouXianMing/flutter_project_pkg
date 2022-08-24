@@ -17,9 +17,9 @@ class GroupAnimationPage extends NormalStatefulWidget {
 class GroupAnimationPageState extends NormalStatefulWidgetState<GroupAnimationPage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
-    context: context,
-    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
-  );
+        context: context,
+        title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+      );
 
   @override
   Widget body(BuildContext context) => _GroupAnimationDemo();

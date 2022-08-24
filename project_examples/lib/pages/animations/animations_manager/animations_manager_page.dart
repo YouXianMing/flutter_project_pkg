@@ -18,9 +18,9 @@ class AnimationsManagerPage extends NormalStatefulWidget {
 class AnimationsManagerPageState extends NormalStatefulWidgetState<AnimationsManagerPage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
-    context: context,
-    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
-  );
+        context: context,
+        title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+      );
 
   @override
   Widget body(BuildContext context) => const AnimationsManagerUseDemo();

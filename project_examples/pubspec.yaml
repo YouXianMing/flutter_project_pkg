@@ -32,7 +32,6 @@ dependencies:
 
   # [flutter.dev] Icon图标
   # https://pub.flutter-io.cn/packages/cupertino_icons
-  # Dart: Native JS
   # Flutter: Android iOS Linux MacOS Web Windows
   cupertino_icons: ^1.0.5
 
@@ -40,6 +39,11 @@ dependencies:
   # https://pub.flutter-io.cn/packages/scratcher
   # Flutter: Android iOS Linux MacOS Web Windows
   scratcher: ^2.2.1
+
+  # [serenader.me] 轮播图组件
+  # https://pub.flutter-io.cn/packages/carousel_slider
+  # Flutter: Android iOS Linux MacOS Web Windows
+  carousel_slider: ^4.1.1
 
   # 液体效果的进度条
   # https://pub.flutter-io.cn/packages/liquid_progress_indicator
@@ -103,10 +107,10 @@ dependencies:
 
   # 基础组件库(通过Git的方式引入)
   # Flutter: Android iOS Linux MacOS Web Windows
-#  project_base_libs_pkg:
-#    git:
-#      url: https://github.com/YouXianMing/flutter_project_pkg.git
-#      path: project_base_libs_pkg
+  #  project_base_libs_pkg:
+  #    git:
+  #      url: https://github.com/YouXianMing/flutter_project_pkg.git
+  #      path: project_base_libs_pkg
 
   # 基础组件库(通过本地的方式引入)
   # Flutter: Android iOS Linux MacOS Web Windows
