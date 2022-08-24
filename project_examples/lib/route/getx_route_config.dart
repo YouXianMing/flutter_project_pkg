@@ -9,135 +9,93 @@ import 'package:project_examples/pages/animations/base_animated/base_animated_pa
 import 'package:project_examples/pages/animations/goods_add_to_cart/goods_add_to_cart_page.dart';
 import 'package:project_examples/pages/animations/group_animation/group_animation_page.dart';
 import 'package:project_examples/pages/animations/tween_sequence_animation/tween_sequence_animation_page.dart';
+import 'package:project_examples/pages/async_knowledge/async_await_example_page.dart';
 import 'package:project_examples/pages/async_knowledge/async_knowledge_page.dart';
-import 'package:project_examples/pages/project_use/information_view/infomation_view_page.dart';
+import 'package:project_examples/pages/async_knowledge/completer_page.dart';
+import 'package:project_examples/pages/async_knowledge/dart_async_page.dart';
+import 'package:project_examples/pages/async_knowledge/dart_future_page.dart';
+import 'package:project_examples/pages/async_knowledge/dart_stream_page.dart';
+import 'package:project_examples/pages/async_knowledge/future_builder_page.dart';
+import 'package:project_examples/pages/async_knowledge/isolate_page.dart';
+import 'package:project_examples/pages/async_knowledge/stream_builder_page.dart';
+import 'package:project_examples/pages/project_use/information_view/information_view_page.dart';
 import 'package:project_examples/pages/project_use/project_use_page.dart';
-import 'package:project_examples/pages/project_use/sliver_refresh_widget/slivers_refresh_widget_page.dart';
+import 'package:project_examples/pages/project_use/sliver_refresh_widget/sliver_refresh_widget_page.dart';
 import 'package:project_examples/pages/project_use/sliver_sections/sliver_sections_page.dart';
 import 'package:project_examples/pages/project_use/toast_widget/toast_widget_page.dart';
-import 'package:project_examples/pages/tab_bar/account_page.dart';
-import 'package:project_examples/pages/tab_bar/cart_page.dart';
-import 'package:project_examples/pages/tab_bar/category_page.dart';
-import 'package:project_examples/pages/tab_bar/home_page.dart';
 import 'package:project_examples/pages/tab_bar/tab_bar_page.dart';
 import 'package:project_examples/pages/third_libs/cached_network_image/cached_network_image_page.dart';
 import 'package:project_examples/pages/third_libs/flip_card/flip_card_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_animated_button/flutter_animated_button_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_staggered_grid_view/flutter_staggered_grid_view_page.dart';
-import 'package:project_examples/pages/third_libs/html_text/html_to_text_span_page.dart';
+import 'package:project_examples/pages/third_libs/html_to_text_span/html_to_text_span_page.dart';
 import 'package:project_examples/pages/third_libs/line_icons/line_icons_page.dart';
 import 'package:project_examples/pages/third_libs/liquid_progress_indicator/liquid_progress_indicator_page.dart';
 import 'package:project_examples/pages/third_libs/loading_animations/loading_animations_page.dart';
 import 'package:project_examples/pages/third_libs/read_more/read_more_page.dart';
 import 'package:project_examples/pages/third_libs/scratcher/scratcher_page.dart';
-import 'package:project_examples/pages/third_libs/screen_info/screen_info_page.dart';
+import 'package:project_examples/pages/third_libs/screen_util/screen_util_page.dart';
 import 'package:project_examples/pages/third_libs/shimmer/shimmer_page.dart';
 import 'package:project_examples/pages/third_libs/snapping_sheet/snapping_sheet_page.dart';
 import 'package:project_examples/pages/third_libs/third_lib_page.dart';
-import 'package:project_examples/pages/third_libs/timer_count_down/timer_count_donw_page.dart';
+import 'package:project_examples/pages/third_libs/timer_count_down/timer_count_down_page.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
+import 'package:project_examples/route/page_route_enum.dart';
 
 class RouteConfig {
-  /// tabBar
-  static const String tabBarPage = '/';
-
-  /// root
-  static const String homePage = '/HomePage';
-  static const String categoryPage = '/CategoryPage';
-  static const String cartPage = '/CartPage';
-  static const String accountPage = '/AccountPage';
-
-  /// 项目用
-  static const String projectUsePage = '/ProjectUsePage';
-  static const String sliverSectionsPage = '/SliverSectionsPage';
-  static const String informationViewPage = '/InformationViewPage';
-  static const String sliverRefreshWidgetPage = '/SliverRefreshWidgetPage';
-  static const String toastWidgetPage = '/ToastWidgetPage';
-
-  /// others
-  static const String asyncKnowledgePage = '/AsyncKnowledgePage';
-
-  /// 动画相关内容
-  static const String animationListPage = '/AnimationListPage';
-  static const String groupAnimationPage = '/GroupAnimationPage';
-  static const String tweenSequenceAnimationPage = '/TweenSequenceAnimationPage';
-  static const String baseAnimatedPage = '/BaseAnimatedUsePage';
-  static const String animatedWidgetPage = '/AnimatedWidgetUsePage';
-  static const String animationsManagerPage = '/AnimationsManagerUsePage';
-  static const String animationsManagerIntervalPage = '/AnimationsManagerIntervalPage';
-  static const String animationsManagerSequencePage = '/AnimationsManagerSequencePage';
-  static const String animationsManagerRandomPage = '/AnimationsManagerRandomPage';
-  static const String animationsManagerCurvesPage = '/AnimationsManagerCurvesPage';
-  static const String goodsAddToCartPage = '/GoodsAddToCartPage';
-
-  /// third_libs
-  static const String thirdLibPage = '/ThirdLibPage';
-  static const String htmlToTextSpanPage = '/HtmlToTextSpanPage';
-  static const String loadingAnimationsPage = '/LoadingAnimationsPage';
-  static const String shimmerPage = '/ShimmerPage';
-  static const String snappingSheetPage = '/SnappingSheetPage';
-  static const String staggeredGridViewPage = '/StaggeredGridViewPage';
-  static const String lineIconsPage = '/LineIconsPage';
-  static const String readMorePage = '/ReadMorePage';
-  static const String timerCountDownPage = '/TimerCountDownPage';
-  static const String cachedNetworkImagePage = '/CachedNetworkImagePage';
-  static const String scratcherPage = '/ScratcherPage';
-  static const String flipCardPage = '/FlipCardPage';
-  static const String flutterAnimatedButtonPage = '/FlutterAnimatedButtonPage';
-  static const String liquidProgressIndicatorPage = '/LiquidProgressIndicatorPage';
-  static const String screenUtilPage = '/ScreenUtilPage';
-
   /// 所有注册的page
   static List<GetPage> getPages() {
     return [
       /// TabBar
-      GetPage(name: RouteConfig.tabBarPage, page: () => const TabBarPage()),
+      GetPage(name: '/', page: () => const TabBarPage()),
 
-      /// Root
-      GetPage(name: RouteConfig.homePage, page: () => const HomePage()),
-      GetPage(name: RouteConfig.categoryPage, page: () => const CategoryPage()),
-      GetPage(name: RouteConfig.cartPage, page: () => const CartPage()),
-      GetPage(name: RouteConfig.accountPage, page: () => const AccountPage()),
+      /// 异步编程
+      GetPage(name: PageRouteEnum.asyncKnowledgePage.routeName, page: () => const AsyncKnowledgePage()),
+      GetPage(name: PageRouteEnum.asyncAwaitExamplePage.routeName, page: () => const AsyncAwaitExamplePage()),
+      GetPage(name: PageRouteEnum.completerPage.routeName, page: () => const CompleterPage()),
+      GetPage(name: PageRouteEnum.dartAsyncPage.routeName, page: () => const DartAsyncPage()),
+      GetPage(name: PageRouteEnum.dartFuturePage.routeName, page: () => const DartFuturePage()),
+      GetPage(name: PageRouteEnum.dartStreamPage.routeName, page: () => const DartStreamPage()),
+      GetPage(name: PageRouteEnum.futureBuilderPage.routeName, page: () => const FutureBuilderPage()),
+      GetPage(name: PageRouteEnum.isolatePage.routeName, page: () => const IsolatePage()),
+      GetPage(name: PageRouteEnum.streamBuilderPage.routeName, page: () => const StreamBuilderPage()),
 
-      /// 项目用
-      GetPage(name: RouteConfig.projectUsePage, page: () => const ProjectUsePage()),
-      GetPage(name: RouteConfig.sliverSectionsPage, page: () => const SliverSectionsPage()),
-      GetPage(name: RouteConfig.informationViewPage, page: () => const InformationViewPage()),
-      GetPage(name: RouteConfig.sliverRefreshWidgetPage, page: () => const SliverRefreshWidgetPage()),
-      GetPage(name: RouteConfig.toastWidgetPage, page: () => const ToastWidgetPage()),
+      /// 项目用库
+      GetPage(name: PageRouteEnum.projectUsePage.routeName, page: () => const ProjectUsePage()),
+      GetPage(name: PageRouteEnum.sliverSectionsPage.routeName, page: () => const SliverSectionsPage()),
+      GetPage(name: PageRouteEnum.informationViewPage.routeName, page: () => const InformationViewPage()),
+      GetPage(name: PageRouteEnum.sliverRefreshWidgetPage.routeName, page: () => const SliverRefreshWidgetPage()),
+      GetPage(name: PageRouteEnum.toastWidgetPage.routeName, page: () => const ToastWidgetPage()),
 
-      /// 学习
-      GetPage(name: RouteConfig.asyncKnowledgePage, page: () => const AsyncKnowledgePage()),
+      /// 第三方库
+      GetPage(name: PageRouteEnum.screenUtilPage.routeName, page: () => const ScreenUtilPage()),
+      GetPage(name: PageRouteEnum.thirdLibPage.routeName, page: () => const ThirdLibPage()),
+      GetPage(name: PageRouteEnum.htmlToTextSpanPage.routeName, page: () => const HtmlToTextSpanPage()),
+      GetPage(name: PageRouteEnum.loadingAnimationsPage.routeName, page: () => const LoadingAnimationsPage()),
+      GetPage(name: PageRouteEnum.shimmerPage.routeName, page: () => const ShimmerPage()),
+      GetPage(name: PageRouteEnum.snappingSheetPage.routeName, page: () => const SnappingSheetPage()),
+      GetPage(name: PageRouteEnum.flutterStaggeredGridViewPage.routeName, page: () => const FlutterStaggeredGridViewPage()),
+      GetPage(name: PageRouteEnum.lineIconsPage.routeName, page: () => const LineIconsPage()),
+      GetPage(name: PageRouteEnum.readMorePage.routeName, page: () => const ReadMorePage()),
+      GetPage(name: PageRouteEnum.timerCountDownPage.routeName, page: () => const TimerCountDownPage()),
+      GetPage(name: PageRouteEnum.cachedNetworkImagePage.routeName, page: () => const CachedNetworkImagePage()),
+      GetPage(name: PageRouteEnum.scratcherPage.routeName, page: () => const ScratcherPage()),
+      GetPage(name: PageRouteEnum.flipCardPage.routeName, page: () => const FlipCardPage()),
+      GetPage(name: PageRouteEnum.flutterAnimatedButtonPage.routeName, page: () => const FlutterAnimatedButtonPage()),
+      GetPage(name: PageRouteEnum.liquidProgressIndicatorPage.routeName, page: () => const LiquidProgressIndicatorPage()),
 
-      /// 动画相关内容
-      GetPage(name: RouteConfig.animationListPage, page: () => const AnimationListPage()),
-      GetPage(name: RouteConfig.groupAnimationPage, page: () => const GroupAnimationPage()),
-      GetPage(name: RouteConfig.tweenSequenceAnimationPage, page: () => const TweenSequenceAnimationPage()),
-      GetPage(name: RouteConfig.baseAnimatedPage, page: () => const BaseAnimatedPage()),
-      GetPage(name: RouteConfig.animatedWidgetPage, page: () => const AnimatedWidgetPage()),
-      GetPage(name: RouteConfig.animationsManagerPage, page: () => const AnimationsManagerPage()),
-      GetPage(name: RouteConfig.goodsAddToCartPage, page: () => const GoodsAddToCartPage()),
-      GetPage(name: RouteConfig.animationsManagerIntervalPage, page: () => const AnimationsManagerIntervalPage()),
-      GetPage(name: RouteConfig.animationsManagerRandomPage, page: () => const AnimationsManagerRandomPage()),
-      GetPage(name: RouteConfig.animationsManagerSequencePage, page: () => const AnimationsManagerSequencePage()),
-      GetPage(name: RouteConfig.animationsManagerCurvesPage, page: () => const AnimationsManagerCurvesPage()),
-
-      /// third_libs
-      GetPage(name: RouteConfig.screenUtilPage, page: () => const ScreenUtilPage()),
-      GetPage(name: RouteConfig.thirdLibPage, page: () => const ThirdLibPage()),
-      GetPage(name: RouteConfig.htmlToTextSpanPage, page: () => const HtmlToTextSpanPage()),
-      GetPage(name: RouteConfig.loadingAnimationsPage, page: () => const LoadingAnimationsPage()),
-      GetPage(name: RouteConfig.shimmerPage, page: () => const ShimmerPage()),
-      GetPage(name: RouteConfig.snappingSheetPage, page: () => const SnappingSheetPage()),
-      GetPage(name: RouteConfig.staggeredGridViewPage, page: () => const StaggeredGridViewPage()),
-      GetPage(name: RouteConfig.lineIconsPage, page: () => const LineIconsPage()),
-      GetPage(name: RouteConfig.readMorePage, page: () => const ReadMorePage()),
-      GetPage(name: RouteConfig.timerCountDownPage, page: () => const TimerCountDownPage()),
-      GetPage(name: RouteConfig.cachedNetworkImagePage, page: () => const CachedNetworkImagePage()),
-      GetPage(name: RouteConfig.scratcherPage, page: () => const ScratcherPage()),
-      GetPage(name: RouteConfig.flipCardPage, page: () => const FlipCardPage()),
-      GetPage(name: RouteConfig.flutterAnimatedButtonPage, page: () => const FlutterAnimatedButtonPage()),
-      GetPage(name: RouteConfig.liquidProgressIndicatorPage, page: () => const LiquidProgressIndicatorPage()),
+      /// 动画
+      GetPage(name: PageRouteEnum.animationListPage.routeName, page: () => const AnimationListPage()),
+      GetPage(name: PageRouteEnum.groupAnimationPage.routeName, page: () => const GroupAnimationPage()),
+      GetPage(name: PageRouteEnum.tweenSequenceAnimationPage.routeName, page: () => const TweenSequenceAnimationPage()),
+      GetPage(name: PageRouteEnum.baseAnimatedPage.routeName, page: () => const BaseAnimatedPage()),
+      GetPage(name: PageRouteEnum.animatedWidgetPage.routeName, page: () => const AnimatedWidgetPage()),
+      GetPage(name: PageRouteEnum.animationsManagerPage.routeName, page: () => const AnimationsManagerPage()),
+      GetPage(name: PageRouteEnum.goodsAddToCartPage.routeName, page: () => const GoodsAddToCartPage()),
+      GetPage(name: PageRouteEnum.animationsManagerIntervalPage.routeName, page: () => const AnimationsManagerIntervalPage()),
+      GetPage(name: PageRouteEnum.animationsManagerRandomPage.routeName, page: () => const AnimationsManagerRandomPage()),
+      GetPage(name: PageRouteEnum.animationsManagerSequencePage.routeName, page: () => const AnimationsManagerSequencePage()),
+      GetPage(name: PageRouteEnum.animationsManagerCurvesPage.routeName, page: () => const AnimationsManagerCurvesPage()),
     ];
   }
 }

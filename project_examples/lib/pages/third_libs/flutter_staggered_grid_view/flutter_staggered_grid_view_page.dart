@@ -2,21 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/base/normal_stateful_widget.dart';
 import 'package:project_examples/route/app_route_manager.dart';
-import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
-import 'package:project_base_libs_pkg/third_lib_get.dart';
+import 'package:project_examples/route_style.dart';
 import 'package:project_base_libs_pkg/mod_staggered_grid_view_0_4_0.dart';
 
-class StaggeredGridViewPage extends NormalStatefulWidget {
+class FlutterStaggeredGridViewPage extends NormalStatefulWidget {
   final PageArguments? arguments;
 
-  const StaggeredGridViewPage({Key? key, this.arguments}) : super(key: key);
+  const FlutterStaggeredGridViewPage({Key? key, this.arguments}) : super(key: key);
 
   @override
-  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => StaggeredGridViewPageState();
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => FlutterStaggeredGridViewPageState();
 }
 
-class StaggeredGridViewPageState extends NormalStatefulWidgetState<StaggeredGridViewPage> {
+class FlutterStaggeredGridViewPageState extends NormalStatefulWidgetState<FlutterStaggeredGridViewPage> {
   final List<ModStaggeredTile> _tiles = <ModStaggeredTile>[
     const ModStaggeredTile.count(2, 2),
     const ModStaggeredTile.count(1, 1),
@@ -43,7 +42,7 @@ class StaggeredGridViewPageState extends NormalStatefulWidgetState<StaggeredGrid
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
         context: context,
-        title: NormalAppBar.titleWidget((Get.arguments as CartItemModel).title),
+        title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
       );
 
   @override

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:project_examples/route/page_route_enum.dart';
 
 class CartItemModel {
+  /// 标题
   final String title;
-  final String? route;
 
-  const CartItemModel({required this.title, this.route});
+  final PageRouteEnum pageRouteEnum;
+
+  const CartItemModel({required this.title, required this.pageRouteEnum});
 }
 
 class CartItemWidget extends StatelessWidget {

@@ -10,31 +10,35 @@ import 'package:project_examples/pages/animations/base_animated/base_animated_pa
 import 'package:project_examples/pages/animations/goods_add_to_cart/goods_add_to_cart_page.dart';
 import 'package:project_examples/pages/animations/group_animation/group_animation_page.dart';
 import 'package:project_examples/pages/animations/tween_sequence_animation/tween_sequence_animation_page.dart';
+import 'package:project_examples/pages/async_knowledge/async_await_example_page.dart';
 import 'package:project_examples/pages/async_knowledge/async_knowledge_page.dart';
-import 'package:project_examples/pages/project_use/information_view/infomation_view_page.dart';
+import 'package:project_examples/pages/async_knowledge/completer_page.dart';
+import 'package:project_examples/pages/async_knowledge/dart_async_page.dart';
+import 'package:project_examples/pages/async_knowledge/dart_future_page.dart';
+import 'package:project_examples/pages/async_knowledge/dart_stream_page.dart';
+import 'package:project_examples/pages/async_knowledge/future_builder_page.dart';
+import 'package:project_examples/pages/async_knowledge/isolate_page.dart';
+import 'package:project_examples/pages/async_knowledge/stream_builder_page.dart';
+import 'package:project_examples/pages/project_use/information_view/information_view_page.dart';
 import 'package:project_examples/pages/project_use/project_use_page.dart';
-import 'package:project_examples/pages/project_use/sliver_refresh_widget/slivers_refresh_widget_page.dart';
+import 'package:project_examples/pages/project_use/sliver_refresh_widget/sliver_refresh_widget_page.dart';
 import 'package:project_examples/pages/project_use/sliver_sections/sliver_sections_page.dart';
 import 'package:project_examples/pages/project_use/toast_widget/toast_widget_page.dart';
-import 'package:project_examples/pages/tab_bar/account_page.dart';
-import 'package:project_examples/pages/tab_bar/cart_page.dart';
-import 'package:project_examples/pages/tab_bar/category_page.dart';
-import 'package:project_examples/pages/tab_bar/home_page.dart';
-import 'package:project_examples/pages/tab_bar/tab_bar_page.dart';
 import 'package:project_examples/pages/third_libs/cached_network_image/cached_network_image_page.dart';
 import 'package:project_examples/pages/third_libs/flip_card/flip_card_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_animated_button/flutter_animated_button_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_staggered_grid_view/flutter_staggered_grid_view_page.dart';
-import 'package:project_examples/pages/third_libs/html_text/html_to_text_span_page.dart';
+import 'package:project_examples/pages/third_libs/html_to_text_span/html_to_text_span_page.dart';
 import 'package:project_examples/pages/third_libs/line_icons/line_icons_page.dart';
 import 'package:project_examples/pages/third_libs/liquid_progress_indicator/liquid_progress_indicator_page.dart';
 import 'package:project_examples/pages/third_libs/loading_animations/loading_animations_page.dart';
 import 'package:project_examples/pages/third_libs/read_more/read_more_page.dart';
 import 'package:project_examples/pages/third_libs/scratcher/scratcher_page.dart';
+import 'package:project_examples/pages/third_libs/screen_util/screen_util_page.dart';
 import 'package:project_examples/pages/third_libs/shimmer/shimmer_page.dart';
 import 'package:project_examples/pages/third_libs/snapping_sheet/snapping_sheet_page.dart';
 import 'package:project_examples/pages/third_libs/third_lib_page.dart';
-import 'package:project_examples/pages/third_libs/timer_count_down/timer_count_donw_page.dart';
+import 'package:project_examples/pages/third_libs/timer_count_down/timer_count_down_page.dart';
 
 enum PageRouteEnum {
   /* 动画 */
@@ -49,6 +53,41 @@ enum PageRouteEnum {
   groupAnimationPage,
   tweenSequenceAnimationPage,
   animationListPage,
+
+  /* 异步编程 */
+  asyncAwaitExamplePage,
+  asyncKnowledgePage,
+  completerPage,
+  dartAsyncPage,
+  dartFuturePage,
+  dartStreamPage,
+  futureBuilderPage,
+  isolatePage,
+  streamBuilderPage,
+
+  /* 项目用库 */
+  informationViewPage,
+  sliverRefreshWidgetPage,
+  sliverSectionsPage,
+  toastWidgetPage,
+  projectUsePage,
+
+  /* 第三方库 */
+  cachedNetworkImagePage,
+  flipCardPage,
+  flutterAnimatedButtonPage,
+  flutterStaggeredGridViewPage,
+  htmlToTextSpanPage,
+  lineIconsPage,
+  liquidProgressIndicatorPage,
+  loadingAnimationsPage,
+  readMorePage,
+  scratcherPage,
+  screenUtilPage,
+  shimmerPage,
+  snappingSheetPage,
+  timerCountDownPage,
+  thirdLibPage,
 }
 
 /// pageRouteEnum的准备操作,请放在main里
@@ -92,6 +131,64 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => TweenSequenceAnimationPage(arguments: arguments));
       case PageRouteEnum.animationListPage:
         return MaterialPageRoute(settings: settings, builder: (_) => AnimationListPage(arguments: arguments));
+      case PageRouteEnum.asyncAwaitExamplePage:
+        return MaterialPageRoute(settings: settings, builder: (_) => AsyncAwaitExamplePage(arguments: arguments));
+      case PageRouteEnum.asyncKnowledgePage:
+        return MaterialPageRoute(settings: settings, builder: (_) => AsyncKnowledgePage(arguments: arguments));
+      case PageRouteEnum.completerPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => CompleterPage(arguments: arguments));
+      case PageRouteEnum.dartAsyncPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => DartAsyncPage(arguments: arguments));
+      case PageRouteEnum.dartFuturePage:
+        return MaterialPageRoute(settings: settings, builder: (_) => DartFuturePage(arguments: arguments));
+      case PageRouteEnum.dartStreamPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => DartStreamPage(arguments: arguments));
+      case PageRouteEnum.futureBuilderPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => FutureBuilderPage(arguments: arguments));
+      case PageRouteEnum.isolatePage:
+        return MaterialPageRoute(settings: settings, builder: (_) => IsolatePage(arguments: arguments));
+      case PageRouteEnum.streamBuilderPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => StreamBuilderPage(arguments: arguments));
+      case PageRouteEnum.informationViewPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => InformationViewPage(arguments: arguments));
+      case PageRouteEnum.sliverRefreshWidgetPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => SliverRefreshWidgetPage(arguments: arguments));
+      case PageRouteEnum.sliverSectionsPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => SliverSectionsPage(arguments: arguments));
+      case PageRouteEnum.toastWidgetPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => ToastWidgetPage(arguments: arguments));
+      case PageRouteEnum.projectUsePage:
+        return MaterialPageRoute(settings: settings, builder: (_) => ProjectUsePage(arguments: arguments));
+      case PageRouteEnum.cachedNetworkImagePage:
+        return MaterialPageRoute(settings: settings, builder: (_) => CachedNetworkImagePage(arguments: arguments));
+      case PageRouteEnum.flipCardPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => FlipCardPage(arguments: arguments));
+      case PageRouteEnum.flutterAnimatedButtonPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => FlutterAnimatedButtonPage(arguments: arguments));
+      case PageRouteEnum.flutterStaggeredGridViewPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => FlutterStaggeredGridViewPage(arguments: arguments));
+      case PageRouteEnum.htmlToTextSpanPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => HtmlToTextSpanPage(arguments: arguments));
+      case PageRouteEnum.lineIconsPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => LineIconsPage(arguments: arguments));
+      case PageRouteEnum.liquidProgressIndicatorPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => LiquidProgressIndicatorPage(arguments: arguments));
+      case PageRouteEnum.loadingAnimationsPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => LoadingAnimationsPage(arguments: arguments));
+      case PageRouteEnum.readMorePage:
+        return MaterialPageRoute(settings: settings, builder: (_) => ReadMorePage(arguments: arguments));
+      case PageRouteEnum.scratcherPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => ScratcherPage(arguments: arguments));
+      case PageRouteEnum.screenUtilPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => ScreenUtilPage(arguments: arguments));
+      case PageRouteEnum.shimmerPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => ShimmerPage(arguments: arguments));
+      case PageRouteEnum.snappingSheetPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => SnappingSheetPage(arguments: arguments));
+      case PageRouteEnum.timerCountDownPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => TimerCountDownPage(arguments: arguments));
+      case PageRouteEnum.thirdLibPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => ThirdLibPage(arguments: arguments));
     }
   }
 
@@ -135,6 +232,93 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.animationListPage:
         pageRouteName = _pageRouteNameFrom(AnimationListPage);
+        break;
+      case PageRouteEnum.asyncAwaitExamplePage:
+        pageRouteName = _pageRouteNameFrom(AsyncAwaitExamplePage);
+        break;
+      case PageRouteEnum.asyncKnowledgePage:
+        pageRouteName = _pageRouteNameFrom(AsyncKnowledgePage);
+        break;
+      case PageRouteEnum.completerPage:
+        pageRouteName = _pageRouteNameFrom(CompleterPage);
+        break;
+      case PageRouteEnum.dartAsyncPage:
+        pageRouteName = _pageRouteNameFrom(DartAsyncPage);
+        break;
+      case PageRouteEnum.dartFuturePage:
+        pageRouteName = _pageRouteNameFrom(DartFuturePage);
+        break;
+      case PageRouteEnum.dartStreamPage:
+        pageRouteName = _pageRouteNameFrom(DartStreamPage);
+        break;
+      case PageRouteEnum.futureBuilderPage:
+        pageRouteName = _pageRouteNameFrom(FutureBuilderPage);
+        break;
+      case PageRouteEnum.isolatePage:
+        pageRouteName = _pageRouteNameFrom(IsolatePage);
+        break;
+      case PageRouteEnum.streamBuilderPage:
+        pageRouteName = _pageRouteNameFrom(StreamBuilderPage);
+        break;
+      case PageRouteEnum.informationViewPage:
+        pageRouteName = _pageRouteNameFrom(InformationViewPage);
+        break;
+      case PageRouteEnum.sliverRefreshWidgetPage:
+        pageRouteName = _pageRouteNameFrom(SliverRefreshWidgetPage);
+        break;
+      case PageRouteEnum.sliverSectionsPage:
+        pageRouteName = _pageRouteNameFrom(SliverSectionsPage);
+        break;
+      case PageRouteEnum.toastWidgetPage:
+        pageRouteName = _pageRouteNameFrom(ToastWidgetPage);
+        break;
+      case PageRouteEnum.projectUsePage:
+        pageRouteName = _pageRouteNameFrom(ProjectUsePage);
+        break;
+      case PageRouteEnum.cachedNetworkImagePage:
+        pageRouteName = _pageRouteNameFrom(CachedNetworkImagePage);
+        break;
+      case PageRouteEnum.flipCardPage:
+        pageRouteName = _pageRouteNameFrom(FlipCardPage);
+        break;
+      case PageRouteEnum.flutterAnimatedButtonPage:
+        pageRouteName = _pageRouteNameFrom(FlutterAnimatedButtonPage);
+        break;
+      case PageRouteEnum.flutterStaggeredGridViewPage:
+        pageRouteName = _pageRouteNameFrom(FlutterStaggeredGridViewPage);
+        break;
+      case PageRouteEnum.htmlToTextSpanPage:
+        pageRouteName = _pageRouteNameFrom(HtmlToTextSpanPage);
+        break;
+      case PageRouteEnum.lineIconsPage:
+        pageRouteName = _pageRouteNameFrom(LineIconsPage);
+        break;
+      case PageRouteEnum.liquidProgressIndicatorPage:
+        pageRouteName = _pageRouteNameFrom(LiquidProgressIndicatorPage);
+        break;
+      case PageRouteEnum.loadingAnimationsPage:
+        pageRouteName = _pageRouteNameFrom(LoadingAnimationsPage);
+        break;
+      case PageRouteEnum.readMorePage:
+        pageRouteName = _pageRouteNameFrom(ReadMorePage);
+        break;
+      case PageRouteEnum.scratcherPage:
+        pageRouteName = _pageRouteNameFrom(ScratcherPage);
+        break;
+      case PageRouteEnum.screenUtilPage:
+        pageRouteName = _pageRouteNameFrom(ScreenUtilPage);
+        break;
+      case PageRouteEnum.shimmerPage:
+        pageRouteName = _pageRouteNameFrom(ShimmerPage);
+        break;
+      case PageRouteEnum.snappingSheetPage:
+        pageRouteName = _pageRouteNameFrom(SnappingSheetPage);
+        break;
+      case PageRouteEnum.timerCountDownPage:
+        pageRouteName = _pageRouteNameFrom(TimerCountDownPage);
+        break;
+      case PageRouteEnum.thirdLibPage:
+        pageRouteName = _pageRouteNameFrom(ThirdLibPage);
         break;
     }
 

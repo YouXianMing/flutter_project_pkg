@@ -3,9 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/base/normal_stateful_widget.dart';
 import 'package:project_examples/route/app_route_manager.dart';
-import 'package:project_examples/widgets/card_item_widget.dart';
+import 'package:project_examples/route_style.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
-import 'package:project_base_libs_pkg/third_lib_get.dart';
 
 class LoadingAnimationsPage extends NormalStatefulWidget {
   final PageArguments? arguments;
@@ -20,7 +19,7 @@ class LoadingAnimationsPageState extends NormalStatefulWidgetState<LoadingAnimat
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
         context: context,
-        title: NormalAppBar.titleWidget((Get.arguments as CartItemModel).title),
+        title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
       );
 
   Widget _widgetHeader({required String title}) => Container(

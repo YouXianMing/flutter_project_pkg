@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/base/normal_stateful_widget.dart';
 import 'package:project_examples/route/app_route_manager.dart';
-import 'package:project_examples/widgets/card_item_widget.dart';
+import 'package:project_examples/route_style.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
-import 'package:project_base_libs_pkg/third_lib_get.dart';
 import 'package:flutter_animated_button/flutter_animated_button.dart';
 
 class FlutterAnimatedButtonPage extends NormalStatefulWidget {
@@ -19,9 +18,9 @@ class FlutterAnimatedButtonPage extends NormalStatefulWidget {
 class FlutterAnimatedButtonPageState extends NormalStatefulWidgetState<FlutterAnimatedButtonPage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
-        context: context,
-        title: NormalAppBar.titleWidget((Get.arguments as CartItemModel).title),
-      );
+    context: context,
+    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+  );
 
   @override
   Widget backgroundWidget(BuildContext context) => Container(color: Colors.black);

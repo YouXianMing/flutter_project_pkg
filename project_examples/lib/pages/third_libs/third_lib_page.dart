@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/base/normal_stateful_widget.dart';
 import 'package:project_examples/route/app_route_manager.dart';
-import 'package:project_examples/route/getx_route_config.dart';
+import 'package:project_examples/route/page_route_enum.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
+import 'package:project_examples/route_style.dart';
 
 class ThirdLibPage extends NormalStatefulWidget {
   final PageArguments? arguments;
@@ -20,7 +21,7 @@ class ThirdLibPageState extends NormalStatefulWidgetState<ThirdLibPage> with Wid
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
         context: context,
-        title: NormalAppBar.titleWidget((Get.arguments as CartItemModel).title),
+        title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
       );
 
   @override
@@ -32,20 +33,20 @@ class ThirdLibPageState extends NormalStatefulWidgetState<ThirdLibPage> with Wid
       slivers: [
         SliverListSection(
           items: [
-            const CartItemModel(title: 'ScreenUtil', route: RouteConfig.screenUtilPage),
-            const CartItemModel(title: 'HTML.toTextSpan', route: RouteConfig.htmlToTextSpanPage),
-            const CartItemModel(title: 'Loading Animations', route: RouteConfig.loadingAnimationsPage),
-            const CartItemModel(title: 'Shimmer', route: RouteConfig.shimmerPage),
-            const CartItemModel(title: 'StaggeredGridView', route: RouteConfig.staggeredGridViewPage),
-            const CartItemModel(title: 'LineIcons', route: RouteConfig.lineIconsPage),
-            const CartItemModel(title: 'ReadMore', route: RouteConfig.readMorePage),
-            const CartItemModel(title: 'TimerCountDown', route: RouteConfig.timerCountDownPage),
-            const CartItemModel(title: 'CachedNetworkImage', route: RouteConfig.cachedNetworkImagePage),
-            const CartItemModel(title: 'Scratcher', route: RouteConfig.scratcherPage),
-            const CartItemModel(title: 'FlipCard', route: RouteConfig.flipCardPage),
-            const CartItemModel(title: 'SnappingSheet', route: RouteConfig.snappingSheetPage),
-            const CartItemModel(title: 'FlutterAnimatedButton', route: RouteConfig.flutterAnimatedButtonPage),
-            const CartItemModel(title: 'LiquidProgressIndicator', route: RouteConfig.liquidProgressIndicatorPage),
+            const CartItemModel(title: 'ScreenUtil', pageRouteEnum: PageRouteEnum.screenUtilPage),
+            const CartItemModel(title: 'HTML.toTextSpan', pageRouteEnum: PageRouteEnum.htmlToTextSpanPage),
+            const CartItemModel(title: 'Loading Animations', pageRouteEnum: PageRouteEnum.loadingAnimationsPage),
+            const CartItemModel(title: 'Shimmer', pageRouteEnum: PageRouteEnum.shimmerPage),
+            const CartItemModel(title: 'StaggeredGridView', pageRouteEnum: PageRouteEnum.flutterStaggeredGridViewPage),
+            const CartItemModel(title: 'LineIcons', pageRouteEnum: PageRouteEnum.lineIconsPage),
+            const CartItemModel(title: 'ReadMore', pageRouteEnum: PageRouteEnum.readMorePage),
+            const CartItemModel(title: 'TimerCountDown', pageRouteEnum: PageRouteEnum.timerCountDownPage),
+            const CartItemModel(title: 'CachedNetworkImage', pageRouteEnum: PageRouteEnum.cachedNetworkImagePage),
+            const CartItemModel(title: 'Scratcher', pageRouteEnum: PageRouteEnum.scratcherPage),
+            const CartItemModel(title: 'FlipCard', pageRouteEnum: PageRouteEnum.flipCardPage),
+            const CartItemModel(title: 'SnappingSheet', pageRouteEnum: PageRouteEnum.snappingSheetPage),
+            const CartItemModel(title: 'FlutterAnimatedButton', pageRouteEnum: PageRouteEnum.flutterAnimatedButtonPage),
+            const CartItemModel(title: 'LiquidProgressIndicator', pageRouteEnum: PageRouteEnum.liquidProgressIndicatorPage),
           ],
           builder: (c, i, d) => CartItemWidget(model: d, callback: widgetEventCallback),
         ).buildWidget(),
@@ -56,7 +57,21 @@ class ThirdLibPageState extends NormalStatefulWidgetState<ThirdLibPage> with Wid
   @override
   void widgetEventCallback(BuildContext? context, WidgetEventItem eventItem) {
     if (eventItem.data is CartItemModel) {
-      Get.toNamed(eventItem.data.route!, arguments: eventItem.data);
+      CartItemModel item = eventItem.data;
+      switch (appCurrentRouteStyle) {
+        case RouteStyle.getxStyle:
+          Get.toNamed(item.pageRouteEnum.routeName, arguments: eventItem.data);
+          break;
+        case RouteStyle.enumStyle:
+          appRouteTo(
+            this.context,
+            NormalPageInfo(
+              pageRoute: item.pageRouteEnum,
+              arguments: PageArguments(params: {'title': eventItem.data.title}),
+            ),
+          );
+          break;
+      }
     }
   }
 }

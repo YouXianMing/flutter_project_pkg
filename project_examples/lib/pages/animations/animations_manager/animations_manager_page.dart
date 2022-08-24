@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
 import 'package:project_examples/base/normal_stateful_widget.dart';
 import 'package:project_examples/route/app_route_manager.dart';
-import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/base/managers/animations_manager.dart';
-import 'package:project_base_libs_pkg/third_lib_get.dart';
+import 'package:project_examples/route_style.dart';
 
 class AnimationsManagerPage extends NormalStatefulWidget {
   final PageArguments? arguments;
@@ -19,9 +18,9 @@ class AnimationsManagerPage extends NormalStatefulWidget {
 class AnimationsManagerPageState extends NormalStatefulWidgetState<AnimationsManagerPage> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
-        context: context,
-        title: NormalAppBar.titleWidget((Get.arguments as CartItemModel).title),
-      );
+    context: context,
+    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+  );
 
   @override
   Widget body(BuildContext context) => const AnimationsManagerUseDemo();

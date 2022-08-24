@@ -3,7 +3,7 @@ import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/base/normal_stateful_widget.dart';
 import 'package:project_examples/route/app_route_manager.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
-import 'package:project_base_libs_pkg/third_lib_get.dart';
+import 'package:project_examples/route_style.dart';
 
 class StreamBuilderPage extends NormalStatefulWidget {
   final PageArguments? arguments;
@@ -18,8 +18,10 @@ class _StreamBuilderPageState extends NormalStatefulWidgetState<StreamBuilderPag
   Stream? _stream;
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(context: context, title: NormalAppBar.titleWidget(Get.arguments));
-
+  PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
+    context: context,
+    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+  );
   @override
   void initState() {
     super.initState();

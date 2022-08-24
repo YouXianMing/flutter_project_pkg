@@ -3,6 +3,7 @@ import 'package:project_base_libs_pkg/base/others/linear_equation.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/base/normal_stateful_widget.dart';
 import 'package:project_examples/route/app_route_manager.dart';
+import 'package:project_examples/route_style.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
@@ -57,9 +58,10 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
   ];
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    return useSliverAppBar ? null : NormalAppBar(context: context, title: NormalAppBar.titleWidget((Get.arguments as CartItemModel).title));
-  }
+  PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
+        context: context,
+        title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+      );
 
   @override
   Widget body(BuildContext context) {

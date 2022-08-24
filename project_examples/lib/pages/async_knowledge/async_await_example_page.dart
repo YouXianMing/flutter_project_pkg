@@ -4,6 +4,7 @@ import 'package:project_examples/base/normal_stateful_widget.dart';
 import 'package:project_examples/route/app_route_manager.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
+import 'package:project_examples/route_style.dart';
 
 class AsyncAwaitExamplePage extends NormalStatefulWidget {
   final PageArguments? arguments;
@@ -35,8 +36,10 @@ class AsyncAwaitExamplePageState extends NormalStatefulWidgetState<AsyncAwaitExa
   }
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(context: context, title: NormalAppBar.titleWidget(Get.arguments));
-
+  PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
+    context: context,
+    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+  );
   @override
   Widget body(BuildContext context) => Center(child: Obx(() => Text(info.value)));
 }

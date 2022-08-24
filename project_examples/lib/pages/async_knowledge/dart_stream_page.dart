@@ -5,7 +5,7 @@ import 'package:project_examples/base/normal_stateful_widget.dart';
 import 'package:project_examples/route/app_route_manager.dart';
 import 'package:project_examples/widgets/app_widgets.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
-import 'package:project_base_libs_pkg/third_lib_get.dart';
+import 'package:project_examples/route_style.dart';
 
 class DartStreamPage extends NormalStatefulWidget {
   final PageArguments? arguments;
@@ -18,8 +18,10 @@ class DartStreamPage extends NormalStatefulWidget {
 
 class _DartStreamPageState extends NormalStatefulWidgetState<DartStreamPage> {
   @override
-  PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(context: context, title: NormalAppBar.titleWidget(Get.arguments));
-
+  PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
+    context: context,
+    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+  );
   @override
   Widget body(BuildContext context) {
     // https://www.dartcn.com/articles/libraries/broadcast-streams

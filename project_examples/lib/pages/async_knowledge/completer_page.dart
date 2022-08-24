@@ -6,7 +6,7 @@ import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/base/tools/util.dart';
 import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
 import 'package:project_base_libs_pkg/base/widgets/widgets_factory.dart';
-import 'package:project_base_libs_pkg/third_lib_get.dart';
+import 'package:project_examples/route_style.dart';
 
 class CompleterPage extends NormalStatefulWidget {
   final PageArguments? arguments;
@@ -36,8 +36,10 @@ class CompleterPageState extends NormalStatefulWidgetState<CompleterPage> {
   }
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(context: context, title: NormalAppBar.titleWidget(Get.arguments));
-
+  PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
+    context: context,
+    title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
+  );
   @override
   Widget body(BuildContext context) {
     return Center(child: WidgetsFactory.text(info));
