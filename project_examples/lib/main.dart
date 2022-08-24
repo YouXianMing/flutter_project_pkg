@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 import 'package:project_examples/route/page_route_enum.dart';
-import 'package:project_examples/route_style.dart';
+import 'package:project_examples/app_route_style.dart';
 
 void main() async {
   /// 确保所有的插件都初始化好了
@@ -21,8 +21,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 设定当前路由风格
+    appCurrentRouteStyle = AppRouteStyle.getxType;
+
+    // 根据路由风格的不同初始化方式也不一样
     switch (appCurrentRouteStyle) {
-      case RouteStyle.getxStyle:
+      case AppRouteStyle.getxType:
         return ScreenUtilInit(
           designSize: const Size(750, 1134),
           builder: (context, wgt) => GetMaterialApp(
@@ -38,7 +42,7 @@ class MyApp extends StatelessWidget {
           ),
         );
 
-      case RouteStyle.enumStyle:
+      case AppRouteStyle.namedRouteType:
         return ScreenUtilInit(
           designSize: const Size(750, 1134),
           builder: (context, wgt) => GetMaterialApp(

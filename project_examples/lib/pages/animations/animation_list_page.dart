@@ -8,7 +8,7 @@ import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/base/others/sliver_section/sliver_list/sliver_list_section.dart';
 import 'package:project_base_libs_pkg/base/widgets/widget_callback_mixin.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
-import 'package:project_examples/route_style.dart';
+import 'package:project_examples/app_route_style.dart';
 
 class AnimationListPage extends NormalStatefulWidget {
   final PageArguments? arguments;
@@ -57,10 +57,10 @@ class AnimationListPageState extends NormalStatefulWidgetState<AnimationListPage
     if (eventItem.data is CartItemModel) {
       CartItemModel item = eventItem.data;
       switch (appCurrentRouteStyle) {
-        case RouteStyle.getxStyle:
+        case AppRouteStyle.getxType:
           Get.toNamed(item.pageRouteEnum.routeName, arguments: eventItem.data);
           break;
-        case RouteStyle.enumStyle:
+        case AppRouteStyle.namedRouteType:
           appRouteTo(
             this.context,
             NormalPageInfo(

@@ -3,23 +3,24 @@ import 'package:project_base_libs_pkg/third_lib_get.dart';
 import 'package:project_examples/route/app_route_manager.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 
-enum RouteStyle {
+enum AppRouteStyle {
   /// GetX风格
-  getxStyle,
+  getxType,
 
-  /// 枚举值风格
-  enumStyle,
+  /// 有名路由风格
+  namedRouteType,
 }
 
-RouteStyle appCurrentRouteStyle = RouteStyle.enumStyle;
+late AppRouteStyle appCurrentRouteStyle;
 
+/// 根据路由的不同,获取的标题方式也不同
 String appGetTitle({PageArguments? arguments}) {
   late String title;
   switch (appCurrentRouteStyle) {
-    case RouteStyle.getxStyle:
+    case AppRouteStyle.getxType:
       title = (Get.arguments as CartItemModel).title;
       break;
-    case RouteStyle.enumStyle:
+    case AppRouteStyle.namedRouteType:
       title = getT(arguments?.params?['title'], defaultValue: '');
       break;
   }

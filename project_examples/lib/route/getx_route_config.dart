@@ -45,57 +45,100 @@ import 'package:project_examples/route/page_route_enum.dart';
 class RouteConfig {
   /// 所有注册的page
   static List<GetPage> getPages() {
-    return [
-      /// TabBar
-      GetPage(name: '/', page: () => const TabBarPage()),
+    List<GetPage> pages = [];
+    pages.add(GetPage(name: '/', page: () => const TabBarPage()));
+    for (var element in PageRouteEnum.values) {
+      pages.add(
+        GetPage(
+          name: element.routeName,
+          page: () {
+            switch (element) {
+              case PageRouteEnum.informationViewPage:
+                return const InformationViewPage();
+              case PageRouteEnum.sliverRefreshWidgetPage:
+                return const SliverRefreshWidgetPage();
+              case PageRouteEnum.sliverSectionsPage:
+                return const SliverSectionsPage();
+              case PageRouteEnum.toastWidgetPage:
+                return const ToastWidgetPage();
+              case PageRouteEnum.projectUsePage:
+                return const ProjectUsePage();
+              case PageRouteEnum.cachedNetworkImagePage:
+                return const CachedNetworkImagePage();
+              case PageRouteEnum.flipCardPage:
+                return const FlipCardPage();
+              case PageRouteEnum.flutterAnimatedButtonPage:
+                return const FlutterAnimatedButtonPage();
+              case PageRouteEnum.flutterStaggeredGridViewPage:
+                return const FlutterStaggeredGridViewPage();
+              case PageRouteEnum.htmlToTextSpanPage:
+                return const HtmlToTextSpanPage();
+              case PageRouteEnum.lineIconsPage:
+                return const LineIconsPage();
+              case PageRouteEnum.liquidProgressIndicatorPage:
+                return const LiquidProgressIndicatorPage();
+              case PageRouteEnum.loadingAnimationsPage:
+                return const LoadingAnimationsPage();
+              case PageRouteEnum.readMorePage:
+                return const ReadMorePage();
+              case PageRouteEnum.scratcherPage:
+                return const ScratcherPage();
+              case PageRouteEnum.screenUtilPage:
+                return const ScreenUtilPage();
+              case PageRouteEnum.shimmerPage:
+                return const ShimmerPage();
+              case PageRouteEnum.snappingSheetPage:
+                return const SnappingSheetPage();
+              case PageRouteEnum.timerCountDownPage:
+                return const TimerCountDownPage();
+              case PageRouteEnum.thirdLibPage:
+                return const ThirdLibPage();
+              case PageRouteEnum.animatedWidgetPage:
+                return const AnimatedWidgetPage();
+              case PageRouteEnum.animationsManagerPage:
+                return const AnimationsManagerPage();
+              case PageRouteEnum.animationsManagerCurvesPage:
+                return const AnimationsManagerCurvesPage();
+              case PageRouteEnum.animationsManagerIntervalPage:
+                return const AnimationsManagerIntervalPage();
+              case PageRouteEnum.animationsManagerRandomPage:
+                return const AnimationsManagerRandomPage();
+              case PageRouteEnum.animationsManagerSequencePage:
+                return const AnimationsManagerSequencePage();
+              case PageRouteEnum.baseAnimatedPage:
+                return const BaseAnimatedPage();
+              case PageRouteEnum.goodsAddToCartPage:
+                return const GoodsAddToCartPage();
+              case PageRouteEnum.groupAnimationPage:
+                return const GroupAnimationPage();
+              case PageRouteEnum.tweenSequenceAnimationPage:
+                return const TweenSequenceAnimationPage();
+              case PageRouteEnum.animationListPage:
+                return const AnimationListPage();
+              case PageRouteEnum.asyncAwaitExamplePage:
+                return const AsyncAwaitExamplePage();
+              case PageRouteEnum.asyncKnowledgePage:
+                return const AsyncKnowledgePage();
+              case PageRouteEnum.completerPage:
+                return const CompleterPage();
+              case PageRouteEnum.dartAsyncPage:
+                return const DartAsyncPage();
+              case PageRouteEnum.dartFuturePage:
+                return const DartFuturePage();
+              case PageRouteEnum.dartStreamPage:
+                return const DartStreamPage();
+              case PageRouteEnum.futureBuilderPage:
+                return const FutureBuilderPage();
+              case PageRouteEnum.isolatePage:
+                return const IsolatePage();
+              case PageRouteEnum.streamBuilderPage:
+                return const StreamBuilderPage();
+            }
+          },
+        ),
+      );
+    }
 
-      /// 异步编程
-      GetPage(name: PageRouteEnum.asyncKnowledgePage.routeName, page: () => const AsyncKnowledgePage()),
-      GetPage(name: PageRouteEnum.asyncAwaitExamplePage.routeName, page: () => const AsyncAwaitExamplePage()),
-      GetPage(name: PageRouteEnum.completerPage.routeName, page: () => const CompleterPage()),
-      GetPage(name: PageRouteEnum.dartAsyncPage.routeName, page: () => const DartAsyncPage()),
-      GetPage(name: PageRouteEnum.dartFuturePage.routeName, page: () => const DartFuturePage()),
-      GetPage(name: PageRouteEnum.dartStreamPage.routeName, page: () => const DartStreamPage()),
-      GetPage(name: PageRouteEnum.futureBuilderPage.routeName, page: () => const FutureBuilderPage()),
-      GetPage(name: PageRouteEnum.isolatePage.routeName, page: () => const IsolatePage()),
-      GetPage(name: PageRouteEnum.streamBuilderPage.routeName, page: () => const StreamBuilderPage()),
-
-      /// 项目用库
-      GetPage(name: PageRouteEnum.projectUsePage.routeName, page: () => const ProjectUsePage()),
-      GetPage(name: PageRouteEnum.sliverSectionsPage.routeName, page: () => const SliverSectionsPage()),
-      GetPage(name: PageRouteEnum.informationViewPage.routeName, page: () => const InformationViewPage()),
-      GetPage(name: PageRouteEnum.sliverRefreshWidgetPage.routeName, page: () => const SliverRefreshWidgetPage()),
-      GetPage(name: PageRouteEnum.toastWidgetPage.routeName, page: () => const ToastWidgetPage()),
-
-      /// 第三方库
-      GetPage(name: PageRouteEnum.screenUtilPage.routeName, page: () => const ScreenUtilPage()),
-      GetPage(name: PageRouteEnum.thirdLibPage.routeName, page: () => const ThirdLibPage()),
-      GetPage(name: PageRouteEnum.htmlToTextSpanPage.routeName, page: () => const HtmlToTextSpanPage()),
-      GetPage(name: PageRouteEnum.loadingAnimationsPage.routeName, page: () => const LoadingAnimationsPage()),
-      GetPage(name: PageRouteEnum.shimmerPage.routeName, page: () => const ShimmerPage()),
-      GetPage(name: PageRouteEnum.snappingSheetPage.routeName, page: () => const SnappingSheetPage()),
-      GetPage(name: PageRouteEnum.flutterStaggeredGridViewPage.routeName, page: () => const FlutterStaggeredGridViewPage()),
-      GetPage(name: PageRouteEnum.lineIconsPage.routeName, page: () => const LineIconsPage()),
-      GetPage(name: PageRouteEnum.readMorePage.routeName, page: () => const ReadMorePage()),
-      GetPage(name: PageRouteEnum.timerCountDownPage.routeName, page: () => const TimerCountDownPage()),
-      GetPage(name: PageRouteEnum.cachedNetworkImagePage.routeName, page: () => const CachedNetworkImagePage()),
-      GetPage(name: PageRouteEnum.scratcherPage.routeName, page: () => const ScratcherPage()),
-      GetPage(name: PageRouteEnum.flipCardPage.routeName, page: () => const FlipCardPage()),
-      GetPage(name: PageRouteEnum.flutterAnimatedButtonPage.routeName, page: () => const FlutterAnimatedButtonPage()),
-      GetPage(name: PageRouteEnum.liquidProgressIndicatorPage.routeName, page: () => const LiquidProgressIndicatorPage()),
-
-      /// 动画
-      GetPage(name: PageRouteEnum.animationListPage.routeName, page: () => const AnimationListPage()),
-      GetPage(name: PageRouteEnum.groupAnimationPage.routeName, page: () => const GroupAnimationPage()),
-      GetPage(name: PageRouteEnum.tweenSequenceAnimationPage.routeName, page: () => const TweenSequenceAnimationPage()),
-      GetPage(name: PageRouteEnum.baseAnimatedPage.routeName, page: () => const BaseAnimatedPage()),
-      GetPage(name: PageRouteEnum.animatedWidgetPage.routeName, page: () => const AnimatedWidgetPage()),
-      GetPage(name: PageRouteEnum.animationsManagerPage.routeName, page: () => const AnimationsManagerPage()),
-      GetPage(name: PageRouteEnum.goodsAddToCartPage.routeName, page: () => const GoodsAddToCartPage()),
-      GetPage(name: PageRouteEnum.animationsManagerIntervalPage.routeName, page: () => const AnimationsManagerIntervalPage()),
-      GetPage(name: PageRouteEnum.animationsManagerRandomPage.routeName, page: () => const AnimationsManagerRandomPage()),
-      GetPage(name: PageRouteEnum.animationsManagerSequencePage.routeName, page: () => const AnimationsManagerSequencePage()),
-      GetPage(name: PageRouteEnum.animationsManagerCurvesPage.routeName, page: () => const AnimationsManagerCurvesPage()),
-    ];
+    return pages;
   }
 }

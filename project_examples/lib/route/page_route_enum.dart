@@ -41,38 +41,8 @@ import 'package:project_examples/pages/third_libs/third_lib_page.dart';
 import 'package:project_examples/pages/third_libs/timer_count_down/timer_count_down_page.dart';
 
 enum PageRouteEnum {
-  /* 动画 */
-  animatedWidgetPage,
-  animationsManagerPage,
-  animationsManagerCurvesPage,
-  animationsManagerIntervalPage,
-  animationsManagerRandomPage,
-  animationsManagerSequencePage,
-  baseAnimatedPage,
-  goodsAddToCartPage,
-  groupAnimationPage,
-  tweenSequenceAnimationPage,
-  animationListPage,
-
-  /* 异步编程 */
-  asyncAwaitExamplePage,
-  asyncKnowledgePage,
-  completerPage,
-  dartAsyncPage,
-  dartFuturePage,
-  dartStreamPage,
-  futureBuilderPage,
-  isolatePage,
-  streamBuilderPage,
-
-  /* 项目用库 */
-  informationViewPage,
-  sliverRefreshWidgetPage,
-  sliverSectionsPage,
-  toastWidgetPage,
-  projectUsePage,
-
   /* 第三方库 */
+  thirdLibPage, // 列表页
   cachedNetworkImagePage,
   flipCardPage,
   flutterAnimatedButtonPage,
@@ -87,7 +57,37 @@ enum PageRouteEnum {
   shimmerPage,
   snappingSheetPage,
   timerCountDownPage,
-  thirdLibPage,
+
+  /* 项目用库 */
+  projectUsePage, // 列表页
+  informationViewPage,
+  sliverRefreshWidgetPage,
+  sliverSectionsPage,
+  toastWidgetPage,
+
+  /* 动画 */
+  animationListPage, // 列表页
+  animatedWidgetPage,
+  animationsManagerPage,
+  animationsManagerCurvesPage,
+  animationsManagerIntervalPage,
+  animationsManagerRandomPage,
+  animationsManagerSequencePage,
+  baseAnimatedPage,
+  goodsAddToCartPage,
+  groupAnimationPage,
+  tweenSequenceAnimationPage,
+
+  /* 异步编程 */
+  asyncKnowledgePage, // 列表页
+  asyncAwaitExamplePage,
+  completerPage,
+  dartAsyncPage,
+  dartFuturePage,
+  dartStreamPage,
+  futureBuilderPage,
+  isolatePage,
+  streamBuilderPage,
 }
 
 /// pageRouteEnum的准备操作,请放在main里

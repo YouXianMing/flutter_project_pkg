@@ -5,7 +5,7 @@ import 'package:project_examples/base/normal_stateful_widget.dart';
 import 'package:project_examples/route/app_route_manager.dart';
 import 'package:project_examples/widgets/app_widgets.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
-import 'package:project_examples/route_style.dart';
+import 'package:project_examples/app_route_style.dart';
 
 class DartStreamPage extends NormalStatefulWidget {
   final PageArguments? arguments;

@@ -22,6 +22,7 @@ class TabBarButtonView extends StatelessWidget {
     return Obx(() {
       // 标题
       List<String> titles = ['Home', 'Category', 'Cart', 'Account'];
+      List<IconData> iconDatas = [Icons.home, Icons.category, Icons.add_shopping_cart, Icons.account_circle_rounded];
 
       // 按钮控件
       List<Expanded> buttons = [];
@@ -30,10 +31,11 @@ class TabBarButtonView extends StatelessWidget {
           Expanded(
             flex: 1,
             child: TabBarButton(
+              title: titles[i],
+              iconData: iconDatas[i],
               onTap: tabBarButtonTapEvent,
               select: _controller.selectIndex.value == i ? true : false,
               index: i,
-              title: titles[i],
             ),
           ),
         );

@@ -6,7 +6,7 @@ import 'package:project_examples/route/page_route_enum.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
-import 'package:project_examples/route_style.dart';
+import 'package:project_examples/app_route_style.dart';
 
 class ProjectUsePage extends NormalStatefulWidget {
   final PageArguments? arguments;
@@ -49,10 +49,10 @@ class ProjectUsePageState extends NormalStatefulWidgetState<ProjectUsePage> with
     if (eventItem.data is CartItemModel) {
       CartItemModel item = eventItem.data;
       switch (appCurrentRouteStyle) {
-        case RouteStyle.getxStyle:
+        case AppRouteStyle.getxType:
           Get.toNamed(item.pageRouteEnum.routeName, arguments: eventItem.data);
           break;
-        case RouteStyle.enumStyle:
+        case AppRouteStyle.namedRouteType:
           appRouteTo(
             this.context,
             NormalPageInfo(

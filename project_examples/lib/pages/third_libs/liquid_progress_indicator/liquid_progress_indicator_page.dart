@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
+import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/base/normal_stateful_widget.dart';
 import 'package:project_examples/route/app_route_manager.dart';
-import 'package:project_examples/route_style.dart';
+import 'package:project_examples/app_route_style.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 
@@ -24,121 +25,131 @@ class LiquidProgressIndicatorPageState extends NormalStatefulWidgetState<LiquidP
 
   @override
   Widget body(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          _AnimatedLiquidCircularProgressIndicator(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              SizedBox(
-                width: 75,
-                height: 75,
-                child: LiquidCircularProgressIndicator(backgroundColor: Colors.black, valueColor: const AlwaysStoppedAnimation(Colors.red)),
-              ),
-              SizedBox(
-                width: 75,
-                height: 75,
-                child: LiquidCircularProgressIndicator(
-                  backgroundColor: Colors.white,
-                  valueColor: const AlwaysStoppedAnimation(Colors.pink),
-                  borderColor: Colors.red,
-                  borderWidth: 5.0,
-                  direction: Axis.horizontal,
-                ),
-              ),
-              SizedBox(
-                width: 75,
-                height: 75,
-                child: LiquidCircularProgressIndicator(
-                  backgroundColor: Colors.white,
-                  valueColor: const AlwaysStoppedAnimation(Colors.grey),
-                  borderColor: Colors.blue,
-                  borderWidth: 5.0,
-                  center: const Text('Loading...', style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold)),
-                ),
-              ),
-              SizedBox(
-                width: 75,
-                height: 75,
-                child: LiquidCircularProgressIndicator(
-                  backgroundColor: Colors.lightGreen,
-                  valueColor: const AlwaysStoppedAnimation(Colors.blueGrey),
-                  direction: Axis.horizontal,
-                ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              _AnimatedLiquidCustomProgressIndicator(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  LiquidCustomProgressIndicator(
-                    direction: Axis.vertical,
-                    value: 0.2,
-                    shapePath: _buildBoatPath(),
-                  ),
-                  LiquidCustomProgressIndicator(
-                    direction: Axis.horizontal,
-                    backgroundColor: Colors.grey[300],
+    return CustomScrollView(
+      slivers: [
+        SliverListSection.staticTypeWidget(
+          children: [
+            const SizedBox(height: 20),
+            _AnimatedLiquidCircularProgressIndicator(),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                SizedBox(
+                  width: 75,
+                  height: 75,
+                  child: LiquidCircularProgressIndicator(
+                    backgroundColor: Colors.black,
                     valueColor: const AlwaysStoppedAnimation(Colors.red),
-                    shapePath: _buildSpeechBubblePath(),
                   ),
-                ],
-              )
-            ],
-          ),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              _AnimatedLiquidLinearProgressIndicator(),
-              Container(
-                width: double.infinity,
-                height: 35,
-                padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                child: LiquidLinearProgressIndicator(backgroundColor: Colors.black, valueColor: const AlwaysStoppedAnimation(Colors.red)),
-              ),
-              Container(
-                width: double.infinity,
-                height: 35,
-                padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                child: LiquidLinearProgressIndicator(
-                  backgroundColor: Colors.white,
-                  valueColor: const AlwaysStoppedAnimation(Colors.pink),
-                  borderColor: Colors.red,
-                  borderWidth: 5.0,
-                  direction: Axis.vertical,
                 ),
-              ),
-              Container(
-                width: double.infinity,
-                height: 35,
-                padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                child: LiquidLinearProgressIndicator(
-                  backgroundColor: Colors.white,
-                  valueColor: const AlwaysStoppedAnimation(Colors.grey),
-                  borderColor: Colors.blue,
-                  borderWidth: 5.0,
-                  center: const Text('Loading...', style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold)),
+                SizedBox(
+                  width: 75,
+                  height: 75,
+                  child: LiquidCircularProgressIndicator(
+                    backgroundColor: Colors.white,
+                    valueColor: const AlwaysStoppedAnimation(Colors.pink),
+                    borderColor: Colors.red,
+                    borderWidth: 5.0,
+                    direction: Axis.horizontal,
+                  ),
                 ),
-              ),
-              Container(
-                width: double.infinity,
-                height: 35,
-                padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                child: LiquidLinearProgressIndicator(
+                SizedBox(
+                  width: 75,
+                  height: 75,
+                  child: LiquidCircularProgressIndicator(
+                    backgroundColor: Colors.white,
+                    valueColor: const AlwaysStoppedAnimation(Colors.grey),
+                    borderColor: Colors.blue,
+                    borderWidth: 5.0,
+                    center: const Text('Loading...', style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold)),
+                  ),
+                ),
+                SizedBox(
+                  width: 75,
+                  height: 75,
+                  child: LiquidCircularProgressIndicator(
                     backgroundColor: Colors.lightGreen,
                     valueColor: const AlwaysStoppedAnimation(Colors.blueGrey),
-                    direction: Axis.vertical),
+                    direction: Axis.horizontal,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                _AnimatedLiquidCustomProgressIndicator(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    LiquidCustomProgressIndicator(
+                      direction: Axis.vertical,
+                      value: 0.2,
+                      shapePath: _buildBoatPath(),
+                    ),
+                    LiquidCustomProgressIndicator(
+                      direction: Axis.horizontal,
+                      backgroundColor: Colors.grey[300],
+                      valueColor: const AlwaysStoppedAnimation(Colors.red),
+                      shapePath: _buildSpeechBubblePath(),
+                    ),
+                  ],
+                )
+              ],
+            ),
+            const SizedBox(height: 20),
+            _AnimatedLiquidLinearProgressIndicator(),
+            const SizedBox(height: 20),
+            Container(
+              width: double.infinity,
+              height: 35,
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: LiquidLinearProgressIndicator(backgroundColor: Colors.black, valueColor: const AlwaysStoppedAnimation(Colors.red)),
+            ),
+            const SizedBox(height: 20),
+            Container(
+              width: double.infinity,
+              height: 35,
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: LiquidLinearProgressIndicator(
+                backgroundColor: Colors.white,
+                valueColor: const AlwaysStoppedAnimation(Colors.pink),
+                borderColor: Colors.red,
+                borderWidth: 5.0,
+                direction: Axis.vertical,
               ),
-            ],
-          ),
-        ],
-      ),
+            ),
+            const SizedBox(height: 20),
+            Container(
+              width: double.infinity,
+              height: 35,
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: LiquidLinearProgressIndicator(
+                backgroundColor: Colors.white,
+                valueColor: const AlwaysStoppedAnimation(Colors.grey),
+                borderColor: Colors.blue,
+                borderWidth: 5.0,
+                center: const Text('Loading...', style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold)),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Container(
+              width: double.infinity,
+              height: 35,
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: LiquidLinearProgressIndicator(
+                backgroundColor: Colors.lightGreen,
+                valueColor: const AlwaysStoppedAnimation(Colors.blueGrey),
+                direction: Axis.vertical,
+              ),
+            ),
+            const SizedBox(height: 20),
+            SafeAreaPaddingWidget.bottom(),
+          ],
+        ),
+      ],
     );
   }
 
