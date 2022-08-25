@@ -28,6 +28,7 @@ import 'package:project_examples/pages/third_libs/cached_network_image/cached_ne
 import 'package:project_examples/pages/third_libs/carousel_slider/carousel_slider_page.dart';
 import 'package:project_examples/pages/third_libs/flip_card/flip_card_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_animated_button/flutter_animated_button_page.dart';
+import 'package:project_examples/pages/third_libs/flutter_staggered_animations/flutter_staggered_animations_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_staggered_grid_view/flutter_staggered_grid_view_page.dart';
 import 'package:project_examples/pages/third_libs/html_to_text_span/html_to_text_span_page.dart';
 import 'package:project_examples/pages/third_libs/line_icons/line_icons_page.dart';
@@ -61,6 +62,7 @@ enum PageRouteEnum {
   timerCountDownPage,
   carouselSliderPage,
   smoothPageIndicatorPage,
+  flutterStaggeredAnimationsPage,
 
   /* 项目用库 */
   projectUsePage, // 列表页
@@ -197,6 +199,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => CarouselSliderPage(arguments: arguments));
       case PageRouteEnum.smoothPageIndicatorPage:
         return MaterialPageRoute(settings: settings, builder: (_) => SmoothPageIndicatorPage(arguments: arguments));
+      case PageRouteEnum.flutterStaggeredAnimationsPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => FlutterStaggeredAnimationsPage(arguments: arguments));
     }
   }
 
@@ -333,6 +337,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.smoothPageIndicatorPage:
         pageRouteName = _pageRouteNameFrom(SmoothPageIndicatorPage);
+        break;
+      case PageRouteEnum.flutterStaggeredAnimationsPage:
+        pageRouteName = _pageRouteNameFrom(FlutterStaggeredAnimationsPage);
         break;
     }
 
