@@ -7,6 +7,7 @@ import 'package:project_base_libs_pkg/third_lib_get.dart';
 import 'package:project_examples/app_route_style.dart';
 
 class AsyncAwaitExamplePage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const AsyncAwaitExamplePage({Key? key, this.arguments}) : super(key: key);

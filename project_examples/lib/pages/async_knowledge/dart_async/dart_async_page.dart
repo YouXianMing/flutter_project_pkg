@@ -7,6 +7,7 @@ import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_examples/app_route_style.dart';
 
 class DartAsyncPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const DartAsyncPage({Key? key, this.arguments}) : super(key: key);

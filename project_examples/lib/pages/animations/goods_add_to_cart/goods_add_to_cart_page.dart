@@ -7,6 +7,7 @@ import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'dart:math' as math;
 
 class GoodsAddToCartPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const GoodsAddToCartPage({Key? key, this.arguments}) : super(key: key);

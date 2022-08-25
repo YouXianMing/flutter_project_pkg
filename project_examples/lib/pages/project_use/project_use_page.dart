@@ -9,6 +9,7 @@ import 'package:project_base_libs_pkg/third_lib_get.dart';
 import 'package:project_examples/app_route_style.dart';
 
 class ProjectUsePage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const ProjectUsePage({Key? key, this.arguments}) : super(key: key);

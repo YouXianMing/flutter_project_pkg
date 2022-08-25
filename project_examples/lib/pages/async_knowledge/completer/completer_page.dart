@@ -9,6 +9,7 @@ import 'package:project_base_libs_pkg/base/widgets/widgets_factory.dart';
 import 'package:project_examples/app_route_style.dart';
 
 class CompleterPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const CompleterPage({Key? key, this.arguments}) : super(key: key);

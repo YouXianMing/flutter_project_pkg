@@ -7,6 +7,7 @@ import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:snapping_sheet/snapping_sheet.dart';
 
 class SnappingSheetPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const SnappingSheetPage({Key? key, this.arguments}) : super(key: key);

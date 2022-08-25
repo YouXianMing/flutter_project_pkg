@@ -8,6 +8,7 @@ import 'package:simple_html_css/simple_html_css.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HtmlToTextSpanPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const HtmlToTextSpanPage({Key? key, this.arguments}) : super(key: key);

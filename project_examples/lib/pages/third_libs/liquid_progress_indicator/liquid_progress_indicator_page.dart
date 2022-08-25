@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/base/normal_stateful_widget.dart';
 import 'package:project_examples/route/app_route_manager.dart';
@@ -8,6 +7,7 @@ import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 
 class LiquidProgressIndicatorPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const LiquidProgressIndicatorPage({Key? key, this.arguments}) : super(key: key);

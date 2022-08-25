@@ -9,6 +9,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ToastWidgetPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const ToastWidgetPage({Key? key, this.arguments}) : super(key: key);

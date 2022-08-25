@@ -4,6 +4,7 @@ import 'package:project_examples/base/normal_stateful_widget.dart';
 import 'package:project_examples/route/app_route_manager.dart';
 
 class CartPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const CartPage({Key? key, this.arguments}) : super(key: key);

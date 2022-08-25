@@ -7,6 +7,7 @@ import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:readmore/readmore.dart';
 
 class ReadMorePage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const ReadMorePage({Key? key, this.arguments}) : super(key: key);

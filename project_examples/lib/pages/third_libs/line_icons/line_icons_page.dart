@@ -7,6 +7,7 @@ import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:line_icons/line_icons.dart';
 
 class LineIconsPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const LineIconsPage({Key? key, this.arguments}) : super(key: key);

@@ -8,6 +8,7 @@ import 'package:project_examples/app_route_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class InformationViewPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const InformationViewPage({Key? key, this.arguments}) : super(key: key);

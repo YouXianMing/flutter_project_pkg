@@ -7,6 +7,7 @@ import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ScreenUtilPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const ScreenUtilPage({Key? key, this.arguments}) : super(key: key);

@@ -8,6 +8,7 @@ import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 
 class AnimationsManagerCurvesPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const AnimationsManagerCurvesPage({Key? key, this.arguments}) : super(key: key);

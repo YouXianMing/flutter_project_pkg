@@ -7,6 +7,7 @@ import 'package:project_examples/app_route_style.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 
 class IsolatePage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const IsolatePage({Key? key, this.arguments}) : super(key: key);

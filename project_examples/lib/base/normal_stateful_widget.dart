@@ -3,8 +3,12 @@ import 'package:project_base_libs_pkg/base/managers/maybe_pop_manager.dart';
 import 'package:project_examples/base/normal_page_build_mixin.dart';
 import 'package:project_base_libs_pkg/base/tools/hex_color.dart';
 import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
+import 'package:project_examples/route/app_route_manager.dart';
 
 abstract class NormalStatefulWidget extends BaseStatefulWidget {
+  /// (abstract) arguments参数
+  PageArguments? get arguments;
+
   const NormalStatefulWidget({Key? key}) : super(key: key);
 }
 

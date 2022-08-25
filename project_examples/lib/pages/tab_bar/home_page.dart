@@ -8,6 +8,7 @@ import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 
 class HomePage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const HomePage({Key? key, this.arguments}) : super(key: key);

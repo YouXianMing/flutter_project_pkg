@@ -11,6 +11,7 @@ import 'package:project_base_libs_pkg/third_lib_flutter_sticky_header.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SliverSectionsPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const SliverSectionsPage({Key? key, this.arguments}) : super(key: key);

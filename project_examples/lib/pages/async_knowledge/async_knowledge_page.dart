@@ -9,6 +9,7 @@ import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 
 class AsyncKnowledgePage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const AsyncKnowledgePage({Key? key, this.arguments}) : super(key: key);

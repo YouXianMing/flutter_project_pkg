@@ -6,6 +6,7 @@ import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 
 class AnimationsManagerIntervalPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const AnimationsManagerIntervalPage({Key? key, this.arguments}) : super(key: key);

@@ -7,6 +7,7 @@ import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:flutter_animated_button/flutter_animated_button.dart';
 
 class FlutterAnimatedButtonPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const FlutterAnimatedButtonPage({Key? key, this.arguments}) : super(key: key);

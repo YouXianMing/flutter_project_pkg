@@ -7,6 +7,7 @@ import 'package:project_examples/app_route_style.dart';
 import 'package:project_base_libs_pkg/mod_staggered_grid_view_0_4_0.dart';
 
 class FlutterStaggeredGridViewPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const FlutterStaggeredGridViewPage({Key? key, this.arguments}) : super(key: key);

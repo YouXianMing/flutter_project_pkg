@@ -7,6 +7,7 @@ import 'package:project_examples/app_route_style.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 
 class LoadingAnimationsPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const LoadingAnimationsPage({Key? key, this.arguments}) : super(key: key);

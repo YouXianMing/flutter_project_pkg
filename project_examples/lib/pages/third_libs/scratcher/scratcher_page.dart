@@ -7,6 +7,7 @@ import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:scratcher/widgets.dart';
 
 class ScratcherPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const ScratcherPage({Key? key, this.arguments}) : super(key: key);

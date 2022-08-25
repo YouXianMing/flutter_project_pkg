@@ -7,6 +7,7 @@ import 'package:project_examples/app_route_style.dart';
 import 'package:timer_count_down/timer_count_down.dart';
 
 class TimerCountDownPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const TimerCountDownPage({Key? key, this.arguments}) : super(key: key);

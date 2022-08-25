@@ -6,6 +6,7 @@ import 'package:project_examples/app_route_style.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 
 class TweenSequenceAnimationPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const TweenSequenceAnimationPage({Key? key, this.arguments}) : super(key: key);

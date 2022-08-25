@@ -7,6 +7,7 @@ import 'package:project_base_libs_pkg/base/managers/animations_manager.dart';
 import 'package:project_examples/app_route_style.dart';
 
 class AnimationsManagerPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const AnimationsManagerPage({Key? key, this.arguments}) : super(key: key);

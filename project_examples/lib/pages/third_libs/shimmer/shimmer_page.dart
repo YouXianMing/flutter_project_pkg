@@ -7,6 +7,7 @@ import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ShimmerPage extends NormalStatefulWidget {
+  @override
   final PageArguments? arguments;
 
   const ShimmerPage({Key? key, this.arguments}) : super(key: key);
