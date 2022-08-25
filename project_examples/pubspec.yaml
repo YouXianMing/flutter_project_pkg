@@ -50,6 +50,11 @@ dependencies:
   # Flutter: Android iOS Linux MacOS Web Windows
   liquid_progress_indicator: ^0.4.0
 
+  # 轮播图用的页面指示器
+  # https://pub.flutter-io.cn/packages/smooth_page_indicator
+  # Flutter: Android iOS Linux MacOS Web Windows
+  smooth_page_indicator: ^1.0.0+2
+
   # [brunojurkovic.com] 翻转效果
   # https://pub.flutter-io.cn/packages/flip_card
   # Flutter: Android iOS Linux MacOS Web Windows

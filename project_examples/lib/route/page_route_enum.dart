@@ -37,6 +37,7 @@ import 'package:project_examples/pages/third_libs/read_more/read_more_page.dart'
 import 'package:project_examples/pages/third_libs/scratcher/scratcher_page.dart';
 import 'package:project_examples/pages/third_libs/screen_util/screen_util_page.dart';
 import 'package:project_examples/pages/third_libs/shimmer/shimmer_page.dart';
+import 'package:project_examples/pages/third_libs/smooth_page_indicator/smooth_page_indicator_page.dart';
 import 'package:project_examples/pages/third_libs/snapping_sheet/snapping_sheet_page.dart';
 import 'package:project_examples/pages/third_libs/third_lib_page.dart';
 import 'package:project_examples/pages/third_libs/timer_count_down/timer_count_down_page.dart';
@@ -59,6 +60,7 @@ enum PageRouteEnum {
   snappingSheetPage,
   timerCountDownPage,
   carouselSliderPage,
+  smoothPageIndicatorPage,
 
   /* 项目用库 */
   projectUsePage, // 列表页
@@ -193,6 +195,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => ThirdLibPage(arguments: arguments));
       case PageRouteEnum.carouselSliderPage:
         return MaterialPageRoute(settings: settings, builder: (_) => CarouselSliderPage(arguments: arguments));
+      case PageRouteEnum.smoothPageIndicatorPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => SmoothPageIndicatorPage(arguments: arguments));
     }
   }
 
@@ -326,6 +330,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.carouselSliderPage:
         pageRouteName = _pageRouteNameFrom(CarouselSliderPage);
+        break;
+      case PageRouteEnum.smoothPageIndicatorPage:
+        pageRouteName = _pageRouteNameFrom(SmoothPageIndicatorPage);
         break;
     }
 
