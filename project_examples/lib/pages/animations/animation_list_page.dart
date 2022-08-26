@@ -35,6 +35,7 @@ class AnimationListPageState extends NormalStatefulWidgetState<AnimationListPage
     return CustomScrollView(
       slivers: [
         SliverListSection(
+          padding: const EdgeInsets.only(bottom: 49),
           items: [
             const CartItemModel(title: '动画基本使用', pageRouteEnum: PageRouteEnum.baseAnimatedPage),
             const CartItemModel(title: '组合动画', pageRouteEnum: PageRouteEnum.groupAnimationPage),

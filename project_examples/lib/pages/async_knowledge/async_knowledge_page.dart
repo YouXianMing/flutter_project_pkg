@@ -33,6 +33,7 @@ class AsyncKnowledgePageState extends NormalStatefulWidgetState<AsyncKnowledgePa
     return CustomScrollView(
       slivers: [
         SliverListSection(
+          padding: const EdgeInsets.only(bottom: 49),
           items: [
             const CartItemModel(title: 'async 与 await', pageRouteEnum: PageRouteEnum.asyncAwaitExamplePage),
             const CartItemModel(title: 'Dart的事件循环', pageRouteEnum: PageRouteEnum.dartAsyncPage),

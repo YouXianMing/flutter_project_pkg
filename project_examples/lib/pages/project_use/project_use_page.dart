@@ -33,6 +33,7 @@ class ProjectUsePageState extends NormalStatefulWidgetState<ProjectUsePage> with
     return CustomScrollView(
       slivers: [
         SliverListSection(
+          padding: const EdgeInsets.only(bottom: 49),
           items: [
             const CartItemModel(title: 'SliverSections的使用', pageRouteEnum: PageRouteEnum.sliverSectionsPage),
             const CartItemModel(title: 'SliverRefreshWidget', pageRouteEnum: PageRouteEnum.sliverRefreshWidgetPage),

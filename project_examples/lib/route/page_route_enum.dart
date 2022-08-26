@@ -26,6 +26,7 @@ import 'package:project_examples/pages/project_use/sliver_sections/sliver_sectio
 import 'package:project_examples/pages/project_use/toast_widget/toast_widget_page.dart';
 import 'package:project_examples/pages/third_libs/cached_network_image/cached_network_image_page.dart';
 import 'package:project_examples/pages/third_libs/carousel_slider/carousel_slider_page.dart';
+import 'package:project_examples/pages/third_libs/dotted_border/dotted_border_page.dart';
 import 'package:project_examples/pages/third_libs/flip_card/flip_card_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_animated_button/flutter_animated_button_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_staggered_animations/flutter_staggered_animations_page.dart';
@@ -65,6 +66,7 @@ enum PageRouteEnum {
   smoothPageIndicatorPage,
   flutterStaggeredAnimationsPage,
   wavePage,
+  dottedBorderPage,
 
   /* 项目用库 */
   projectUsePage, // 列表页
@@ -205,6 +207,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => FlutterStaggeredAnimationsPage(arguments: arguments));
       case PageRouteEnum.wavePage:
         return MaterialPageRoute(settings: settings, builder: (_) => WavePage(arguments: arguments));
+      case PageRouteEnum.dottedBorderPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => DottedBorderPage(arguments: arguments));
     }
   }
 
@@ -347,6 +351,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.wavePage:
         pageRouteName = _pageRouteNameFrom(WavePage);
+        break;
+      case PageRouteEnum.dottedBorderPage:
+        pageRouteName = _pageRouteNameFrom(DottedBorderPage);
         break;
     }
 

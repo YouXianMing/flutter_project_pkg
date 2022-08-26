@@ -55,6 +55,11 @@ dependencies:
   # Flutter: Android iOS Linux MacOS Web Windows
   wave: ^0.2.2
 
+  # 虚线边框
+  # https://pub.flutter-io.cn/packages/dotted_border
+  # Flutter: Android iOS Linux MacOS Web Windows
+  dotted_border: ^2.0.0+2
+
   # 列表动画效果
   # https://pub.flutter-io.cn/packages/flutter_staggered_animations
   # Flutter: Android iOS Linux MacOS Web Windows

@@ -33,6 +33,7 @@ class ThirdLibPageState extends NormalStatefulWidgetState<ThirdLibPage> with Wid
     return CustomScrollView(
       slivers: [
         SliverListSection(
+          padding: const EdgeInsets.only(bottom: 49),
           items: [
             const CartItemModel(title: 'ScreenUtil', pageRouteEnum: PageRouteEnum.screenUtilPage),
             const CartItemModel(title: 'CarouselSlider', pageRouteEnum: PageRouteEnum.carouselSliderPage),
@@ -41,6 +42,7 @@ class ThirdLibPageState extends NormalStatefulWidgetState<ThirdLibPage> with Wid
             const CartItemModel(title: 'Loading Animations', pageRouteEnum: PageRouteEnum.loadingAnimationsPage),
             const CartItemModel(title: 'Shimmer', pageRouteEnum: PageRouteEnum.shimmerPage),
             const CartItemModel(title: 'Wave', pageRouteEnum: PageRouteEnum.wavePage),
+            const CartItemModel(title: 'DottedBorder', pageRouteEnum: PageRouteEnum.dottedBorderPage),
             const CartItemModel(title: 'SmoothPageIndicator', pageRouteEnum: PageRouteEnum.smoothPageIndicatorPage),
             const CartItemModel(title: 'StaggeredGridView', pageRouteEnum: PageRouteEnum.flutterStaggeredGridViewPage),
             const CartItemModel(title: 'LineIcons', pageRouteEnum: PageRouteEnum.lineIconsPage),
