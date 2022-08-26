@@ -42,6 +42,7 @@ import 'package:project_examples/pages/third_libs/smooth_page_indicator/smooth_p
 import 'package:project_examples/pages/third_libs/snapping_sheet/snapping_sheet_page.dart';
 import 'package:project_examples/pages/third_libs/third_lib_page.dart';
 import 'package:project_examples/pages/third_libs/timer_count_down/timer_count_down_page.dart';
+import 'package:project_examples/pages/third_libs/wave/wave_page.dart';
 
 enum PageRouteEnum {
   /* 第三方库 */
@@ -63,6 +64,7 @@ enum PageRouteEnum {
   carouselSliderPage,
   smoothPageIndicatorPage,
   flutterStaggeredAnimationsPage,
+  wavePage,
 
   /* 项目用库 */
   projectUsePage, // 列表页
@@ -201,6 +203,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => SmoothPageIndicatorPage(arguments: arguments));
       case PageRouteEnum.flutterStaggeredAnimationsPage:
         return MaterialPageRoute(settings: settings, builder: (_) => FlutterStaggeredAnimationsPage(arguments: arguments));
+      case PageRouteEnum.wavePage:
+        return MaterialPageRoute(settings: settings, builder: (_) => WavePage(arguments: arguments));
     }
   }
 
@@ -340,6 +344,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.flutterStaggeredAnimationsPage:
         pageRouteName = _pageRouteNameFrom(FlutterStaggeredAnimationsPage);
+        break;
+      case PageRouteEnum.wavePage:
+        pageRouteName = _pageRouteNameFrom(WavePage);
         break;
     }
 

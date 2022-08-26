@@ -40,6 +40,7 @@ class ThirdLibPageState extends NormalStatefulWidgetState<ThirdLibPage> with Wid
             const CartItemModel(title: 'HTML.toTextSpan', pageRouteEnum: PageRouteEnum.htmlToTextSpanPage),
             const CartItemModel(title: 'Loading Animations', pageRouteEnum: PageRouteEnum.loadingAnimationsPage),
             const CartItemModel(title: 'Shimmer', pageRouteEnum: PageRouteEnum.shimmerPage),
+            const CartItemModel(title: 'Wave', pageRouteEnum: PageRouteEnum.wavePage),
             const CartItemModel(title: 'SmoothPageIndicator', pageRouteEnum: PageRouteEnum.smoothPageIndicatorPage),
             const CartItemModel(title: 'StaggeredGridView', pageRouteEnum: PageRouteEnum.flutterStaggeredGridViewPage),
             const CartItemModel(title: 'LineIcons', pageRouteEnum: PageRouteEnum.lineIconsPage),

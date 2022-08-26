@@ -43,6 +43,7 @@ import 'package:project_examples/pages/third_libs/snapping_sheet/snapping_sheet_
 import 'package:project_examples/pages/third_libs/third_lib_page.dart';
 import 'package:project_examples/pages/third_libs/timer_count_down/timer_count_down_page.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
+import 'package:project_examples/pages/third_libs/wave/wave_page.dart';
 import 'package:project_examples/route/page_route_enum.dart';
 
 class RouteConfig {
@@ -142,6 +143,8 @@ class RouteConfig {
                 return const SmoothPageIndicatorPage();
               case PageRouteEnum.flutterStaggeredAnimationsPage:
                 return const FlutterStaggeredAnimationsPage();
+              case PageRouteEnum.wavePage:
+                return const WavePage();
             }
           },
         ),
