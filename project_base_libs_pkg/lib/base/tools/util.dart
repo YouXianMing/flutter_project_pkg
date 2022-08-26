@@ -4,6 +4,9 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
 class Util {
+  /// assets下默认的图片地址,可以通过set方法直接设置
+  static String _assetsImagePath = 'lib/images/';
+
   /// https://pub.flutter-io.cn/packages/english_words
   static WordPair get randomWordPair => WordPair.random();
 
@@ -65,15 +68,16 @@ class Util {
   static double maxWidthWithTexts(List<CalculateText> list) {
     double maxLength = 0;
     for (dynamic element in list) {
-      maxLength = max(maxLength, textWidthWithTextStyle(element.string, element.style, direction: element?.direction ?? TextDirection.ltr));
+      maxLength = max(maxLength, textWidthWithTextStyle(element.string, element.style, direction: element?.direction));
     }
     return maxLength;
   }
 
-  /// 获取图片(需要设置assertsImagePath,如果没设置,默认为lib/images/)
+  /// 设置assetsImagePath(需要设置assertsImagePath,如果没设置,默认为lib/images/)
   static set assertsImagePath(String val) => _assetsImagePath = val;
-  static String _assetsImagePath = 'lib/images/';
 
+  /// 便捷的获取asset中的图片文件,只需要给定文件名即可
+  /// 注意:可以通过 assertsImagePath 设置asset的根目录,默认值是lib/images/
   static Image image(String name, {Key? key, double? scale, double? width, double? height, BoxFit? fit, Color? color}) => Image.asset(
         _assetsImagePath + name,
         key: key,
@@ -100,12 +104,17 @@ class Util {
 
   /// 获取微秒时间戳
   static int get microsecondsTimestamp => DateTime.now().microsecondsSinceEpoch;
+
+  /// 获取uri的参数
+  /// 如果参数uri有问题,则直接返回null
+  /// uri可以为文件类型如'/home/myself/data/image',域名类型如'https://www.baidu.com'等,详情可以参考https://api.dart.dev/stable/2.17.6/dart-core/Uri-class.html
+  static Map<String, String>? getUriQueryParameters(String uri) => Uri.tryParse(uri)?.queryParameters;
 }
 
 class CalculateText {
-  String string;
-  TextStyle style;
-  TextDirection? direction;
+  final String string;
+  final TextStyle style;
+  final TextDirection direction;
 
-  CalculateText(this.string, this.style, {this.direction});
+  const CalculateText(this.string, this.style, {this.direction = TextDirection.ltr});
 }

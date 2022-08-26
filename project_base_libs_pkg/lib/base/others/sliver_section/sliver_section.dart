@@ -69,22 +69,29 @@ mixin SliverSectionListItemsMixin {
   /// 子控件是否为空
   bool get widgetListIsEmpty {
     bool itemsIsEmpty = false;
-    if (sliverChildDelegateType == SliverChildDelegateType.builder) {
-      itemsIsEmpty = items!.isEmpty;
-    } else if (sliverChildDelegateType == SliverChildDelegateType.static) {
-      itemsIsEmpty = children!.isEmpty;
+    switch (sliverChildDelegateType) {
+      case SliverChildDelegateType.static:
+        itemsIsEmpty = children!.isEmpty;
+        break;
+      case SliverChildDelegateType.builder:
+        itemsIsEmpty = items!.isEmpty;
+        break;
     }
+
     return itemsIsEmpty;
   }
 
   /// 获取SliverChildDelegate
   SliverChildDelegate get sliverChildDelegate {
-    SliverChildDelegate? delegate;
-    if (sliverChildDelegateType == SliverChildDelegateType.builder) {
-      delegate = SliverChildBuilderDelegate((context, index) => builder!(context, index, items![index]), childCount: items!.length);
-    } else if (sliverChildDelegateType == SliverChildDelegateType.static) {
-      delegate = SliverChildListDelegate(children!);
+    late SliverChildDelegate delegate;
+    switch (sliverChildDelegateType) {
+      case SliverChildDelegateType.static:
+        delegate = SliverChildListDelegate(children!);
+        break;
+      case SliverChildDelegateType.builder:
+        delegate = SliverChildBuilderDelegate((context, index) => builder!(context, index, items![index]), childCount: items!.length);
+        break;
     }
-    return delegate!;
+    return delegate;
   }
 }

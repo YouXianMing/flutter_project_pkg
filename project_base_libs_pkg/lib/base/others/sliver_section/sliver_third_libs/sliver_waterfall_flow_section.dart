@@ -146,13 +146,15 @@ class SliverWaterfallFlowSection extends SliverSection with SliverSectionListIte
 
   @override
   Widget buildWidget() {
-    if (sliverChildDelegateType == SliverChildDelegateType.builder) {
-      assert(builder != null);
-      assert(items != null);
-    } else if (sliverChildDelegateType == SliverChildDelegateType.static) {
-      assert(children != null);
+    switch (sliverChildDelegateType) {
+      case SliverChildDelegateType.static:
+        assert(children != null);
+        break;
+      case SliverChildDelegateType.builder:
+        assert(builder != null);
+        assert(items != null);
+        break;
     }
-
     if (transformToBoxAdapterIfHaveNoData == true && widgetListIsEmpty) {
       return processingBuildWidget(const SliverToBoxAdapter(child: SizedBox()));
     }

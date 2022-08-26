@@ -130,11 +130,14 @@ class SliverFixedExtentListSection extends SliverSection with SliverSectionListI
   @override
   Widget buildWidget() {
     assert(itemExtent != null);
-    if (sliverChildDelegateType == SliverChildDelegateType.builder) {
-      assert(builder != null);
-      assert(items != null);
-    } else if (sliverChildDelegateType == SliverChildDelegateType.static) {
-      assert(children != null);
+    switch (sliverChildDelegateType) {
+      case SliverChildDelegateType.static:
+        assert(children != null);
+        break;
+      case SliverChildDelegateType.builder:
+        assert(builder != null);
+        assert(items != null);
+        break;
     }
 
     if (transformToBoxAdapterIfHaveNoData == true && widgetListIsEmpty) {

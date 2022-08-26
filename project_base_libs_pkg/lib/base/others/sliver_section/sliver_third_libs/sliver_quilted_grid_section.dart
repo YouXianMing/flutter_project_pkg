@@ -163,13 +163,16 @@ class SliverQuiltedGridSection extends SliverSection with SliverSectionListItems
 
   @override
   Widget buildWidget() {
-    if (sliverChildDelegateType == SliverChildDelegateType.builder) {
-      assert(builder != null);
-      assert(items != null);
-      assert(pattern != null && pattern!.isNotEmpty);
-    } else if (sliverChildDelegateType == SliverChildDelegateType.static) {
-      assert(children != null);
-      assert(pattern != null && pattern!.isNotEmpty);
+    switch (sliverChildDelegateType) {
+      case SliverChildDelegateType.static:
+        assert(children != null);
+        assert(pattern != null && pattern!.isNotEmpty);
+        break;
+      case SliverChildDelegateType.builder:
+        assert(builder != null);
+        assert(items != null);
+        assert(pattern != null && pattern!.isNotEmpty);
+        break;
     }
 
     if (transformToBoxAdapterIfHaveNoData == true && widgetListIsEmpty) {
