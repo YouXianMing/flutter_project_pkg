@@ -15,16 +15,16 @@ class SafeAreaPaddingWidget extends StatelessWidget {
     required this.type,
   }) : super(key: key);
 
-  static SafeAreaPaddingWidget top({Color? backgroundColor, Widget? child}) =>
+  static SafeAreaPaddingWidget top({Color? backgroundColor}) =>
       SafeAreaPaddingWidget(type: SafeAreaPadding.top, backgroundColor: backgroundColor);
 
-  static SafeAreaPaddingWidget bottom({Color? backgroundColor, Widget? child}) =>
+  static SafeAreaPaddingWidget bottom({Color? backgroundColor}) =>
       SafeAreaPaddingWidget(type: SafeAreaPadding.bottom, backgroundColor: backgroundColor);
 
-  static SafeAreaPaddingWidget left({Color? backgroundColor, Widget? child}) =>
+  static SafeAreaPaddingWidget left({Color? backgroundColor}) =>
       SafeAreaPaddingWidget(type: SafeAreaPadding.left, backgroundColor: backgroundColor);
 
-  static SafeAreaPaddingWidget right({Color? backgroundColor, Widget? child}) =>
+  static SafeAreaPaddingWidget right({Color? backgroundColor}) =>
       SafeAreaPaddingWidget(type: SafeAreaPadding.right, backgroundColor: backgroundColor);
 
   @override

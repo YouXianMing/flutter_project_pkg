@@ -20,6 +20,7 @@ import 'package:project_examples/pages/async_knowledge/future_builder/future_bui
 import 'package:project_examples/pages/async_knowledge/isolate/isolate_page.dart';
 import 'package:project_examples/pages/async_knowledge/stream_builder/stream_builder_page.dart';
 import 'package:project_examples/pages/project_use/information_view/information_view_page.dart';
+import 'package:project_examples/pages/project_use/lottery_carousel_widget/lottery_carousel_widget_page.dart';
 import 'package:project_examples/pages/project_use/project_use_page.dart';
 import 'package:project_examples/pages/project_use/sliver_refresh_widget/sliver_refresh_widget_page.dart';
 import 'package:project_examples/pages/project_use/sliver_sections/sliver_sections_page.dart';
@@ -74,6 +75,7 @@ enum PageRouteEnum {
   sliverRefreshWidgetPage,
   sliverSectionsPage,
   toastWidgetPage,
+  lotteryCarouselWidgetPage,
 
   /* 动画 */
   animationListPage, // 列表页
@@ -209,6 +211,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => WavePage(arguments: arguments));
       case PageRouteEnum.dottedBorderPage:
         return MaterialPageRoute(settings: settings, builder: (_) => DottedBorderPage(arguments: arguments));
+      case PageRouteEnum.lotteryCarouselWidgetPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => LotteryCarouselWidgetPage(arguments: arguments));
     }
   }
 
@@ -354,6 +358,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.dottedBorderPage:
         pageRouteName = _pageRouteNameFrom(DottedBorderPage);
+        break;
+      case PageRouteEnum.lotteryCarouselWidgetPage:
+        pageRouteName = _pageRouteNameFrom(LotteryCarouselWidgetPage);
         break;
     }
 
