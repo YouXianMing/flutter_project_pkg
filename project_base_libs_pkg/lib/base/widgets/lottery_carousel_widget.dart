@@ -83,7 +83,7 @@ class LotteryCarouselManager {
     }
   }
 
-  /// 准备结束转动动画
+  /// 准备结束转动动画(顺时针方向,从12点作为起点)
   void endRotatingAtPercent(double percent, {Function()? didEndRotateCallback}) {
     if (_markToEnd == false &&
         (_currentStatus == LotteryCarouselStatus.startRotating || _currentStatus == LotteryCarouselStatus.keepRotating)) {
@@ -158,7 +158,7 @@ class LotteryCarouselWidgetState extends State<LotteryCarouselWidget> {
             var remainTurn = 1 - (widget.manager._turns - widget.manager._turns.truncate());
 
             // 结束动画时的需要转动的圈数
-            var fullTurns = (remainTurn + (widget.manager.config.turnsPerRound - 1)) + widget.manager._endAtPercent;
+            var fullTurns = (remainTurn + (widget.manager.config.turnsPerRound - 1)) + (1 - widget.manager._endAtPercent);
             if (fullTurns >= widget.manager.config.turnsPerRound) fullTurns -= 1;
 
             if (widget.enableDebugInfo == true) {
