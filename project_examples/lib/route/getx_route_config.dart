@@ -28,6 +28,7 @@ import 'package:project_examples/pages/tab_bar/tab_bar_page.dart';
 import 'package:project_examples/pages/third_libs/cached_network_image/cached_network_image_page.dart';
 import 'package:project_examples/pages/third_libs/carousel_slider/carousel_slider_page.dart';
 import 'package:project_examples/pages/third_libs/dotted_border/dotted_border_page.dart';
+import 'package:project_examples/pages/third_libs/expandable/expandable_page.dart';
 import 'package:project_examples/pages/third_libs/flip_card/flip_card_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_animated_button/flutter_animated_button_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_staggered_animations/flutter_staggered_animations_page.dart';
@@ -151,6 +152,8 @@ class RouteConfig {
                 return const DottedBorderPage();
               case PageRouteEnum.lotteryCarouselWidgetPage:
                 return const LotteryCarouselWidgetPage();
+              case PageRouteEnum.expandablePage:
+                return const ExpandablePage();
             }
           },
         ),

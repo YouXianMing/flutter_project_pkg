@@ -55,6 +55,11 @@ dependencies:
   # Flutter: Android iOS Linux MacOS Web Windows
   wave: ^0.2.2
 
+  # 展开缩放组件
+  # https://pub.flutter-io.cn/packages/expandable
+  # Flutter: Android iOS Linux MacOS Web Windows
+  expandable: ^5.0.1
+
   # 虚线边框
   # https://pub.flutter-io.cn/packages/dotted_border
   # Flutter: Android iOS Linux MacOS Web Windows
