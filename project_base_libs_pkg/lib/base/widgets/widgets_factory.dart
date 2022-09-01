@@ -185,7 +185,7 @@ class ListViewBuilderConfig {
     required this.builder,
     this.scrollDirection = Axis.vertical,
     this.controller,
-    this.padding,
+    this.padding = EdgeInsets.zero,
     this.shrinkWrap = false,
     this.physics,
   });
@@ -216,6 +216,6 @@ class GridViewBuilderConfig {
     this.crossAxisSpacing = 0,
     this.shrinkWrap = false,
     this.physics,
-    this.padding,
+    this.padding = EdgeInsets.zero,
   });
 }
