@@ -24,6 +24,7 @@ import 'package:project_examples/pages/project_use/lottery_carousel_widget/lotte
 import 'package:project_examples/pages/project_use/project_use_page.dart';
 import 'package:project_examples/pages/project_use/sliver_refresh_widget/sliver_refresh_widget_page.dart';
 import 'package:project_examples/pages/project_use/sliver_sections/sliver_sections_page.dart';
+import 'package:project_examples/pages/project_use/text_field/text_field_page.dart';
 import 'package:project_examples/pages/project_use/toast_widget/toast_widget_page.dart';
 import 'package:project_examples/pages/tab_bar/tab_bar_page.dart';
 import 'package:project_examples/pages/third_libs/cached_network_image/cached_network_image_page.dart';
@@ -157,6 +158,8 @@ class RouteConfig {
                 return const ExpandablePage();
               case PageRouteEnum.layoutMaskWidgetPage:
                 return const LayoutMaskWidgetPage();
+              case PageRouteEnum.textFieldPage:
+                return const TextFieldPage();
             }
           },
         ),

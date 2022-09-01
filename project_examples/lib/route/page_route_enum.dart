@@ -25,6 +25,7 @@ import 'package:project_examples/pages/project_use/lottery_carousel_widget/lotte
 import 'package:project_examples/pages/project_use/project_use_page.dart';
 import 'package:project_examples/pages/project_use/sliver_refresh_widget/sliver_refresh_widget_page.dart';
 import 'package:project_examples/pages/project_use/sliver_sections/sliver_sections_page.dart';
+import 'package:project_examples/pages/project_use/text_field/text_field_page.dart';
 import 'package:project_examples/pages/project_use/toast_widget/toast_widget_page.dart';
 import 'package:project_examples/pages/third_libs/cached_network_image/cached_network_image_page.dart';
 import 'package:project_examples/pages/third_libs/carousel_slider/carousel_slider_page.dart';
@@ -80,6 +81,7 @@ enum PageRouteEnum {
   toastWidgetPage,
   lotteryCarouselWidgetPage,
   layoutMaskWidgetPage,
+  textFieldPage,
 
   /* 动画 */
   animationListPage, // 列表页
@@ -221,6 +223,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => ExpandablePage(arguments: arguments));
       case PageRouteEnum.layoutMaskWidgetPage:
         return MaterialPageRoute(settings: settings, builder: (_) => LayoutMaskWidgetPage(arguments: arguments));
+      case PageRouteEnum.textFieldPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => TextFieldPage(arguments: arguments));
     }
   }
 
@@ -375,6 +379,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.layoutMaskWidgetPage:
         pageRouteName = _pageRouteNameFrom(LayoutMaskWidgetPage);
+        break;
+      case PageRouteEnum.textFieldPage:
+        pageRouteName = _pageRouteNameFrom(TextFieldPage);
         break;
     }
 
