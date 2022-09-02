@@ -22,6 +22,7 @@ mixin NormalPageBuildMixin {
   final StackContainer outerStackContainer = StackContainer();
 
   /// 显示toast信息
-  void showMessage(BuildContext context, String text, {bool success = true, Duration duration = const Duration(seconds: 2)}) =>
-      Message().show(context, text, success: success, duration: duration);
+  void showMessage(BuildContext context, String text,
+          {bool success = true, Duration duration = const Duration(seconds: 2), Function? didHide}) =>
+      Message().show(context, text, success: success, duration: duration, didHide: didHide);
 }

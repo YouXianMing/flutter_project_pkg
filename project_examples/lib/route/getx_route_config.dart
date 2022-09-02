@@ -21,6 +21,7 @@ import 'package:project_examples/pages/async_knowledge/stream_builder/stream_bui
 import 'package:project_examples/pages/project_use/information_view/information_view_page.dart';
 import 'package:project_examples/pages/project_use/layout_mask_widget/layout_mask_widget_page.dart';
 import 'package:project_examples/pages/project_use/lottery_carousel_widget/lottery_carousel_widget_page.dart';
+import 'package:project_examples/pages/project_use/networks/networks_page.dart';
 import 'package:project_examples/pages/project_use/project_use_page.dart';
 import 'package:project_examples/pages/project_use/sliver_refresh_widget/sliver_refresh_widget_page.dart';
 import 'package:project_examples/pages/project_use/sliver_sections/sliver_sections_page.dart';
@@ -160,6 +161,8 @@ class RouteConfig {
                 return const LayoutMaskWidgetPage();
               case PageRouteEnum.textFieldPage:
                 return const TextFieldPage();
+              case PageRouteEnum.networksPage:
+                return const NetworksPage();
             }
           },
         ),
