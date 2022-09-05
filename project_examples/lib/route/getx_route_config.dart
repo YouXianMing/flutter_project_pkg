@@ -25,6 +25,7 @@ import 'package:project_examples/pages/project_use/networks/networks_page.dart';
 import 'package:project_examples/pages/project_use/project_use_page.dart';
 import 'package:project_examples/pages/project_use/sliver_refresh_widget/sliver_refresh_widget_page.dart';
 import 'package:project_examples/pages/project_use/sliver_sections/sliver_sections_page.dart';
+import 'package:project_examples/pages/project_use/sp_val/sp_val_page.dart';
 import 'package:project_examples/pages/project_use/text_field/text_field_page.dart';
 import 'package:project_examples/pages/project_use/toast_widget/toast_widget_page.dart';
 import 'package:project_examples/pages/tab_bar/tab_bar_page.dart';
@@ -163,6 +164,8 @@ class RouteConfig {
                 return const TextFieldPage();
               case PageRouteEnum.networksPage:
                 return const NetworksPage();
+              case PageRouteEnum.spValPage:
+                return const SpValPage();
             }
           },
         ),
