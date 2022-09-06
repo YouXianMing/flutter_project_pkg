@@ -23,6 +23,7 @@ import 'package:project_examples/pages/project_use/layout_mask_widget/layout_mas
 import 'package:project_examples/pages/project_use/lottery_carousel_widget/lottery_carousel_widget_page.dart';
 import 'package:project_examples/pages/project_use/networks/networks_page.dart';
 import 'package:project_examples/pages/project_use/project_use_page.dart';
+import 'package:project_examples/pages/project_use/reg_exp/reg_exp_page.dart';
 import 'package:project_examples/pages/project_use/sliver_refresh_widget/sliver_refresh_widget_page.dart';
 import 'package:project_examples/pages/project_use/sliver_sections/sliver_sections_page.dart';
 import 'package:project_examples/pages/project_use/sp_val/sp_val_page.dart';
@@ -166,6 +167,8 @@ class RouteConfig {
                 return const NetworksPage();
               case PageRouteEnum.spValPage:
                 return const SpValPage();
+              case PageRouteEnum.regExpPage:
+                return const RegExpPage();
             }
           },
         ),

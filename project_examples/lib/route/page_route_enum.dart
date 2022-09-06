@@ -24,6 +24,7 @@ import 'package:project_examples/pages/project_use/layout_mask_widget/layout_mas
 import 'package:project_examples/pages/project_use/lottery_carousel_widget/lottery_carousel_widget_page.dart';
 import 'package:project_examples/pages/project_use/networks/networks_page.dart';
 import 'package:project_examples/pages/project_use/project_use_page.dart';
+import 'package:project_examples/pages/project_use/reg_exp/reg_exp_page.dart';
 import 'package:project_examples/pages/project_use/sliver_refresh_widget/sliver_refresh_widget_page.dart';
 import 'package:project_examples/pages/project_use/sliver_sections/sliver_sections_page.dart';
 import 'package:project_examples/pages/project_use/sp_val/sp_val_page.dart';
@@ -86,6 +87,7 @@ enum PageRouteEnum {
   textFieldPage,
   networksPage,
   spValPage,
+  regExpPage,
 
   /* 动画 */
   animationListPage, // 列表页
@@ -233,6 +235,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => NetworksPage(arguments: arguments));
       case PageRouteEnum.spValPage:
         return MaterialPageRoute(settings: settings, builder: (_) => SpValPage(arguments: arguments));
+      case PageRouteEnum.regExpPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => RegExpPage(arguments: arguments));
     }
   }
 
@@ -396,6 +400,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.spValPage:
         pageRouteName = _pageRouteNameFrom(SpValPage);
+        break;
+      case PageRouteEnum.regExpPage:
+        pageRouteName = _pageRouteNameFrom(RegExpPage);
         break;
     }
 

@@ -43,6 +43,7 @@ class ProjectUsePageState extends NormalStatefulWidgetState<ProjectUsePage> with
             const CartItemModel(title: 'TextField', pageRouteEnum: PageRouteEnum.textFieldPage),
             const CartItemModel(title: 'Networks', pageRouteEnum: PageRouteEnum.networksPage),
             const CartItemModel(title: 'SpVal', pageRouteEnum: PageRouteEnum.spValPage),
+            const CartItemModel(title: 'RegExp', pageRouteEnum: PageRouteEnum.regExpPage),
             const CartItemModel(title: '抽奖', pageRouteEnum: PageRouteEnum.lotteryCarouselWidgetPage),
           ],
           builder: (c, i, d) => CartItemWidget(model: d, callback: widgetEventCallback),
