@@ -41,6 +41,7 @@ class ProjectUsePageState extends NormalStatefulWidgetState<ProjectUsePage> with
             const CartItemModel(title: 'ToastWidget', pageRouteEnum: PageRouteEnum.toastWidgetPage),
             const CartItemModel(title: 'LayoutMaskWidget', pageRouteEnum: PageRouteEnum.layoutMaskWidgetPage),
             const CartItemModel(title: 'TextField', pageRouteEnum: PageRouteEnum.textFieldPage),
+            const CartItemModel(title: 'CustomTabBarWidget', pageRouteEnum: PageRouteEnum.customTabBarWidgetPage),
             const CartItemModel(title: 'Networks', pageRouteEnum: PageRouteEnum.networksPage),
             const CartItemModel(title: 'SpVal', pageRouteEnum: PageRouteEnum.spValPage),
             const CartItemModel(title: 'RegExp', pageRouteEnum: PageRouteEnum.regExpPage),
