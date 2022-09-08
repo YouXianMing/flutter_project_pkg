@@ -121,7 +121,7 @@ bool _nearEqual(double d1, double d2) {
 /// See also:
 ///
 ///  * [ModRenderSliverStaggeredGrid], which uses this class during its
-///    [RenderSliverStaggeredGrid.performLayout] method.
+///    RenderSliverStaggeredGrid.performLayout method.
 @immutable
 class ModSliverStaggeredGridGeometry {
   /// Creates an object that describes the placement of a child in a [ModRenderSliverStaggeredGrid].
@@ -246,6 +246,7 @@ class ModRenderSliverStaggeredGrid extends ModRenderSliverVariableSizeBoxAdaptor
   /// The delegate that controls the configuration of the staggered grid.
   ModSliverStaggeredGridDelegate get gridDelegate => _gridDelegate;
   ModSliverStaggeredGridDelegate _gridDelegate;
+
   set gridDelegate(ModSliverStaggeredGridDelegate value) {
     if (_gridDelegate == value) {
       return;
@@ -417,7 +418,8 @@ class ModRenderSliverStaggeredGrid extends ModRenderSliverVariableSizeBoxAdaptor
     childManager.didFinishLayout();
   }
 
-  static ModSliverStaggeredGridGeometry? getSliverStaggeredGeometry(int index, ModStaggeredGridConfiguration configuration, List<double> offsets) {
+  static ModSliverStaggeredGridGeometry? getSliverStaggeredGeometry(
+      int index, ModStaggeredGridConfiguration configuration, List<double> offsets) {
     final tile = configuration.getStaggeredTile(index);
     if (tile == null) {
       return null;

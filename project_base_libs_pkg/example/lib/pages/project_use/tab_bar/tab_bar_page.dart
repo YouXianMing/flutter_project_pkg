@@ -6,6 +6,7 @@ import 'package:project_base_libs_pkg/base_file_headers.dart';
 
 class TabBarPage extends NormalStatefulWidget {
   final PageArguments? arguments;
+
   const TabBarPage({Key? key, this.arguments}) : super(key: key);
 
   @override

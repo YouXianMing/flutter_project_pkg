@@ -45,7 +45,7 @@ dependencies:
 
   # [dart.dev] 路径
   # https://pub.flutter-io.cn/packages/path
-  path: 1.8.1
+  path: ^1.8.2
 
   # [romainrastel.com] iOS的section herder悬停效果
   # https://pub.flutter-io.cn/packages/flutter_sticky_header

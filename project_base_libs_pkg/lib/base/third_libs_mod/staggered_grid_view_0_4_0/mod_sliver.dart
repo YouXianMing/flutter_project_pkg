@@ -1,6 +1,5 @@
 import 'dart:collection';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
@@ -84,7 +83,8 @@ abstract class ModSliverVariableSizeBoxAdaptorWidget extends SliverWithKeepAlive
 /// the children of subclasses of [ModRenderSliverVariableSizeBoxAdaptor].
 class ModSliverVariableSizeBoxAdaptorElement extends RenderObjectElement implements ModRenderSliverVariableSizeBoxChildManager {
   /// Creates an element that lazily builds children for the given widget.
-  ModSliverVariableSizeBoxAdaptorElement(ModSliverVariableSizeBoxAdaptorWidget widget, {this.addAutomaticKeepAlives = true}) : super(widget);
+  ModSliverVariableSizeBoxAdaptorElement(ModSliverVariableSizeBoxAdaptorWidget widget, {this.addAutomaticKeepAlives = true})
+      : super(widget);
 
   /// Whether to add keepAlives to children
   final bool addAutomaticKeepAlives;
