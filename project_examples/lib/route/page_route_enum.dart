@@ -20,6 +20,7 @@ import 'package:project_examples/pages/async_knowledge/future_builder/future_bui
 import 'package:project_examples/pages/async_knowledge/isolate/isolate_page.dart';
 import 'package:project_examples/pages/async_knowledge/stream_builder/stream_builder_page.dart';
 import 'package:project_examples/pages/project_use/custom_tab_bar_widget/custom_tab_bar_widget_page.dart';
+import 'package:project_examples/pages/project_use/files_scan/files_scan_page.dart';
 import 'package:project_examples/pages/project_use/information_view/information_view_page.dart';
 import 'package:project_examples/pages/project_use/layout_mask_widget/layout_mask_widget_page.dart';
 import 'package:project_examples/pages/project_use/lottery_carousel_widget/lottery_carousel_widget_page.dart';
@@ -90,6 +91,7 @@ enum PageRouteEnum {
   spValPage,
   regExpPage,
   customTabBarWidgetPage,
+  filesScanPage,
 
   /* 动画 */
   animationListPage, // 列表页
@@ -241,6 +243,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => RegExpPage(arguments: arguments));
       case PageRouteEnum.customTabBarWidgetPage:
         return MaterialPageRoute(settings: settings, builder: (_) => CustomTabBarWidgetPage(arguments: arguments));
+      case PageRouteEnum.filesScanPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => FilesScanPage(arguments: arguments));
     }
   }
 
@@ -410,6 +414,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.customTabBarWidgetPage:
         pageRouteName = _pageRouteNameFrom(CustomTabBarWidgetPage);
+        break;
+      case PageRouteEnum.filesScanPage:
+        pageRouteName = _pageRouteNameFrom(FilesScanPage);
         break;
     }
 
