@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // 设定当前路由风格
-    appCurrentRouteStyle = AppRouteStyle.namedRouteType;
+    appCurrentRouteStyle = AppRouteStyle.getxType;
 
     // 根据路由风格的不同初始化方式也不一样
     switch (appCurrentRouteStyle) {
