@@ -35,21 +35,21 @@ class ProjectUsePageState extends NormalStatefulWidgetState<ProjectUsePage> with
         SliverListSection(
           padding: const EdgeInsets.only(bottom: 49),
           items: [
-            const CartItemModel(title: 'SliverSections的使用', pageRouteEnum: PageRouteEnum.sliverSectionsPage),
-            const CartItemModel(title: 'SliverRefreshWidget', pageRouteEnum: PageRouteEnum.sliverRefreshWidgetPage),
-            const CartItemModel(title: 'InformationView', pageRouteEnum: PageRouteEnum.informationViewPage),
-            const CartItemModel(title: 'ToastWidget', pageRouteEnum: PageRouteEnum.toastWidgetPage),
-            const CartItemModel(title: 'LayoutMaskWidget', pageRouteEnum: PageRouteEnum.layoutMaskWidgetPage),
-            const CartItemModel(title: 'TextField', pageRouteEnum: PageRouteEnum.textFieldPage),
-            const CartItemModel(title: 'CustomTabBarWidget', pageRouteEnum: PageRouteEnum.customTabBarWidgetPage),
-            const CartItemModel(title: 'Networks', pageRouteEnum: PageRouteEnum.networksPage),
-            const CartItemModel(title: 'SpVal', pageRouteEnum: PageRouteEnum.spValPage),
-            const CartItemModel(title: 'RegExp', pageRouteEnum: PageRouteEnum.regExpPage),
-            const CartItemModel(title: 'checkWillPop', pageRouteEnum: PageRouteEnum.maybePopPage),
-            const CartItemModel(title: '文件扫描', pageRouteEnum: PageRouteEnum.filesScanPage),
-            const CartItemModel(title: '抽奖', pageRouteEnum: PageRouteEnum.lotteryCarouselWidgetPage),
+            const MenuItemModel(title: 'SliverSections的使用', pageRouteEnum: PageRouteEnum.sliverSectionsPage),
+            const MenuItemModel(title: 'SliverRefreshWidget', pageRouteEnum: PageRouteEnum.sliverRefreshWidgetPage),
+            const MenuItemModel(title: 'InformationView', pageRouteEnum: PageRouteEnum.informationViewPage),
+            const MenuItemModel(title: 'ToastWidget', pageRouteEnum: PageRouteEnum.toastWidgetPage),
+            const MenuItemModel(title: 'LayoutMaskWidget', pageRouteEnum: PageRouteEnum.layoutMaskWidgetPage),
+            const MenuItemModel(title: 'TextField', pageRouteEnum: PageRouteEnum.textFieldPage),
+            const MenuItemModel(title: 'CustomTabBarWidget', pageRouteEnum: PageRouteEnum.customTabBarWidgetPage),
+            const MenuItemModel(title: 'Networks', pageRouteEnum: PageRouteEnum.networksPage),
+            const MenuItemModel(title: 'SpVal', pageRouteEnum: PageRouteEnum.spValPage),
+            const MenuItemModel(title: 'RegExp', pageRouteEnum: PageRouteEnum.regExpPage),
+            const MenuItemModel(title: 'checkWillPop', pageRouteEnum: PageRouteEnum.maybePopPage),
+            const MenuItemModel(title: '文件扫描', pageRouteEnum: PageRouteEnum.filesScanPage, setRouteStyle: AppRouteStyle.namedRouteType),
+            const MenuItemModel(title: '抽奖', pageRouteEnum: PageRouteEnum.lotteryCarouselWidgetPage),
           ],
-          builder: (c, i, d) => CartItemWidget(model: d, callback: widgetEventCallback),
+          builder: (c, i, d) => MenuItemWidget(model: d, callback: widgetEventCallback),
         ).buildWidget(),
       ],
     );
@@ -57,8 +57,8 @@ class ProjectUsePageState extends NormalStatefulWidgetState<ProjectUsePage> with
 
   @override
   void widgetEventCallback(BuildContext? context, WidgetEventItem eventItem) {
-    if (eventItem.data is CartItemModel) {
-      CartItemModel item = eventItem.data;
+    if (eventItem.data is MenuItemModel) {
+      MenuItemModel item = eventItem.data;
       switch (appCurrentRouteStyle) {
         case AppRouteStyle.getxType:
           Get.toNamed(item.pageRouteEnum.routeName, arguments: eventItem.data);

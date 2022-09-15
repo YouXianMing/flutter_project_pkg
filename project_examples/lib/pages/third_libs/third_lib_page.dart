@@ -35,28 +35,28 @@ class ThirdLibPageState extends NormalStatefulWidgetState<ThirdLibPage> with Wid
         SliverListSection(
           padding: const EdgeInsets.only(bottom: 49),
           items: [
-            const CartItemModel(title: 'ScreenUtil', pageRouteEnum: PageRouteEnum.screenUtilPage),
-            const CartItemModel(title: 'CarouselSlider', pageRouteEnum: PageRouteEnum.carouselSliderPage),
-            const CartItemModel(title: 'FlutterStaggeredAnimations', pageRouteEnum: PageRouteEnum.flutterStaggeredAnimationsPage),
-            const CartItemModel(title: 'HTML.toTextSpan', pageRouteEnum: PageRouteEnum.htmlToTextSpanPage),
-            const CartItemModel(title: 'Loading Animations', pageRouteEnum: PageRouteEnum.loadingAnimationsPage),
-            const CartItemModel(title: 'Shimmer', pageRouteEnum: PageRouteEnum.shimmerPage),
-            const CartItemModel(title: 'Wave', pageRouteEnum: PageRouteEnum.wavePage),
-            const CartItemModel(title: 'Expandable', pageRouteEnum: PageRouteEnum.expandablePage),
-            const CartItemModel(title: 'DottedBorder', pageRouteEnum: PageRouteEnum.dottedBorderPage),
-            const CartItemModel(title: 'SmoothPageIndicator', pageRouteEnum: PageRouteEnum.smoothPageIndicatorPage),
-            const CartItemModel(title: 'StaggeredGridView', pageRouteEnum: PageRouteEnum.flutterStaggeredGridViewPage),
-            const CartItemModel(title: 'LineIcons', pageRouteEnum: PageRouteEnum.lineIconsPage),
-            const CartItemModel(title: 'ReadMore', pageRouteEnum: PageRouteEnum.readMorePage),
-            const CartItemModel(title: 'TimerCountDown', pageRouteEnum: PageRouteEnum.timerCountDownPage),
-            const CartItemModel(title: 'CachedNetworkImage', pageRouteEnum: PageRouteEnum.cachedNetworkImagePage),
-            const CartItemModel(title: 'Scratcher', pageRouteEnum: PageRouteEnum.scratcherPage),
-            const CartItemModel(title: 'FlipCard', pageRouteEnum: PageRouteEnum.flipCardPage),
-            const CartItemModel(title: 'SnappingSheet', pageRouteEnum: PageRouteEnum.snappingSheetPage),
-            const CartItemModel(title: 'FlutterAnimatedButton', pageRouteEnum: PageRouteEnum.flutterAnimatedButtonPage),
-            const CartItemModel(title: 'LiquidProgressIndicator', pageRouteEnum: PageRouteEnum.liquidProgressIndicatorPage),
+            const MenuItemModel(title: 'ScreenUtil', pageRouteEnum: PageRouteEnum.screenUtilPage),
+            const MenuItemModel(title: 'CarouselSlider', pageRouteEnum: PageRouteEnum.carouselSliderPage),
+            const MenuItemModel(title: 'FlutterStaggeredAnimations', pageRouteEnum: PageRouteEnum.flutterStaggeredAnimationsPage),
+            const MenuItemModel(title: 'HTML.toTextSpan', pageRouteEnum: PageRouteEnum.htmlToTextSpanPage),
+            const MenuItemModel(title: 'Loading Animations', pageRouteEnum: PageRouteEnum.loadingAnimationsPage),
+            const MenuItemModel(title: 'Shimmer', pageRouteEnum: PageRouteEnum.shimmerPage),
+            const MenuItemModel(title: 'Wave', pageRouteEnum: PageRouteEnum.wavePage),
+            const MenuItemModel(title: 'Expandable', pageRouteEnum: PageRouteEnum.expandablePage),
+            const MenuItemModel(title: 'DottedBorder', pageRouteEnum: PageRouteEnum.dottedBorderPage),
+            const MenuItemModel(title: 'SmoothPageIndicator', pageRouteEnum: PageRouteEnum.smoothPageIndicatorPage),
+            const MenuItemModel(title: 'StaggeredGridView', pageRouteEnum: PageRouteEnum.flutterStaggeredGridViewPage),
+            const MenuItemModel(title: 'LineIcons', pageRouteEnum: PageRouteEnum.lineIconsPage),
+            const MenuItemModel(title: 'ReadMore', pageRouteEnum: PageRouteEnum.readMorePage),
+            const MenuItemModel(title: 'TimerCountDown', pageRouteEnum: PageRouteEnum.timerCountDownPage),
+            const MenuItemModel(title: 'CachedNetworkImage', pageRouteEnum: PageRouteEnum.cachedNetworkImagePage),
+            const MenuItemModel(title: 'Scratcher', pageRouteEnum: PageRouteEnum.scratcherPage),
+            const MenuItemModel(title: 'FlipCard', pageRouteEnum: PageRouteEnum.flipCardPage),
+            const MenuItemModel(title: 'SnappingSheet', pageRouteEnum: PageRouteEnum.snappingSheetPage),
+            const MenuItemModel(title: 'FlutterAnimatedButton', pageRouteEnum: PageRouteEnum.flutterAnimatedButtonPage),
+            const MenuItemModel(title: 'LiquidProgressIndicator', pageRouteEnum: PageRouteEnum.liquidProgressIndicatorPage),
           ],
-          builder: (c, i, d) => CartItemWidget(model: d, callback: widgetEventCallback),
+          builder: (c, i, d) => MenuItemWidget(model: d, callback: widgetEventCallback),
         ).buildWidget(),
       ],
     );
@@ -64,8 +64,8 @@ class ThirdLibPageState extends NormalStatefulWidgetState<ThirdLibPage> with Wid
 
   @override
   void widgetEventCallback(BuildContext? context, WidgetEventItem eventItem) {
-    if (eventItem.data is CartItemModel) {
-      CartItemModel item = eventItem.data;
+    if (eventItem.data is MenuItemModel) {
+      MenuItemModel item = eventItem.data;
       switch (appCurrentRouteStyle) {
         case AppRouteStyle.getxType:
           Get.toNamed(item.pageRouteEnum.routeName, arguments: eventItem.data);

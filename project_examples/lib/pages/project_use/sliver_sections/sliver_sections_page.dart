@@ -80,7 +80,7 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
                       pinned: true,
                       expandedHeight: 150,
                       flexibleSpace: FlexibleSpaceBar(
-                        title: NormalAppBar.titleWidget((Get.arguments as CartItemModel).title),
+                        title: NormalAppBar.titleWidget((Get.arguments as MenuItemModel).title),
                         background: Image.network('https://images0.cnblogs.com/i/607542/201407/051742386849988.png', fit: BoxFit.cover),
                       ),
                     )

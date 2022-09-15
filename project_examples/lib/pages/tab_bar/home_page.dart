@@ -31,12 +31,12 @@ class HomePageState extends NormalStatefulWidgetState<HomePage> with WidgetEvent
         slivers: [
           SliverListSection.builderTypeWidget(
             items: [
-              const CartItemModel(title: '第三方库', pageRouteEnum: PageRouteEnum.thirdLibPage),
-              const CartItemModel(title: '项目用库', pageRouteEnum: PageRouteEnum.projectUsePage),
-              const CartItemModel(title: '动画', pageRouteEnum: PageRouteEnum.animationListPage),
-              const CartItemModel(title: '异步编程', pageRouteEnum: PageRouteEnum.asyncKnowledgePage),
+              const MenuItemModel(title: '第三方库', pageRouteEnum: PageRouteEnum.thirdLibPage),
+              const MenuItemModel(title: '项目用库', pageRouteEnum: PageRouteEnum.projectUsePage),
+              const MenuItemModel(title: '动画', pageRouteEnum: PageRouteEnum.animationListPage),
+              const MenuItemModel(title: '异步编程', pageRouteEnum: PageRouteEnum.asyncKnowledgePage),
             ],
-            builder: (c, i, d) => CartItemWidget(model: d, callback: widgetEventCallback),
+            builder: (c, i, d) => MenuItemWidget(model: d, callback: widgetEventCallback),
           ),
         ],
       ),
@@ -45,8 +45,8 @@ class HomePageState extends NormalStatefulWidgetState<HomePage> with WidgetEvent
 
   @override
   void widgetEventCallback(BuildContext? context, WidgetEventItem eventItem) {
-    if (eventItem.data is CartItemModel) {
-      CartItemModel item = eventItem.data;
+    if (eventItem.data is MenuItemModel) {
+      MenuItemModel item = eventItem.data;
       switch (appCurrentRouteStyle) {
         case AppRouteStyle.getxType:
           Get.toNamed(item.pageRouteEnum.routeName, arguments: eventItem.data);

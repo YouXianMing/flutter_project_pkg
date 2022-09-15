@@ -18,7 +18,7 @@ String appGetTitle({PageArguments? arguments}) {
   late String title;
   switch (appCurrentRouteStyle) {
     case AppRouteStyle.getxType:
-      title = (Get.arguments as CartItemModel).title;
+      title = (Get.arguments as MenuItemModel).title;
       break;
     case AppRouteStyle.namedRouteType:
       title = getT(arguments?.params?['title'], defaultValue: '');

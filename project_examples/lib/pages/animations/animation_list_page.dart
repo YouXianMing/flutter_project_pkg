@@ -37,18 +37,18 @@ class AnimationListPageState extends NormalStatefulWidgetState<AnimationListPage
         SliverListSection(
           padding: const EdgeInsets.only(bottom: 49),
           items: [
-            const CartItemModel(title: '动画基本使用', pageRouteEnum: PageRouteEnum.baseAnimatedPage),
-            const CartItemModel(title: '组合动画', pageRouteEnum: PageRouteEnum.groupAnimationPage),
-            const CartItemModel(title: '分段动画', pageRouteEnum: PageRouteEnum.tweenSequenceAnimationPage),
-            const CartItemModel(title: 'AnimatedWidget使用', pageRouteEnum: PageRouteEnum.animatedWidgetPage),
-            const CartItemModel(title: 'AnimationsManager的使用', pageRouteEnum: PageRouteEnum.animationsManagerPage),
-            const CartItemModel(title: 'AnimationsManager的重复使用', pageRouteEnum: PageRouteEnum.animationsManagerRandomPage),
-            const CartItemModel(title: 'AnimationsManager的Curves', pageRouteEnum: PageRouteEnum.animationsManagerCurvesPage),
-            const CartItemModel(title: 'AnimationsManager与Interval配合使用', pageRouteEnum: PageRouteEnum.animationsManagerIntervalPage),
-            const CartItemModel(title: 'AnimationsManager与Sequence配合使用', pageRouteEnum: PageRouteEnum.animationsManagerSequencePage),
-            const CartItemModel(title: '添加购物车动画', pageRouteEnum: PageRouteEnum.goodsAddToCartPage),
+            const MenuItemModel(title: '动画基本使用', pageRouteEnum: PageRouteEnum.baseAnimatedPage),
+            const MenuItemModel(title: '组合动画', pageRouteEnum: PageRouteEnum.groupAnimationPage),
+            const MenuItemModel(title: '分段动画', pageRouteEnum: PageRouteEnum.tweenSequenceAnimationPage),
+            const MenuItemModel(title: 'AnimatedWidget使用', pageRouteEnum: PageRouteEnum.animatedWidgetPage),
+            const MenuItemModel(title: 'AnimationsManager的使用', pageRouteEnum: PageRouteEnum.animationsManagerPage),
+            const MenuItemModel(title: 'AnimationsManager的重复使用', pageRouteEnum: PageRouteEnum.animationsManagerRandomPage),
+            const MenuItemModel(title: 'AnimationsManager的Curves', pageRouteEnum: PageRouteEnum.animationsManagerCurvesPage),
+            const MenuItemModel(title: 'AnimationsManager与Interval配合使用', pageRouteEnum: PageRouteEnum.animationsManagerIntervalPage),
+            const MenuItemModel(title: 'AnimationsManager与Sequence配合使用', pageRouteEnum: PageRouteEnum.animationsManagerSequencePage),
+            const MenuItemModel(title: '添加购物车动画', pageRouteEnum: PageRouteEnum.goodsAddToCartPage),
           ],
-          builder: (c, i, d) => CartItemWidget(model: d, callback: widgetEventCallback),
+          builder: (c, i, d) => MenuItemWidget(model: d, callback: widgetEventCallback),
         ).buildWidget(),
       ],
     );
@@ -56,8 +56,8 @@ class AnimationListPageState extends NormalStatefulWidgetState<AnimationListPage
 
   @override
   void widgetEventCallback(BuildContext? context, WidgetEventItem eventItem) {
-    if (eventItem.data is CartItemModel) {
-      CartItemModel item = eventItem.data;
+    if (eventItem.data is MenuItemModel) {
+      MenuItemModel item = eventItem.data;
       switch (appCurrentRouteStyle) {
         case AppRouteStyle.getxType:
           Get.toNamed(item.pageRouteEnum.routeName, arguments: eventItem.data);

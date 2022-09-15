@@ -35,16 +35,16 @@ class AsyncKnowledgePageState extends NormalStatefulWidgetState<AsyncKnowledgePa
         SliverListSection(
           padding: const EdgeInsets.only(bottom: 49),
           items: [
-            const CartItemModel(title: 'async 与 await', pageRouteEnum: PageRouteEnum.asyncAwaitExamplePage),
-            const CartItemModel(title: 'Dart的事件循环', pageRouteEnum: PageRouteEnum.dartAsyncPage),
-            const CartItemModel(title: 'Future', pageRouteEnum: PageRouteEnum.dartFuturePage),
-            const CartItemModel(title: 'Stream', pageRouteEnum: PageRouteEnum.dartStreamPage),
-            const CartItemModel(title: 'FutureBuilder', pageRouteEnum: PageRouteEnum.futureBuilderPage),
-            const CartItemModel(title: 'StreamBuilder', pageRouteEnum: PageRouteEnum.streamBuilderPage),
-            const CartItemModel(title: 'Completer', pageRouteEnum: PageRouteEnum.completerPage),
-            const CartItemModel(title: 'Isolate', pageRouteEnum: PageRouteEnum.isolatePage),
+            const MenuItemModel(title: 'async 与 await', pageRouteEnum: PageRouteEnum.asyncAwaitExamplePage),
+            const MenuItemModel(title: 'Dart的事件循环', pageRouteEnum: PageRouteEnum.dartAsyncPage),
+            const MenuItemModel(title: 'Future', pageRouteEnum: PageRouteEnum.dartFuturePage),
+            const MenuItemModel(title: 'Stream', pageRouteEnum: PageRouteEnum.dartStreamPage),
+            const MenuItemModel(title: 'FutureBuilder', pageRouteEnum: PageRouteEnum.futureBuilderPage),
+            const MenuItemModel(title: 'StreamBuilder', pageRouteEnum: PageRouteEnum.streamBuilderPage),
+            const MenuItemModel(title: 'Completer', pageRouteEnum: PageRouteEnum.completerPage),
+            const MenuItemModel(title: 'Isolate', pageRouteEnum: PageRouteEnum.isolatePage),
           ],
-          builder: (c, i, d) => CartItemWidget(model: d, callback: widgetEventCallback),
+          builder: (c, i, d) => MenuItemWidget(model: d, callback: widgetEventCallback),
         ).buildWidget(),
       ],
     );
@@ -52,8 +52,8 @@ class AsyncKnowledgePageState extends NormalStatefulWidgetState<AsyncKnowledgePa
 
   @override
   void widgetEventCallback(BuildContext? context, WidgetEventItem eventItem) {
-    if (eventItem.data is CartItemModel) {
-      CartItemModel item = eventItem.data;
+    if (eventItem.data is MenuItemModel) {
+      MenuItemModel item = eventItem.data;
       switch (appCurrentRouteStyle) {
         case AppRouteStyle.getxType:
           Get.toNamed(item.pageRouteEnum.routeName, arguments: eventItem.data);
