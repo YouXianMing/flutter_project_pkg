@@ -53,6 +53,7 @@ export 'base/tools/plat_form_info.dart'; // 平台信息
 export 'base/tools/scan_files_tool.dart'; // 文件夹扫描工具
 export 'base/tools/check_value.dart'; // 检验获取参数的类型
 export 'base/tools/auto_obx.dart'; // 手动使用的Obx控制器
+export 'base/tools/map_uri_creator.dart'; // 根据给定的经纬度或者地址字符串创建地图用uri
 
 /// widgets
 export 'base/widgets/information_view/animated_pop_view.dart'; // InformationView相关
