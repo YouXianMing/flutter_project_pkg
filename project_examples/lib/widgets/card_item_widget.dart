@@ -35,7 +35,7 @@ class MenuItemWidget extends StatelessWidget {
           alignment: Alignment.centerLeft,
           padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 30.w, bottom: 30.w),
           color: Colors.white,
-          child: Text(model.title ?? ''),
+          child: Text(model.title),
         ),
       );
 }

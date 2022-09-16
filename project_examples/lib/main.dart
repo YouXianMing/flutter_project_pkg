@@ -23,13 +23,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // 设定当前路由风格
-    appCurrentRouteStyle = AppRouteStyle.getxType;
+    appCurrentRouteStyle = AppRouteStyle.namedRouteType;
+
+    // 设计用的尺寸
+    const designSize = Size(750, 1134);
 
     // 根据路由风格的不同初始化方式也不一样
     switch (appCurrentRouteStyle) {
       case AppRouteStyle.getxType:
         return ScreenUtilInit(
-          designSize: const Size(750, 1134),
+          designSize: designSize,
           builder: (context, wgt) => GetMaterialApp(
             theme: ThemeData.light(),
             debugShowCheckedModeBanner: false,
@@ -45,7 +48,7 @@ class MyApp extends StatelessWidget {
 
       case AppRouteStyle.namedRouteType:
         return ScreenUtilInit(
-          designSize: const Size(750, 1134),
+          designSize: designSize,
           builder: (context, wgt) => GetMaterialApp(
             theme: ThemeData.light(),
             debugShowCheckedModeBanner: false,

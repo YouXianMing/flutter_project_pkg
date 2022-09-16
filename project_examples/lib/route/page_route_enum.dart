@@ -36,6 +36,7 @@ import 'package:project_examples/pages/project_use/toast_widget/toast_widget_pag
 import 'package:project_examples/pages/third_libs/cached_network_image/cached_network_image_page.dart';
 import 'package:project_examples/pages/third_libs/carousel_slider/carousel_slider_page.dart';
 import 'package:project_examples/pages/third_libs/dotted_border/dotted_border_page.dart';
+import 'package:project_examples/pages/third_libs/dotted_line/dotted_line_page.dart';
 import 'package:project_examples/pages/third_libs/expandable/expandable_page.dart';
 import 'package:project_examples/pages/third_libs/flip_card/flip_card_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_animated_button/flutter_animated_button_page.dart';
@@ -77,6 +78,7 @@ enum PageRouteEnum {
   flutterStaggeredAnimationsPage,
   wavePage,
   dottedBorderPage,
+  dottedLinePage,
   expandablePage,
 
   /* 项目用库 */
@@ -249,6 +251,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => FilesScanPage(arguments: arguments));
       case PageRouteEnum.maybePopPage:
         return MaterialPageRoute(settings: settings, builder: (_) => MaybePopPage(arguments: arguments));
+      case PageRouteEnum.dottedLinePage:
+        return MaterialPageRoute(settings: settings, builder: (_) => DottedLinePage(arguments: arguments));
     }
   }
 
@@ -424,6 +428,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.maybePopPage:
         pageRouteName = _pageRouteNameFrom(MaybePopPage);
+        break;
+      case PageRouteEnum.dottedLinePage:
+        pageRouteName = _pageRouteNameFrom(DottedLinePage);
         break;
     }
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'simple_view_builder.dart';
+import 'package:project_examples/widgets/simple_view_builder.dart';
 
 enum BaseButtonWidgetStatus {
   idle,

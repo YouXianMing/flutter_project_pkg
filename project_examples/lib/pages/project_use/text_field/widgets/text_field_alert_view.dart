@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
-import 'alert_field.dart';
-import 'alert_view_button.dart';
+import 'package:project_examples/pages/project_use/text_field/widgets/alert_field.dart';
+import 'package:project_examples/pages/project_use/text_field/widgets/alert_view_button.dart';
 
 class TextFieldAlertView {
   static void show(

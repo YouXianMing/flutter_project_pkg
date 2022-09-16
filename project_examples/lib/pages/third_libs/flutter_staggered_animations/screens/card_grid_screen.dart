@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import '../widgets/auto_refresh.dart';
-import '../widgets/empty_card.dart';
+import 'package:project_examples/pages/third_libs/flutter_staggered_animations/widgets/auto_refresh.dart';
+import 'package:project_examples/pages/third_libs/flutter_staggered_animations/widgets/empty_card.dart';
 
 class CardGridScreen extends StatefulWidget {
   const CardGridScreen({Key? key}) : super(key: key);

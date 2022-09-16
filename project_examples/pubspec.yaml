@@ -65,6 +65,11 @@ dependencies:
   # Flutter: Android iOS Linux MacOS Web Windows
   dotted_border: ^2.0.0+2
 
+  # 虚线
+  # https://pub.flutter-io.cn/packages/dotted_line
+  # Flutter: Android iOS Linux MacOS Web Windows
+  dotted_line: ^3.1.0
+
   # 列表动画效果
   # https://pub.flutter-io.cn/packages/flutter_staggered_animations
   # Flutter: Android iOS Linux MacOS Web Windows
