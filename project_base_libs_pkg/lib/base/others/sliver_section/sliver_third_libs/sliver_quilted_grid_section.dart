@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
-import '../base_sliver_section.dart';
-import '../sliver_section.dart';
+import 'package:project_base_libs_pkg/base/others/sliver_section/base_sliver_section.dart';
+import 'package:project_base_libs_pkg/base/others/sliver_section/sliver_section.dart';
 
 /// SliverQuiltedGridSection
 class SliverQuiltedGridSection extends SliverSection with SliverSectionListItemsMixin {

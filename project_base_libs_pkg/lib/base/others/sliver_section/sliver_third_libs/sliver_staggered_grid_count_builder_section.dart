@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:project_base_libs_pkg/base/third_libs_mod/staggered_grid_view_0_4_0/mod_sliver.dart';
 import 'package:project_base_libs_pkg/base/third_libs_mod/staggered_grid_view_0_4_0/mod_staggered_tile.dart';
-import '../../staggered_grid_data.dart';
-import '../base_sliver_section.dart';
-import '../sliver_section.dart';
+import 'package:project_base_libs_pkg/base/others/staggered_grid_data.dart';
+import 'package:project_base_libs_pkg/base/others/sliver_section/base_sliver_section.dart';
+import 'package:project_base_libs_pkg/base/others/sliver_section/sliver_section.dart';
 
 /// SliverStaggeredGridCountBuilderSection
 class SliverStaggeredGridCountBuilderSection<T extends StaggeredGridData> extends SliverSection {

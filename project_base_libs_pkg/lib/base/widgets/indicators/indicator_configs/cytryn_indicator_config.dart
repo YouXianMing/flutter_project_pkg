@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animations/loading_animations.dart';
-import '../indicator_widget.dart';
+import 'package:project_base_libs_pkg/base/widgets/indicators/indicator_widget.dart';
 
 // 对开源库loading_indicator的简易封装,名字Cytryn取其GitHub的人名
 // https://pub.flutter-io.cn/packages/loading_animations

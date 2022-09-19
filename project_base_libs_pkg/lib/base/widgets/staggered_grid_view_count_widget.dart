@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base/third_libs_mod/staggered_grid_view_0_4_0/mod_staggered_grid_view.dart';
 import 'package:project_base_libs_pkg/base/third_libs_mod/staggered_grid_view_0_4_0/mod_staggered_tile.dart';
-import '../../base_file_headers.dart';
+import 'package:project_base_libs_pkg/base_file_headers.dart';
 
 class StaggeredGridViewCountWidget<T extends StaggeredGridData> extends StatelessWidget {
   final List<T> items;

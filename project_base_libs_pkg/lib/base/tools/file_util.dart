@@ -2,21 +2,40 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
+// https://dart-lang.github.io/linter/lints/avoid_slow_async_io.html
+// 有些io操作特别慢,触发了lint -avoid_slow_async_io,包含以下操作
+// Directory.exists
+// Directory.stat
+// File.lastModified
+// File.exists
+// File.stat
+// FileSystemEntity.isDirectory
+// FileSystemEntity.isFile
+// FileSystemEntity.isLink
+// FileSystemEntity.type
+
 class FileUtil {
   /// 检测文件夹是否存在
-  static Future<bool> checkDirectoryExists(String directoryPath) => Directory(directoryPath).exists();
+  static Future<bool> checkDirectoryExists(String directoryPath) {
+    // ignore: avoid_slow_async_io
+    return Directory(directoryPath).exists();
+  }
 
   /// 检测文件夹是否存在
   static bool checkDirectoryExistsSync(String directoryPath) => Directory(directoryPath).existsSync();
 
   /// 检测文件是否存在
-  static Future<bool> checkFileExists(String filePath) => File(filePath).exists();
+  static Future<bool> checkFileExists(String filePath) {
+    // ignore: avoid_slow_async_io
+    return File(filePath).exists();
+  }
 
   /// 检测文件是否存在
   static bool checkFileExistsSync(String filePath) => File(filePath).existsSync();
 
   /// 创建文件夹
-  static Future<Directory> createDirectory(String directoryPath, {bool recursive = false}) => Directory(directoryPath).create(recursive: recursive);
+  static Future<Directory> createDirectory(String directoryPath, {bool recursive = false}) =>
+      Directory(directoryPath).create(recursive: recursive);
 
   /// 存储文本文件(根据FileMode的枚举值判断是否覆盖或者追加)
   static Future<File> writeAsString(String filePath,

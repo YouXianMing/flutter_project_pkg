@@ -1,16 +1,33 @@
+# https://dart.dev/tools/linter-rules
 # https://dart-lang.github.io/linter/lints/index.html
 # https://dart.dev/guides/language/analysis-options#enabling-linter-rules
 
 include: package:flutter_lints/flutter.yaml
 
 linter:
+
   rules:
-    - always_declare_return_types
+    # Error rules
     - cancel_subscriptions
     - close_sinks
     - comment_references
+    - always_use_package_imports
+    - avoid_empty_else
+    - avoid_relative_lib_imports
+    - avoid_returning_null_for_future
+    - avoid_slow_async_io
+    - avoid_type_to_string
+    - hash_and_equals
+    # - discarded_futures
+
+    # Style rules
+    - always_declare_return_types
     - one_member_abstracts
     - only_throw_errors
     - package_api_docs
     - prefer_single_quotes
     - sort_child_properties_last
+
+    # Pub rules
+    - depend_on_referenced_packages
+    - secure_pubspec_urls

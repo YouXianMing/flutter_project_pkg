@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'information_view_enums_and_configs.dart';
+import 'package:project_base_libs_pkg/base/widgets/information_view/information_view_enums_and_configs.dart';
 
 class AnimatedSimpleToastView extends StatelessWidget {
   final InformationViewStatus? step;

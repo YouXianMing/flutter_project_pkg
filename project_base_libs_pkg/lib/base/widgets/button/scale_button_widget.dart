@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'base_button_widget.dart';
+import 'package:project_base_libs_pkg/base/widgets/button/base_button_widget.dart';
 
 class ScaleButtonWidget extends StatelessWidget {
   /// 点击事件回调

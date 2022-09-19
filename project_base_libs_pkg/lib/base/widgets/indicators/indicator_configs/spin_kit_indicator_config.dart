@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import '../indicator_widget.dart';
+import 'package:project_base_libs_pkg/base/widgets/indicators/indicator_widget.dart';
 
 // 对开源库flutter_spinkit的简易封装,名字取SpinKit
 // https://pub.dev/packages/flutter_spinkit

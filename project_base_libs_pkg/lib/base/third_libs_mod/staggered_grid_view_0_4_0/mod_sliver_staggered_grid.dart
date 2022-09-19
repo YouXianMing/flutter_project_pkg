@@ -4,8 +4,8 @@ import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 
-import 'mod_sliver_variable_size_box_adaptor.dart';
-import 'mod_staggered_tile.dart';
+import 'package:project_base_libs_pkg/base/third_libs_mod/staggered_grid_view_0_4_0/mod_sliver_variable_size_box_adaptor.dart';
+import 'package:project_base_libs_pkg/base/third_libs_mod/staggered_grid_view_0_4_0/mod_staggered_tile.dart';
 
 /// Signature for a function that creates [ModStaggeredTile] for a given index.
 typedef ModIndexedStaggeredTileBuilder = ModStaggeredTile? Function(int index);

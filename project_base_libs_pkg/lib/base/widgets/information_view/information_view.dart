@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../base_file_headers.dart';
+import 'package:project_base_libs_pkg/base_file_headers.dart';
 
 class InformationView<T extends BaseInformationViewConfig> extends StatelessWidget with MaybePopMixin {
   /// 控制器

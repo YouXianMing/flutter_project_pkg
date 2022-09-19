@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../base_sliver_section.dart';
+import 'package:project_base_libs_pkg/base/others/sliver_section/base_sliver_section.dart';
 
 /// SliverPersistentHeaderSection
 class SliverPersistentHeaderSection extends BaseSliverSection {

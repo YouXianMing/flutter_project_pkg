@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loading_indicator/loading_indicator.dart';
-import '../indicator_widget.dart';
+import 'package:project_base_libs_pkg/base/widgets/indicators/indicator_widget.dart';
 
 // 对开源库loading_indicator的简易封装,名字TinoGuo取其GitHub的人名
 // https://pub.dev/packages/loading_indicator

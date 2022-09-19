@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 
-import 'mod_sliver.dart';
-import 'mod_sliver_staggered_grid.dart';
-import 'mod_staggered_tile.dart';
+import 'package:project_base_libs_pkg/base/third_libs_mod/staggered_grid_view_0_4_0/mod_sliver.dart';
+import 'package:project_base_libs_pkg/base/third_libs_mod/staggered_grid_view_0_4_0/mod_sliver_staggered_grid.dart';
+import 'package:project_base_libs_pkg/base/third_libs_mod/staggered_grid_view_0_4_0/mod_staggered_tile.dart';
 
 /// A scrollable, 2D array of widgets with variable sizes.
 ///

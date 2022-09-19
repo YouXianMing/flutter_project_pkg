@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart' as dio;
-import 'base_network.dart';
+import 'package:project_base_libs_pkg/base/network/base_network.dart';
 
 /// 用dio的网络库实现了BaseNetwork中的所有抽象方法,符合里氏替换原则
 class DioNetwork extends BaseNetwork {

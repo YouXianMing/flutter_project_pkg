@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../base_file_headers.dart';
+import 'package:project_base_libs_pkg/base_file_headers.dart';
 
 class AnimatedWidgetFactory {
   static Widget? animatedWidget<T extends BaseInformationViewConfig>({

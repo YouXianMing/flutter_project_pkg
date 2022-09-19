@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../base_file_headers.dart';
+import 'package:project_base_libs_pkg/base_file_headers.dart';
 
 class SliverSectionsWidgetController extends GetxController {
   /// 用以更新数据用(在updateWidget中调用后会触发Obx的更新操作)

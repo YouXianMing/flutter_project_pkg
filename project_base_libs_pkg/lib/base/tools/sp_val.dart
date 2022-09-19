@@ -1,4 +1,4 @@
-import 'shared_preferences_util.dart';
+import 'package:project_base_libs_pkg/base/tools/shared_preferences_util.dart';
 
 /// SpVal支持的type
 enum SpValType { bool, int, double, string, stringList }

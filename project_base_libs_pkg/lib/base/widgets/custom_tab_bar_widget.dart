@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'base_app_bar.dart';
+import 'package:project_base_libs_pkg/base/widgets/base_app_bar.dart';
 
 /// 没有高度的AppBar,适用于有TabBar但是又不需要AppBar的地方,TabBar必须要有Appbar才可以点击Tab的时候页面切换,否则点击不切换
 class TabBarNoneHeightAppBar extends BaseAppBar {

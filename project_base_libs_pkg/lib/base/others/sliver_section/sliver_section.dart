@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
-import 'base_sliver_section.dart';
+import 'package:project_base_libs_pkg/base/others/sliver_section/base_sliver_section.dart';
 
 enum SliverChildDelegateType {
   /// 使用children模式(跟ListView的children模式类似)
