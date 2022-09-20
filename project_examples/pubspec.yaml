@@ -75,6 +75,11 @@ dependencies:
   # Flutter: Android iOS Linux MacOS Web Windows
   flutter_staggered_animations: ^1.1.1
 
+  # 跑马灯效果
+  # https://pub.dev/packages/marquee
+  # Flutter: Android iOS Linux MacOS Web Windows
+  marquee: ^2.2.3
+
   # 轮播图用的页面指示器
   # https://pub.flutter-io.cn/packages/smooth_page_indicator
   # Flutter: Android iOS Linux MacOS Web Windows

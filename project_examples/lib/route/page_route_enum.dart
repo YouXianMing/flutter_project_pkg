@@ -46,6 +46,7 @@ import 'package:project_examples/pages/third_libs/html_to_text_span/html_to_text
 import 'package:project_examples/pages/third_libs/line_icons/line_icons_page.dart';
 import 'package:project_examples/pages/third_libs/liquid_progress_indicator/liquid_progress_indicator_page.dart';
 import 'package:project_examples/pages/third_libs/loading_animations/loading_animations_page.dart';
+import 'package:project_examples/pages/third_libs/marquee/marquee_page.dart';
 import 'package:project_examples/pages/third_libs/read_more/read_more_page.dart';
 import 'package:project_examples/pages/third_libs/scratcher/scratcher_page.dart';
 import 'package:project_examples/pages/third_libs/screen_util/screen_util_page.dart';
@@ -80,6 +81,7 @@ enum PageRouteEnum {
   dottedBorderPage,
   dottedLinePage,
   expandablePage,
+  marqueePage,
 
   /* 项目用库 */
   projectUsePage, // 列表页
@@ -253,6 +255,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => MaybePopPage(arguments: arguments));
       case PageRouteEnum.dottedLinePage:
         return MaterialPageRoute(settings: settings, builder: (_) => DottedLinePage(arguments: arguments));
+      case PageRouteEnum.marqueePage:
+        return MaterialPageRoute(settings: settings, builder: (_) => MarqueePage(arguments: arguments));
     }
   }
 
@@ -431,6 +435,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.dottedLinePage:
         pageRouteName = _pageRouteNameFrom(DottedLinePage);
+        break;
+      case PageRouteEnum.marqueePage:
+        pageRouteName = _pageRouteNameFrom(MarqueePage);
         break;
     }
 
