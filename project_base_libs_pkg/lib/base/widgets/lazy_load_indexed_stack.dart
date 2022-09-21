@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /// 参考了lazy_load_indexed_stack并对其源码进行了修改,达到可以动态修改children的效果
 /// https://github.com/okaryo/lazy_load_indexed_stack
 
-/// 一个懒加载版本的[IndexedStack]
+/// 一个懒加载版本的[IndexedStack],支持特定的index不懒加载
 class LazyLoadIndexedStack extends StatefulWidget {
   /// 没有加载过时显示的默认额控件,默认是[Container]
   final Widget? unloadWidget;
@@ -17,8 +17,11 @@ class LazyLoadIndexedStack extends StatefulWidget {
   /// 与[IndexedStack]中的textDirection一致
   final TextDirection? textDirection;
 
-  /// 与[IndexedStack]中的index一致
+  /// 与[IndexedStack]中的index一致,当前显示的index
   final int index;
+
+  /// 不参与懒加载的组件的index数组
+  final Set<int>? initializedIndexes;
 
   /// 待显示的控件,如果当前没有显示,则默认使用的是[unloadWidget]对其进行占位,设定了index后才会显示控件,达到懒加载的效果
   final List<Widget> children;
@@ -31,6 +34,7 @@ class LazyLoadIndexedStack extends StatefulWidget {
     this.sizing = StackFit.loose,
     this.textDirection,
     required this.index,
+    this.initializedIndexes,
     required this.children,
   }) : super(key: key);
 
@@ -50,7 +54,10 @@ class LazyLoadIndexedStackState extends State<LazyLoadIndexedStack> {
     super.initState();
     // 存储加载的控件
     for (int i = 0; i < widget.children.length; i++) {
-      _alreadyLoadedItems.add(_LoadedItem(child: widget.children[i], loaded: i == widget.index));
+      bool loaded = (i == widget.index);
+      if (widget.initializedIndexes?.contains(i) == true) loaded = true;
+
+      _alreadyLoadedItems.add(_LoadedItem(child: widget.children[i], loaded: loaded));
     }
 
     _updateNewChildrenMap();
@@ -69,8 +76,11 @@ class LazyLoadIndexedStackState extends State<LazyLoadIndexedStack> {
         // 如果是相同的widget,则直接存储以前的item
         newItems.add(_alreadyLoadedItems[index]);
       } else {
+        bool loaded = false;
+        if (widget.initializedIndexes?.contains(i) == true) loaded = true;
+
         // 如果不是相同的widget,则直接设置成未加载状态
-        newItems.add(_LoadedItem(child: widget.children[i], loaded: false));
+        newItems.add(_LoadedItem(child: widget.children[i], loaded: loaded));
       }
     }
 
@@ -116,5 +126,6 @@ class _LoadedItem {
 
   /// 标记是否加载过
   bool loaded = false;
+
   _LoadedItem({required this.child, this.loaded = false});
 }
