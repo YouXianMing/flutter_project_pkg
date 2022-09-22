@@ -47,6 +47,10 @@ dependencies:
   # https://pub.flutter-io.cn/packages/path
   path: ^1.8.2
 
+  # 展开缩放组件
+  # https://pub.dev/packages/expandable
+  expandable: 5.0.1
+
   # [romainrastel.com] iOS的section herder悬停效果
   # https://pub.flutter-io.cn/packages/flutter_sticky_header
   flutter_sticky_header: 0.6.4

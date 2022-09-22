@@ -84,6 +84,7 @@ export 'base/widgets/sliver_refresh_widget.dart'; // 刷新用控件
 // export 'base/widgets/sliver_sections_widget.dart'; // 不带刷新功能的SliverSections控件
 export 'base/widgets/sliver_sections_v2_widget.dart'; // 不带刷新功能的SliverSections控件
 export 'base/widgets/base_app_bar.dart'; // appBar
+export 'base/widgets/expandable_widget.dart'; // 展开缩放组件
 export 'base/widgets/lazy_load_indexed_stack.dart'; // 懒加载版本的IndexedStack
 export 'base/widgets/animated_rotate.dart'; // 旋转动画控件
 export 'base/widgets/lottery_carousel_widget.dart'; // 轮盘抽奖控件
