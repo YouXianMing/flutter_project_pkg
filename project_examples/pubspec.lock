@@ -114,7 +114,7 @@ packages:
     source: hosted
     version: "2.0.0"
   expandable:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: expandable
       url: "https://pub.flutter-io.cn"
