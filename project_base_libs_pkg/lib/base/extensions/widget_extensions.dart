@@ -18,6 +18,12 @@ extension WidgetExtensions on Widget {
   /// 控件旋转180°
   Widget get rotate180 => Transform.rotate(angle: math.pi, child: this);
 
+  /// 设置为LTR模式(普通布局方式,从左往右排列)
+  Widget get setToLTR => Directionality(textDirection: TextDirection.ltr, child: this);
+
+  /// 设置为RTL模式(阿拉伯语的布局方式,从右往左排列)
+  Widget get setToRTL => Directionality(textDirection: TextDirection.rtl, child: this);
+
   /// 添加padding
   Padding addPadding(EdgeInsets padding) => Padding(padding: padding, child: this);
 
