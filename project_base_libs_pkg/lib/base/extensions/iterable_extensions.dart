@@ -56,3 +56,11 @@ extension HorizontalGridDataExt on List {
     return gridDataList;
   }
 }
+
+extension ListUtilsExtensions on List {
+  /// 数组去重(先添加到set中,然后转化为数组)
+  List get toUniqueList => toSet().toList();
+
+  /// 数组反转
+  List get toReversedList => reversed.toList();
+}
