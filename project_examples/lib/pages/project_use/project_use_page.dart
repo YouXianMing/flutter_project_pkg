@@ -48,6 +48,7 @@ class ProjectUsePageState extends NormalStatefulWidgetState<ProjectUsePage> with
             const MenuItemModel(title: 'checkWillPop', pageRouteEnum: PageRouteEnum.maybePopPage),
             const MenuItemModel(title: '文件扫描', pageRouteEnum: PageRouteEnum.filesScanPage, setRouteStyle: AppRouteStyle.namedRouteType),
             const MenuItemModel(title: '抽奖', pageRouteEnum: PageRouteEnum.lotteryCarouselWidgetPage),
+            const MenuItemModel(title: '纸屑效果', pageRouteEnum: PageRouteEnum.confettiPage),
           ],
           builder: (c, i, d) => MenuItemWidget(model: d, callback: widgetEventCallback),
         ).buildWidget(),

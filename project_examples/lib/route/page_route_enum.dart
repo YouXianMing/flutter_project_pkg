@@ -19,6 +19,7 @@ import 'package:project_examples/pages/async_knowledge/dart_stream/dart_stream_p
 import 'package:project_examples/pages/async_knowledge/future_builder/future_builder_page.dart';
 import 'package:project_examples/pages/async_knowledge/isolate/isolate_page.dart';
 import 'package:project_examples/pages/async_knowledge/stream_builder/stream_builder_page.dart';
+import 'package:project_examples/pages/project_use/confetti/confetti_page.dart';
 import 'package:project_examples/pages/project_use/custom_tab_bar_widget/custom_tab_bar_widget_page.dart';
 import 'package:project_examples/pages/project_use/files_scan/files_scan_page.dart';
 import 'package:project_examples/pages/project_use/information_view/information_view_page.dart';
@@ -98,6 +99,7 @@ enum PageRouteEnum {
   customTabBarWidgetPage,
   filesScanPage,
   maybePopPage,
+  confettiPage,
 
   /* 动画 */
   animationListPage, // 列表页
@@ -257,6 +259,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => DottedLinePage(arguments: arguments));
       case PageRouteEnum.marqueePage:
         return MaterialPageRoute(settings: settings, builder: (_) => MarqueePage(arguments: arguments));
+      case PageRouteEnum.confettiPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => ConfettiPage(arguments: arguments));
     }
   }
 
@@ -438,6 +442,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.marqueePage:
         pageRouteName = _pageRouteNameFrom(MarqueePage);
+        break;
+      case PageRouteEnum.confettiPage:
+        pageRouteName = _pageRouteNameFrom(ConfettiPage);
         break;
     }
 
