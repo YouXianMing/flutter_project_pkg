@@ -31,6 +31,7 @@ import 'package:project_examples/pages/project_use/project_use_page.dart';
 import 'package:project_examples/pages/project_use/reg_exp/reg_exp_page.dart';
 import 'package:project_examples/pages/project_use/sliver_refresh_widget/sliver_refresh_widget_page.dart';
 import 'package:project_examples/pages/project_use/sliver_sections/sliver_sections_page.dart';
+import 'package:project_examples/pages/project_use/sliver_sections_refresh_widget/sliver_sections_refresh_widget_page.dart';
 import 'package:project_examples/pages/project_use/sp_val/sp_val_page.dart';
 import 'package:project_examples/pages/project_use/text_field/text_field_page.dart';
 import 'package:project_examples/pages/project_use/toast_widget/toast_widget_page.dart';
@@ -88,6 +89,7 @@ enum PageRouteEnum {
   projectUsePage, // 列表页
   informationViewPage,
   sliverRefreshWidgetPage,
+  sliverSectionsRefreshWidgetPage,
   sliverSectionsPage,
   toastWidgetPage,
   lotteryCarouselWidgetPage,
@@ -261,6 +263,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => MarqueePage(arguments: arguments));
       case PageRouteEnum.confettiPage:
         return MaterialPageRoute(settings: settings, builder: (_) => ConfettiPage(arguments: arguments));
+      case PageRouteEnum.sliverSectionsRefreshWidgetPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => SliverSectionsRefreshWidgetPage(arguments: arguments));
     }
   }
 
@@ -445,6 +449,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.confettiPage:
         pageRouteName = _pageRouteNameFrom(ConfettiPage);
+        break;
+      case PageRouteEnum.sliverSectionsRefreshWidgetPage:
+        pageRouteName = _pageRouteNameFrom(SliverSectionsRefreshWidgetPage);
         break;
     }
 

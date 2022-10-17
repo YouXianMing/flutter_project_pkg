@@ -5,19 +5,52 @@ import 'package:project_examples/route/app_route_manager.dart';
 import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_examples/app_route_style.dart';
 
-class SliverRefreshWidgetPage extends NormalStatefulWidget {
+class SliverSectionsRefreshWidgetPage extends NormalStatefulWidget {
   @override
   final PageArguments? arguments;
 
-  const SliverRefreshWidgetPage({Key? key, this.arguments}) : super(key: key);
+  const SliverSectionsRefreshWidgetPage({Key? key, this.arguments}) : super(key: key);
 
   @override
-  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => SliverRefreshWidgetPageState();
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => SliverSectionsRefreshWidgetPageState();
 }
 
-class SliverRefreshWidgetPageState extends NormalStatefulWidgetState<SliverRefreshWidgetPage> {
-  final SliversRefreshWidget refreshWidget = SliversRefreshWidget(loadMoreFooterWidgetAddSafeBottom: true);
+class SliverSectionsRefreshWidgetPageState extends NormalStatefulWidgetState<SliverSectionsRefreshWidgetPage> {
   final SliverWaterfallFlowSection itemsSection = SliverWaterfallFlowSection();
+  final controller = SliverSectionsRefreshWidgetController(loadMoreFooterWidgetAddSafeBottom: true);
+
+  @override
+  void initState() {
+    super.initState();
+
+    // 配置刷新回调,加载回调
+    controller.setPullRefreshCallback(
+      (refreshController) {
+        // 模拟刷新的网络请求
+        Future.delayed(const Duration(seconds: 1), () {
+          if (Util.randomPercent > 0.2) {
+            itemsSection.items!.clear();
+            itemsSection.items!.addAll(randomItems(20));
+            refreshController.endRefresh();
+          } else {
+            refreshController.endRefresh(failed: true);
+          }
+        });
+      },
+    ).setLoadMoreCallback(
+      (refreshController) {
+        // 模拟加载更多的网络请求
+        Future.delayed(const Duration(seconds: 1), () {
+          if (Util.randomPercent > 0.2) {
+            itemsSection.items!.addAll(randomItems(20));
+            refreshController.endLoadData();
+          } else {
+            refreshController.endLoadData(failed: true);
+          }
+        });
+      },
+    );
+  }
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
@@ -25,40 +58,16 @@ class SliverRefreshWidgetPageState extends NormalStatefulWidgetState<SliverRefre
         title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
       );
 
-  void onLoad(SliversRefreshWidget widget) {
-    Future.delayed(const Duration(seconds: 1), () {
-      if (Util.randomPercent > 0.2) {
-        itemsSection.items!.addAll(randomItems(20));
-        widget.endLoadData();
-      } else {
-        widget.endLoadData(failed: true);
-      }
-    });
-  }
-
-  void onRefresh(SliversRefreshWidget widget) {
-    Future.delayed(const Duration(seconds: 1), () {
-      if (Util.randomPercent > 0.2) {
-        itemsSection.items!.clear();
-        itemsSection.items!.addAll(randomItems(20));
-        widget.endRefresh();
-      } else {
-        widget.endRefresh(failed: true);
-      }
-    });
-  }
-
   @override
-  Widget body(BuildContext context) => refreshWidget;
+  Widget body(BuildContext context) => SliverSectionsRefreshWidget(controller: controller);
 
   @override
   Widget firstTimeLoadingWidgetStartLoading(BuildContext context) {
     return firstTimeLoadingWidget.listenFuture(() => Future.delayed(const Duration(seconds: 1), () {})).onSuccess((d) {
       itemsSectionConfig();
       itemsSection.items!.addAll(randomItems(30));
-      refreshWidget.sliversSections.add(itemsSection);
-      refreshWidget.setOnLoadBlock(onLoad).setOnRefreshBlock(onRefresh);
-      refreshWidget.update(itemsDidFillRefreshWidget: (didFill) => refreshWidget.setLoadMoreEnable(didFill == true));
+      controller.sliverSections.add(itemsSection);
+      controller.updateWidget();
     });
   }
 
@@ -71,6 +80,7 @@ class SliverRefreshWidgetPageState extends NormalStatefulWidgetState<SliverRefre
     return data;
   }
 
+  /// 对section进行一些配置
   void itemsSectionConfig() {
     itemsSection.padding = const EdgeInsets.all(10);
     itemsSection.crossAxisCount = 3;

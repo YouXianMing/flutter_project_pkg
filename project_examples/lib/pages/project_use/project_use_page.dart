@@ -37,6 +37,7 @@ class ProjectUsePageState extends NormalStatefulWidgetState<ProjectUsePage> with
           items: [
             const MenuItemModel(title: 'SliverSections的使用', pageRouteEnum: PageRouteEnum.sliverSectionsPage),
             const MenuItemModel(title: 'SliverRefreshWidget', pageRouteEnum: PageRouteEnum.sliverRefreshWidgetPage),
+            const MenuItemModel(title: 'SliverSectionsRefreshWidget', pageRouteEnum: PageRouteEnum.sliverSectionsRefreshWidgetPage),
             const MenuItemModel(title: 'InformationView', pageRouteEnum: PageRouteEnum.informationViewPage),
             const MenuItemModel(title: 'ToastWidget', pageRouteEnum: PageRouteEnum.toastWidgetPage),
             const MenuItemModel(title: 'LayoutMaskWidget', pageRouteEnum: PageRouteEnum.layoutMaskWidgetPage),
