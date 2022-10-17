@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/base/normal_stateful_widget.dart';
 import 'package:project_examples/pages/project_use/confetti/widgets/confetti.dart';
@@ -27,7 +26,5 @@ class ConfettiPageState extends NormalStatefulWidgetState<ConfettiPage> {
       );
 
   @override
-  Widget body(BuildContext context) {
-    return Confetti();
-  }
+  Widget body(BuildContext context) => const Confetti();
 }
