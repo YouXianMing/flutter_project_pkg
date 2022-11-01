@@ -28,6 +28,7 @@ import 'package:project_examples/pages/project_use/maybe_pop/maybe_pop_page.dart
 import 'package:project_examples/pages/project_use/networks/networks_page.dart';
 import 'package:project_examples/pages/project_use/project_use_page.dart';
 import 'package:project_examples/pages/project_use/reg_exp/reg_exp_page.dart';
+import 'package:project_examples/pages/project_use/scrolling_parallax_effect/scrolling_parallax_effect_page.dart';
 import 'package:project_examples/pages/project_use/sliver_refresh_widget/sliver_refresh_widget_page.dart';
 import 'package:project_examples/pages/project_use/sliver_sections/sliver_sections_page.dart';
 import 'package:project_examples/pages/project_use/sliver_sections_refresh_widget/sliver_sections_refresh_widget_page.dart';
@@ -190,6 +191,8 @@ class RouteConfig {
                 return const ConfettiPage();
               case PageRouteEnum.sliverSectionsRefreshWidgetPage:
                 return const SliverSectionsRefreshWidgetPage();
+              case PageRouteEnum.scrollingParallaxEffectPage:
+                return const ScrollingParallaxEffectPage();
             }
           },
         ),
