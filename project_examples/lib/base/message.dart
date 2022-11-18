@@ -18,9 +18,7 @@ class Message {
     ).inOverlay(context).setWidgetBuilder((v) => _informationViewContentWidget(v.data as String, success)).show().hide(
           afterDelay: duration,
           complete: (_) {
-            if (didHide != null) {
-              didHide();
-            }
+            if (didHide != null) didHide();
           },
         );
   }

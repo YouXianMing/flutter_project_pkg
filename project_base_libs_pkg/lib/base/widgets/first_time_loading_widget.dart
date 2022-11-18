@@ -2,20 +2,61 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-enum FirstTimeLoadingWidgetStatus { idle, start, success, failed, done }
+enum FirstTimeLoadingWidgetStatus {
+  /// idle
+  idle,
+
+  /// 开始
+  start,
+
+  /// 成功了
+  success,
+
+  /// 失败了
+  failed,
+
+  /// 完成了,并移除了当前的widget
+  done,
+}
 
 class _FirstTimeLoadingWidgetController extends GetxController {
+  /// 当前控制器的状态
   final Rx<FirstTimeLoadingWidgetStatus> status = FirstTimeLoadingWidgetStatus.idle.obs;
+
+  /// 是否可以点击重试按钮
   bool canTapReloadButton = false;
 
+  /// future对象
   Future Function()? future;
+
+  /// future数组
   List<Future> Function()? futures;
-  Function(dynamic)? successCallback;
-  Function(dynamic)? errorCallback;
-  Widget Function()? loadingWidgetBuilder;
-  Widget Function(void Function() onPressed)? errorWidgetBuilder;
+
+  /// 成功的回调
+  Function(dynamic data)? successCallback;
+
+  /// 失败的回调
+  Function(dynamic data)? errorCallback;
+
+  /// 加载页面的builder
+  Widget Function(dynamic data)? loadingWidgetBuilder;
+
+  /// 加载页面builder的配置数据,有需要时可以设置
+  dynamic loadingWidgetBuilderConfigData;
+
+  /// 出错页面的builder
+  Widget Function(void Function() onPressed, dynamic error)? errorWidgetBuilder;
+
+  /// 记录error,用于传给errorWidgetBuilder中使用
+  dynamic errorWidgetBuilderData;
+
+  /// 是否延迟构建
   bool? waitBuildFuture;
+
+  /// 延迟构建的时间
   Duration? waitBuildFutureDuration;
+
+  /// 是否已经开始请求
   bool didStartRequest = false;
 }
 
@@ -28,11 +69,12 @@ class FirstTimeLoadingWidget extends StatefulWidget {
     List<Future> Function()? futures, // 异步的futures数组
     Function(dynamic)? success, // 成功的回调
     Function(dynamic)? error, // 失败的回调
-    Widget Function()? loadingWidgetBuilder, // 加载菊花界面的控件构建,如果为空,则有默认构建
-    Widget Function(void Function() onPressed)? errorWidgetBuilder, // 出错界面的控件构建,如果为空,则有默认构建(请将onPressed赋值给点击事件)
+    dynamic loadingWidgetBuilderConfigData, // 加载页面builder的配置数据,有需要时可以设置
+    Widget Function(dynamic config)? loadingWidgetBuilder, // 加载菊花界面的控件构建,如果为空,则有默认构建
+    Widget Function(void Function() onPressed, dynamic errorData)? errorWidgetBuilder, // 出错界面的控件构建,如果为空,则有默认构建(请将onPressed赋值给点击事件)
     bool waitBuildFuture = false, // Future结果延迟返回
     Duration waitBuildFutureDuration = const Duration(milliseconds: 150), // Future结果延迟返回的时间
-    this.successImmediately = false,
+    this.successImmediately = false, // 是否立即成功,默认为false
     this.debugPrintInfo = false,
     this.requestOnlyOnce = true,
     this.removeWidgetsIfDone = true,
@@ -44,6 +86,7 @@ class FirstTimeLoadingWidget extends StatefulWidget {
         /// future与futures不能共存
         assert(!(future != null && futures != null));
 
+        setLoadingWidgetBuilderConfigData(loadingWidgetBuilderConfigData);
         setLoadingWidgetBuilder(loadingWidgetBuilder);
         setErrorWidgetBuilder(errorWidgetBuilder);
 
@@ -92,14 +135,20 @@ class FirstTimeLoadingWidget extends StatefulWidget {
     return this;
   }
 
+  /// 加载菊花界面的控件构建配置数据
+  FirstTimeLoadingWidget setLoadingWidgetBuilderConfigData(dynamic configData) {
+    _controller.loadingWidgetBuilderConfigData = configData;
+    return this;
+  }
+
   /// 加载菊花界面的控件构建,如果为空,则有默认构建
-  FirstTimeLoadingWidget setLoadingWidgetBuilder(Widget Function()? loadingWidgetBuilder) {
+  FirstTimeLoadingWidget setLoadingWidgetBuilder(Widget Function(dynamic data)? loadingWidgetBuilder) {
     _controller.loadingWidgetBuilder = loadingWidgetBuilder;
     return this;
   }
 
   /// 出错界面的控件构建,如果为空,则有默认构建
-  FirstTimeLoadingWidget setErrorWidgetBuilder(Widget Function(void Function() onPressed)? errorWidgetBuilder) {
+  FirstTimeLoadingWidget setErrorWidgetBuilder(Widget Function(void Function() onPressed, dynamic error)? errorWidgetBuilder) {
     _controller.errorWidgetBuilder = errorWidgetBuilder;
     return this;
   }
@@ -166,9 +215,10 @@ class FirstTimeLoadingWidget extends StatefulWidget {
 
     if (future != null) {
       _controller.status.value = FirstTimeLoadingWidgetStatus.start;
-      Stream.fromFuture(future).listen((event) => _changeToSuccessStatus(event), onError: (e) {
+      Stream.fromFuture(future).listen((event) => _changeToSuccessStatus(event), onError: (error) {
+        _controller.errorWidgetBuilderData = error;
         if (_controller.errorCallback != null) {
-          _controller.errorCallback!(e);
+          _controller.errorCallback!(error);
         }
         _controller.status.value = FirstTimeLoadingWidgetStatus.failed;
       });
@@ -188,6 +238,7 @@ class FirstTimeLoadingWidget extends StatefulWidget {
     if (futures != null) {
       _controller.status.value = FirstTimeLoadingWidgetStatus.start;
       Future.wait(futures).onError((error, stackTrace) {
+        _controller.errorWidgetBuilderData = error;
         if (_controller.errorCallback != null) {
           _controller.errorCallback!(error);
         }
@@ -200,6 +251,7 @@ class FirstTimeLoadingWidget extends StatefulWidget {
   }
 
   void _changeToSuccessStatus(dynamic value) {
+    _controller.errorWidgetBuilderData = null;
     if (_controller.waitBuildFuture == true) {
       Future.delayed(_controller.waitBuildFutureDuration!, () {
         if (_controller.successCallback != null) {
@@ -292,15 +344,17 @@ class _FirstTimeLoadingWidgetState extends State<FirstTimeLoadingWidget> with Au
               children: [
                 Container(
                   color: Colors.white,
-                  child: _errorWidget(onPressed: () {
-                    if (controller.status.value == FirstTimeLoadingWidgetStatus.failed && controller.canTapReloadButton == true) {
-                      if (controller.future != null) {
-                        widget._startFutureIfNeeded();
-                      } else if (controller.futures != null) {
-                        widget._startFuturesIfNeeded();
-                      }
-                    }
-                  }),
+                  child: _errorWidget(
+                      error: widget._controller.errorWidgetBuilderData,
+                      onPressed: () {
+                        if (controller.status.value == FirstTimeLoadingWidgetStatus.failed && controller.canTapReloadButton == true) {
+                          if (controller.future != null) {
+                            widget._startFutureIfNeeded();
+                          } else if (controller.futures != null) {
+                            widget._startFuturesIfNeeded();
+                          }
+                        }
+                      }),
                 ),
                 IgnorePointer(
                   child: AnimatedOpacity(
@@ -325,7 +379,7 @@ class _FirstTimeLoadingWidgetState extends State<FirstTimeLoadingWidget> with Au
   Widget _loadingWidget() {
     // 如果loadingWidgetBuilder有值并提供了Widget,则使用loadingWidgetBuilder中的widget
     if (controller.loadingWidgetBuilder != null) {
-      return controller.loadingWidgetBuilder!();
+      return controller.loadingWidgetBuilder!(widget._controller.loadingWidgetBuilderConfigData);
     }
 
     return Container(
@@ -334,10 +388,10 @@ class _FirstTimeLoadingWidgetState extends State<FirstTimeLoadingWidget> with Au
     );
   }
 
-  Widget _errorWidget({required void Function() onPressed}) {
+  Widget _errorWidget({required void Function() onPressed, required dynamic error}) {
     // 如果errorWidgetBuilder有值并提供了Widget,则使用errorWidgetBuilder中的widget
     if (controller.errorWidgetBuilder != null) {
-      return controller.errorWidgetBuilder!(onPressed);
+      return controller.errorWidgetBuilder!(onPressed, error);
     }
 
     Color color = Colors.blueAccent;
