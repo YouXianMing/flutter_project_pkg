@@ -135,6 +135,11 @@ dependencies:
   # Flutter: Android iOS Linux MacOS Web Windows
   snapping_sheet: ^3.1.0
 
+  # [funwith.app] 纸屑效果
+  # https://pub.flutter-io.cn/packages/confetti
+  # Flutter: Android iOS Linux MacOS Web Windows
+  confetti: ^0.7.0
+
   # 基础组件库(通过Git的方式引入)
   # Flutter: Android iOS Linux MacOS Web Windows
   #  project_base_libs_pkg:

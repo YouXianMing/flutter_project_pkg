@@ -64,6 +64,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.16.0"
+  confetti:
+    dependency: "direct main"
+    description:
+      name: confetti
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.7.0"
   crypto:
     dependency: transitive
     description:

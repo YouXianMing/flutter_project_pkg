@@ -38,6 +38,7 @@ import 'package:project_examples/pages/project_use/text_field/text_field_page.da
 import 'package:project_examples/pages/project_use/toast_widget/toast_widget_page.dart';
 import 'package:project_examples/pages/third_libs/cached_network_image/cached_network_image_page.dart';
 import 'package:project_examples/pages/third_libs/carousel_slider/carousel_slider_page.dart';
+import 'package:project_examples/pages/third_libs/confetti_widget/confetti_widget_page.dart';
 import 'package:project_examples/pages/third_libs/dotted_border/dotted_border_page.dart';
 import 'package:project_examples/pages/third_libs/dotted_line/dotted_line_page.dart';
 import 'package:project_examples/pages/third_libs/expandable/expandable_page.dart';
@@ -85,6 +86,7 @@ enum PageRouteEnum {
   dottedLinePage,
   expandablePage,
   marqueePage,
+  confettiWidgetPage,
 
   /* 项目用库 */
   projectUsePage, // 列表页
@@ -269,6 +271,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => SliverSectionsRefreshWidgetPage(arguments: arguments));
       case PageRouteEnum.scrollingParallaxEffectPage:
         return MaterialPageRoute(settings: settings, builder: (_) => ScrollingParallaxEffectPage(arguments: arguments));
+      case PageRouteEnum.confettiWidgetPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => ConfettiWidgetPage(arguments: arguments));
     }
   }
 
@@ -459,6 +463,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.scrollingParallaxEffectPage:
         pageRouteName = _pageRouteNameFrom(ScrollingParallaxEffectPage);
+        break;
+      case PageRouteEnum.confettiWidgetPage:
+        pageRouteName = _pageRouteNameFrom(ConfettiWidgetPage);
         break;
     }
 

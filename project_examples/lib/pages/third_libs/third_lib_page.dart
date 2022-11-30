@@ -46,6 +46,7 @@ class ThirdLibPageState extends NormalStatefulWidgetState<ThirdLibPage> with Wid
             const MenuItemModel(title: 'Expandable', pageRouteEnum: PageRouteEnum.expandablePage),
             const MenuItemModel(title: 'DottedBorder', pageRouteEnum: PageRouteEnum.dottedBorderPage),
             const MenuItemModel(title: 'DottedLine', pageRouteEnum: PageRouteEnum.dottedLinePage),
+            const MenuItemModel(title: 'ConfettiWidget', pageRouteEnum: PageRouteEnum.confettiWidgetPage),
             const MenuItemModel(title: 'SmoothPageIndicator', pageRouteEnum: PageRouteEnum.smoothPageIndicatorPage),
             const MenuItemModel(title: 'StaggeredGridView', pageRouteEnum: PageRouteEnum.flutterStaggeredGridViewPage),
             const MenuItemModel(title: 'LineIcons', pageRouteEnum: PageRouteEnum.lineIconsPage),
