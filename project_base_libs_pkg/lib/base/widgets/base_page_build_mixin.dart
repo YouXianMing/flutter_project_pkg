@@ -44,6 +44,9 @@ mixin BasePageBuildMixin {
   /// 隐藏键盘
   void hideKeyBoard(BuildContext context) => FocusScope.of(context).requestFocus(FocusNode());
 
+  /// firstTimeLoadingWidget是否在AppBar的外面,默认为false
+  bool get firstTimeLoadingWidgetIsOutSideAppBar => false;
+
   /// 获取当前的context
   /// 注意: 只在BaseStatefulWidgetState中进行重写,根据mounted来判断是否返回context
   BuildContext? get currentContext => null;
@@ -68,6 +71,7 @@ mixin BasePageBuildMixin {
                 },
                 child: buildMainWidget(context))
             : buildMainWidget(context),
+        firstTimeLoadingWidgetIsOutSideAppBar ? firstTimeLoadingWidgetStartLoading(context) : const SizedBox(),
         outerStackContainerWidget(context),
         outerLoadingWidget(context),
       ],
@@ -84,7 +88,7 @@ mixin BasePageBuildMixin {
           backgroundWidget(context),
           body(context),
           innerStackContainerWidget(context),
-          firstTimeLoadingWidgetStartLoading(context),
+          firstTimeLoadingWidgetIsOutSideAppBar ? const SizedBox() : firstTimeLoadingWidgetStartLoading(context),
           innerLoadingWidget(context),
         ],
       ),
