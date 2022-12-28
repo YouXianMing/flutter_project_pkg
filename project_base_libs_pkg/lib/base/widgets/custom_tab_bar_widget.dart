@@ -37,15 +37,28 @@ class CustomTabBarItem {
 
 class BaseCustomTabBarAccess {
   const BaseCustomTabBarAccess();
+
   Widget accessTabBar(TabBar tabBar) => tabBar;
 }
 
 class BaseCustomTabBarViewAccess {
   const BaseCustomTabBarViewAccess();
+
   Widget accessTabBarView(TabBarView tabBarView) => Column(children: [Expanded(child: tabBarView)]);
 }
 
+class CustomTabBarWidgetController {
+  TabController? _tabController;
+
+  /// 获取TabBar控制器
+  TabController? get tabController => _tabController;
+}
+
 class CustomTabBarWidget extends StatefulWidget {
+  /// 控制器
+  final CustomTabBarWidgetController? controller;
+
+  /// tabBar的items
   final List<CustomTabBarItem> tabBarItems;
 
   /// 背景色
@@ -105,6 +118,7 @@ class CustomTabBarWidget extends StatefulWidget {
   const CustomTabBarWidget({
     Key? key,
     required this.tabBarItems,
+    this.controller,
     this.backgroundColor,
     this.tabBarAccess = const BaseCustomTabBarAccess(),
     this.tabBarViewAccess = const BaseCustomTabBarViewAccess(),
@@ -136,6 +150,7 @@ class CustomTabBarWidgetState extends State<CustomTabBarWidget> with TickerProvi
   void initState() {
     super.initState();
     tabController = TabController(length: widget.tabBarItems.length, vsync: this, initialIndex: widget.initialIndex);
+    widget.controller?._tabController = tabController;
   }
 
   @override
