@@ -56,6 +56,9 @@ class _FirstTimeLoadingWidgetController extends GetxController {
   /// 延迟构建的时间
   Duration? waitBuildFutureDuration;
 
+  /// 设置Future成功后切换到success的延迟时间,默认为null(切换到成功状态后,会直接调用successCallback,然后遮挡的UI会立马消失,设置了此值后,会延迟遮挡UI消失的时间)
+  Duration? successStatusDelayDuration;
+
   /// 是否已经开始请求
   bool didStartRequest = false;
 }
@@ -74,6 +77,7 @@ class FirstTimeLoadingWidget extends StatefulWidget {
     Widget Function(void Function() onPressed, dynamic errorData)? errorWidgetBuilder, // 出错界面的控件构建,如果为空,则有默认构建(请将onPressed赋值给点击事件)
     bool waitBuildFuture = false, // Future结果延迟返回
     Duration waitBuildFutureDuration = const Duration(milliseconds: 150), // Future结果延迟返回的时间
+    Duration? successStatusDelayDuration, // 设置Future成功后切换到success的延迟时间,默认为null
     this.successImmediately = false, // 是否立即成功,默认为false
     this.debugPrintInfo = false,
     this.requestOnlyOnce = true,
@@ -92,6 +96,7 @@ class FirstTimeLoadingWidget extends StatefulWidget {
 
         setWaitBuildFuture(waitBuildFuture);
         setWaitBuildFutureDuration(waitBuildFutureDuration);
+        setToSuccessStatusDelayDuration(successStatusDelayDuration);
 
         onSuccess(success);
         onError(error);
@@ -162,6 +167,12 @@ class FirstTimeLoadingWidget extends StatefulWidget {
   /// 设置Future结果延迟返回的时间,需要waitBuildFuture为true生效
   FirstTimeLoadingWidget setWaitBuildFutureDuration(Duration duration) {
     _controller.waitBuildFutureDuration = duration;
+    return this;
+  }
+
+  /// 设置Future成功后切换到success的延迟时间
+  FirstTimeLoadingWidget setToSuccessStatusDelayDuration(Duration? duration) {
+    _controller.successStatusDelayDuration = duration;
     return this;
   }
 
@@ -257,13 +268,22 @@ class FirstTimeLoadingWidget extends StatefulWidget {
         if (_controller.successCallback != null) {
           _controller.successCallback!(value);
         }
-        _controller.status.value = FirstTimeLoadingWidgetStatus.success;
+
+        if (_controller.successStatusDelayDuration != null) {
+          Future.delayed(_controller.successStatusDelayDuration!, () => _controller.status.value = FirstTimeLoadingWidgetStatus.success);
+        } else {
+          _controller.status.value = FirstTimeLoadingWidgetStatus.success;
+        }
       });
     } else {
       if (_controller.successCallback != null) {
         _controller.successCallback!(value);
       }
-      _controller.status.value = FirstTimeLoadingWidgetStatus.success;
+      if (_controller.successStatusDelayDuration != null) {
+        Future.delayed(_controller.successStatusDelayDuration!, () => _controller.status.value = FirstTimeLoadingWidgetStatus.success);
+      } else {
+        _controller.status.value = FirstTimeLoadingWidgetStatus.success;
+      }
     }
   }
 }
