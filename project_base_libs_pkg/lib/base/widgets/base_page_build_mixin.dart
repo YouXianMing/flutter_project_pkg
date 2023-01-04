@@ -39,7 +39,7 @@ mixin BasePageBuildMixin {
   void pop(BuildContext context, {dynamic result}) => Navigator.of(context).pop(result);
 
   /// 返回指定的页面数目,depth为返回层级,rootRouting为根页面,如果设置了rootRouting,则表示depth超过了最高层级时,会回退到根页面而不会导致黑屏
-  void popBackDepth(BuildContext context, {required int depth, String? rootRouting}) {
+  void popBack(BuildContext context, {required int depth, String? rootRouting}) {
     int count = 0;
     int backCount = (depth <= 0 ? 1 : depth);
     Navigator.of(context).popUntil((route) {
