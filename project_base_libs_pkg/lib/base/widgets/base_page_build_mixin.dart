@@ -38,6 +38,16 @@ mixin BasePageBuildMixin {
   /// 直接返回上一级
   void pop(BuildContext context, {dynamic result}) => Navigator.of(context).pop(result);
 
+  /// 返回指定的页面数目,depth为返回层级,rootRouting为根页面,如果设置了rootRouting,则表示depth超过了最高层级时,会回退到根页面而不会导致黑屏
+  void popBackDepth(BuildContext context, {required int depth, String? rootRouting}) {
+    int count = 0;
+    int backCount = (depth <= 0 ? 1 : depth);
+    Navigator.of(context).popUntil((route) {
+      if (rootRouting != null && route.settings.name == rootRouting) return true;
+      return count++ == backCount ? true : false;
+    });
+  }
+
   /// 调用此方法会会触发WillPopScope中的onWillPop方法调用(如果当前页面设置了WillPopScope),不要在canPopBack方法中调用此方法,否则会导致死循环
   Future<bool> maybePop<T extends Object?>(BuildContext context, [T? result]) => Navigator.of(context).maybePop();
 
