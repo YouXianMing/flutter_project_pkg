@@ -103,7 +103,7 @@ extension WidgetExtensions on Widget {
         child: this,
       );
 
-  /// 添加Opacity
+  /// 加入到Opacity组件
   Opacity addOpacity(double opacity, {bool alwaysIncludeSemantics = false}) => Opacity(
         opacity: opacity,
         alwaysIncludeSemantics: alwaysIncludeSemantics,
@@ -130,6 +130,17 @@ extension WidgetExtensions on Widget {
         textHeightBehavior: textHeightBehavior,
         child: this);
   }
+
+  /// 加入到center组件
+  Widget addCenter() => Center(child: this);
+
+  /// 加入到Align组件
+  Widget addAlign({AlignmentGeometry alignment = Alignment.center, double? widthFactor, double? heightFactor}) => Align(
+        alignment: alignment,
+        widthFactor: widthFactor,
+        heightFactor: heightFactor,
+        child: this,
+      );
 
   /// (Debug) debug用,给控件添加边框
   Widget addDebugContainer({Color? color, Color? borderColor, double borderWidth = 1}) {
