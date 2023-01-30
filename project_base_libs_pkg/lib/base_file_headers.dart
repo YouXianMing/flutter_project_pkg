@@ -55,6 +55,7 @@ export 'base/tools/check_value.dart'; // 检验获取参数的类型
 export 'base/tools/parse_value.dart'; // 尝试转换数据类型工具
 export 'base/tools/auto_obx.dart'; // 手动使用的Obx控制器
 export 'base/tools/map_uri_creator.dart'; // 根据给定的经纬度或者地址字符串创建地图用uri
+export 'base/tools/delayed_execution_manager.dart'; // 延时执行工具
 
 /// widgets
 export 'base/widgets/information_view/animated_pop_view.dart'; // InformationView相关
