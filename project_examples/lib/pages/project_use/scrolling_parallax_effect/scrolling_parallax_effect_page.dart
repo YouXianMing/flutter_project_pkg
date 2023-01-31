@@ -83,7 +83,7 @@ class LocationListItem extends StatelessWidget {
   Widget _buildParallaxBackground(BuildContext context) {
     return Flow(
       delegate: ParallaxFlowDelegate(
-        scrollable: Scrollable.of(context)!,
+        scrollable: Scrollable.of(context),
         listItemContext: context,
         backgroundImageKey: _backgroundImageKey,
       ),
@@ -197,12 +197,12 @@ class Parallax extends SingleChildRenderObjectWidget {
 
   @override
   RenderObject createRenderObject(BuildContext context) {
-    return RenderParallax(scrollable: Scrollable.of(context)!);
+    return RenderParallax(scrollable: Scrollable.of(context));
   }
 
   @override
   void updateRenderObject(BuildContext context, covariant RenderParallax renderObject) {
-    renderObject.scrollable = Scrollable.of(context)!;
+    renderObject.scrollable = Scrollable.of(context);
   }
 }
 

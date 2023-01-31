@@ -55,7 +55,7 @@ class Card1 extends StatelessWidget {
               child: ExpandablePanel(
                 theme: const ExpandableThemeData(headerAlignment: ExpandablePanelHeaderAlignment.center, tapBodyToCollapse: true),
                 header: Padding(
-                    padding: const EdgeInsets.all(10), child: Text('ExpandablePanel', style: Theme.of(context).textTheme.bodyText2)),
+                    padding: const EdgeInsets.all(10), child: Text('ExpandablePanel', style: Theme.of(context).textTheme.bodyMedium)),
                 collapsed: const Text(loremIpsum, softWrap: true, maxLines: 2, overflow: TextOverflow.ellipsis),
                 expanded: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,7 +93,7 @@ class Card2 extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[Text('Expandable', style: Theme.of(context).textTheme.bodyText1)],
+            children: <Widget>[Text('Expandable', style: Theme.of(context).textTheme.bodyLarge)],
           ),
         ),
       ]);
@@ -110,8 +110,8 @@ class Card2 extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text('Expandable', style: Theme.of(context).textTheme.bodyText1),
-              Text('3 Expandable widgets', style: Theme.of(context).textTheme.caption),
+              Text('Expandable', style: Theme.of(context).textTheme.bodyLarge),
+              Text('3 Expandable widgets', style: Theme.of(context).textTheme.bodySmall),
             ],
           ),
         ),
@@ -167,7 +167,7 @@ class Card2 extends StatelessWidget {
                       return TextButton(
                         child: Text(
                           controller.expanded ? 'COLLAPSE' : 'EXPAND',
-                          style: Theme.of(context).textTheme.button!.copyWith(color: Colors.deepPurple),
+                          style: Theme.of(context).textTheme.labelLarge!.copyWith(color: Colors.deepPurple),
                         ),
                         onPressed: () => controller.toggle(),
                       );
@@ -227,7 +227,7 @@ class Card3 extends StatelessWidget {
                           ),
                         ),
                         Expanded(
-                          child: Text('Items', style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.white)),
+                          child: Text('Items', style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.white)),
                         ),
                       ],
                     ),
