@@ -13,6 +13,7 @@ class WidgetsFactory {
       itemCount: build.items.length,
       scrollDirection: build.scrollDirection,
       controller: build.controller,
+      keyboardDismissBehavior: build.keyboardDismissBehavior,
       itemBuilder: (c, i) => build.builder(c, i, build.items[i]),
     );
   }
@@ -27,6 +28,7 @@ class WidgetsFactory {
       padding: build.padding,
       scrollDirection: build.scrollDirection,
       controller: build.controller,
+      keyboardDismissBehavior: build.keyboardDismissBehavior,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: build.crossAxisCount,
         childAspectRatio: build.childAspectRatio,
@@ -179,6 +181,7 @@ class ListViewBuilderConfig {
   final EdgeInsets? padding;
   final bool shrinkWrap; // shrinkWrap为false会尽可能的填充满parent组件给的空间大小.而shrinkWrap为true则是只满足自身大小。
   final ScrollPhysics? physics; // 确定可滚动控件的物理特性
+  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior; // 键盘收起操作,默认为手动
 
   const ListViewBuilderConfig({
     required this.items,
@@ -188,6 +191,7 @@ class ListViewBuilderConfig {
     this.padding = EdgeInsets.zero,
     this.shrinkWrap = false,
     this.physics,
+    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
   });
 }
 
@@ -204,6 +208,7 @@ class GridViewBuilderConfig {
   final EdgeInsetsGeometry? padding;
   final bool shrinkWrap; // shrinkWrap为false会尽可能的填充满parent组件给的空间大小.而shrinkWrap为true则是只满足自身大小。
   final ScrollPhysics? physics; // 确定可滚动控件的物理特性
+  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior; // 键盘收起操作,默认为手动
 
   const GridViewBuilderConfig({
     required this.items,
@@ -217,5 +222,6 @@ class GridViewBuilderConfig {
     this.shrinkWrap = false,
     this.physics,
     this.padding = EdgeInsets.zero,
+    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
   });
 }
