@@ -63,7 +63,7 @@ class InformationView<T extends BaseInformationViewConfig> extends StatelessWidg
   /// 在Overlay中显示,显示结束后自动移除
   InformationView inOverlay(BuildContext context) {
     OverlayEntry overlayEntry = OverlayEntry(builder: (_) => this);
-    Overlay.of(context)!.insert(overlayEntry);
+    Overlay.of(context).insert(overlayEntry);
     _controller.extData = overlayEntry;
     return this;
   }

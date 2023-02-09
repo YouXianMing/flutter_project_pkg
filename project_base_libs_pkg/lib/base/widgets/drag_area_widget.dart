@@ -18,7 +18,7 @@ class DragAreaWidget extends StatefulWidget {
   /// 插入到Overlay上
   static void insertToOverlay({required BuildContext context, required Widget child, Offset? initPosition}) {
     OverlayEntry overlayEntry = OverlayEntry(builder: (context) => DragAreaWidget(initPosition: initPosition, child: child));
-    Overlay.of(context)?.insert(overlayEntry);
+    Overlay.of(context).insert(overlayEntry);
   }
 }
 

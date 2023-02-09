@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:project_base_libs_pkg/base/others/scroll_config/scroll_config.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 
 class SliverSectionsWidgetController extends GetxController {
@@ -62,7 +63,8 @@ class SliverSectionsWidget extends StatelessWidget {
     // https://stackoverflow.com/questions/65369458/customscrollview-scroll-behavior-changes-when-scrollcontroller-is-passed
     return Obx(() {
       if (controller._reloadData.value > 0) {}
-      return CustomScrollView(
+
+      var scrollView = CustomScrollView(
         controller: scrollController,
         shrinkWrap: shrinkWrap,
         cacheExtent: cacheExtent,
@@ -72,6 +74,8 @@ class SliverSectionsWidget extends StatelessWidget {
         physics: physics,
         slivers: controller.sliverSections.buildAllSliverSectionsWidget(),
       );
+
+      return CupertinoScrollConfig(controller: scrollController).widgetAccess(child: scrollView);
     });
   }
 }

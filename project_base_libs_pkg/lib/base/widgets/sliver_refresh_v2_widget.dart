@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:project_base_libs_pkg/base/others/scroll_config/scroll_config.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 
@@ -196,7 +197,7 @@ class _SliverSectionsRefreshWidgetState extends State<SliverSectionsRefreshWidge
 
   @override
   Widget build(BuildContext context) {
-    return SmartRefresher(
+    var smartRefresher = SmartRefresher(
       controller: widget.controller.refreshController,
       enablePullDown: widget.controller._pullRefreshEnable,
       enablePullUp: widget.controller._loadMoreEnable,
@@ -217,6 +218,8 @@ class _SliverSectionsRefreshWidgetState extends State<SliverSectionsRefreshWidge
         slivers: widget.controller.sliverSections.buildAllSliverSectionsWidget(),
       ),
     );
+
+    return CupertinoScrollConfig(controller: widget.controller.scrollController).widgetAccess(child: smartRefresher);
   }
 
   /// 默认的RefreshWidgetHeader

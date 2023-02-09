@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:project_base_libs_pkg/base/others/scroll_config/scroll_config.dart';
 
 // import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
@@ -188,7 +189,8 @@ class SliversRefreshWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       if (_controller.reloadData.value > 0) {}
-      return SmartRefresher(
+
+      var smartRefresher = SmartRefresher(
         controller: _controller.refreshController,
         enablePullDown: _controller.pullRefreshEnable,
         enablePullUp: _controller.loadMoreEnable,
@@ -209,6 +211,8 @@ class SliversRefreshWidget extends StatelessWidget {
           slivers: _controller.sliverSections.buildAllSliverSectionsWidget(),
         ),
       );
+
+      return CupertinoScrollConfig(controller: _controller.scrollController).widgetAccess(child: smartRefresher);
     });
   }
 

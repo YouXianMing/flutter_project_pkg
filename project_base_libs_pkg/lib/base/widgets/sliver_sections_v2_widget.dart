@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_base_libs_pkg/base/others/scroll_config/scroll_config.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 
 class SliverSectionsWidgetController {
@@ -78,7 +79,8 @@ class _SliverSectionsWidgetState extends State<SliverSectionsWidget> with Custom
   Widget build(BuildContext context) {
     // 直接设置ScrollController会导致CustomScrollView内容过少时无法滑动
     // https://stackoverflow.com/questions/65369458/customscrollview-scroll-behavior-changes-when-scrollcontroller-is-passed
-    return CustomScrollView(
+
+    var scrollView = CustomScrollView(
       controller: widget.scrollController,
       shrinkWrap: widget.shrinkWrap,
       cacheExtent: widget.cacheExtent,
@@ -88,6 +90,8 @@ class _SliverSectionsWidgetState extends State<SliverSectionsWidget> with Custom
       physics: widget.physics,
       slivers: widget.controller.sliverSections.buildAllSliverSectionsWidget(),
     );
+
+    return CupertinoScrollConfig(controller: widget.scrollController).widgetAccess(child: scrollView);
   }
 
   // --- CustomStatefulWidgetMixin --- //
