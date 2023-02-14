@@ -19,6 +19,12 @@ class InformationView<T extends BaseInformationViewConfig> extends StatelessWidg
   /// 延迟build的时间间隔,默认为30ms
   final Duration waitForBuildDuration;
 
+  /// 显示完成后回调
+  final Function(InformationView)? didCompleteShowCallback;
+
+  /// 隐藏完成后回调
+  final Function(InformationView)? didCompleteHideCallback;
+
   /// debug打印
   final bool? debugPrintInfo;
 
@@ -46,6 +52,8 @@ class InformationView<T extends BaseInformationViewConfig> extends StatelessWidg
     this.config,
     this.waitForBuild = false,
     this.waitForBuildDuration = const Duration(milliseconds: 30),
+    this.didCompleteShowCallback,
+    this.didCompleteHideCallback,
     this.debugPrintInfo,
   }) : super(key: key) {
     if (builder != null) _controller.contentWidget = builder(this);
@@ -197,6 +205,7 @@ class InformationView<T extends BaseInformationViewConfig> extends StatelessWidg
             _debugInfo('[SHOW END]');
             _controller.isShowing = false;
             if (_controller.didCompleteShowCallback != null) _controller.didCompleteShowCallback!(this);
+            if (didCompleteShowCallback != null) didCompleteShowCallback!(this);
           },
           didCompleteHideCallback: () {
             _debugInfo('[HIDE END]');
@@ -207,10 +216,12 @@ class InformationView<T extends BaseInformationViewConfig> extends StatelessWidg
             if (waitForBuild == true) {
               Future.delayed(waitForBuildDuration, () {
                 if (_controller.didCompleteHideCallback != null) _controller.didCompleteHideCallback!(this);
+                if (didCompleteHideCallback != null) didCompleteHideCallback!(this);
                 _removeExtData();
               });
             } else {
               if (_controller.didCompleteHideCallback != null) _controller.didCompleteHideCallback!(this);
+              if (didCompleteHideCallback != null) didCompleteHideCallback!(this);
               _removeExtData();
             }
           },
