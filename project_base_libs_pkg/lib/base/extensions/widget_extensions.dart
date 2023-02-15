@@ -142,6 +142,9 @@ extension WidgetExtensions on Widget {
         child: this,
       );
 
+  /// 加入到Transform.translate组件(文档流里的布局不受影响)
+  Widget addTransformTranslate({double x = 0, double y = 0}) => Transform.translate(offset: Offset(x, y), child: this);
+
   /// (Debug) debug用,给控件添加边框
   Widget addDebugContainer({Color? color, Color? borderColor, double borderWidth = 1}) {
     return Container(

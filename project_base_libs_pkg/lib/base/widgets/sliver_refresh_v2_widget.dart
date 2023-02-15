@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project_base_libs_pkg/base/others/scroll_config/scroll_config.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 
