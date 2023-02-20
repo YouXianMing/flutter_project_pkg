@@ -4,8 +4,11 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
 class Util {
-  /// assets下默认的图片地址,可以通过set方法直接设置
+  /// assets下默认的图片地址,可以通过Util.assertsImagePath方法直接设置
   static String _assetsImagePath = 'lib/images/';
+
+  /// 设置assetsImagePath(需要设置assertsImagePath,如果没设置,默认为lib/images/)
+  static set assertsImagePath(String val) => _assetsImagePath = val;
 
   /// https://pub.flutter-io.cn/packages/english_words
   static WordPair get randomWordPair => WordPair.random();
@@ -72,9 +75,6 @@ class Util {
     }
     return maxLength;
   }
-
-  /// 设置assetsImagePath(需要设置assertsImagePath,如果没设置,默认为lib/images/)
-  static set assertsImagePath(String val) => _assetsImagePath = val;
 
   /// 便捷的获取asset中的图片文件,只需要给定文件名即可
   /// 注意:可以通过 assertsImagePath 设置asset的根目录,默认值是lib/images/

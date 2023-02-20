@@ -12,9 +12,7 @@ T getT<T>(dynamic value, {required T defaultValue}) {
 
 /// 使用泛型对象(如果值不是需要的类型,则call不会调用)
 void useT<T>(dynamic value, Function(T) call) {
-  if (value is T) {
-    call(value);
-  }
+  if (value is T) call(value);
 }
 
 /// 检查string是否为空

@@ -5,7 +5,7 @@ import 'package:path/path.dart' as path;
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 
 class FilesManager {
-  /// initialized's flag
+  /// 初始化标记
   static bool _didInitialized = false;
 
   /// Documents文件夹

@@ -9,8 +9,10 @@ class AutoObx {
   void manualUpdate() => _obsValue.value++;
 
   /// 构建Obx组件
-  Obx buildObx(WidgetCallback builder) => Obx(() {
-        _obsValue.value;
-        return builder();
-      });
+  Obx buildObx(WidgetCallback builder) => Obx(
+        () {
+          _obsValue.value;
+          return builder();
+        },
+      );
 }
