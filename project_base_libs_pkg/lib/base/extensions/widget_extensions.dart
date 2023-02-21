@@ -9,8 +9,10 @@ extension WidgetExtensions on Widget {
     bool includeContainer = false,
     EdgeInsets? padding,
     EdgeInsets? margin,
+    Key? key,
   }) =>
       GestureDetector(
+        key: key,
         onTap: tap,
         child: includeContainer ? Container(color: Colors.transparent, padding: padding, margin: margin, child: this) : this,
       );
@@ -39,6 +41,7 @@ extension WidgetExtensions on Widget {
 
   /// 添加Container所有的圆角
   Container addContainerBorderRadius({
+    Key? key,
     Color? color,
     double? width,
     double? height,
@@ -51,6 +54,7 @@ extension WidgetExtensions on Widget {
     BorderStyle? borderStyle,
   }) =>
       Container(
+        key: key,
         width: width,
         height: height,
         clipBehavior: Clip.hardEdge,
@@ -68,6 +72,7 @@ extension WidgetExtensions on Widget {
 
   /// 添加Container独立的圆角
   Container addContainerBorderRadiusOnly({
+    Key? key,
     Color? color,
     double? width,
     double? height,
@@ -83,6 +88,7 @@ extension WidgetExtensions on Widget {
     BorderStyle? borderStyle,
   }) =>
       Container(
+        key: key,
         width: width,
         height: height,
         clipBehavior: Clip.hardEdge,
@@ -112,6 +118,7 @@ extension WidgetExtensions on Widget {
 
   /// 给Text设置默认的style
   DefaultTextStyle addDefaultTextStyle({
+    Key? key,
     TextStyle style = const TextStyle(decoration: TextDecoration.none, color: Colors.black, fontSize: 14),
     TextAlign? textAlign,
     bool softWrap = true,
@@ -121,6 +128,7 @@ extension WidgetExtensions on Widget {
     TextHeightBehavior? textHeightBehavior,
   }) {
     return DefaultTextStyle(
+        key: key,
         style: style,
         textAlign: textAlign,
         softWrap: softWrap,
