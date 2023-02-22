@@ -104,4 +104,7 @@ export 'base/widgets/button/bg_color_button_widget.dart'; // 背景色按钮控�
 export 'base/widgets/line_percent_widget.dart'; // 线条样式的百分比控件(没有动画效果)
 export 'base/widgets/read_more_text_widget.dart'; // ReadMore文本控件
 export 'base/widgets/rich_text_widget.dart'; // 富文本简化用widget
-export 'base/widgets/widgets_factory.dart'; // 常用widget的工厂类
+export 'base/widgets/widgets_factory/widgets_factory.dart'; // 常用widget的工厂类
+export 'base/widgets/widgets_factory/base_scroll_view_builder_config.dart'; // BaseScrollViewBuilderConfig
+export 'base/widgets/widgets_factory/grid_view_builder_config.dart'; // GridViewBuilderConfig
+export 'base/widgets/widgets_factory/list_view_builder_config.dart'; // ListViewBuilderConfig

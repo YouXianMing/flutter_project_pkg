@@ -1,43 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:project_base_libs_pkg/base/widgets/widgets_factory/base_scroll_view_builder_config.dart';
+import 'package:project_base_libs_pkg/base/widgets/widgets_factory/grid_view_builder_config.dart';
+import 'package:project_base_libs_pkg/base/widgets/widgets_factory/list_view_builder_config.dart';
 
 typedef ItemWidgetBuilder = Widget Function(BuildContext? context, int index, dynamic data);
 
 class WidgetsFactory {
   /// ListView.builder构造器
-  static ListView listViewBuilder({required ListViewBuilderConfig build, Key? key}) {
-    return ListView.builder(
-      key: key,
-      padding: build.padding,
-      shrinkWrap: build.shrinkWrap,
-      physics: build.physics,
-      itemCount: build.items.length,
-      scrollDirection: build.scrollDirection,
-      controller: build.controller,
-      keyboardDismissBehavior: build.keyboardDismissBehavior,
-      itemBuilder: (c, i) => build.builder(c, i, build.items[i]),
-    );
-  }
+  static ListView listViewBuilder({required ListViewBuilderConfig build}) => build.build() as ListView;
 
   /// GridView.builder构造器
-  static GridView gridViewBuilder({required GridViewBuilderConfig build, Key? key}) {
-    return GridView.builder(
-      key: key,
-      shrinkWrap: build.shrinkWrap,
-      physics: build.physics,
-      itemCount: build.items.length,
-      padding: build.padding,
-      scrollDirection: build.scrollDirection,
-      controller: build.controller,
-      keyboardDismissBehavior: build.keyboardDismissBehavior,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: build.crossAxisCount,
-        childAspectRatio: build.childAspectRatio,
-        mainAxisSpacing: build.mainAxisSpacing,
-        crossAxisSpacing: build.crossAxisSpacing,
-      ),
-      itemBuilder: (c, i) => build.builder(c, i, build.items[i]),
-    );
-  }
+  static GridView gridViewBuilder({required GridViewBuilderConfig build}) => build.build() as GridView;
+
+  /// ListView或者GridView的builder构造器
+  static Widget scrollViewBuilder<T extends BaseScrollViewBuilderConfig>({required T build}) => build.build();
 
   /// 支持动画效果的Text构造器
   static AnimatedDefaultTextStyle animatedText(
@@ -170,58 +146,4 @@ class WidgetsFactory {
       ),
     );
   }
-}
-
-/// listViewBuilder专用
-class ListViewBuilderConfig {
-  final List<dynamic> items;
-  final ItemWidgetBuilder builder;
-  final Axis scrollDirection;
-  final ScrollController? controller;
-  final EdgeInsets? padding;
-  final bool shrinkWrap; // shrinkWrap为false会尽可能的填充满parent组件给的空间大小.而shrinkWrap为true则是只满足自身大小。
-  final ScrollPhysics? physics; // 确定可滚动控件的物理特性
-  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior; // 键盘收起操作,默认为手动
-
-  const ListViewBuilderConfig({
-    required this.items,
-    required this.builder,
-    this.scrollDirection = Axis.vertical,
-    this.controller,
-    this.padding = EdgeInsets.zero,
-    this.shrinkWrap = false,
-    this.physics,
-    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
-  });
-}
-
-/// gridViewBuilder专用
-class GridViewBuilderConfig {
-  final List<dynamic> items;
-  final ItemWidgetBuilder builder;
-  final Axis scrollDirection;
-  final ScrollController? controller;
-  final int crossAxisCount;
-  final double childAspectRatio;
-  final double mainAxisSpacing;
-  final double crossAxisSpacing;
-  final EdgeInsetsGeometry? padding;
-  final bool shrinkWrap; // shrinkWrap为false会尽可能的填充满parent组件给的空间大小.而shrinkWrap为true则是只满足自身大小。
-  final ScrollPhysics? physics; // 确定可滚动控件的物理特性
-  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior; // 键盘收起操作,默认为手动
-
-  const GridViewBuilderConfig({
-    required this.items,
-    required this.builder,
-    this.scrollDirection = Axis.vertical,
-    this.controller,
-    this.crossAxisCount = 1,
-    this.childAspectRatio = 1,
-    this.mainAxisSpacing = 0,
-    this.crossAxisSpacing = 0,
-    this.shrinkWrap = false,
-    this.physics,
-    this.padding = EdgeInsets.zero,
-    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
-  });
 }
