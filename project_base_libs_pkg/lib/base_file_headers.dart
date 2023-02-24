@@ -108,3 +108,4 @@ export 'base/widgets/widgets_factory/widgets_factory.dart'; // 常用widget的�
 export 'base/widgets/widgets_factory/base_scroll_view_builder_config.dart'; // BaseScrollViewBuilderConfig
 export 'base/widgets/widgets_factory/grid_view_builder_config.dart'; // GridViewBuilderConfig
 export 'base/widgets/widgets_factory/list_view_builder_config.dart'; // ListViewBuilderConfig
+export 'base/widgets/reorderable_list_view_widget.dart'; // ReorderableListViewWidget
