@@ -8,13 +8,17 @@ class ExpandableWidget extends StatelessWidget {
   /// 是否展开
   final bool expanded;
 
-  const ExpandableWidget({Key? key, required this.child, required this.expanded}) : super(key: key);
+  /// theme设置
+  final ExpandableThemeData? theme;
+
+  const ExpandableWidget({Key? key, required this.child, required this.expanded, this.theme}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Expandable(
       controller: ExpandableController(initialExpanded: expanded),
       collapsed: const SizedBox(width: double.infinity),
+      theme: theme,
       expanded: child,
     );
   }
