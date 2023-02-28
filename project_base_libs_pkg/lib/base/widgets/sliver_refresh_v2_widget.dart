@@ -166,9 +166,13 @@ class SliverSectionsRefreshWidget extends StatefulWidget {
   /// 逻辑控制器
   final SliverSectionsRefreshWidgetController controller;
 
+  /// 键盘消失行为
+  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
+
   const SliverSectionsRefreshWidget({
     Key? key,
     required this.controller,
+    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
   }) : super(key: key);
 
   @override
@@ -214,6 +218,7 @@ class _SliverSectionsRefreshWidgetState extends State<SliverSectionsRefreshWidge
       },
       child: CustomScrollView(
         controller: widget.controller.scrollController,
+        keyboardDismissBehavior: widget.keyboardDismissBehavior,
         slivers: widget.controller.sliverSections.buildAllSliverSectionsWidget(),
       ),
     );

@@ -56,6 +56,9 @@ class _SliversRefreshWidgetController extends GetxController {
 class SliversRefreshWidget extends StatelessWidget {
   final _SliversRefreshWidgetController _controller = _SliversRefreshWidgetController();
 
+  /// 键盘消失行为
+  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
+
   SliversRefreshWidget({
     Key? key,
     bool pullRefreshEnable = true,
@@ -67,6 +70,7 @@ class SliversRefreshWidget extends StatelessWidget {
     SliversRefreshWidgetBlock? onLoadBlock,
     SliversRefreshWidgetHeaderFooterBuilder? headerBuilder,
     SliversRefreshWidgetHeaderFooterBuilder? footerBuilder,
+    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
   }) : super(key: key) {
     _controller.pullRefreshEnable = pullRefreshEnable;
     _controller.loadMoreEnable = loadMoreEnable;
@@ -207,6 +211,7 @@ class SliversRefreshWidget extends StatelessWidget {
         },
         child: CustomScrollView(
           controller: _controller.scrollController,
+          keyboardDismissBehavior: keyboardDismissBehavior,
           slivers: _controller.sliverSections.buildAllSliverSectionsWidget(),
         ),
       );

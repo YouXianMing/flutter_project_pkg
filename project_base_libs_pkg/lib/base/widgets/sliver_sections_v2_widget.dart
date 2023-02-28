@@ -39,6 +39,9 @@ class SliverSectionsWidget extends StatefulWidget {
   /// 滑动的模式
   final ScrollPhysics? physics;
 
+  /// 键盘消失行为
+  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
+
   const SliverSectionsWidget({
     Key? key,
     required this.controller,
@@ -49,6 +52,7 @@ class SliverSectionsWidget extends StatefulWidget {
     this.scrollDirection = Axis.vertical,
     this.scrollBehavior,
     this.physics,
+    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
   }) : super(key: key);
 
   @override
@@ -87,6 +91,7 @@ class _SliverSectionsWidgetState extends State<SliverSectionsWidget> with Custom
       scrollDirection: widget.scrollDirection,
       scrollBehavior: widget.scrollBehavior,
       physics: widget.physics,
+      keyboardDismissBehavior: widget.keyboardDismissBehavior,
       slivers: widget.controller.sliverSections.buildAllSliverSectionsWidget(),
     );
 
