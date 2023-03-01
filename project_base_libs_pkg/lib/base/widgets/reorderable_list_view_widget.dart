@@ -18,13 +18,11 @@ class ReorderableListViewWidgetController {
 
   /// 更新items并刷新界面
   void update({List<dynamic>? items}) {
-    if (_stateMixin != null) {
-      // 如果设置了item,则更新item
-      if (items != null) this.items = items;
+    // 如果设置了item,则更新item
+    if (items != null) this.items = items;
 
-      // 更新state
-      _stateMixin!.stateMixinSetState();
-    }
+    // 更新state
+    if (_stateMixin != null) _stateMixin!.stateMixinSetState();
   }
 }
 
