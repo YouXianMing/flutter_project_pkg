@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
@@ -9,11 +10,19 @@ extension WidgetExtensions on Widget {
     bool includeContainer = false,
     EdgeInsets? padding,
     EdgeInsets? margin,
+    void Function(LongPressDownDetails)? onLongPressDown,
+    void Function()? onLongPressCancel,
+    void Function()? onLongPress,
+    void Function(LongPressStartDetails)? onLongPressStart,
     Key? key,
   }) =>
       GestureDetector(
         key: key,
         onTap: tap,
+        onLongPressDown: onLongPressDown,
+        onLongPressCancel: onLongPressCancel,
+        onLongPress: onLongPress,
+        onLongPressStart: onLongPressStart,
         child: includeContainer ? Container(color: Colors.transparent, padding: padding, margin: margin, child: this) : this,
       );
 
