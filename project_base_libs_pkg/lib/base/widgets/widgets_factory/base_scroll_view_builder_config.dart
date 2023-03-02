@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_base_libs_pkg/base/widgets/widgets_factory/widgets_factory.dart';
+import 'package:project_base_libs_pkg/base/typedef/project_typedef.dart';
 
 abstract class BaseScrollViewBuilderConfig {
   /// builderKey

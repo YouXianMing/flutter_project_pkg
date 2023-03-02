@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project_base_libs_pkg/base/typedef/project_typedef.dart';
 import 'package:project_base_libs_pkg/base/widgets/widgets_factory/base_scroll_view_builder_config.dart';
-import 'package:project_base_libs_pkg/base/widgets/widgets_factory/widgets_factory.dart';
 
 /// 普通的GridViewBuilder
 class GridViewBuilderConfig extends BaseScrollViewBuilderConfig {

@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base/widgets/custom_stateful_widget_mixin.dart';
-import 'package:project_base_libs_pkg/base/widgets/widgets_factory/widgets_factory.dart';
-
-/// 在需要设定某行不能拖动时,widget通过mixin来实现此功能禁用拖拽功能
-mixin ReorderableListViewItemWidgetMixin {
-  /// 是否可以拖拽
-  bool canDrag();
-}
+import 'package:project_base_libs_pkg/base/typedef/project_typedef.dart';
 
 /// 拖拽用控制器
 class ReorderableListViewWidgetController {
@@ -15,6 +9,9 @@ class ReorderableListViewWidgetController {
 
   /// 子组件持有的数据
   List<dynamic> items = [];
+
+  /// 禁止滑动的index集合
+  Set<int> disableDragSet = {};
 
   /// 更新items并刷新界面
   void update({List<dynamic>? items}) {
@@ -36,8 +33,8 @@ class ReorderableListViewWidget extends StatefulWidget {
   /// 逻辑控制器
   final ReorderableListViewWidgetController controller;
 
-  /// Widge构造器
-  final ItemWidgetBuilder builder;
+  /// Widget构造器
+  final ReorderableItemWidgetBuilder builder;
 
   /// 是否可以拖拽(全局设置)
   final bool canDrag;
@@ -106,7 +103,8 @@ class ReorderableListViewWidgetState extends State<ReorderableListViewWidget> wi
       shrinkWrap: widget.shrinkWrap,
       itemBuilder: (c, i) {
         var value = widget.controller.items[i];
-        return _widgetBuildItem(data: value, child: widget.builder(context, i, value), index: i);
+        bool canDrag = !widget.controller.disableDragSet.contains(i);
+        return _widgetBuildItem(data: value, child: widget.builder(context, i, value, canDrag), index: i);
       },
       onReorderStart: (index) {
         if (widget.onReorderStart != null) widget.onReorderStart!(index, widget.controller.items[index]);
@@ -116,9 +114,9 @@ class ReorderableListViewWidgetState extends State<ReorderableListViewWidget> wi
       },
       itemCount: widget.controller.items.length,
       onReorder: (int oldIndex, int newIndex) {
-        if (widget.onReorder != null) widget.onReorder!(oldIndex, newIndex);
-
         if (oldIndex < newIndex) newIndex -= 1;
+        if (widget.controller.disableDragSet.contains(oldIndex) || widget.controller.disableDragSet.contains(newIndex)) return;
+        if (widget.onReorder != null) widget.onReorder!(oldIndex, newIndex);
         final element = widget.controller.items.removeAt(oldIndex);
         widget.controller.items.insert(newIndex, element);
         setState(() {});
@@ -127,8 +125,7 @@ class ReorderableListViewWidgetState extends State<ReorderableListViewWidget> wi
   }
 
   Widget _widgetBuildItem({dynamic data, required Widget child, required int index}) {
-    bool canDrag = true;
-    if (child is ReorderableListViewItemWidgetMixin) canDrag = (child as ReorderableListViewItemWidgetMixin).canDrag();
+    bool canDrag = !widget.controller.disableDragSet.contains(index);
     if (widget.canDrag == false) canDrag = false;
 
     return widget.useReorderableDelayedDragStartListener

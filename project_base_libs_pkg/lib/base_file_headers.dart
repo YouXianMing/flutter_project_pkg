@@ -60,6 +60,9 @@ export 'base/tools/auto_obx.dart'; // 手动使用的Obx控制器
 export 'base/tools/map_uri_creator.dart'; // 根据给定的经纬度或者地址字符串创建地图用uri
 export 'base/tools/delayed_execution_manager.dart'; // 延时执行工具
 
+/// tools
+export 'base/typedef/project_typedef.dart';
+
 /// widgets
 export 'base/widgets/information_view/animated_pop_view.dart'; // InformationView相关
 export 'base/widgets/information_view/animated_sheet_view.dart'; // InformationView相关

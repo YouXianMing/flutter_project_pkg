@@ -3,8 +3,6 @@ import 'package:project_base_libs_pkg/base/widgets/widgets_factory/base_scroll_v
 import 'package:project_base_libs_pkg/base/widgets/widgets_factory/grid_view_builder_config.dart';
 import 'package:project_base_libs_pkg/base/widgets/widgets_factory/list_view_builder_config.dart';
 
-typedef ItemWidgetBuilder = Widget Function(BuildContext? context, int index, dynamic data);
-
 class WidgetsFactory {
   /// ListView.builder构造器
   static ListView listViewBuilder({required ListViewBuilderConfig build}) => build.build() as ListView;
