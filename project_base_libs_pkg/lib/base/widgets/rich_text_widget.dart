@@ -86,20 +86,23 @@ class RichTextWidget extends StatelessWidget {
 /// 用于简化Span配置用的类
 class SpansFactory {
   /// [TextSpan]的封装,便于使用
-  static TextSpan text(
-    String text, {
+  static TextSpan text(String text, {
     TextStyle? style,
     GestureRecognizer? recognizer,
     List<InlineSpan>? children,
     Locale? locale,
     bool? spellOut,
   }) {
-    return TextSpan(text: text, style: style, recognizer: recognizer, children: children, locale: locale, spellOut: spellOut);
+    return TextSpan(text: text,
+        style: style,
+        recognizer: recognizer,
+        children: children,
+        locale: locale,
+        spellOut: spellOut);
   }
 
   /// [TextSpan]的简易封装,便于使用
-  static TextSpan simpleText(
-    String text, {
+  static TextSpan simpleText(String text, {
     Color? color,
     double? fontSize,
     FontWeight? fontWeight,
@@ -108,6 +111,7 @@ class SpansFactory {
     List<InlineSpan>? children,
     Locale? locale,
     bool? spellOut,
+    Color? backgroundColor = Colors.transparent,
   }) {
     TapGestureRecognizer? tapGestureRecognizer;
     if (onTap != null) {
@@ -117,7 +121,11 @@ class SpansFactory {
 
     return TextSpan(
       text: text,
-      style: TextStyle(color: color, fontSize: fontSize, fontWeight: fontWeight, decoration: decoration),
+      style: TextStyle(color: color,
+          fontSize: fontSize,
+          fontWeight: fontWeight,
+          decoration: decoration,
+          backgroundColor: backgroundColor),
       recognizer: tapGestureRecognizer,
       children: children,
       locale: locale,
@@ -126,8 +134,7 @@ class SpansFactory {
   }
 
   /// [WidgetSpan]的简易封装,便于使用
-  static WidgetSpan widget(
-    Widget child, {
+  static WidgetSpan widget(Widget child, {
     TextStyle? style,
     PlaceholderAlignment alignment = ui.PlaceholderAlignment.bottom,
     TextBaseline? baseline,

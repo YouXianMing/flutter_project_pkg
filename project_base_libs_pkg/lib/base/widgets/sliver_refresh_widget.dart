@@ -59,6 +59,9 @@ class SliversRefreshWidget extends StatelessWidget {
   /// 键盘消失行为
   final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
 
+  /// 滑动的模式
+  final ScrollPhysics? physics;
+
   SliversRefreshWidget({
     Key? key,
     bool pullRefreshEnable = true,
@@ -71,6 +74,7 @@ class SliversRefreshWidget extends StatelessWidget {
     SliversRefreshWidgetHeaderFooterBuilder? headerBuilder,
     SliversRefreshWidgetHeaderFooterBuilder? footerBuilder,
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
+    this.physics,
   }) : super(key: key) {
     _controller.pullRefreshEnable = pullRefreshEnable;
     _controller.loadMoreEnable = loadMoreEnable;
@@ -212,6 +216,7 @@ class SliversRefreshWidget extends StatelessWidget {
         child: CustomScrollView(
           controller: _controller.scrollController,
           keyboardDismissBehavior: keyboardDismissBehavior,
+          physics: physics,
           slivers: _controller.sliverSections.buildAllSliverSectionsWidget(),
         ),
       );
