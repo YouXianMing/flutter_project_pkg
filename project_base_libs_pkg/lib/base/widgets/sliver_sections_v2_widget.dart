@@ -14,7 +14,7 @@ class SliverSectionsWidgetController {
   }
 }
 
-class SliverSectionsWidget extends StatefulWidget {
+class SliverSectionsWidget<ST extends BaseScrollStyleConfig> extends StatefulWidget {
   /// 逻辑控制器
   final SliverSectionsWidgetController controller;
 
@@ -42,6 +42,9 @@ class SliverSectionsWidget extends StatefulWidget {
   /// 键盘消失行为
   final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
 
+  /// 滑动风格配置
+  final ST? scrollStyleConfig;
+
   const SliverSectionsWidget({
     Key? key,
     required this.controller,
@@ -53,6 +56,7 @@ class SliverSectionsWidget extends StatefulWidget {
     this.scrollBehavior,
     this.physics,
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
+    this.scrollStyleConfig,
   }) : super(key: key);
 
   @override
@@ -95,7 +99,12 @@ class _SliverSectionsWidgetState extends State<SliverSectionsWidget> with Custom
       slivers: widget.controller.sliverSections.buildAllSliverSectionsWidget(),
     );
 
-    return CupertinoScrollConfig(controller: widget.scrollController).widgetAccess(child: scrollView);
+    if (widget.scrollStyleConfig != null) {
+      widget.scrollStyleConfig!.controller = widget.scrollController;
+      return widget.scrollStyleConfig!.widgetAccess(child: scrollView);
+    } else {
+      return scrollView;
+    }
   }
 
   // --- CustomStatefulWidgetMixin --- //

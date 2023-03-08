@@ -33,7 +33,7 @@ dependencies:
 
   # [tekartik.com] Lock
   # https://pub.flutter-io.cn/packages/synchronized
-  synchronized: 3.0.0+2
+  synchronized: 3.0.1
 
   # [filiph.net] 随机英文单词
   # https://pub.flutter-io.cn/packages/english_words
@@ -41,7 +41,7 @@ dependencies:
 
   # [dart.dev] path_provider
   # https://pub.flutter-io.cn/packages/path_provider
-  path_provider: 2.0.11
+  path_provider: 2.0.13
 
   # [dart.dev] 路径
   # https://pub.flutter-io.cn/packages/path

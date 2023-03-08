@@ -53,7 +53,7 @@ class _SliversRefreshWidgetController extends GetxController {
   final ScrollController scrollController = ScrollController();
 }
 
-class SliversRefreshWidget extends StatelessWidget {
+class SliversRefreshWidget<ST extends BaseScrollStyleConfig> extends StatelessWidget {
   final _SliversRefreshWidgetController _controller = _SliversRefreshWidgetController();
 
   /// 键盘消失行为
@@ -61,6 +61,9 @@ class SliversRefreshWidget extends StatelessWidget {
 
   /// 滑动的模式
   final ScrollPhysics? physics;
+
+  /// 滑动风格配置
+  final ST? scrollStyleConfig;
 
   SliversRefreshWidget({
     Key? key,
@@ -75,6 +78,7 @@ class SliversRefreshWidget extends StatelessWidget {
     SliversRefreshWidgetHeaderFooterBuilder? footerBuilder,
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
     this.physics,
+    this.scrollStyleConfig,
   }) : super(key: key) {
     _controller.pullRefreshEnable = pullRefreshEnable;
     _controller.loadMoreEnable = loadMoreEnable;
@@ -221,7 +225,12 @@ class SliversRefreshWidget extends StatelessWidget {
         ),
       );
 
-      return CupertinoScrollConfig(controller: _controller.scrollController).widgetAccess(child: smartRefresher);
+      if (scrollStyleConfig != null) {
+        scrollStyleConfig!.controller = _controller.scrollController;
+        return scrollStyleConfig!.widgetAccess(child: smartRefresher);
+      } else {
+        return smartRefresher;
+      }
     });
   }
 

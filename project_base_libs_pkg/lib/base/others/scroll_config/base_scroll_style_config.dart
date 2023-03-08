@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract class BaseScrollConfig {
+abstract class BaseScrollStyleConfig {
   /// (abstract) 是否使用没有阴影的设置
   bool get useNoShadowScrollConfiguration;
   set useNoShadowScrollConfiguration(bool val);

@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base/others/no_shadow_scroll_behavior.dart';
-import 'package:project_base_libs_pkg/base/others/scroll_config/base_scroll_config.dart';
+import 'package:project_base_libs_pkg/base/others/scroll_config/base_scroll_style_config.dart';
 
-/// iOS风格的滑动样式
-class CupertinoScrollConfig extends BaseScrollConfig {
+/// iOS风格的滑动样式(在构造方法中设置controller需要注意代码实现)
+class CupertinoScrollStyleConfig extends BaseScrollStyleConfig {
   @override
   ScrollController? controller;
 
@@ -20,7 +20,7 @@ class CupertinoScrollConfig extends BaseScrollConfig {
   final Radius? radius;
   final Radius? radiusWhileDragging;
 
-  CupertinoScrollConfig({
+  CupertinoScrollStyleConfig({
     this.controller,
     this.useNoShadowScrollConfiguration = false,
     this.useScrollbar = false,
@@ -55,8 +55,8 @@ class CupertinoScrollConfig extends BaseScrollConfig {
   }
 }
 
-/// 安卓风格的滑动样式
-class MaterialScrollConfig extends BaseScrollConfig {
+/// 安卓风格的滑动样式(在构造方法中设置controller需要注意代码实现)
+class MaterialScrollStyleConfig extends BaseScrollStyleConfig {
   @override
   ScrollController? controller;
 
@@ -72,7 +72,7 @@ class MaterialScrollConfig extends BaseScrollConfig {
   final Radius? radius;
   final bool? interactive;
 
-  MaterialScrollConfig({
+  MaterialScrollStyleConfig({
     this.controller,
     this.useNoShadowScrollConfiguration = false,
     this.useScrollbar = false,

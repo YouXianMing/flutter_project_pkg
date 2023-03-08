@@ -162,7 +162,7 @@ class SliverSectionsRefreshWidgetController {
   }
 }
 
-class SliverSectionsRefreshWidget extends StatefulWidget {
+class SliverSectionsRefreshWidget<ST extends BaseScrollStyleConfig> extends StatefulWidget {
   /// 逻辑控制器
   final SliverSectionsRefreshWidgetController controller;
 
@@ -172,11 +172,15 @@ class SliverSectionsRefreshWidget extends StatefulWidget {
   /// 滑动的模式
   final ScrollPhysics? physics;
 
+  /// 滑动风格配置
+  final ST? scrollStyleConfig;
+
   const SliverSectionsRefreshWidget({
     Key? key,
     required this.controller,
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
     this.physics,
+    this.scrollStyleConfig,
   }) : super(key: key);
 
   @override
@@ -228,7 +232,12 @@ class _SliverSectionsRefreshWidgetState extends State<SliverSectionsRefreshWidge
       ),
     );
 
-    return CupertinoScrollConfig(controller: widget.controller.scrollController).widgetAccess(child: smartRefresher);
+    if (widget.scrollStyleConfig != null) {
+      widget.scrollStyleConfig!.controller = widget.controller.scrollController;
+      return widget.scrollStyleConfig!.widgetAccess(child: smartRefresher);
+    } else {
+      return smartRefresher;
+    }
   }
 
   /// 默认的RefreshWidgetHeader

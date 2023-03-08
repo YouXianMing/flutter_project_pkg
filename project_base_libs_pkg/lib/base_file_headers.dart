@@ -40,8 +40,8 @@ export 'base/others/sliver_section/sliver_third_libs/sliver_waterfall_flow_secti
 export 'base/others/staggered_grid_data.dart';
 export 'base/others/no_splash_theme.dart';
 export 'base/others/no_shadow_scroll_behavior.dart';
-export 'base/others/scroll_config/base_scroll_config.dart';
-export 'base/others/scroll_config/scroll_config.dart';
+export 'base/others/scroll_config/base_scroll_style_config.dart';
+export 'base/others/scroll_config/scroll_style_config.dart';
 
 /// tools
 export 'base/tools/app_print.dart'; // 打印
