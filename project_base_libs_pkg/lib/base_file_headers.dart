@@ -112,3 +112,4 @@ export 'base/widgets/widgets_factory/base_scroll_view_builder_config.dart'; // B
 export 'base/widgets/widgets_factory/grid_view_builder_config.dart'; // GridViewBuilderConfig
 export 'base/widgets/widgets_factory/list_view_builder_config.dart'; // ListViewBuilderConfig
 export 'base/widgets/reorderable_list_view_widget.dart'; // ReorderableListViewWidget
+export 'base/widgets/animated_switcher_widget.dart'; // 对AnimatedSwitcher进行封装,简化使用
