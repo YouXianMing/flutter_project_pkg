@@ -29,6 +29,9 @@ extension WidgetExtensions on Widget {
   /// 控件旋转180°
   Widget get rotate180 => Transform.rotate(angle: math.pi, child: this);
 
+  /// 设置控件顺时针旋转指定的度数,比如设置degrees=30表示顺时针旋转30°
+  Widget setRotate({required double degrees}) => Transform.rotate(angle: degrees * math.pi / 180, child: this);
+
   /// 设置为LTR模式(普通布局方式,从左往右排列)
   Widget get setToLTR => Directionality(textDirection: TextDirection.ltr, child: this);
 
@@ -118,14 +121,7 @@ extension WidgetExtensions on Widget {
         child: this,
       );
 
-  /// 加入到Opacity组件
-  Opacity addOpacity(double opacity, {bool alwaysIncludeSemantics = false}) => Opacity(
-        opacity: opacity,
-        alwaysIncludeSemantics: alwaysIncludeSemantics,
-        child: this,
-      );
-
-  /// 给Text设置默认的style
+  /// 给Text设置默认的style(一般用于加载在Overlay上的组件)
   DefaultTextStyle addDefaultTextStyle({
     Key? key,
     TextStyle style = const TextStyle(decoration: TextDecoration.none, color: Colors.black, fontSize: 14),
@@ -161,6 +157,35 @@ extension WidgetExtensions on Widget {
 
   /// 加入到Transform.translate组件(文档流里的布局不受影响)
   Widget addTransformTranslate({double x = 0, double y = 0}) => Transform.translate(offset: Offset(x, y), child: this);
+
+  /// 加入到Visibility(显示或隐藏组件)中
+  Widget addVisibility({
+    required bool visible,
+    bool maintainState = false,
+    bool maintainAnimation = false,
+    bool maintainSize = false,
+    bool maintainSemantics = false,
+    bool maintainInteractivity = false,
+  }) =>
+      Visibility(
+        visible: visible,
+        maintainState: maintainState,
+        maintainAnimation: maintainAnimation,
+        maintainSize: maintainSize,
+        maintainSemantics: maintainSemantics,
+        maintainInteractivity: maintainInteractivity,
+        child: this,
+      );
+
+  /// 加入到Opacity(设置透明度)组件
+  Opacity addOpacity(double opacity, {bool alwaysIncludeSemantics = false}) => Opacity(
+        opacity: opacity,
+        alwaysIncludeSemantics: alwaysIncludeSemantics,
+        child: this,
+      );
+
+  /// 加入到Offstage(显示或隐藏组件)中
+  Widget addOffstage({required bool offstage}) => Offstage(offstage: offstage, child: this);
 
   /// (Debug) debug用,给控件添加边框
   Widget addDebugContainer({Color? color, Color? borderColor, double borderWidth = 1}) {
