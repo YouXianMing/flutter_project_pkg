@@ -19,6 +19,7 @@ import 'package:project_examples/pages/async_knowledge/dart_stream/dart_stream_p
 import 'package:project_examples/pages/async_knowledge/future_builder/future_builder_page.dart';
 import 'package:project_examples/pages/async_knowledge/isolate/isolate_page.dart';
 import 'package:project_examples/pages/async_knowledge/stream_builder/stream_builder_page.dart';
+import 'package:project_examples/pages/project_use/animated_switcher_widget/animated_switcher_widget_page.dart';
 import 'package:project_examples/pages/project_use/confetti/confetti_page.dart';
 import 'package:project_examples/pages/project_use/custom_tab_bar_widget/custom_tab_bar_widget_page.dart';
 import 'package:project_examples/pages/project_use/files_scan/files_scan_page.dart';
@@ -106,6 +107,7 @@ enum PageRouteEnum {
   maybePopPage,
   confettiPage,
   scrollingParallaxEffectPage,
+  animatedSwitcherWidgetPage,
 
   /* 动画 */
   animationListPage, // 列表页
@@ -273,6 +275,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => ScrollingParallaxEffectPage(arguments: arguments));
       case PageRouteEnum.confettiWidgetPage:
         return MaterialPageRoute(settings: settings, builder: (_) => ConfettiWidgetPage(arguments: arguments));
+      case PageRouteEnum.animatedSwitcherWidgetPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => AnimatedSwitcherWidgetPage(arguments: arguments));
     }
   }
 
@@ -466,6 +470,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.confettiWidgetPage:
         pageRouteName = _pageRouteNameFrom(ConfettiWidgetPage);
+        break;
+      case PageRouteEnum.animatedSwitcherWidgetPage:
+        pageRouteName = _pageRouteNameFrom(AnimatedSwitcherWidgetPage);
         break;
     }
 

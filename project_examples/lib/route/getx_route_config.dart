@@ -18,6 +18,7 @@ import 'package:project_examples/pages/async_knowledge/dart_stream/dart_stream_p
 import 'package:project_examples/pages/async_knowledge/future_builder/future_builder_page.dart';
 import 'package:project_examples/pages/async_knowledge/isolate/isolate_page.dart';
 import 'package:project_examples/pages/async_knowledge/stream_builder/stream_builder_page.dart';
+import 'package:project_examples/pages/project_use/animated_switcher_widget/animated_switcher_widget_page.dart';
 import 'package:project_examples/pages/project_use/confetti/confetti_page.dart';
 import 'package:project_examples/pages/project_use/custom_tab_bar_widget/custom_tab_bar_widget_page.dart';
 import 'package:project_examples/pages/project_use/files_scan/files_scan_page.dart';
@@ -196,6 +197,8 @@ class RouteConfig {
                 return const ScrollingParallaxEffectPage();
               case PageRouteEnum.confettiWidgetPage:
                 return const ConfettiWidgetPage();
+              case PageRouteEnum.animatedSwitcherWidgetPage:
+                return const AnimatedSwitcherWidgetPage();
             }
           },
         ),
