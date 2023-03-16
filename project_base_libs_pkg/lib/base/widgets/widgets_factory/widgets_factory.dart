@@ -26,6 +26,7 @@ class WidgetsFactory {
     String? fontFamily, // 字体家族
     double? lineHeight, // 行间距倍数
     double? wordSpacing, // 字体间距
+    double? letterSpacing, // 字母间距
     Duration? duration, // [动画相关参数] 动画时间
     Function()? onEnd, // [动画相关参数] 动画结束回调
     Curve? curve, // [动画相关参数] 动画曲线
@@ -42,6 +43,7 @@ class WidgetsFactory {
         fontFamily: fontFamily,
         height: lineHeight,
         wordSpacing: wordSpacing,
+        letterSpacing: letterSpacing,
       ),
       duration: duration ?? const Duration(milliseconds: 250),
       onEnd: onEnd,

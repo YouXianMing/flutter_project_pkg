@@ -50,6 +50,9 @@ class _FirstTimeLoadingWidgetController extends GetxController {
   /// 记录error,用于传给errorWidgetBuilder中使用
   dynamic errorWidgetBuilderData;
 
+  /// 背景色,如果没有设置,默认为白色
+  Color? backgroundColor;
+
   /// 是否延迟构建
   bool? waitBuildFuture;
 
@@ -78,6 +81,7 @@ class FirstTimeLoadingWidget extends StatefulWidget {
     bool waitBuildFuture = false, // Future结果延迟返回
     Duration waitBuildFutureDuration = const Duration(milliseconds: 150), // Future结果延迟返回的时间
     Duration? successStatusDelayDuration, // 设置Future成功后切换到success的延迟时间,默认为null
+    Color? backgroundColor,
     this.successImmediately = false, // 是否立即成功,默认为false
     this.debugPrintInfo = false,
     this.requestOnlyOnce = true,
@@ -97,6 +101,7 @@ class FirstTimeLoadingWidget extends StatefulWidget {
         setWaitBuildFuture(waitBuildFuture);
         setWaitBuildFutureDuration(waitBuildFutureDuration);
         setToSuccessStatusDelayDuration(successStatusDelayDuration);
+        setBackgroundColor(backgroundColor);
 
         onSuccess(success);
         onError(error);
@@ -173,6 +178,12 @@ class FirstTimeLoadingWidget extends StatefulWidget {
   /// 设置Future成功后切换到success的延迟时间
   FirstTimeLoadingWidget setToSuccessStatusDelayDuration(Duration? duration) {
     _controller.successStatusDelayDuration = duration;
+    return this;
+  }
+
+  /// 设置背景色,如果为空,则默认为白色
+  FirstTimeLoadingWidget setBackgroundColor(Color? backgroundColor) {
+    _controller.backgroundColor = backgroundColor;
     return this;
   }
 
@@ -363,7 +374,7 @@ class _FirstTimeLoadingWidgetState extends State<FirstTimeLoadingWidget> with Au
             child: Stack(
               children: [
                 Container(
-                  color: Colors.white,
+                  color: controller.backgroundColor ?? Colors.white,
                   child: _errorWidget(
                       error: widget._controller.errorWidgetBuilderData,
                       onPressed: () {
