@@ -237,7 +237,7 @@ class FutureLoadingWidget extends StatefulWidget {
   /// 逻辑控制器
   final FutureLoadingWidgetController controller;
 
-  /// 背景色,默认是白色
+  /// 背景色,默认是透明色
   final Color backgroundColor;
 
   /// 动画时间,默认为200毫秒
@@ -261,7 +261,7 @@ class FutureLoadingWidget extends StatefulWidget {
   const FutureLoadingWidget({
     Key? key,
     required this.controller,
-    this.backgroundColor = Colors.white,
+    this.backgroundColor = Colors.transparent,
     this.duration = const Duration(milliseconds: 200),
     this.reverseDuration,
     this.transitionBuilder = AnimatedSwitcher.defaultTransitionBuilder,
