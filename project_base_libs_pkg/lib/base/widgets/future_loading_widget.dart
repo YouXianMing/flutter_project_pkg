@@ -282,9 +282,8 @@ class FutureLoadingWidgetState extends State<FutureLoadingWidget> with CustomSta
     switch (widget.controller._currentStatus) {
       case FutureLoadingStatus.idle:
         ignoring = widget.controller._idleWidgetBuilder == null;
-        child = widget.controller._idleWidgetBuilder != null
-            ? widget.controller._idleWidgetBuilder!(widget.controller._idleData)
-            : const SizedBox();
+        child =
+            widget.controller._idleWidgetBuilder != null ? widget.controller._idleWidgetBuilder!(widget.controller._idleData) : Container();
         break;
       case FutureLoadingStatus.loading:
         ignoring = false;
@@ -311,7 +310,7 @@ class FutureLoadingWidgetState extends State<FutureLoadingWidget> with CustomSta
         break;
       case FutureLoadingStatus.done:
         ignoring = true;
-        child = const SizedBox();
+        child = Container();
         break;
     }
 
