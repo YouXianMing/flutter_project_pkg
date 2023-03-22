@@ -23,6 +23,8 @@ import 'package:project_examples/pages/project_use/animated_switcher_widget/anim
 import 'package:project_examples/pages/project_use/confetti/confetti_page.dart';
 import 'package:project_examples/pages/project_use/custom_tab_bar_widget/custom_tab_bar_widget_page.dart';
 import 'package:project_examples/pages/project_use/files_scan/files_scan_page.dart';
+import 'package:project_examples/pages/project_use/first_time_loading_widget/first_time_loading_widget_page.dart';
+import 'package:project_examples/pages/project_use/future_loading_widget/future_loading_widget_page.dart';
 import 'package:project_examples/pages/project_use/information_view/information_view_page.dart';
 import 'package:project_examples/pages/project_use/layout_mask_widget/layout_mask_widget_page.dart';
 import 'package:project_examples/pages/project_use/lottery_carousel_widget/lottery_carousel_widget_page.dart';
@@ -108,6 +110,8 @@ enum PageRouteEnum {
   confettiPage,
   scrollingParallaxEffectPage,
   animatedSwitcherWidgetPage,
+  firstTimeLoadingWidgetPage,
+  futureLoadingWidgetPage,
 
   /* 动画 */
   animationListPage, // 列表页
@@ -277,6 +281,10 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => ConfettiWidgetPage(arguments: arguments));
       case PageRouteEnum.animatedSwitcherWidgetPage:
         return MaterialPageRoute(settings: settings, builder: (_) => AnimatedSwitcherWidgetPage(arguments: arguments));
+      case PageRouteEnum.firstTimeLoadingWidgetPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => FirstTimeLoadingWidgetPage(arguments: arguments));
+      case PageRouteEnum.futureLoadingWidgetPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => FutureLoadingWidgetPage(arguments: arguments));
     }
   }
 
@@ -473,6 +481,12 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.animatedSwitcherWidgetPage:
         pageRouteName = _pageRouteNameFrom(AnimatedSwitcherWidgetPage);
+        break;
+      case PageRouteEnum.firstTimeLoadingWidgetPage:
+        pageRouteName = _pageRouteNameFrom(FirstTimeLoadingWidgetPage);
+        break;
+      case PageRouteEnum.futureLoadingWidgetPage:
+        pageRouteName = _pageRouteNameFrom(FutureLoadingWidgetPage);
         break;
     }
 

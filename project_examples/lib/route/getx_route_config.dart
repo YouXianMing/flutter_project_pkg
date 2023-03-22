@@ -22,6 +22,8 @@ import 'package:project_examples/pages/project_use/animated_switcher_widget/anim
 import 'package:project_examples/pages/project_use/confetti/confetti_page.dart';
 import 'package:project_examples/pages/project_use/custom_tab_bar_widget/custom_tab_bar_widget_page.dart';
 import 'package:project_examples/pages/project_use/files_scan/files_scan_page.dart';
+import 'package:project_examples/pages/project_use/first_time_loading_widget/first_time_loading_widget_page.dart';
+import 'package:project_examples/pages/project_use/future_loading_widget/future_loading_widget_page.dart';
 import 'package:project_examples/pages/project_use/information_view/information_view_page.dart';
 import 'package:project_examples/pages/project_use/layout_mask_widget/layout_mask_widget_page.dart';
 import 'package:project_examples/pages/project_use/lottery_carousel_widget/lottery_carousel_widget_page.dart';
@@ -199,6 +201,10 @@ class RouteConfig {
                 return const ConfettiWidgetPage();
               case PageRouteEnum.animatedSwitcherWidgetPage:
                 return const AnimatedSwitcherWidgetPage();
+              case PageRouteEnum.firstTimeLoadingWidgetPage:
+                return const FirstTimeLoadingWidgetPage();
+              case PageRouteEnum.futureLoadingWidgetPage:
+                return const FutureLoadingWidgetPage();
             }
           },
         ),

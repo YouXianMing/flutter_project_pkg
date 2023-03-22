@@ -44,6 +44,8 @@ class ProjectUsePageState extends NormalStatefulWidgetState<ProjectUsePage> with
             const MenuItemModel(title: 'TextField', pageRouteEnum: PageRouteEnum.textFieldPage),
             const MenuItemModel(title: 'CustomTabBarWidget', pageRouteEnum: PageRouteEnum.customTabBarWidgetPage),
             const MenuItemModel(title: 'AnimatedSwitcherWidget', pageRouteEnum: PageRouteEnum.animatedSwitcherWidgetPage),
+            const MenuItemModel(title: '首次加载组件v1', pageRouteEnum: PageRouteEnum.firstTimeLoadingWidgetPage),
+            const MenuItemModel(title: '首次加载组件v2', pageRouteEnum: PageRouteEnum.futureLoadingWidgetPage),
             const MenuItemModel(title: 'Networks', pageRouteEnum: PageRouteEnum.networksPage),
             const MenuItemModel(title: 'SpVal', pageRouteEnum: PageRouteEnum.spValPage),
             const MenuItemModel(title: 'RegExp', pageRouteEnum: PageRouteEnum.regExpPage),
