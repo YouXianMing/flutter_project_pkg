@@ -58,6 +58,7 @@ import 'package:project_examples/pages/third_libs/read_more/read_more_page.dart'
 import 'package:project_examples/pages/third_libs/scratcher/scratcher_page.dart';
 import 'package:project_examples/pages/third_libs/screen_util/screen_util_page.dart';
 import 'package:project_examples/pages/third_libs/shimmer/shimmer_page.dart';
+import 'package:project_examples/pages/third_libs/sliding_up_panel/sliding_up_panel_page.dart';
 import 'package:project_examples/pages/third_libs/smooth_page_indicator/smooth_page_indicator_page.dart';
 import 'package:project_examples/pages/third_libs/snapping_sheet/snapping_sheet_page.dart';
 import 'package:project_examples/pages/third_libs/third_lib_page.dart';
@@ -90,6 +91,7 @@ enum PageRouteEnum {
   expandablePage,
   marqueePage,
   confettiWidgetPage,
+  slidingUpPanelPage,
 
   /* 项目用库 */
   projectUsePage, // 列表页
@@ -285,6 +287,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => FirstTimeLoadingWidgetPage(arguments: arguments));
       case PageRouteEnum.futureLoadingWidgetPage:
         return MaterialPageRoute(settings: settings, builder: (_) => FutureLoadingWidgetPage(arguments: arguments));
+      case PageRouteEnum.slidingUpPanelPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => SlidingUpPanelPage(arguments: arguments));
     }
   }
 
@@ -487,6 +491,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.futureLoadingWidgetPage:
         pageRouteName = _pageRouteNameFrom(FutureLoadingWidgetPage);
+        break;
+      case PageRouteEnum.slidingUpPanelPage:
+        pageRouteName = _pageRouteNameFrom(SlidingUpPanelPage);
         break;
     }
 
