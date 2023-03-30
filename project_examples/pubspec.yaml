@@ -30,6 +30,20 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # ---------------------------------------------- #
+  #               Android iOS MacOS                #
+  # ---------------------------------------------- #
+
+  # [baseflow.com] 网络图片资源加载
+  # https://pub.flutter-io.cn/packages/cached_network_image
+  # Flutter: Android iOS MacOS
+  cached_network_image: ^3.2.1
+
+
+  # ---------------------------------------------- #
+  #      Android iOS Linux MacOS Web Windows       #
+  # ---------------------------------------------- #
+
   # [flutter.dev] Icon图标
   # https://pub.flutter-io.cn/packages/cupertino_icons
   # Flutter: Android iOS Linux MacOS Web Windows
@@ -120,11 +134,6 @@ dependencies:
   # Flutter: Android iOS Linux MacOS Web Windows
   timer_count_down: ^2.2.0
 
-  # [baseflow.com] 网络图片资源加载
-  # https://pub.flutter-io.cn/packages/cached_network_image
-  # Flutter: Android iOS MacOS
-  cached_network_image: ^3.2.1
-
   # 带动画的按钮组件
   # https://pub.flutter-io.cn/packages/flutter_animated_button
   # Flutter: Android iOS Linux MacOS Web Windows
@@ -134,6 +143,11 @@ dependencies:
   # https://pub.flutter-io.cn/packages/snapping_sheet
   # Flutter: Android iOS Linux MacOS Web Windows
   snapping_sheet: ^3.1.0
+
+  # [akshathjain.com] 滑动panel
+  # https://pub.flutter-io.cn/packages/sliding_up_panel
+  # Flutter: Android iOS Linux MacOS Web Windows
+  sliding_up_panel: ^2.0.0+1
 
   # [funwith.app] 纸屑效果
   # https://pub.flutter-io.cn/packages/confetti
