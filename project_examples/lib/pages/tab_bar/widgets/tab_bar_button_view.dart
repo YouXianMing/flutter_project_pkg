@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_base_libs_pkg/base/tools/util.dart';
 import 'package:project_examples/pages/tab_bar/widgets/tar_bar_button.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 
@@ -33,6 +34,7 @@ class TabBarButtonView extends StatelessWidget {
             child: TabBarButton(
               title: titles[i],
               iconData: iconDatas[i],
+              badgeCount: i == 0 ? Util.randomInt(max: 200, min: 1) : 0,
               onTap: tabBarButtonTapEvent,
               select: _controller.selectIndex.value == i ? true : false,
               index: i,
