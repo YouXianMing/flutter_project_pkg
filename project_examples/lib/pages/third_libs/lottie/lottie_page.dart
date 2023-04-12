@@ -40,7 +40,12 @@ class LottiePageState extends NormalStatefulWidgetState<LottiePage> {
         // Lottie.asset方式
         SliverGridSection(
           crossAxisCount: 2,
-          items: ['assets/LottieLogo1.json', 'assets/LottieLogo2.json', 'assets/animated_graph.json', 'assets/LogoSmall.json'],
+          items: [
+            'lib/assets/LottieLogo1.json',
+            'lib/assets/LottieLogo2.json',
+            'lib/assets/animated_graph.json',
+            'lib/assets/LogoSmall.json'
+          ],
           builder: (c, i, d) => Lottie.asset(d),
         ).buildWidget(),
       ],
