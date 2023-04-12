@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:flutter/services.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
@@ -7,8 +8,14 @@ class Util {
   /// assets下默认的图片地址,可以通过Util.assertsImagePath方法直接设置
   static String _assetsImagePath = 'lib/images/';
 
+  /// assets下默认的资源文件地址,可以通过Util.assertsFilePath方法直接设置
+  static String _assetsFilePath = 'lib/assets/';
+
   /// 设置assetsImagePath(需要设置assertsImagePath,如果没设置,默认为lib/images/)
   static set assertsImagePath(String val) => _assetsImagePath = val;
+
+  /// 设置assetsFilePath(需要设置assertsImagePath,如果没设置,默认为lib/assets/)
+  static set assertsFilePath(String val) => _assetsFilePath = val;
 
   /// https://pub.flutter-io.cn/packages/english_words
   static WordPair get randomWordPair => WordPair.random();
@@ -79,14 +86,27 @@ class Util {
   /// 便捷的获取asset中的图片文件,只需要给定文件名即可
   /// 注意:可以通过 assertsImagePath 设置asset的根目录,默认值是lib/images/
   static Image image(String name, {Key? key, double? scale, double? width, double? height, BoxFit? fit, Color? color}) => Image.asset(
-        _assetsImagePath + name,
-        key: key,
-        scale: scale,
-        width: width,
-        height: height,
-        fit: fit,
-        color: color,
-      );
+    _assetsImagePath + name,
+    key: key,
+    scale: scale,
+    width: width,
+    height: height,
+    fit: fit,
+    color: color,
+  );
+
+  /// 便捷的获取asset中的文件,只需要给定文件名即可
+  /// 注意:可以通过 assertsFilePath 设置asset的根目录,默认值是lib/assets/
+  static Future<ByteData> assetByteData({required String name}) => rootBundle.load(_assetsFilePath + name);
+
+  /// 便捷的获取asset中的文件,只需要给定文件名即可
+  /// 注意:可以通过 assertsFilePath 设置asset的根目录,默认值是lib/assets/
+  static Future<ImmutableBuffer> assetImmutableBuffer({required String name}) => rootBundle.loadBuffer(_assetsFilePath + name);
+
+  /// 便捷的获取asset中的文件,只需要给定文件名即可
+  /// 注意:可以通过 assertsFilePath 设置asset的根目录,默认值是lib/assets/
+  static Future<String> assetString({required String name, bool cache = true}) =>
+      rootBundle.loadString(_assetsFilePath + name, cache: cache);
 
   /// 延时毫秒
   static Future<T> delayedMilliseconds<T>(int milliseconds, FutureOr<T> Function()? computation) =>
