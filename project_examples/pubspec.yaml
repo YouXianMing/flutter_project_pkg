@@ -44,6 +44,11 @@ dependencies:
   #      Android iOS Linux MacOS Web Windows       #
   # ---------------------------------------------- #
 
+  # [xaha.dev] Lotty动画
+  # https://pub.flutter-io.cn/packages/lottie
+  # Flutter: Android iOS Linux MacOS Web Windows
+  lottie: ^2.3.2
+
   # [flutter.dev] Icon图标
   # https://pub.flutter-io.cn/packages/cupertino_icons
   # Flutter: Android iOS Linux MacOS Web Windows
@@ -190,6 +195,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/
     - lib/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see

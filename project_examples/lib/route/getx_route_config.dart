@@ -53,6 +53,7 @@ import 'package:project_examples/pages/third_libs/html_to_text_span/html_to_text
 import 'package:project_examples/pages/third_libs/line_icons/line_icons_page.dart';
 import 'package:project_examples/pages/third_libs/liquid_progress_indicator/liquid_progress_indicator_page.dart';
 import 'package:project_examples/pages/third_libs/loading_animations/loading_animations_page.dart';
+import 'package:project_examples/pages/third_libs/lottie/lottie_page.dart';
 import 'package:project_examples/pages/third_libs/marquee/marquee_page.dart';
 import 'package:project_examples/pages/third_libs/read_more/read_more_page.dart';
 import 'package:project_examples/pages/third_libs/scratcher/scratcher_page.dart';
@@ -208,6 +209,8 @@ class RouteConfig {
                 return const FutureLoadingWidgetPage();
               case PageRouteEnum.slidingUpPanelPage:
                 return const SlidingUpPanelPage();
+              case PageRouteEnum.lottiePage:
+                return const LottiePage();
             }
           },
         ),
