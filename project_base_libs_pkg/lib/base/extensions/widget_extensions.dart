@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+const bool _isReleaseCheck = bool.fromEnvironment('dart.vm.product');
+
 extension WidgetExtensions on Widget {
   /// 控件添加点击事件(用GestureDetector包裹)
   /// 注意:includeContainer为true时,当前控件会被Container包裹之后再被GestureDetector包裹,此时的Container的颜色设置为透明色,被Container包裹的区域均可以响应事件
@@ -189,12 +191,12 @@ extension WidgetExtensions on Widget {
 
   /// (Debug) debug用,给控件添加边框
   Widget addDebugContainer({Color? color, Color? borderColor, double borderWidth = 1}) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: borderColor ?? Colors.red, width: borderWidth),
-        color: color ?? Colors.transparent,
-      ),
-      child: this,
-    );
+    return _isReleaseCheck
+        ? this
+        : Container(
+            decoration:
+                BoxDecoration(border: Border.all(color: borderColor ?? Colors.red, width: borderWidth), color: color ?? Colors.transparent),
+            child: this,
+          );
   }
 }

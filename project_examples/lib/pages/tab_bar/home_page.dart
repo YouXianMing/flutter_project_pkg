@@ -6,6 +6,7 @@ import 'package:project_examples/route/page_route_enum.dart';
 import 'package:project_examples/app_route_style.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
+import 'package:project_examples/base/widget_callback_mixin.dart';
 
 class HomePage extends NormalStatefulWidget {
   @override

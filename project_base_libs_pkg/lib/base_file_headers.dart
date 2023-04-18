@@ -98,7 +98,6 @@ export 'base/widgets/expandable_widget.dart'; // 展开缩放组件
 export 'base/widgets/lazy_load_indexed_stack.dart'; // 懒加载版本的IndexedStack
 export 'base/widgets/animated_rotate.dart'; // 旋转动画控件
 export 'base/widgets/lottery_carousel_widget.dart'; // 轮盘抽奖控件
-export 'base/widgets/widget_callback_mixin.dart'; // 事件回调mixin
 export 'base/widgets/base_page_build_mixin.dart'; // 页面构建mixin
 export 'base/widgets/button/base_button_widget.dart'; // 按钮基础控件
 export 'base/widgets/button/animated_button_widget.dart'; // 动画按钮控件
@@ -114,3 +113,5 @@ export 'base/widgets/widgets_factory/grid_view_builder_config.dart'; // GridView
 export 'base/widgets/widgets_factory/list_view_builder_config.dart'; // ListViewBuilderConfig
 export 'base/widgets/reorderable_list_view_widget.dart'; // ReorderableListViewWidget
 export 'base/widgets/animated_switcher_widget.dart'; // 对AnimatedSwitcher进行封装,简化使用
+export 'base/widgets/get_child_size.dart'; // 监听widget尺寸修改
+export 'base/widgets/parallax_widget.dart'; // 视差效果组件

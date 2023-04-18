@@ -64,7 +64,12 @@ class WidgetsFactory {
     TextAlign? textAlign,
     String? fontFamily, // 字体家族
     double? lineHeight, // 行间距倍数
-    double? wordSpacing, // 字体间距
+    double? wordSpacing, // 单词间距
+    double? letterSpacing, // 字母间距
+    TextDecoration? decoration,
+    Color? decorationColor,
+    TextDecorationStyle? decorationStyle,
+    double? decorationThickness,
   }) {
     return Text(
       data,
@@ -79,6 +84,11 @@ class WidgetsFactory {
         fontFamily: fontFamily,
         height: lineHeight,
         wordSpacing: wordSpacing,
+        letterSpacing: letterSpacing,
+        decoration: decoration,
+        decorationColor: decorationColor,
+        decorationStyle: decorationStyle,
+        decorationThickness: decorationThickness,
       ),
     );
   }

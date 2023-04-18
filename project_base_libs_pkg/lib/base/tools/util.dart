@@ -86,14 +86,14 @@ class Util {
   /// 便捷的获取asset中的图片文件,只需要给定文件名即可
   /// 注意:可以通过 assertsImagePath 设置asset的根目录,默认值是lib/images/
   static Image image(String name, {Key? key, double? scale, double? width, double? height, BoxFit? fit, Color? color}) => Image.asset(
-    _assetsImagePath + name,
-    key: key,
-    scale: scale,
-    width: width,
-    height: height,
-    fit: fit,
-    color: color,
-  );
+        _assetsImagePath + name,
+        key: key,
+        scale: scale,
+        width: width,
+        height: height,
+        fit: fit,
+        color: color,
+      );
 
   /// 便捷的获取asset中的文件,只需要给定文件名即可
   /// 注意:可以通过 assertsFilePath 设置asset的根目录,默认值是lib/assets/

@@ -20,10 +20,10 @@ class BaseButtonWidget extends StatefulWidget {
   /// 高亮状态widget构造器
   final Widget Function()? highlightedChildBuilder;
 
-  /// 禁用状态
+  /// 禁用状态widget构造器
   final Widget Function()? disabledChildBuilder;
 
-  /// 点击回调
+  /// 按钮点击回调
   final GestureTapCallback? onTap;
 
   /// 按钮是否禁用,默认为false
