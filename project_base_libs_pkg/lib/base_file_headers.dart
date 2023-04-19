@@ -115,3 +115,4 @@ export 'base/widgets/reorderable_list_view_widget.dart'; // ReorderableListViewW
 export 'base/widgets/animated_switcher_widget.dart'; // 对AnimatedSwitcher进行封装,简化使用
 export 'base/widgets/get_child_size.dart'; // 监听widget尺寸修改
 export 'base/widgets/parallax_widget.dart'; // 视差效果组件
+export 'base/widgets/parallax_carousel_slider_widget.dart'; // 视差效果组件
