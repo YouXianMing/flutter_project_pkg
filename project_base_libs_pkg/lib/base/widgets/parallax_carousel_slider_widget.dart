@@ -36,6 +36,9 @@ class ParallaxCarouselSliderWidget extends StatefulWidget {
   /// 视差效果值
   final double parallaxValue;
 
+  /// 滑动风格
+  final ScrollPhysics? physics;
+
   const ParallaxCarouselSliderWidget({
     Key? key,
     required this.items,
@@ -49,6 +52,7 @@ class ParallaxCarouselSliderWidget extends StatefulWidget {
     this.width,
     this.height,
     this.parallaxValue = 0,
+    this.physics,
   }) : super(key: key);
 
   @override
@@ -85,6 +89,7 @@ class ParallaxCarouselSliderWidgetState extends State<ParallaxCarouselSliderWidg
         itemCount: widget.items.length,
         controller: pageController,
         onPageChanged: widget.onPageChanged,
+        physics: widget.physics,
         itemBuilder: (c, i) {
           double percentOffset = pageOffset - i;
           late double x = 0;

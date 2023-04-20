@@ -50,7 +50,7 @@ mixin MaybePopMixin {
   /// (abstract) 当前页面能否执行pop操作,由mixin的实体来实现具体的业务逻辑
   bool? pageMaybePop();
 
-  /// 由mixin的实体来执行此方法,show的时候添加到MaybePopManager中被其托管
+  /// 由mixin的实体来执行此方法,show的时候添加到[MaybePopManager]中被其托管
   void addToMaybePopManager() => MaybePopManager.getInstance.addMaybePopItem(this);
 
   /// 由mixin的实体来执行此方法,hide之后从MaybePopManager中移除MaybePopMixin对象

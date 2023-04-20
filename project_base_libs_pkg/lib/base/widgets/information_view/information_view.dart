@@ -280,7 +280,7 @@ class _InformationViewController extends GetxController {
   /// 被MaybePopManager接管,用于处理物理返回键事件
   bool hostByMaybePopManager = false;
 
-  /// 屏蔽物理返回键事件,默认值为false,只有在hostByMaybePopManager时此参数设置才有意义
+  /// 屏蔽物理返回键事件,默认值为false,只有在[hostByMaybePopManager]为true时此参数设置才有意义
   bool blockMaybePopEvent = false;
 
   /// 开始处理MaybePop事件,在pageMaybePop()中使用
