@@ -87,6 +87,10 @@ dependencies:
   # https://pub.dev/packages/loading_animation_widget
   loading_animation_widget: ^1.2.0+2
 
+  # 侧滑菜单组件
+  # https://pub.dev/packages/flutter_slidable
+  flutter_slidable: ^3.0.0
+
   # [作者退圈了] 上拉加载,下拉刷新,请使用下面的 'pull_to_refresh_flutter3'
   # https://pub.flutter-io.cn/packages/pull_to_refresh
   # pull_to_refresh: 2.0.0

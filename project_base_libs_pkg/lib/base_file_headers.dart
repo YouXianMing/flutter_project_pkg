@@ -116,3 +116,6 @@ export 'base/widgets/animated_switcher_widget.dart'; // 对AnimatedSwitcher进�
 export 'base/widgets/get_child_size.dart'; // 监听widget尺寸修改
 export 'base/widgets/parallax_widget.dart'; // 视差效果组件
 export 'base/widgets/parallax_carousel_slider_widget.dart'; // 视差效果组件
+export 'base/widgets/slidable_widget/action_pane_builder.dart'; // 侧滑组件pane构造器
+export 'base/widgets/slidable_widget/slidable_widget.dart'; // slidable封装
+export 'base/widgets/slidable_widget/slidable_widget_mixin.dart'; // slidable无侵入mixin
