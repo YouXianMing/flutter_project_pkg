@@ -24,6 +24,7 @@ import 'package:project_examples/pages/project_use/custom_tab_bar_widget/custom_
 import 'package:project_examples/pages/project_use/files_scan/files_scan_page.dart';
 import 'package:project_examples/pages/project_use/first_time_loading_widget/first_time_loading_widget_page.dart';
 import 'package:project_examples/pages/project_use/future_loading_widget/future_loading_widget_page.dart';
+import 'package:project_examples/pages/project_use/get_child_size/get_child_size_page.dart';
 import 'package:project_examples/pages/project_use/information_view/information_view_page.dart';
 import 'package:project_examples/pages/project_use/layout_mask_widget/layout_mask_widget_page.dart';
 import 'package:project_examples/pages/project_use/lottery_carousel_widget/lottery_carousel_widget_page.dart';
@@ -211,6 +212,8 @@ class RouteConfig {
                 return const SlidingUpPanelPage();
               case PageRouteEnum.lottiePage:
                 return const LottiePage();
+              case PageRouteEnum.getChildSizePage:
+                return const GetChildSizePage();
             }
           },
         ),

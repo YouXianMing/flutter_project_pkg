@@ -1,4 +1,3 @@
-import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:snapping_sheet/snapping_sheet.dart';
 import 'package:project_examples/file_headers.dart';
 

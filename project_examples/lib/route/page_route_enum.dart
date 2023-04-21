@@ -25,6 +25,7 @@ import 'package:project_examples/pages/project_use/custom_tab_bar_widget/custom_
 import 'package:project_examples/pages/project_use/files_scan/files_scan_page.dart';
 import 'package:project_examples/pages/project_use/first_time_loading_widget/first_time_loading_widget_page.dart';
 import 'package:project_examples/pages/project_use/future_loading_widget/future_loading_widget_page.dart';
+import 'package:project_examples/pages/project_use/get_child_size/get_child_size_page.dart';
 import 'package:project_examples/pages/project_use/information_view/information_view_page.dart';
 import 'package:project_examples/pages/project_use/layout_mask_widget/layout_mask_widget_page.dart';
 import 'package:project_examples/pages/project_use/lottery_carousel_widget/lottery_carousel_widget_page.dart';
@@ -112,6 +113,7 @@ enum PageRouteEnum {
   filesScanPage,
   maybePopPage,
   confettiPage,
+  getChildSizePage,
   scrollingParallaxEffectPage,
   animatedSwitcherWidgetPage,
   firstTimeLoadingWidgetPage,
@@ -293,6 +295,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => SlidingUpPanelPage(arguments: arguments));
       case PageRouteEnum.lottiePage:
         return MaterialPageRoute(settings: settings, builder: (_) => LottiePage(arguments: arguments));
+      case PageRouteEnum.getChildSizePage:
+        return MaterialPageRoute(settings: settings, builder: (_) => GetChildSizePage(arguments: arguments));
     }
   }
 
@@ -501,6 +505,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.lottiePage:
         pageRouteName = _pageRouteNameFrom(LottiePage);
+        break;
+      case PageRouteEnum.getChildSizePage:
+        pageRouteName = _pageRouteNameFrom(GetChildSizePage);
         break;
     }
 

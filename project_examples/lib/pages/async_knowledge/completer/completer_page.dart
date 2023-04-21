@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:project_base_libs_pkg/base/widgets/widgets_factory/widgets_factory.dart';
-import 'package:project_base_libs_pkg/base/tools/util.dart';
 import 'package:project_examples/file_headers.dart';
 
 class CompleterPage extends NormalStatefulWidget {
