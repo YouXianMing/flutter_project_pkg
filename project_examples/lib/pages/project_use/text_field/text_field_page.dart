@@ -1,14 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
-import 'package:project_examples/app_route_style.dart';
-import 'package:project_examples/base/normal_stateful_widget.dart';
 import 'package:project_examples/pages/project_use/text_field/widgets/alert_field.dart';
 import 'package:project_examples/pages/project_use/text_field/widgets/alert_view_button.dart';
 import 'package:project_examples/pages/project_use/text_field/widgets/text_field_alert_view.dart';
-import 'package:project_examples/route/app_route_manager.dart';
 import 'package:project_examples/widgets/app_button.dart';
-import 'package:project_examples/widgets/custom_app_bar.dart';
+import 'package:project_examples/file_headers.dart';
 
 class TextFieldPage extends NormalStatefulWidget {
   @override
@@ -17,10 +13,10 @@ class TextFieldPage extends NormalStatefulWidget {
   const TextFieldPage({Key? key, this.arguments}) : super(key: key);
 
   @override
-  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => _TextFieldPageState();
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => TextFieldPageState();
 }
 
-class _TextFieldPageState extends NormalStatefulWidgetState<TextFieldPage> {
+class TextFieldPageState extends NormalStatefulWidgetState<TextFieldPage> {
   final inputText = ''.obs;
 
   final controller = TextEditingController();

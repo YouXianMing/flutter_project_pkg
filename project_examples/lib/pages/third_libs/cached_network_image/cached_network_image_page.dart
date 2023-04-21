@@ -1,10 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-import 'package:project_examples/base/normal_stateful_widget.dart';
-import 'package:project_examples/route/app_route_manager.dart';
-import 'package:project_examples/app_route_style.dart';
-import 'package:project_examples/widgets/custom_app_bar.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
+import 'package:project_examples/file_headers.dart';
 
 class CachedNetworkImagePage extends NormalStatefulWidget {
   @override

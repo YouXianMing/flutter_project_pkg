@@ -1,10 +1,6 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
-import 'package:project_examples/app_route_style.dart';
-import 'package:project_examples/base/normal_stateful_widget.dart';
-import 'package:project_examples/route/app_route_manager.dart';
-import 'package:project_examples/widgets/custom_app_bar.dart';
+import 'package:project_examples/file_headers.dart';
 
 class FirstTimeLoadingWidgetPage extends NormalStatefulWidget {
   @override
@@ -13,10 +9,10 @@ class FirstTimeLoadingWidgetPage extends NormalStatefulWidget {
   const FirstTimeLoadingWidgetPage({Key? key, this.arguments}) : super(key: key);
 
   @override
-  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => _FirstTimeLoadingWidgetPageState();
+  BaseStatefulWidgetState<BaseStatefulWidget> createWidgetState() => FirstTimeLoadingWidgetPageState();
 }
 
-class _FirstTimeLoadingWidgetPageState extends NormalStatefulWidgetState<FirstTimeLoadingWidgetPage> {
+class FirstTimeLoadingWidgetPageState extends NormalStatefulWidgetState<FirstTimeLoadingWidgetPage> {
   int _count = 0;
 
   @override
