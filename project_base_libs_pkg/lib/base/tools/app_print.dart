@@ -15,6 +15,7 @@ Set<PrintLevel> _printDebugSet = {
   PrintLevel.success,
 };
 
+/// 设置打印信息显示的set
 void setAppPrint({Set<PrintLevel> levelsSet = const {}}) {
   _printDebugSet.clear();
   _printDebugSet.addAll(levelsSet);
