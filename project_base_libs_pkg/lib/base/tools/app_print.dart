@@ -21,49 +21,51 @@ void setAppPrint({Set<PrintLevel> levelsSet = const {}}) {
   _printDebugSet.addAll(levelsSet);
 }
 
-void appPrint(Object? object, {PrintLevel level = PrintLevel.info}) {
+void appPrint(Object? object, {PrintLevel level = PrintLevel.info}) => appSpPrint(object, prefix: '', level: level, traceIndex: 2);
+
+void appSpPrint(Object? object, {PrintLevel level = PrintLevel.info, int traceIndex = 1, required String prefix}) {
   if (_printDebugSet.contains(level) && _isReleasePrintCheck == false) {
     if (kIsWeb) {
       switch (level) {
         case PrintLevel.verbose:
-          _printLog('[🖥]:', object);
+          _printLog('$prefix[🖥]:', object);
           break;
         case PrintLevel.debug:
-          _printLog('[🛠]:', object);
+          _printLog('$prefix[🛠]:', object);
           break;
         case PrintLevel.info:
-          _printLog('[🔍]:', object);
+          _printLog('$prefix[🔍]:', object);
           break;
         case PrintLevel.warning:
-          _printLog('[⚠️]:', object);
+          _printLog('$prefix[⚠️]:', object);
           break;
         case PrintLevel.error:
-          _printLog('[❌]:', object);
+          _printLog('$prefix[❌]:', object);
           break;
         case PrintLevel.success:
-          _printLog('[✅️]:', object);
+          _printLog('$prefix[✅️]:', object);
           break;
       }
     } else {
-      _StackTraceParse tp = _StackTraceParse(StackTrace.current, traceIndex: _printTraceIndex);
+      _StackTraceParse tp = _StackTraceParse(StackTrace.current, traceIndex: traceIndex);
       switch (level) {
         case PrintLevel.verbose:
-          _printLog('[🖥 ${tp.fileName}]:', object);
+          _printLog('$prefix[🖥 ${tp.fileName}]:', object);
           break;
         case PrintLevel.debug:
-          _printLog('[🛠 ${tp.fileName}]:', object);
+          _printLog('$prefix[🛠 ${tp.fileName}]:', object);
           break;
         case PrintLevel.info:
-          _printLog('[🔍 ${tp.fileName}]:', object);
+          _printLog('$prefix[🔍 ${tp.fileName}]:', object);
           break;
         case PrintLevel.warning:
-          _printLog('[⚠️ ${tp.fileName}]:', object);
+          _printLog('$prefix[⚠️ ${tp.fileName}]:', object);
           break;
         case PrintLevel.error:
-          _printLog('[❌ ${tp.fileName}]:', object);
+          _printLog('$prefix[❌ ${tp.fileName}]:', object);
           break;
         case PrintLevel.success:
-          _printLog('[✅️ ${tp.fileName}]:', object);
+          _printLog('$prefix[✅️ ${tp.fileName}]:', object);
           break;
       }
     }
