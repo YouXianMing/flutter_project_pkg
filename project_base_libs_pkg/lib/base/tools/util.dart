@@ -129,6 +129,27 @@ class Util {
   /// 如果参数uri有问题,则直接返回null
   /// uri可以为文件类型如'/home/myself/data/image',域名类型如'https://www.baidu.com'等,详情可以参考https://api.dart.dev/stable/2.17.6/dart-core/Uri-class.html
   static Map<String, String>? getUriQueryParameters(String uri) => Uri.tryParse(uri)?.queryParameters;
+
+  /// [测试用] push到Scaffold
+  static Future pushToScaffold(
+    BuildContext context, {
+    required Widget widget,
+    RouteSettings? settings,
+    bool maintainState = true,
+    bool allowSnapshotting = true,
+    PreferredSizeWidget? appBar,
+    String? appBarTitle,
+  }) {
+    return Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (c) => Scaffold(body: widget, appBar: appBar ?? AppBar(title: Text(appBarTitle ?? 'Test'))),
+        settings: settings,
+        maintainState: maintainState,
+        allowSnapshotting: allowSnapshotting,
+      ),
+    );
+  }
 }
 
 class CalculateText {

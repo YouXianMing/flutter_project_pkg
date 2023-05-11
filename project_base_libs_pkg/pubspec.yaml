@@ -91,6 +91,10 @@ dependencies:
   # https://pub.dev/packages/flutter_slidable
   flutter_slidable: ^3.0.0
 
+  # iOS分格的点击移动到顶部
+  # https://pub.dev/packages/scrolls_to_top
+  scrolls_to_top: ^2.1.0
+
   # [作者退圈了] 上拉加载,下拉刷新,请使用下面的 'pull_to_refresh_flutter3'
   # https://pub.flutter-io.cn/packages/pull_to_refresh
   # pull_to_refresh: 2.0.0
