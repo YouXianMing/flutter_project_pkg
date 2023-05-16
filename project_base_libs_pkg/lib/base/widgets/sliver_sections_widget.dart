@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
+import 'package:project_base_libs_pkg/third_lib_scrolls_to_top.dart';
 
 class SliverSectionsWidgetController extends GetxController {
   /// 用以更新数据用(在updateWidget中调用后会触发Obx的更新操作)
@@ -8,6 +9,15 @@ class SliverSectionsWidgetController extends GetxController {
 
   /// SliverSection相关对象的数组
   List<BaseSliverSection> sliverSections = [];
+
+  /// 是否滑动到顶部配置
+  OnScrollsToTopConfig? onScrollsToTopConfig;
+
+  /// 设置OnScrollsToTopConfig
+  SliverSectionsWidgetController setOnScrollsToTopConfig(OnScrollsToTopConfig? config) {
+    onScrollsToTopConfig = config;
+    return this;
+  }
 
   /// 更新控件(更新数据源后调用此方法才可以更新数据)
   void updateWidget() => _reloadData.value++;
@@ -19,7 +29,7 @@ class SliverSectionsWidgetController extends GetxController {
   }
 }
 
-class SliverSectionsWidget<ST extends BaseScrollStyleConfig> extends StatelessWidget {
+class SliverSectionsWidget<ST extends BaseScrollStyleConfig> extends StatelessWidget with OnScrollsToTopConfigMixin {
   /// 逻辑控制器
   final SliverSectionsWidgetController controller;
 
@@ -83,12 +93,26 @@ class SliverSectionsWidget<ST extends BaseScrollStyleConfig> extends StatelessWi
         slivers: controller.sliverSections.buildAllSliverSectionsWidget(),
       );
 
+      Widget tmpWidget = scrollView;
+
       if (scrollStyleConfig != null) {
         scrollStyleConfig!.controller = scrollController;
-        return scrollStyleConfig!.widgetAccess(child: scrollView);
-      } else {
-        return scrollView;
+        tmpWidget = scrollStyleConfig!.widgetAccess(child: scrollView);
       }
+
+      if (controller.onScrollsToTopConfig != null) {
+        tmpWidget = ScrollsToTop(onScrollsToTop: onScrollsToTopTapEvent, child: tmpWidget);
+      }
+
+      return tmpWidget;
     });
   }
+
+  // --- OnScrollsToTopConfigMixin --- //
+
+  @override
+  OnScrollsToTopConfig? getOnScrollsToTopConfig() => controller.onScrollsToTopConfig;
+
+  @override
+  ScrollController? getOnScrollsToTopScrollController() => scrollController;
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
+import 'package:project_base_libs_pkg/third_lib_scrolls_to_top.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 
 /// 定义的刷新用事件回调
@@ -15,6 +16,9 @@ class SliverSectionsRefreshWidgetController {
 
   /// RefreshWidgetFooter构造器
   SliverSectionsRefreshWidgetHeaderFooterBuilder? footerBuilder;
+
+  /// 是否滑动到顶部配置
+  OnScrollsToTopConfig? onScrollsToTopConfig;
 
   /// 刷新组件是否添加顶部安全距离(刷新控件与屏幕顶部对齐时,可能根据需要要增加额外的安全距离,比如iPhone的刘海屏)
   bool refreshHeaderWidgetAddSafeTop;
@@ -63,6 +67,12 @@ class SliverSectionsRefreshWidgetController {
   SliverSectionsRefreshWidgetController setLoadMoreEnable(bool enable, {bool update = true}) {
     _loadMoreEnable = enable;
     if (update) updateWidget();
+    return this;
+  }
+
+  /// 设置OnScrollsToTopConfig
+  SliverSectionsRefreshWidgetController setOnScrollsToTopConfig(OnScrollsToTopConfig? config) {
+    onScrollsToTopConfig = config;
     return this;
   }
 
@@ -187,7 +197,8 @@ class SliverSectionsRefreshWidget<ST extends BaseScrollStyleConfig> extends Stat
   State<StatefulWidget> createState() => _SliverSectionsRefreshWidgetState();
 }
 
-class _SliverSectionsRefreshWidgetState extends State<SliverSectionsRefreshWidget> with CustomStatefulWidgetStateMixin {
+class _SliverSectionsRefreshWidgetState extends State<SliverSectionsRefreshWidget>
+    with CustomStatefulWidgetStateMixin, OnScrollsToTopConfigMixin {
   @override
   void initState() {
     super.initState();
@@ -232,12 +243,17 @@ class _SliverSectionsRefreshWidgetState extends State<SliverSectionsRefreshWidge
       ),
     );
 
+    Widget tmpWidget = smartRefresher;
     if (widget.scrollStyleConfig != null) {
       widget.scrollStyleConfig!.controller = widget.controller.scrollController;
-      return widget.scrollStyleConfig!.widgetAccess(child: smartRefresher);
-    } else {
-      return smartRefresher;
+      tmpWidget = widget.scrollStyleConfig!.widgetAccess(child: smartRefresher);
     }
+
+    if (widget.controller.onScrollsToTopConfig != null) {
+      tmpWidget = ScrollsToTop(onScrollsToTop: onScrollsToTopTapEvent, child: tmpWidget);
+    }
+
+    return tmpWidget;
   }
 
   /// 默认的RefreshWidgetHeader
@@ -322,4 +338,12 @@ class _SliverSectionsRefreshWidgetState extends State<SliverSectionsRefreshWidge
 
   @override
   BuildContext get stateMixinBuildContext => context;
+
+  // --- OnScrollsToTopConfigMixin --- //
+
+  @override
+  OnScrollsToTopConfig? getOnScrollsToTopConfig() => widget.controller.onScrollsToTopConfig;
+
+  @override
+  ScrollController? getOnScrollsToTopScrollController() => widget.controller.scrollController;
 }

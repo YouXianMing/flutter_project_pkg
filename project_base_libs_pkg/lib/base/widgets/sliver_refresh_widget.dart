@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:project_base_libs_pkg/third_lib_scrolls_to_top.dart';
 
 // import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
@@ -43,6 +44,9 @@ class _SliversRefreshWidgetController extends GetxController {
   /// RefreshWidgetFooter构造器
   SliversRefreshWidgetHeaderFooterBuilder? footerBuilder;
 
+  /// 是否滑动到顶部配置
+  OnScrollsToTopConfig? onScrollsToTopConfig;
+
   /// 刷新整个控件用
   void updateWidget() => reloadData.value++;
 
@@ -53,7 +57,7 @@ class _SliversRefreshWidgetController extends GetxController {
   final ScrollController scrollController = ScrollController();
 }
 
-class SliversRefreshWidget<ST extends BaseScrollStyleConfig> extends StatelessWidget {
+class SliversRefreshWidget<ST extends BaseScrollStyleConfig> extends StatelessWidget with OnScrollsToTopConfigMixin {
   final _SliversRefreshWidgetController _controller = _SliversRefreshWidgetController();
 
   /// 键盘消失行为
@@ -141,6 +145,12 @@ class SliversRefreshWidget<ST extends BaseScrollStyleConfig> extends StatelessWi
     return this;
   }
 
+  /// 设置OnScrollsToTopConfig
+  SliversRefreshWidget setOnScrollsToTopConfig(OnScrollsToTopConfig? config) {
+    _controller.onScrollsToTopConfig = config;
+    return this;
+  }
+
   /// 手动调用刷新
   SliversRefreshWidget requestRefresh(
       {bool needMove = true,
@@ -225,12 +235,17 @@ class SliversRefreshWidget<ST extends BaseScrollStyleConfig> extends StatelessWi
         ),
       );
 
+      Widget tmpWidget = smartRefresher;
       if (scrollStyleConfig != null) {
         scrollStyleConfig!.controller = _controller.scrollController;
-        return scrollStyleConfig!.widgetAccess(child: smartRefresher);
-      } else {
-        return smartRefresher;
+        tmpWidget = scrollStyleConfig!.widgetAccess(child: smartRefresher);
       }
+
+      if (_controller.onScrollsToTopConfig != null) {
+        tmpWidget = ScrollsToTop(onScrollsToTop: onScrollsToTopTapEvent, child: tmpWidget);
+      }
+
+      return tmpWidget;
     });
   }
 
@@ -295,4 +310,12 @@ class SliversRefreshWidget<ST extends BaseScrollStyleConfig> extends StatelessWi
       },
     );
   }
+
+  // --- OnScrollsToTopConfigMixin --- //
+
+  @override
+  OnScrollsToTopConfig? getOnScrollsToTopConfig() => _controller.onScrollsToTopConfig;
+
+  @override
+  ScrollController? getOnScrollsToTopScrollController() => _controller.scrollController;
 }

@@ -91,7 +91,7 @@ dependencies:
   # https://pub.dev/packages/flutter_slidable
   flutter_slidable: ^3.0.0
 
-  # iOS分格的点击移动到顶部
+  # iOS风格点击移动到顶部
   # https://pub.dev/packages/scrolls_to_top
   scrolls_to_top: ^2.1.0
 

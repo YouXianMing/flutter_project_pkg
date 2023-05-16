@@ -42,6 +42,7 @@ export 'base/others/no_splash_theme.dart';
 export 'base/others/no_shadow_scroll_behavior.dart';
 export 'base/others/scroll_config/base_scroll_style_config.dart';
 export 'base/others/scroll_config/scroll_style_config.dart';
+export 'base/others/on_scrolls_to_top_config.dart';
 
 /// tools
 export 'base/tools/app_print.dart'; // 打印
@@ -85,9 +86,9 @@ export 'base/widgets/drag_area_widget.dart'; // 可拖拽组件
 export 'base/widgets/custom_text_field.dart'; // 常用自定义TextField
 export 'base/widgets/custom_stateful_widget_mixin.dart'; // 常用自定义StatefulWidget中的State
 export 'base/widgets/layout_mask_widget.dart'; // 在遮罩中进行镂空的widget
-export 'base/widgets/toast_widget.dart'; // toast
+export 'base/widgets/toast_widget.dart'; // Toast
 export 'base/widgets/base_stateful_widget.dart'; // statefulWidget基类
-export 'base/widgets/base_stateless_widget.dart'; // stateflessWidget基类
+export 'base/widgets/base_stateless_widget.dart'; // statelessWidget基类
 export 'base/widgets/staggered_grid_view_count_widget.dart'; // staggered_grid_view_count_widget
 export 'base/widgets/sliver_refresh_widget.dart'; // 刷新用控件
 export 'base/widgets/sliver_refresh_v2_widget.dart'; // 刷新用控件
