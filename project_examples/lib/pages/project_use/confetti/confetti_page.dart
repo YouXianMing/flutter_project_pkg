@@ -1,4 +1,3 @@
-import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/pages/project_use/confetti/widgets/confetti.dart';
 import 'package:project_examples/file_headers.dart';
 
@@ -13,8 +12,6 @@ class ConfettiPage extends NormalStatefulWidget {
 }
 
 class ConfettiPageState extends NormalStatefulWidgetState<ConfettiPage> {
-  final manager = LotteryCarouselManager();
-
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
         context: context,
