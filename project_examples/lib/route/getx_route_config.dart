@@ -20,6 +20,7 @@ import 'package:project_examples/pages/async_knowledge/isolate/isolate_page.dart
 import 'package:project_examples/pages/async_knowledge/stream_builder/stream_builder_page.dart';
 import 'package:project_examples/pages/project_use/animated_switcher_widget/animated_switcher_widget_page.dart';
 import 'package:project_examples/pages/project_use/confetti/confetti_page.dart';
+import 'package:project_examples/pages/project_use/custom_buttons/custom_buttons_page.dart';
 import 'package:project_examples/pages/project_use/custom_tab_bar_widget/custom_tab_bar_widget_page.dart';
 import 'package:project_examples/pages/project_use/files_scan/files_scan_page.dart';
 import 'package:project_examples/pages/project_use/first_time_loading_widget/first_time_loading_widget_page.dart';
@@ -214,6 +215,8 @@ class RouteConfig {
                 return const LottiePage();
               case PageRouteEnum.getChildSizePage:
                 return const GetChildSizePage();
+              case PageRouteEnum.customButtonsPage:
+                return const CustomButtonsPage();
             }
           },
         ),

@@ -21,6 +21,7 @@ import 'package:project_examples/pages/async_knowledge/isolate/isolate_page.dart
 import 'package:project_examples/pages/async_knowledge/stream_builder/stream_builder_page.dart';
 import 'package:project_examples/pages/project_use/animated_switcher_widget/animated_switcher_widget_page.dart';
 import 'package:project_examples/pages/project_use/confetti/confetti_page.dart';
+import 'package:project_examples/pages/project_use/custom_buttons/custom_buttons_page.dart';
 import 'package:project_examples/pages/project_use/custom_tab_bar_widget/custom_tab_bar_widget_page.dart';
 import 'package:project_examples/pages/project_use/files_scan/files_scan_page.dart';
 import 'package:project_examples/pages/project_use/first_time_loading_widget/first_time_loading_widget_page.dart';
@@ -118,6 +119,7 @@ enum PageRouteEnum {
   animatedSwitcherWidgetPage,
   firstTimeLoadingWidgetPage,
   futureLoadingWidgetPage,
+  customButtonsPage,
 
   /* 动画 */
   animationListPage, // 列表页
@@ -297,6 +299,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => LottiePage(arguments: arguments));
       case PageRouteEnum.getChildSizePage:
         return MaterialPageRoute(settings: settings, builder: (_) => GetChildSizePage(arguments: arguments));
+      case PageRouteEnum.customButtonsPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => CustomButtonsPage(arguments: arguments));
     }
   }
 
@@ -508,6 +512,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.getChildSizePage:
         pageRouteName = _pageRouteNameFrom(GetChildSizePage);
+        break;
+      case PageRouteEnum.customButtonsPage:
+        pageRouteName = _pageRouteNameFrom(CustomButtonsPage);
         break;
     }
 
