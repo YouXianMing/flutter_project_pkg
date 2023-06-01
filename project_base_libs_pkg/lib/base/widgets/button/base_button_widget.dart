@@ -12,7 +12,7 @@ enum BaseButtonWidgetStatus {
   disabled,
 }
 
-/// 基础的按钮控件
+/// 基础的按钮控件,可用于构建复杂效果的按钮
 class BaseButtonWidget extends StatefulWidget {
   /// 默认状态widget构造器,必须有
   final Widget Function() childBuilder;
@@ -48,11 +48,7 @@ class _BaseButtonWidgetState extends State<BaseButtonWidget> {
   @override
   void initState() {
     super.initState();
-    if (widget.disable == true) {
-      currentStatus = BaseButtonWidgetStatus.disabled;
-    } else {
-      currentStatus = BaseButtonWidgetStatus.idle;
-    }
+    currentStatus = (widget.disable == true ? BaseButtonWidgetStatus.disabled : currentStatus = BaseButtonWidgetStatus.idle);
   }
 
   @override

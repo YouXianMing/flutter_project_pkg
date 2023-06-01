@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// AppBar的抽象类
 abstract class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   const BaseAppBar({Key? key}) : super(key: key);
 

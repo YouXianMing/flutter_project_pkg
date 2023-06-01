@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base/widgets/button/base_button_widget.dart';
 
+/// 带scale动画效果的按钮组件
 class ScaleButtonWidget extends StatelessWidget {
   /// 点击事件回调
   final Function onTap;
@@ -78,7 +79,7 @@ class ScaleButtonWidget extends StatelessWidget {
     this.clipBehavior,
     this.curve,
     this.idleScale = 1,
-    this.highlightedScale = 0.95,
+    this.highlightedScale = 0.97,
     this.disabledScale = 1,
   }) : super(key: key);
 
@@ -120,7 +121,7 @@ class ScaleButtonWidget extends StatelessWidget {
       transform: Matrix4.diagonal3Values(scale, scale, 1),
       transformAlignment: Alignment.center,
       clipBehavior: clipBehavior ?? Clip.none,
-      curve: curve ?? Curves.easeInOut,
+      curve: curve ?? Curves.decelerate,
       duration: enableAnimated ? duration : Duration.zero,
       child: child,
     );

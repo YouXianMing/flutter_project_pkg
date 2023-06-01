@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base/widgets/button/base_button_widget.dart';
 
+/// 带透明度动画效果的按钮组件
 class OpacityButtonWidget extends StatelessWidget {
   /// 点击事件回调
   final Function onTap;

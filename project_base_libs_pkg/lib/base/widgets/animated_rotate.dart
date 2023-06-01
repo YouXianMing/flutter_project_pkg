@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
+/// 带旋转动画效果的组件
 class AnimatedRotate extends StatefulWidget {
   /// 子控件
   final Widget child;

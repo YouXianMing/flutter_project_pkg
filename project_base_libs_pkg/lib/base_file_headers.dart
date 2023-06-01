@@ -37,12 +37,14 @@ export 'base/others/sliver_section/sliver_layout_builder/sliver_layout_builder_s
 export 'base/others/sliver_section/sliver_third_libs/sliver_staggered_grid_count_builder_section.dart'; // sliverSection相关
 export 'base/others/sliver_section/sliver_third_libs/sliver_quilted_grid_section.dart'; // sliverSection相关
 export 'base/others/sliver_section/sliver_third_libs/sliver_waterfall_flow_section.dart'; // sliverSection相关
+export 'base/others/sliver_section/sliver_sections_creator.dart';
 export 'base/others/staggered_grid_data.dart';
 export 'base/others/no_splash_theme.dart';
 export 'base/others/no_shadow_scroll_behavior.dart';
 export 'base/others/scroll_config/base_scroll_style_config.dart';
 export 'base/others/scroll_config/scroll_style_config.dart';
 export 'base/others/on_scrolls_to_top_config.dart';
+export 'base/others/linear_equation.dart';
 
 /// tools
 export 'base/tools/app_print.dart'; // 打印

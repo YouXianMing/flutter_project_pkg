@@ -66,6 +66,7 @@ class AnimatedButtonWidgetStatus {
   });
 }
 
+/// 带有动画效果的按钮组件
 class AnimatedButtonWidget extends StatelessWidget {
   /// 正常状态
   final AnimatedButtonWidgetStatus normalStatus;
