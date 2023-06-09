@@ -41,6 +41,7 @@ class ThirdLibPageState extends NormalStatefulWidgetState<ThirdLibPage> with Wid
             const MenuItemModel(title: 'Wave', pageRouteEnum: PageRouteEnum.wavePage),
             const MenuItemModel(title: 'SlidingUpPanel', pageRouteEnum: PageRouteEnum.slidingUpPanelPage),
             const MenuItemModel(title: 'Marquee', pageRouteEnum: PageRouteEnum.marqueePage),
+            const MenuItemModel(title: 'Marqueer', pageRouteEnum: PageRouteEnum.marqueerPage),
             const MenuItemModel(title: 'Lottie', pageRouteEnum: PageRouteEnum.lottiePage),
             const MenuItemModel(title: 'Expandable', pageRouteEnum: PageRouteEnum.expandablePage),
             const MenuItemModel(title: 'DottedBorder', pageRouteEnum: PageRouteEnum.dottedBorderPage),

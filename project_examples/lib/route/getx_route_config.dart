@@ -57,6 +57,7 @@ import 'package:project_examples/pages/third_libs/liquid_progress_indicator/liqu
 import 'package:project_examples/pages/third_libs/loading_animations/loading_animations_page.dart';
 import 'package:project_examples/pages/third_libs/lottie/lottie_page.dart';
 import 'package:project_examples/pages/third_libs/marquee/marquee_page.dart';
+import 'package:project_examples/pages/third_libs/marqueer/marqueer_page.dart';
 import 'package:project_examples/pages/third_libs/read_more/read_more_page.dart';
 import 'package:project_examples/pages/third_libs/scratcher/scratcher_page.dart';
 import 'package:project_examples/pages/third_libs/screen_util/screen_util_page.dart';
@@ -217,6 +218,8 @@ class RouteConfig {
                 return const GetChildSizePage();
               case PageRouteEnum.customButtonsPage:
                 return const CustomButtonsPage();
+              case PageRouteEnum.marqueerPage:
+                return const MarqueerPage();
             }
           },
         ),
