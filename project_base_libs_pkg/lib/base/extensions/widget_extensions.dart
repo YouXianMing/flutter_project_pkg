@@ -61,6 +61,7 @@ extension WidgetExtensions on Widget {
     double? height,
     double radius = 0,
     AlignmentGeometry? alignment,
+    Gradient? gradient,
     EdgeInsets? padding,
     EdgeInsets? margin,
     double? borderWidth,
@@ -78,6 +79,7 @@ extension WidgetExtensions on Widget {
         decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.all(Radius.circular(radius)),
+            gradient: gradient,
             border: borderWidth != null
                 ? Border.all(width: borderWidth, color: borderColor ?? Colors.grey, style: borderStyle ?? BorderStyle.solid)
                 : null),
@@ -95,6 +97,7 @@ extension WidgetExtensions on Widget {
     double bottomLeftRadius = 0,
     double bottomRightRadius = 0,
     AlignmentGeometry? alignment,
+    Gradient? gradient,
     EdgeInsets? padding,
     EdgeInsets? margin,
     double? borderWidth,
@@ -117,6 +120,7 @@ extension WidgetExtensions on Widget {
               bottomLeft: Radius.circular(bottomLeftRadius),
               bottomRight: Radius.circular(bottomRightRadius),
             ),
+            gradient: gradient,
             border: borderWidth != null
                 ? Border.all(width: borderWidth, color: borderColor ?? Colors.grey, style: borderStyle ?? BorderStyle.solid)
                 : null),
