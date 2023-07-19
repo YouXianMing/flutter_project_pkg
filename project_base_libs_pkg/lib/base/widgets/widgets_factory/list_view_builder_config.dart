@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base/widgets/widgets_factory/base_scroll_view_builder_config.dart';
 import 'package:project_base_libs_pkg/base/typedef/project_typedef.dart';
+import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 /// 普通的ListViewBuilder
@@ -32,6 +33,9 @@ class ListViewBuilderConfig extends BaseScrollViewBuilderConfig {
   @override
   bool shrinkWrap;
 
+  @override
+  bool reverse;
+
   ListViewBuilderConfig({
     required this.items,
     required this.builder,
@@ -40,6 +44,7 @@ class ListViewBuilderConfig extends BaseScrollViewBuilderConfig {
     this.controller,
     this.padding = EdgeInsets.zero,
     this.shrinkWrap = false,
+    this.reverse = false,
     this.physics,
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
   });
@@ -50,6 +55,7 @@ class ListViewBuilderConfig extends BaseScrollViewBuilderConfig {
       key: builderKey,
       padding: padding,
       shrinkWrap: shrinkWrap,
+      reverse: reverse,
       physics: physics,
       itemCount: items.length,
       scrollDirection: scrollDirection,
@@ -89,6 +95,9 @@ class ConstraintsListViewBuilderConfig extends BaseScrollViewBuilderConfig {
   @override
   bool shrinkWrap;
 
+  @override
+  bool reverse;
+
   final BoxConstraints constraints;
 
   ConstraintsListViewBuilderConfig({
@@ -100,6 +109,7 @@ class ConstraintsListViewBuilderConfig extends BaseScrollViewBuilderConfig {
     this.controller,
     this.padding = EdgeInsets.zero,
     this.shrinkWrap = false,
+    this.reverse = false,
     this.physics,
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
   });
@@ -112,6 +122,7 @@ class ConstraintsListViewBuilderConfig extends BaseScrollViewBuilderConfig {
         key: builderKey,
         padding: padding,
         shrinkWrap: true,
+        reverse: reverse,
         physics: physics,
         itemCount: items.length,
         scrollDirection: scrollDirection,
@@ -124,6 +135,7 @@ class ConstraintsListViewBuilderConfig extends BaseScrollViewBuilderConfig {
 }
 
 /// 可以滑动到具体index的ListViewBuilder
+/// 注意: 该类的listView并没有复用功能,只能用于数量较小的list
 class ScrollablePositionedListViewBuilderConfig extends BaseScrollViewBuilderConfig {
   @override
   Key? builderKey;
@@ -152,6 +164,9 @@ class ScrollablePositionedListViewBuilderConfig extends BaseScrollViewBuilderCon
   @override
   bool shrinkWrap;
 
+  @override
+  bool reverse;
+
   /// Controller for jumping or scrolling to an item.
   ItemScrollController? itemScrollController;
 
@@ -172,6 +187,8 @@ class ScrollablePositionedListViewBuilderConfig extends BaseScrollViewBuilderCon
   /// See ItemScrollController.jumpTo for an explanation of alignment.
   double initialAlignment;
 
+  /// 可以滑动到具体index的ListViewBuilder
+  /// 注意: 该类的listView并没有复用功能,只能用于数量较小的list
   ScrollablePositionedListViewBuilderConfig({
     required this.items,
     required this.builder,
@@ -179,6 +196,7 @@ class ScrollablePositionedListViewBuilderConfig extends BaseScrollViewBuilderCon
     this.scrollDirection = Axis.vertical,
     this.padding = EdgeInsets.zero,
     this.shrinkWrap = false,
+    this.reverse = false,
     this.physics,
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
     this.itemScrollController,
@@ -195,6 +213,7 @@ class ScrollablePositionedListViewBuilderConfig extends BaseScrollViewBuilderCon
       key: builderKey,
       padding: padding,
       shrinkWrap: shrinkWrap,
+      reverse: reverse,
       physics: physics,
       itemCount: items.length,
       scrollDirection: scrollDirection,
@@ -206,5 +225,95 @@ class ScrollablePositionedListViewBuilderConfig extends BaseScrollViewBuilderCon
       initialScrollIndex: initialScrollIndex,
       initialAlignment: initialAlignment,
     );
+  }
+}
+
+/// 可以滑动到具体index的ListViewBuilder
+/// 注意: 该类的listView并没有复用功能,只能用于数量较小的list
+class ScrollToIndexListViewConfig extends BaseScrollViewBuilderConfig {
+  @override
+  Key? builderKey;
+
+  @override
+  ItemWidgetBuilder builder;
+
+  @override
+  ScrollController? controller;
+
+  @override
+  List items;
+
+  @override
+  ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
+
+  @override
+  EdgeInsets? padding;
+
+  @override
+  ScrollPhysics? physics;
+
+  @override
+  Axis scrollDirection;
+
+  @override
+  bool shrinkWrap;
+
+  @override
+  bool reverse;
+
+  /// 自动滑动控制器
+  AutoScrollController autoScrollController;
+
+  /// 是否使用Builder模式,默认为true.如果为false,则builder中的context为空
+  bool useBuilderMode;
+
+  /// 可以滑动到具体index的ListViewBuilder
+  /// 注意: 该类的listView并没有复用功能,只能用于数量较小的list
+  ScrollToIndexListViewConfig({
+    required this.items,
+    required this.builder,
+    required this.autoScrollController,
+    this.useBuilderMode = true,
+    this.builderKey,
+    this.scrollDirection = Axis.vertical,
+    this.padding = EdgeInsets.zero,
+    this.shrinkWrap = false,
+    this.reverse = false,
+    this.physics,
+    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
+  });
+
+  @override
+  Widget build() {
+    if (useBuilderMode) {
+      return ListView.builder(
+        key: builderKey,
+        padding: padding,
+        shrinkWrap: shrinkWrap,
+        reverse: reverse,
+        physics: physics,
+        itemCount: items.length,
+        scrollDirection: scrollDirection,
+        controller: autoScrollController,
+        keyboardDismissBehavior: keyboardDismissBehavior,
+        itemBuilder: (c, i) => AutoScrollTag(key: ValueKey(i), controller: autoScrollController, index: i, child: builder(c, i, items[i])),
+      );
+    } else {
+      List<Widget> children = [];
+      for (int i = 0; i < items.length; i++) {
+        children.add(AutoScrollTag(key: ValueKey(i), controller: autoScrollController, index: i, child: builder(null, i, items[i])));
+      }
+
+      return ListView(
+        key: builderKey,
+        padding: padding,
+        shrinkWrap: shrinkWrap,
+        physics: physics,
+        scrollDirection: scrollDirection,
+        controller: autoScrollController,
+        keyboardDismissBehavior: keyboardDismissBehavior,
+        children: children,
+      );
+    }
   }
 }

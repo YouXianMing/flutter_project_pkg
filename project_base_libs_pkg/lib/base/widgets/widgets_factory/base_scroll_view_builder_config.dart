@@ -38,6 +38,10 @@ abstract class BaseScrollViewBuilderConfig {
   ScrollViewKeyboardDismissBehavior get keyboardDismissBehavior;
   set keyboardDismissBehavior(ScrollViewKeyboardDismissBehavior keyboardDismissBehavior);
 
+  /// 列表颠倒
+  bool get reverse;
+  set reverse(bool reverse);
+
   /// 构建widget
   Widget build();
 }
