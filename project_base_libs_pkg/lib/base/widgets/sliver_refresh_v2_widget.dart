@@ -56,6 +56,10 @@ class SliverSectionsRefreshWidgetController {
   /// ScrollView的控制器
   final ScrollController scrollController = ScrollController();
 
+  /// ScrollView的key(有时候需要重设key来重构CustomScrollView)
+  /// https://stackoverflow.com/questions/56364950/listview-doesnt-scroll-to-the-correct-offset-position-after-its-built-again
+  Key? scrollViewKey;
+
   /// 设置下拉刷新,如果update为true,则控件立即重构
   SliverSectionsRefreshWidgetController setPullRefreshEnable(bool enable, {bool update = true}) {
     _pullRefreshEnable = enable;
@@ -236,6 +240,7 @@ class _SliverSectionsRefreshWidgetState extends State<SliverSectionsRefreshWidge
         if (widget.controller._onLoadCallback != null) widget.controller._onLoadCallback!(widget.controller);
       },
       child: CustomScrollView(
+        key: widget.controller.scrollViewKey,
         controller: widget.controller.scrollController,
         keyboardDismissBehavior: widget.keyboardDismissBehavior,
         physics: widget.physics,

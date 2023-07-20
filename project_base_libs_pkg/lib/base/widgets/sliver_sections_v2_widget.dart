@@ -18,6 +18,10 @@ class SliverSectionsWidgetController {
     return this;
   }
 
+  /// ScrollView的key(有时候需要重设key来重构CustomScrollView)
+  /// https://stackoverflow.com/questions/56364950/listview-doesnt-scroll-to-the-correct-offset-position-after-its-built-again
+  Key? scrollViewKey;
+
   /// 更新控件(更新数据源后调用此方法才可以更新数据)
   void updateWidget() {
     if (_stateMixin != null) _stateMixin!.stateMixinSetState();
@@ -98,6 +102,7 @@ class _SliverSectionsWidgetState extends State<SliverSectionsWidget> with Custom
     // https://stackoverflow.com/questions/65369458/customscrollview-scroll-behavior-changes-when-scrollcontroller-is-passed
 
     var scrollView = CustomScrollView(
+      key: widget.controller.scrollViewKey,
       controller: widget.scrollController,
       shrinkWrap: widget.shrinkWrap,
       cacheExtent: widget.cacheExtent,

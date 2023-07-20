@@ -55,6 +55,10 @@ class _SliversRefreshWidgetController extends GetxController {
 
   /// ScrollView的控制器
   final ScrollController scrollController = ScrollController();
+
+  /// ScrollView的key(有时候需要重设key来重构CustomScrollView)
+  /// https://stackoverflow.com/questions/56364950/listview-doesnt-scroll-to-the-correct-offset-position-after-its-built-again
+  Key? scrollViewKey;
 }
 
 class SliversRefreshWidget<ST extends BaseScrollStyleConfig> extends StatelessWidget with OnScrollsToTopConfigMixin {
@@ -228,6 +232,7 @@ class SliversRefreshWidget<ST extends BaseScrollStyleConfig> extends StatelessWi
           if (_controller.onLoadBlock != null) _controller.onLoadBlock!(this);
         },
         child: CustomScrollView(
+          key: _controller.scrollViewKey,
           controller: _controller.scrollController,
           keyboardDismissBehavior: keyboardDismissBehavior,
           physics: physics,

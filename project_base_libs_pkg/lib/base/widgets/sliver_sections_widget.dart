@@ -19,6 +19,10 @@ class SliverSectionsWidgetController extends GetxController {
     return this;
   }
 
+  /// ScrollView的key(有时候需要重设key来重构CustomScrollView)
+  /// https://stackoverflow.com/questions/56364950/listview-doesnt-scroll-to-the-correct-offset-position-after-its-built-again
+  Key? scrollViewKey;
+
   /// 更新控件(更新数据源后调用此方法才可以更新数据)
   void updateWidget() => _reloadData.value++;
 
@@ -82,6 +86,7 @@ class SliverSectionsWidget<ST extends BaseScrollStyleConfig> extends StatelessWi
       if (controller._reloadData.value > 0) {}
 
       var scrollView = CustomScrollView(
+        key: controller.scrollViewKey,
         controller: scrollController,
         shrinkWrap: shrinkWrap,
         cacheExtent: cacheExtent,
