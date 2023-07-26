@@ -34,6 +34,9 @@ extension WidgetExtensions on Widget {
   /// 设置控件顺时针旋转指定的度数,比如设置degrees=30表示顺时针旋转30°
   Widget setRotate({required double degrees}) => Transform.rotate(angle: degrees * math.pi / 180, child: this);
 
+  /// 设置缩放值(文档流里的布局不受影响)
+  Widget setScale(double scale) => Transform.scale(scale: scale, child: this);
+
   /// 设置为LTR模式(普通布局方式,从左往右排列)
   Widget get setToLTR => Directionality(textDirection: TextDirection.ltr, child: this);
 
