@@ -21,4 +21,8 @@ abstract class BaseStatefulWidgetState<T extends BaseStatefulWidget> extends Sta
     if (mounted) return context;
     return null;
   }
+
+  void safeSetState(VoidCallback fn) {
+    if (mounted) setState(fn);
+  }
 }
