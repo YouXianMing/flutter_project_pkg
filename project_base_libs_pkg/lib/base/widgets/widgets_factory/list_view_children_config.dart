@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:project_base_libs_pkg/base/widgets/widgets_factory/base_scroll_view_builder_config.dart';
-import 'package:project_base_libs_pkg/base/typedef/project_typedef.dart';
-import 'package:scroll_to_index/scroll_to_index.dart';
+import 'package:project_base_libs_pkg/base/widgets/widgets_factory/base_scroll_view_children_config.dart';
+import 'package:project_base_libs_pkg/base_file_headers.dart';
+import 'package:project_base_libs_pkg/third_lib_scroll_to_index.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-/// 普通的ListViewBuilder
-class ListViewBuilderConfig extends BaseScrollViewBuilderConfig {
+class ListViewChildrenConfig extends BaseScrollViewChildrenConfig {
   @override
   Key? builderKey;
 
   @override
-  ItemWidgetBuilder builder;
+  List<Widget> children;
 
   @override
   ScrollController? controller;
-
-  @override
-  List items;
 
   @override
   ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
@@ -28,17 +24,16 @@ class ListViewBuilderConfig extends BaseScrollViewBuilderConfig {
   ScrollPhysics? physics;
 
   @override
+  bool reverse;
+
+  @override
   Axis scrollDirection;
 
   @override
   bool shrinkWrap;
 
-  @override
-  bool reverse;
-
-  ListViewBuilderConfig({
-    required this.items,
-    required this.builder,
+  ListViewChildrenConfig({
+    required this.children,
     this.builderKey,
     this.scrollDirection = Axis.vertical,
     this.controller,
@@ -51,34 +46,30 @@ class ListViewBuilderConfig extends BaseScrollViewBuilderConfig {
 
   @override
   Widget build() {
-    return ListView.builder(
+    return ListView(
       key: builderKey,
       padding: padding,
       shrinkWrap: shrinkWrap,
       reverse: reverse,
       physics: physics,
-      itemCount: items.length,
       scrollDirection: scrollDirection,
       controller: controller,
       keyboardDismissBehavior: keyboardDismissBehavior,
-      itemBuilder: (c, i) => builder(c, i, items[i]),
+      children: children,
     );
   }
 }
 
-/// 带有约束效果的ListViewBuilder,注意:shrinkWrap设置无效,始终为true
-class ConstraintsListViewBuilderConfig extends BaseScrollViewBuilderConfig {
+/// 带有约束效果的ListView,注意:shrinkWrap设置无效,始终为true
+class ConstraintsListViewChildrenConfig extends BaseScrollViewChildrenConfig {
   @override
   Key? builderKey;
-
-  @override
-  ItemWidgetBuilder builder;
 
   @override
   ScrollController? controller;
 
   @override
-  List items;
+  List<Widget> children;
 
   @override
   ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
@@ -101,9 +92,8 @@ class ConstraintsListViewBuilderConfig extends BaseScrollViewBuilderConfig {
 
   final BoxConstraints constraints;
 
-  ConstraintsListViewBuilderConfig({
-    required this.items,
-    required this.builder,
+  ConstraintsListViewChildrenConfig({
+    required this.children,
     required this.constraints,
     this.builderKey,
     this.scrollDirection = Axis.vertical,
@@ -119,37 +109,33 @@ class ConstraintsListViewBuilderConfig extends BaseScrollViewBuilderConfig {
   Widget build() {
     return Container(
       constraints: constraints,
-      child: ListView.builder(
+      child: ListView(
         key: builderKey,
         padding: padding,
         shrinkWrap: true,
         reverse: reverse,
         physics: physics,
-        itemCount: items.length,
         scrollDirection: scrollDirection,
         controller: controller,
         keyboardDismissBehavior: keyboardDismissBehavior,
-        itemBuilder: (c, i) => builder(c, i, items[i]),
+        children: children,
       ),
     );
   }
 }
 
-/// 可以滑动到具体index的ListViewBuilder
+/// 可以滑动到具体index的ListView
 /// 注意: 该类的listView并没有复用功能,只能用于数量较小的list
-class ScrollablePositionedListViewBuilderConfig extends BaseScrollViewBuilderConfig {
+class ScrollablePositionedListViewChildrenConfig extends BaseScrollViewChildrenConfig {
   @override
   Key? builderKey;
-
-  @override
-  ItemWidgetBuilder builder;
 
   /// 此参数无效
   @override
   ScrollController? controller;
 
   @override
-  List items;
+  List<Widget> children;
 
   /// 此参数无效
   @override
@@ -192,9 +178,8 @@ class ScrollablePositionedListViewBuilderConfig extends BaseScrollViewBuilderCon
 
   /// 可以滑动到具体index的ListViewBuilder
   /// 注意: 该类的listView并没有复用功能,只能用于数量较小的list
-  ScrollablePositionedListViewBuilderConfig({
-    required this.items,
-    required this.builder,
+  ScrollablePositionedListViewChildrenConfig({
+    required this.children,
     this.builderKey,
     this.scrollDirection = Axis.vertical,
     this.padding = EdgeInsets.zero,
@@ -218,9 +203,9 @@ class ScrollablePositionedListViewBuilderConfig extends BaseScrollViewBuilderCon
       shrinkWrap: shrinkWrap,
       reverse: reverse,
       physics: physics,
-      itemCount: items.length,
+      itemCount: children.length,
       scrollDirection: scrollDirection,
-      itemBuilder: (c, i) => builder(c, i, items[i]),
+      itemBuilder: (c, i) => children[i],
       itemScrollController: itemScrollController,
       scrollOffsetController: scrollOffsetController,
       itemPositionsListener: itemPositionsListener,
@@ -231,21 +216,18 @@ class ScrollablePositionedListViewBuilderConfig extends BaseScrollViewBuilderCon
   }
 }
 
-/// 可以滑动到具体index的ListViewBuilder
+/// 可以滑动到具体index的ListView
 /// 注意: 该类的listView并没有复用功能,只能用于数量较小的list
-class ScrollToIndexListViewBuilderConfig extends BaseScrollViewBuilderConfig {
+class ScrollToIndexListViewChildrenConfig extends BaseScrollViewChildrenConfig {
   @override
   Key? builderKey;
-
-  @override
-  ItemWidgetBuilder builder;
 
   /// 此参数无效,已被AutoScrollController替换
   @override
   ScrollController? controller;
 
   @override
-  List items;
+  List<Widget> children;
 
   @override
   ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
@@ -268,16 +250,11 @@ class ScrollToIndexListViewBuilderConfig extends BaseScrollViewBuilderConfig {
   /// 自动滑动控制器
   AutoScrollController autoScrollController;
 
-  /// 是否使用Builder模式,默认为true.如果为false,则builder中的context为空
-  bool useBuilderMode;
-
   /// 可以滑动到具体index的ListViewBuilder
   /// 注意: 该类的listView并没有复用功能,只能用于数量较小的list
-  ScrollToIndexListViewBuilderConfig({
-    required this.items,
-    required this.builder,
+  ScrollToIndexListViewChildrenConfig({
+    required this.children,
     required this.autoScrollController,
-    this.useBuilderMode = true,
     this.builderKey,
     this.scrollDirection = Axis.vertical,
     this.padding = EdgeInsets.zero,
@@ -289,35 +266,21 @@ class ScrollToIndexListViewBuilderConfig extends BaseScrollViewBuilderConfig {
 
   @override
   Widget build() {
-    if (useBuilderMode) {
-      return ListView.builder(
-        key: builderKey,
-        padding: padding,
-        shrinkWrap: shrinkWrap,
-        reverse: reverse,
-        physics: physics,
-        itemCount: items.length,
-        scrollDirection: scrollDirection,
-        controller: autoScrollController,
-        keyboardDismissBehavior: keyboardDismissBehavior,
-        itemBuilder: (c, i) => AutoScrollTag(key: ValueKey(i), controller: autoScrollController, index: i, child: builder(c, i, items[i])),
-      );
-    } else {
-      List<Widget> children = [];
-      for (int i = 0; i < items.length; i++) {
-        children.add(AutoScrollTag(key: ValueKey(i), controller: autoScrollController, index: i, child: builder(null, i, items[i])));
-      }
-
-      return ListView(
-        key: builderKey,
-        padding: padding,
-        shrinkWrap: shrinkWrap,
-        physics: physics,
-        scrollDirection: scrollDirection,
-        controller: autoScrollController,
-        keyboardDismissBehavior: keyboardDismissBehavior,
-        children: children,
-      );
+    List<Widget> list = [];
+    for (int i = 0; i < children.length; i++) {
+      list.add(AutoScrollTag(key: ValueKey(i), controller: autoScrollController, index: i, child: children[i]));
     }
+
+    return ListView(
+      key: builderKey,
+      padding: padding,
+      shrinkWrap: shrinkWrap,
+      physics: physics,
+      scrollDirection: scrollDirection,
+      controller: autoScrollController,
+      keyboardDismissBehavior: keyboardDismissBehavior,
+      reverse: reverse,
+      children: list,
+    );
   }
 }

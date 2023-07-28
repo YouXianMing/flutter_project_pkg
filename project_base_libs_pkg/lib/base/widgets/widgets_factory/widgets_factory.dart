@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base/widgets/widgets_factory/base_scroll_view_builder_config.dart';
+import 'package:project_base_libs_pkg/base/widgets/widgets_factory/base_scroll_view_children_config.dart';
 import 'package:project_base_libs_pkg/base/widgets/widgets_factory/grid_view_builder_config.dart';
 import 'package:project_base_libs_pkg/base/widgets/widgets_factory/list_view_builder_config.dart';
 
@@ -12,6 +13,9 @@ class WidgetsFactory {
 
   /// ListView或者GridView的builder构造器
   static Widget scrollViewBuilder<T extends BaseScrollViewBuilderConfig>({required T build}) => build.build();
+
+  /// ListView或者GridView的children构造器
+  static Widget scrollViewChildren<T extends BaseScrollViewChildrenConfig>({required T build}) => build.build();
 
   /// 支持动画效果的Text构造器
   static AnimatedDefaultTextStyle animatedText(
@@ -89,70 +93,6 @@ class WidgetsFactory {
         decorationColor: decorationColor,
         decorationStyle: decorationStyle,
         decorationThickness: decorationThickness,
-      ),
-    );
-  }
-
-  /// text与container合集构造器
-  static Container textContainer(
-    String text, {
-    Key? containerKey,
-    Key? textKey,
-    double? width,
-    double? height,
-    EdgeInsetsGeometry? margin,
-    EdgeInsetsGeometry? padding,
-    AlignmentGeometry? alignment,
-    Color? backgroundColor,
-    Color borderColor = Colors.transparent,
-    double borderWidth = 0,
-    double borderRadius = 0,
-    BorderRadiusGeometry? borderRadiusGeometry,
-    BoxBorder? boxBorder,
-    Decoration? decoration,
-    Color? textColor,
-    TextAlign? textAlign,
-    TextDirection? textDirection,
-    TextOverflow? textOverflow,
-    bool? textSoftWrap,
-    double? textScaleFactor,
-    double? fontSize,
-    FontWeight? fontWeight,
-    int? textMaxLines,
-    String? fontFamily, // 字体家族
-    double? lineHeight, // 行间距倍数
-    double? wordSpacing, // 字体间距
-  }) {
-    return Container(
-      key: containerKey,
-      width: width,
-      height: height,
-      margin: margin,
-      padding: padding,
-      decoration: decoration ??
-          BoxDecoration(
-            color: backgroundColor,
-            borderRadius: borderRadiusGeometry ?? BorderRadius.all(Radius.circular(borderRadius)),
-            border: boxBorder ?? Border.all(width: borderWidth, color: borderColor),
-          ),
-      alignment: alignment,
-      child: Text(
-        text,
-        key: textKey,
-        textAlign: textAlign,
-        textDirection: textDirection,
-        overflow: textOverflow,
-        softWrap: textSoftWrap,
-        textScaleFactor: textScaleFactor,
-        maxLines: textMaxLines,
-        style: TextStyle(
-          color: textColor,
-          fontSize: fontSize,
-          fontWeight: fontWeight,
-          height: lineHeight,
-          wordSpacing: wordSpacing,
-          fontFamily: fontFamily,
-        ),
       ),
     );
   }

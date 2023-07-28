@@ -272,11 +272,7 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
                         return Container(
                           color: Colors.white,
                           child: Center(
-                            child: WidgetsFactory.textContainer(data,
-                                textAlign: TextAlign.center,
-                                backgroundColor: Colors.lightBlueAccent,
-                                textColor: Colors.white,
-                                padding: const EdgeInsets.all(5)),
+                            child: WidgetsFactory.text(data, color: Util.randomOpaqueColor),
                           ),
                         );
                       });
@@ -299,9 +295,7 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
                   maxExtent: 100,
                   minExtent: 40,
                   builder: (BuildContext context, double shrinkOffset, bool overlapsContent, dynamic data) {
-                    return Center(
-                        child: WidgetsFactory.textContainer(data,
-                            backgroundColor: Colors.blueGrey, textColor: Colors.white, padding: const EdgeInsets.all(5)));
+                    return Center(child: WidgetsFactory.text(data, color: Util.randomOpaqueColor));
                   }),
 
               /// SliverVerticalGridSection

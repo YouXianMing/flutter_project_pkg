@@ -263,9 +263,7 @@ class InformationViewTestModel {
                                   Util.randomWordPairAsCamelCase,
                                   Util.randomWordPairAsCamelCase,
                                 ],
-                                builder: (c, i, d) => WidgetsFactory.textContainer(d,
-                                        height: 45, textColor: Util.randomOpaqueColor, alignment: Alignment.center)
-                                    .addDefaultTextStyle(),
+                                builder: (c, i, d) => WidgetsFactory.text(d, color: Util.randomOpaqueColor).addDefaultTextStyle(),
                               ),
                               SliverBoxAdapterSection.widget(builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
                             ],
@@ -318,9 +316,7 @@ class InformationViewTestModel {
                                   Util.randomWordPairAsCamelCase,
                                   Util.randomWordPairAsCamelCase,
                                 ],
-                                builder: (c, i, d) => WidgetsFactory.textContainer(d,
-                                        height: 45, textColor: Util.randomOpaqueColor, alignment: Alignment.center)
-                                    .addDefaultTextStyle(),
+                                builder: (c, i, d) => WidgetsFactory.text(d, color: Util.randomOpaqueColor).addDefaultTextStyle(),
                               ),
                               SliverBoxAdapterSection.widget(builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
                             ],
@@ -388,9 +384,7 @@ class InformationViewTestModel {
                                   Util.randomWordPairAsCamelCase,
                                   Util.randomWordPairAsCamelCase,
                                 ],
-                                builder: (c, i, d) => WidgetsFactory.textContainer(d,
-                                        height: 45, textColor: Util.randomOpaqueColor, alignment: Alignment.center)
-                                    .addDefaultTextStyle(),
+                                builder: (c, i, d) => WidgetsFactory.text(d, color: Util.randomOpaqueColor).addDefaultTextStyle(),
                               ),
                               SliverBoxAdapterSection.widget(builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
                             ],
@@ -445,9 +439,7 @@ class InformationViewTestModel {
                                   Util.randomWordPairAsCamelCase,
                                   Util.randomWordPairAsCamelCase,
                                 ],
-                                builder: (c, i, d) => WidgetsFactory.textContainer(d,
-                                        height: 45, textColor: Util.randomOpaqueColor, alignment: Alignment.center)
-                                    .addDefaultTextStyle(),
+                                builder: (c, i, d) => WidgetsFactory.text(d, color: Util.randomOpaqueColor).addDefaultTextStyle(),
                               ),
                               SliverBoxAdapterSection.widget(builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
                             ],

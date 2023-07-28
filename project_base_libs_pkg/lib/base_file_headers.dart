@@ -113,8 +113,11 @@ export 'base/widgets/read_more_text_widget.dart'; // ReadMore文本控件
 export 'base/widgets/rich_text_widget.dart'; // 富文本简化用widget
 export 'base/widgets/widgets_factory/widgets_factory.dart'; // 常用widget的工厂类
 export 'base/widgets/widgets_factory/base_scroll_view_builder_config.dart'; // BaseScrollViewBuilderConfig
+export 'base/widgets/widgets_factory/base_scroll_view_children_config.dart'; // BaseScrollViewChildrenConfig
 export 'base/widgets/widgets_factory/grid_view_builder_config.dart'; // GridViewBuilderConfig
 export 'base/widgets/widgets_factory/list_view_builder_config.dart'; // ListViewBuilderConfig
+export 'base/widgets/widgets_factory/grid_view_children_config.dart'; // GridViewChildrenConfig
+export 'base/widgets/widgets_factory/list_view_children_config.dart'; // ListViewChildrenConfig
 export 'base/widgets/reorderable_list_view_widget.dart'; // ReorderableListViewWidget
 export 'base/widgets/animated_switcher_widget.dart'; // 对AnimatedSwitcher进行封装,简化使用
 export 'base/widgets/get_child_size.dart'; // 监听widget尺寸修改

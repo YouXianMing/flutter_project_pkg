@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:project_base_libs_pkg/base/typedef/project_typedef.dart';
-import 'package:project_base_libs_pkg/base/widgets/widgets_factory/base_scroll_view_builder_config.dart';
+import 'package:project_base_libs_pkg/base/widgets/widgets_factory/base_scroll_view_children_config.dart';
 
-/// 普通的GridViewBuilder
-class GridViewBuilderConfig extends BaseScrollViewBuilderConfig {
+/// 普通的GridView
+class GridViewChildrenConfig extends BaseScrollViewChildrenConfig {
   @override
   Key? builderKey;
-
-  @override
-  ItemWidgetBuilder builder;
 
   @override
   ScrollController? controller;
 
   @override
-  List items;
+  List<Widget> children;
 
   @override
   ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
@@ -39,9 +35,8 @@ class GridViewBuilderConfig extends BaseScrollViewBuilderConfig {
   final double mainAxisSpacing;
   final double crossAxisSpacing;
 
-  GridViewBuilderConfig({
-    required this.items,
-    required this.builder,
+  GridViewChildrenConfig({
+    required this.children,
     this.builderKey,
     this.scrollDirection = Axis.vertical,
     this.controller,
@@ -58,12 +53,11 @@ class GridViewBuilderConfig extends BaseScrollViewBuilderConfig {
 
   @override
   Widget build() {
-    return GridView.builder(
+    return GridView(
       key: builderKey,
       shrinkWrap: shrinkWrap,
       reverse: reverse,
       physics: physics,
-      itemCount: items.length,
       padding: padding,
       scrollDirection: scrollDirection,
       controller: controller,
@@ -74,24 +68,21 @@ class GridViewBuilderConfig extends BaseScrollViewBuilderConfig {
         mainAxisSpacing: mainAxisSpacing,
         crossAxisSpacing: crossAxisSpacing,
       ),
-      itemBuilder: (c, i) => builder(c, i, items[i]),
+      children: children,
     );
   }
 }
 
-/// 带有约束效果的GridViewBuilder,注意:shrinkWrap设置无效,始终为true
-class ConstraintsGridViewBuilderConfig extends BaseScrollViewBuilderConfig {
+/// 带有约束效果的GridView,注意:shrinkWrap设置无效,始终为true
+class ConstraintsGridViewChildrenConfig extends BaseScrollViewChildrenConfig {
   @override
   Key? builderKey;
-
-  @override
-  ItemWidgetBuilder builder;
 
   @override
   ScrollController? controller;
 
   @override
-  List items;
+  List<Widget> children;
 
   @override
   ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
@@ -118,9 +109,8 @@ class ConstraintsGridViewBuilderConfig extends BaseScrollViewBuilderConfig {
   final double mainAxisSpacing;
   final double crossAxisSpacing;
 
-  ConstraintsGridViewBuilderConfig({
-    required this.items,
-    required this.builder,
+  ConstraintsGridViewChildrenConfig({
+    required this.children,
     required this.constraints,
     this.builderKey,
     this.scrollDirection = Axis.vertical,
@@ -140,12 +130,11 @@ class ConstraintsGridViewBuilderConfig extends BaseScrollViewBuilderConfig {
   Widget build() {
     return Container(
       constraints: constraints,
-      child: GridView.builder(
+      child: GridView(
         key: builderKey,
         shrinkWrap: true,
         reverse: reverse,
         physics: physics,
-        itemCount: items.length,
         padding: padding,
         scrollDirection: scrollDirection,
         controller: controller,
@@ -156,7 +145,7 @@ class ConstraintsGridViewBuilderConfig extends BaseScrollViewBuilderConfig {
           mainAxisSpacing: mainAxisSpacing,
           crossAxisSpacing: crossAxisSpacing,
         ),
-        itemBuilder: (c, i) => builder(c, i, items[i]),
+        children: children,
       ),
     );
   }
