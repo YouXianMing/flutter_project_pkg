@@ -57,12 +57,12 @@ dependencies:
   # [rykowski.dev] 刮奖效果
   # https://pub.flutter-io.cn/packages/scratcher
   # Flutter: Android iOS Linux MacOS Web Windows
-  scratcher: ^2.2.1
+  scratcher: ^2.3.0
 
   # [serenader.me] 轮播图组件
   # https://pub.flutter-io.cn/packages/carousel_slider
   # Flutter: Android iOS Linux MacOS Web Windows
-  carousel_slider: ^4.1.1
+  carousel_slider: ^4.2.1
 
   # 液体效果的进度条
   # https://pub.flutter-io.cn/packages/liquid_progress_indicator
@@ -77,12 +77,12 @@ dependencies:
   # 虚线边框
   # https://pub.flutter-io.cn/packages/dotted_border
   # Flutter: Android iOS Linux MacOS Web Windows
-  dotted_border: ^2.0.0+2
+  dotted_border: ^2.0.0+3
 
   # 虚线
   # https://pub.flutter-io.cn/packages/dotted_line
   # Flutter: Android iOS Linux MacOS Web Windows
-  dotted_line: ^3.1.0
+  dotted_line: ^3.2.0
 
   # 列表动画效果
   # https://pub.flutter-io.cn/packages/flutter_staggered_animations
@@ -97,17 +97,17 @@ dependencies:
   # 轮播图用的页面指示器
   # https://pub.flutter-io.cn/packages/smooth_page_indicator
   # Flutter: Android iOS Linux MacOS Web Windows
-  smooth_page_indicator: ^1.0.0+2
+  smooth_page_indicator: ^1.1.0
 
   # [brunojurkovic.com] 翻转效果
   # https://pub.flutter-io.cn/packages/flip_card
   # Flutter: Android iOS Linux MacOS Web Windows
-  flip_card: ^0.6.0
+  flip_card: ^0.7.0
 
   # 屏幕适配框架
   # https://pub.flutter-io.cn/packages/flutter_screenutil
   # Flutter: Android iOS Linux MacOS Web Windows
-  flutter_screenutil: ^5.5.3+2
+  flutter_screenutil: ^5.7.0
 
   # HTML标签加载
   # https://pub.flutter-io.cn/packages/simple_html_css
@@ -122,7 +122,7 @@ dependencies:
   # [hunghd.dev] shimmer效果
   # https://pub.flutter-io.cn/packages/shimmer
   # Flutter: Android iOS Linux MacOS Web Windows
-  shimmer: ^2.0.0
+  shimmer: ^3.0.0
 
   # icon字体
   # https://pub.flutter-io.cn/packages/line_icons
@@ -137,12 +137,12 @@ dependencies:
   # [dizoft.ru] 倒计时
   # https://pub.flutter-io.cn/packages/timer_count_down
   # Flutter: Android iOS Linux MacOS Web Windows
-  timer_count_down: ^2.2.0
+  timer_count_down: ^2.2.2
 
   # 带动画的按钮组件
   # https://pub.flutter-io.cn/packages/flutter_animated_button
   # Flutter: Android iOS Linux MacOS Web Windows
-  flutter_animated_button: ^2.0.1
+  flutter_animated_button: ^2.0.3
 
   # [adamjonsson.dev] 弹框控件
   # https://pub.flutter-io.cn/packages/snapping_sheet

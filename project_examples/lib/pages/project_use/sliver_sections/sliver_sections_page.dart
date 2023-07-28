@@ -1,4 +1,3 @@
-import 'package:project_base_libs_pkg/base/others/linear_equation.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
