@@ -49,6 +49,7 @@ import 'package:project_examples/pages/third_libs/dotted_line/dotted_line_page.d
 import 'package:project_examples/pages/third_libs/expandable/expandable_page.dart';
 import 'package:project_examples/pages/third_libs/flip_card/flip_card_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_animated_button/flutter_animated_button_page.dart';
+import 'package:project_examples/pages/third_libs/flutter_picker/flutter_picker_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_staggered_animations/flutter_staggered_animations_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_staggered_grid_view/flutter_staggered_grid_view_page.dart';
 import 'package:project_examples/pages/third_libs/html_to_text_span/html_to_text_span_page.dart';
@@ -95,6 +96,7 @@ enum PageRouteEnum {
   expandablePage,
   marqueePage,
   marqueerPage,
+  flutterPickerPage,
   confettiWidgetPage,
   slidingUpPanelPage,
   lottiePage,
@@ -305,6 +307,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => CustomButtonsPage(arguments: arguments));
       case PageRouteEnum.marqueerPage:
         return MaterialPageRoute(settings: settings, builder: (_) => MarqueerPage(arguments: arguments));
+      case PageRouteEnum.flutterPickerPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => FlutterPickerPage(arguments: arguments));
     }
   }
 
@@ -522,6 +526,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.marqueerPage:
         pageRouteName = _pageRouteNameFrom(MarqueerPage);
+        break;
+      case PageRouteEnum.flutterPickerPage:
+        pageRouteName = _pageRouteNameFrom(FlutterPickerPage);
         break;
     }
 

@@ -56,6 +56,7 @@ class ThirdLibPageState extends NormalStatefulWidgetState<ThirdLibPage> with Wid
             const MenuItemModel(title: 'Scratcher', pageRouteEnum: PageRouteEnum.scratcherPage),
             const MenuItemModel(title: 'FlipCard', pageRouteEnum: PageRouteEnum.flipCardPage),
             const MenuItemModel(title: 'SnappingSheet', pageRouteEnum: PageRouteEnum.snappingSheetPage),
+            const MenuItemModel(title: 'FlutterPicker', pageRouteEnum: PageRouteEnum.flutterPickerPage),
             const MenuItemModel(title: 'FlutterAnimatedButton', pageRouteEnum: PageRouteEnum.flutterAnimatedButtonPage),
             const MenuItemModel(title: 'LiquidProgressIndicator', pageRouteEnum: PageRouteEnum.liquidProgressIndicatorPage),
           ],

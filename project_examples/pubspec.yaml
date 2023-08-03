@@ -159,6 +159,11 @@ dependencies:
   # Flutter: Android iOS Linux MacOS Web Windows
   confetti: ^0.7.0
 
+  # picker组件
+  # https://pub.flutter-io.cn/packages/flutter_picker
+  # Flutter: Android iOS Linux MacOS Web Windows
+  flutter_picker: ^2.1.0
+
   # 基础组件库(通过Git的方式引入)
   # Flutter: Android iOS Linux MacOS Web Windows
   #  project_base_libs_pkg:

@@ -49,6 +49,7 @@ import 'package:project_examples/pages/third_libs/dotted_line/dotted_line_page.d
 import 'package:project_examples/pages/third_libs/expandable/expandable_page.dart';
 import 'package:project_examples/pages/third_libs/flip_card/flip_card_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_animated_button/flutter_animated_button_page.dart';
+import 'package:project_examples/pages/third_libs/flutter_picker/flutter_picker_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_staggered_animations/flutter_staggered_animations_page.dart';
 import 'package:project_examples/pages/third_libs/flutter_staggered_grid_view/flutter_staggered_grid_view_page.dart';
 import 'package:project_examples/pages/third_libs/html_to_text_span/html_to_text_span_page.dart';
@@ -220,6 +221,8 @@ class RouteConfig {
                 return const CustomButtonsPage();
               case PageRouteEnum.marqueerPage:
                 return const MarqueerPage();
+              case PageRouteEnum.flutterPickerPage:
+                return const FlutterPickerPage();
             }
           },
         ),
