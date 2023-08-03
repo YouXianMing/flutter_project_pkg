@@ -10,7 +10,7 @@
       path: project_base_libs_pkg
 ```
 
-该基础组件库不依赖于任何项目的业务，自带了example，可以单独运行。你也可以在[flutter_projects](https://github.com/YouXianMing/flutter_projects)中查看具体的使用情形。以下是该组件库中一些重要的类：
+该基础组件库不依赖于任何项目的业务，使用示例可以在project_examples中查看。
 
 名字|描述
 :-|:-
