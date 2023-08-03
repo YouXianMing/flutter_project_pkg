@@ -44,5 +44,5 @@ SpVal|通过枚举值的方式设置SharedPreferences，不需要手动设置key
 BaseButtonWidget|一个包含了普通、高亮、禁用状态的Button控件，可用于封装Button用
 
 ### BaseStatelessWidget、BaseStatefulWidget与BasePageBuildMixin
-![Image 界面继承关系](./project_base_libs_pkg/example/lib/界面继承关系.png)
+![Image 界面继承关系](./界面继承关系.png)
 
