@@ -4,7 +4,7 @@ enum PrintLevel { verbose, debug, info, warning, error, success }
 
 const int _printTraceIndex = 1;
 
-const bool _isReleasePrintCheck = bool.fromEnvironment('dart.vm.product');
+const bool _isReleasePrintCheck = kReleaseMode;
 
 Set<PrintLevel> _printDebugSet = {
   PrintLevel.verbose,
