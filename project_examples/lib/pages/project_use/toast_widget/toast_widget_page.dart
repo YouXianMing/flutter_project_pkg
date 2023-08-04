@@ -50,7 +50,7 @@ class ToastWidgetPageState extends NormalStatefulWidgetState<ToastWidgetPage> {
                                 child: Icon(LineIcons.byName(v.data), size: 60),
                               ),
                               const Padding(padding: EdgeInsets.only(top: 5)),
-                              WidgetsFactory.text('Loading...', color: Colors.grey, fontSize: 25.sp),
+                              WidgetsFactory.text('Loading...', color: Colors.grey, fontSize: 13.sp),
                             ],
                           ),
                         ),

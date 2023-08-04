@@ -49,7 +49,7 @@ class TabBarButton extends StatelessWidget {
               Positioned(left: 15, top: -8, child: BadgeCountWidget(count: badgeCount)),
             ],
           ).addDefaultTextStyle(),
-          WidgetsFactory.animatedText(title, fontSize: 22.sp, color: select ? selectedColor : unSelectedColor, duration: duration),
+          WidgetsFactory.animatedText(title, fontSize: 11.sp, color: select ? selectedColor : unSelectedColor, duration: duration),
         ],
       ),
     ).addTapEvent(() => onTap(this));

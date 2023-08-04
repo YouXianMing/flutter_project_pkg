@@ -54,7 +54,7 @@ class HtmlToTextSpanPageState extends NormalStatefulWidgetState<HtmlToTextSpanPa
                   text: HTML.toTextSpan(
                     context,
                     text,
-                    defaultTextStyle: TextStyle(fontSize: 30.sp, fontWeight: FontWeight.normal, decoration: TextDecoration.none),
+                    defaultTextStyle: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.normal, decoration: TextDecoration.none),
                     linksCallback: (d) => appPrint(d),
                   ),
                 )).buildWidget(),

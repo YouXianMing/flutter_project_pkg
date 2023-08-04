@@ -52,7 +52,7 @@ class LaunchImageWidgetState extends State<LaunchImageWidget> {
       height: double.infinity,
       alignment: Alignment.center,
       color: Colors.white,
-      child: WidgetsFactory.text('YouXianMing', fontSize: 40.sp, color: Colors.blueAccent),
+      child: WidgetsFactory.text('YouXianMing', fontSize: 20.sp, color: Colors.blueAccent),
     ).addDefaultTextStyle();
   }
 }

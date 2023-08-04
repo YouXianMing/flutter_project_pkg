@@ -34,7 +34,7 @@ class MenuItemWidget extends StatelessWidget {
         onTap: () => callback(context, WidgetEventItem(widget: this, data: model)),
         child: Container(
           alignment: Alignment.centerLeft,
-          padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 30.w, bottom: 30.w),
+          padding: EdgeInsets.only(left: 10.w, right: 10.w, top: 15.w, bottom: 15.w),
           color: Colors.white,
           child: Text(model.title),
         ),

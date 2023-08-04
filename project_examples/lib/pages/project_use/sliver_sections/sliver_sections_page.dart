@@ -85,16 +85,16 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
               SliverListSection.builderTypeWidget(
                 headerBuilder: (_) => header('SliverListSection.builder'),
                 items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                builder: (c, i, d) => SizedBox(height: 120.w, child: Card(child: Center(child: Text(d.toString())))),
+                builder: (c, i, d) => SizedBox(height: 60.w, child: Card(child: Center(child: Text(d.toString())))),
               ),
 
               /// SliverListSection.static
               SliverListSection.staticTypeWidget(
                 headerBuilder: (_) => header('SliverListSection.static'),
                 children: [
-                  SizedBox(height: 120.w, child: Card(child: Center(child: Text(1.toString())))),
-                  SizedBox(height: 120.w, child: Card(child: Center(child: Text(2.toString())))),
-                  SizedBox(height: 120.w, child: Card(child: Center(child: Text(3.toString())))),
+                  SizedBox(height: 60.w, child: Card(child: Center(child: Text(1.toString())))),
+                  SizedBox(height: 60.w, child: Card(child: Center(child: Text(2.toString())))),
+                  SizedBox(height: 60.w, child: Card(child: Center(child: Text(3.toString())))),
                 ],
               ),
 
@@ -119,7 +119,7 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
 
               /// SliverPrototypeExtentListSection.builder
               SliverPrototypeExtentListSection.builderTypeWidget(
-                prototypeItemBuilder: () => SizedBox(height: 80.w),
+                prototypeItemBuilder: () => SizedBox(height: 40.w),
                 headerBuilder: (_) => header('SliverPrototypeExtentListSection.builder'),
                 items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                 builder: (c, i, d) => Center(child: Text(d.toString())),
@@ -127,7 +127,7 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
 
               /// SliverPrototypeExtentListSection.static
               SliverPrototypeExtentListSection.staticTypeWidget(
-                prototypeItemBuilder: () => SizedBox(height: 80.w),
+                prototypeItemBuilder: () => SizedBox(height: 40.w),
                 headerBuilder: (_) => header('SliverPrototypeExtentListSection.static'),
                 children: [
                   Center(child: Text(1.toString())),
@@ -281,12 +281,12 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
 
               /// SliverHorizontalGridSection
               SliverHorizontalGridSection.widget(
-                height: 200.w,
+                height: 100.w,
                 backgroundColor: Colors.white,
                 childAspectRatio: 0.45,
                 headerBuilder: (_) => header('SliverHorizontalGridSection'),
                 items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                builder: (c, i, d) => SizedBox(height: 120.w, child: Card(child: Center(child: Text(d.toString())))),
+                builder: (c, i, d) => SizedBox(height: 60.w, child: Card(child: Center(child: Text(d.toString())))),
               ),
 
               /// SliverPersistentHeaderSection
@@ -312,12 +312,12 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
               SliverBoxAdapterSection.widget(
                 headerBuilder: (_) => header('SliverBoxAdapterSection'),
                 data: '数据',
-                builder: (d) => SizedBox(height: 300.w, child: Card(child: Center(child: Text(d.toString())))),
+                builder: (d) => SizedBox(height: 150.w, child: Card(child: Center(child: Text(d.toString())))),
               ),
 
               /// SliverWrapSection
               SliverWrapSection.widget(
-                padding: EdgeInsets.all(20.w),
+                padding: EdgeInsets.all(10.w),
                 headerBuilder: (_) => header('SliverWrapSection'),
                 spacing: 10,
                 runSpacing: 10,
@@ -400,7 +400,7 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
 
   Widget header(String text) {
     return Container(
-      height: 80.w,
+      height: 40.w,
       color: Colors.white,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -408,7 +408,7 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
           Expanded(
             child: Container(alignment: Alignment.center, color: HexColor('#e1e1e1'), child: Text(text, textAlign: TextAlign.center)),
           ),
-          Container(height: 2.w, color: HexColor('#f7f7f7')),
+          Container(height: 1.w, color: HexColor('#f7f7f7')),
         ],
       ),
     );

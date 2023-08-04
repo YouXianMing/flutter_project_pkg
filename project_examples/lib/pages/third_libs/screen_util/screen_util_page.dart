@@ -37,7 +37,7 @@ class ScreenInfoPageState extends NormalStatefulWidgetState<ScreenUtilPage> {
           'Screen orientation:${ScreenUtil().orientation}',
         ],
         builder: (c, i, d) {
-          return Padding(padding: EdgeInsets.all(10.sp), child: Text(d));
+          return Padding(padding: EdgeInsets.all(5.sp), child: Text(d));
         },
       ),
     );

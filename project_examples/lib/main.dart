@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
     appCurrentRouteStyle = AppRouteStyle.namedRouteType;
 
     // 设计用的尺寸
-    const designSize = Size(750, 1134);
+    const designSize = Size(375, 667);
 
     // 根据路由风格的不同初始化方式也不一样
     switch (appCurrentRouteStyle) {

@@ -40,7 +40,7 @@ class InformationViewPageState extends NormalStatefulWidgetState<InformationView
   Widget itemWidget(String title, Function? onTap) {
     return Container(
       alignment: Alignment.centerLeft,
-      padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 30.w, bottom: 30.w),
+      padding: EdgeInsets.only(left: 10.w, right: 10.w, top: 15.w, bottom: 15.w),
       color: Colors.white,
       child: Text(title),
     ).addTapEvent(() {
@@ -179,7 +179,7 @@ class InformationViewTestModel {
                   children: [
                     WidgetsFactory.text('标题', fontSize: 18, fontWeight: FontWeight.bold).addPadding(const EdgeInsets.only(top: 10)),
                     WidgetsFactory.text('这是一个AlertView,用于展示警告信息!', fontSize: 14, textAlign: TextAlign.center)
-                        .addPaddingOnly(left: 25.w, right: 25.w, top: 30.w, bottom: 40.w),
+                        .addPaddingOnly(left: 12.w, right: 12.w, top: 15.w, bottom: 20.w),
                     Container(height: 0.5, color: Colors.grey.withOpacity(0.2)),
                     Row(
                       children: [

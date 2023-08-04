@@ -107,7 +107,7 @@ class LoadingAnimationsPageState extends NormalStatefulWidgetState<LoadingAnimat
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  IndicatorWidget(config: WateryDesertIndicatorConfig(indicatorType: d, size: 100.w, color: Util.randomOpaqueColor)),
+                  IndicatorWidget(config: WateryDesertIndicatorConfig(indicatorType: d, size: 50.w, color: Util.randomOpaqueColor)),
                   const SizedBox(height: 20),
                   WidgetsFactory.text(d.toString().split('.').last, fontSize: 12),
                 ],

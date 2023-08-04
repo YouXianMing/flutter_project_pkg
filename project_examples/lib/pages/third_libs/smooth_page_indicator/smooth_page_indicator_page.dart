@@ -67,7 +67,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
   Widget _widgetJumpingDotEffect(int count) {
     return Column(
       children: [
-        WidgetsFactory.text('JumpingDotEffect', color: Colors.black54).addPaddingOnly(top: 10.w, bottom: 10.w),
+        WidgetsFactory.text('JumpingDotEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
           controller: controller,
           count: count,
@@ -80,7 +80,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
   Widget _widgetColorTransitionEffect(int count) {
     return Column(
       children: [
-        WidgetsFactory.text('ColorTransitionEffect', color: Colors.black54).addPaddingOnly(top: 10.w, bottom: 10.w),
+        WidgetsFactory.text('ColorTransitionEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
           controller: controller,
           count: count,
@@ -93,7 +93,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
   Widget _widgetExpandingDotsEffect(int count) {
     return Column(
       children: [
-        WidgetsFactory.text('ExpandingDotsEffect', color: Colors.black54).addPaddingOnly(top: 10.w, bottom: 10.w),
+        WidgetsFactory.text('ExpandingDotsEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
           controller: controller,
           count: count,
@@ -106,7 +106,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
   Widget _widgetScaleEffect(int count) {
     return Column(
       children: [
-        WidgetsFactory.text('ScaleEffect', color: Colors.black54).addPaddingOnly(top: 10.w, bottom: 10.w),
+        WidgetsFactory.text('ScaleEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
           controller: controller,
           count: count,
@@ -119,7 +119,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
   Widget _widgetSlideEffect(int count) {
     return Column(
       children: [
-        WidgetsFactory.text('SlideEffect', color: Colors.black54).addPaddingOnly(top: 10.w, bottom: 10.w),
+        WidgetsFactory.text('SlideEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
           controller: controller,
           count: count,
@@ -132,7 +132,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
   Widget _widgetWormEffect(int count) {
     return Column(
       children: [
-        WidgetsFactory.text('WormEffect', color: Colors.black54).addPaddingOnly(top: 10.w, bottom: 10.w),
+        WidgetsFactory.text('WormEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
           controller: controller,
           count: count,
@@ -145,7 +145,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
   Widget _widgetSwapEffect(int count) {
     return Column(
       children: [
-        WidgetsFactory.text('SwapEffect', color: Colors.black54).addPaddingOnly(top: 10.w, bottom: 10.w),
+        WidgetsFactory.text('SwapEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
           controller: controller,
           count: count,
@@ -158,7 +158,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
   Widget _widgetScrollingDotsEffect(int count) {
     return Column(
       children: [
-        WidgetsFactory.text('ScrollingDotsEffect', color: Colors.black54).addPaddingOnly(top: 10.w, bottom: 10.w),
+        WidgetsFactory.text('ScrollingDotsEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
           controller: controller,
           count: count,
@@ -179,7 +179,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
   Widget _widgetCustomizableEffect(int count) {
     return Column(
       children: [
-        WidgetsFactory.text('CustomizableEffect', color: Colors.black54).addPaddingOnly(top: 10.w, bottom: 10.w),
+        WidgetsFactory.text('CustomizableEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
           controller: controller,
           count: count,
@@ -214,7 +214,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
   Widget _widgetPageView(List<Widget> widgets) {
     return Container(
       height: 120,
-      margin: EdgeInsets.only(top: 20.w, bottom: 20.w),
+      margin: EdgeInsets.only(top: 10.w, bottom: 10.w),
       child: PageView.builder(
         controller: controller,
         itemCount: infiniteLooping ? null : widgets.length,

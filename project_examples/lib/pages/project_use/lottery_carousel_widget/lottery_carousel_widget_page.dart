@@ -50,14 +50,14 @@ class LotteryCarouselWidgetPageState extends NormalStatefulWidgetState<LotteryCa
             ],
           ),
           OpacityButtonWidget(
-            margin: EdgeInsets.only(top: 30.w),
+            margin: EdgeInsets.only(top: 15.w),
             onTap: () => manager.endRotatingAtPercent(Util.randomPercent),
-            child: WidgetsFactory.text('停止', fontSize: 42.sp, fontWeight: FontWeight.bold, color: Colors.red),
+            child: WidgetsFactory.text('停止', fontSize: 21.sp, fontWeight: FontWeight.bold, color: Colors.red),
           ),
           OpacityButtonWidget(
-            margin: EdgeInsets.only(top: 30.w),
+            margin: EdgeInsets.only(top: 15.w),
             onTap: () => manager.reset(),
-            child: WidgetsFactory.text('重置', fontSize: 42.sp, fontWeight: FontWeight.bold, color: Colors.blue),
+            child: WidgetsFactory.text('重置', fontSize: 21.sp, fontWeight: FontWeight.bold, color: Colors.blue),
           ),
         ],
       ),

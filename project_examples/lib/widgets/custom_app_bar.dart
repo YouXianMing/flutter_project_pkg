@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 ///
 class NormalAppBar extends BaseAppBar {
   static Widget titleWidget(String text) {
-    return WidgetsFactory.text(text, fontSize: 32.sp, maxLines: 2, overflow: TextOverflow.ellipsis, textAlign: TextAlign.center);
+    return WidgetsFactory.text(text, fontSize: 16.sp, maxLines: 2, overflow: TextOverflow.ellipsis, textAlign: TextAlign.center);
   }
 
   /// title的widget,可以是图片
