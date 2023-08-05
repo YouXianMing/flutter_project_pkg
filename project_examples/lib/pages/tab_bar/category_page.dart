@@ -16,6 +16,6 @@ class CategoryPageState extends NormalStatefulWidgetState<CategoryPage> {
 
   @override
   Widget body(BuildContext context) {
-    return const Center(child: Text('Category'));
+    return Center(child: Text('tab_类目'.tr));
   }
 }

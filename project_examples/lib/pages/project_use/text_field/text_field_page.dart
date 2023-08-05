@@ -1,5 +1,4 @@
 import 'package:project_base_libs_pkg/base_file_headers.dart';
-import 'package:project_base_libs_pkg/third_lib_get.dart';
 import 'package:project_examples/pages/project_use/text_field/widgets/alert_field.dart';
 import 'package:project_examples/pages/project_use/text_field/widgets/alert_view_button.dart';
 import 'package:project_examples/pages/project_use/text_field/widgets/text_field_alert_view.dart';

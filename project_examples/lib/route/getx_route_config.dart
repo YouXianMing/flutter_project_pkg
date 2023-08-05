@@ -40,6 +40,7 @@ import 'package:project_examples/pages/project_use/sliver_sections_refresh_widge
 import 'package:project_examples/pages/project_use/sp_val/sp_val_page.dart';
 import 'package:project_examples/pages/project_use/text_field/text_field_page.dart';
 import 'package:project_examples/pages/project_use/toast_widget/toast_widget_page.dart';
+import 'package:project_examples/pages/tab_bar/language_page.dart';
 import 'package:project_examples/pages/tab_bar/tab_bar_page.dart';
 import 'package:project_examples/pages/third_libs/cached_network_image/cached_network_image_page.dart';
 import 'package:project_examples/pages/third_libs/carousel_slider/carousel_slider_page.dart';
@@ -223,6 +224,8 @@ class RouteConfig {
                 return const MarqueerPage();
               case PageRouteEnum.flutterPickerPage:
                 return const FlutterPickerPage();
+              case PageRouteEnum.languagePage:
+                return const LanguagePage();
             }
           },
         ),

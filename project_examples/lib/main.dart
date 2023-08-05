@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project_examples/languages/app_language.dart';
+import 'package:project_examples/languages/app_translations.dart';
 import 'package:project_examples/pages/tab_bar/tab_bar_page.dart';
 import 'package:project_examples/pages/unknown/unknown_page.dart';
 import 'package:project_examples/route/getx_route_config.dart';
@@ -7,13 +9,20 @@ import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_base_libs_pkg/third_lib_get.dart';
 import 'package:project_examples/route/page_route_enum.dart';
 import 'package:project_examples/app_route_style.dart';
+import 'package:project_examples/utils/app_data_init.dart';
+import 'package:project_examples/utils/app_info.dart';
 import 'package:project_examples/widgets/launch_image_widget.dart';
 
 void main() async {
   /// 确保所有的插件都初始化好了
   WidgetsFlutterBinding.ensureInitialized();
-  await SpVal.initialized();
+
+  /// 相关数据初始化
+  await AppDataInit.start();
+
+  /// 路由与枚举值映射操作
   pageRouteEnumPrepare();
+
   runApp(const MyApp());
 }
 
@@ -34,6 +43,8 @@ class MyApp extends StatelessWidget {
         return ScreenUtilInit(
           designSize: designSize,
           builder: (context, wgt) => GetMaterialApp(
+            translations: AppTranslations(),
+            locale: AppInfo.language == AppLanguage.chinese ? AppLanguage.chinese.locale : AppLanguage.english.locale,
             theme: ThemeData.light(),
             debugShowCheckedModeBanner: false,
             builder: (context, widget) => _widgetMain(context, widget),
@@ -50,6 +61,8 @@ class MyApp extends StatelessWidget {
         return ScreenUtilInit(
           designSize: designSize,
           builder: (context, wgt) => GetMaterialApp(
+            translations: AppTranslations(),
+            locale: AppInfo.language == AppLanguage.chinese ? AppLanguage.chinese.locale : AppLanguage.english.locale,
             theme: ThemeData.light(),
             debugShowCheckedModeBanner: false,
             builder: (context, widget) => _widgetMain(context, widget),

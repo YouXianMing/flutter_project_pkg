@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
-import 'package:project_base_libs_pkg/third_lib_get.dart';
 import 'package:project_examples/file_headers.dart';
 
 class AnimationsManagerCurvesPage extends NormalStatefulWidget {

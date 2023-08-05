@@ -1,6 +1,5 @@
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
-import 'package:project_base_libs_pkg/third_lib_get.dart';
 import 'package:project_base_libs_pkg/third_lib_flutter_sticky_header.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_examples/file_headers.dart';

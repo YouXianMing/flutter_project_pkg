@@ -16,6 +16,6 @@ class CartPageState extends NormalStatefulWidgetState<CartPage> {
 
   @override
   Widget body(BuildContext context) {
-    return const Center(child: Text('Cart'));
+    return Center(child: Text('tab_购物车'.tr));
   }
 }

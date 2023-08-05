@@ -2,7 +2,6 @@ import 'package:project_examples/base/widget_callback_mixin.dart';
 import 'package:project_examples/route/page_route_enum.dart';
 import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_base_libs_pkg/base/others/sliver_section/sliver_list/sliver_list_section.dart';
-import 'package:project_base_libs_pkg/third_lib_get.dart';
 import 'package:project_examples/file_headers.dart';
 
 class AnimationListPage extends NormalStatefulWidget {

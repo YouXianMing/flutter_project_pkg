@@ -22,7 +22,7 @@ class TabBarButtonView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       // 标题
-      List<String> titles = ['Home', 'Category', 'Cart', 'Account'];
+      List<String> titles = ['tab_首页'.tr, 'tab_类目'.tr, 'tab_购物车'.tr, 'tab_账户'.tr];
       List<IconData> iconDatas = [Icons.home, Icons.category, Icons.add_shopping_cart, Icons.account_circle_rounded];
 
       // 按钮控件

@@ -41,6 +41,7 @@ import 'package:project_examples/pages/project_use/sliver_sections_refresh_widge
 import 'package:project_examples/pages/project_use/sp_val/sp_val_page.dart';
 import 'package:project_examples/pages/project_use/text_field/text_field_page.dart';
 import 'package:project_examples/pages/project_use/toast_widget/toast_widget_page.dart';
+import 'package:project_examples/pages/tab_bar/language_page.dart';
 import 'package:project_examples/pages/third_libs/cached_network_image/cached_network_image_page.dart';
 import 'package:project_examples/pages/third_libs/carousel_slider/carousel_slider_page.dart';
 import 'package:project_examples/pages/third_libs/confetti_widget/confetti_widget_page.dart';
@@ -148,6 +149,9 @@ enum PageRouteEnum {
   futureBuilderPage,
   isolatePage,
   streamBuilderPage,
+
+  /* 其他 */
+  languagePage,
 }
 
 /// pageRouteEnum的准备操作,请放在main里
@@ -309,6 +313,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => MarqueerPage(arguments: arguments));
       case PageRouteEnum.flutterPickerPage:
         return MaterialPageRoute(settings: settings, builder: (_) => FlutterPickerPage(arguments: arguments));
+      case PageRouteEnum.languagePage:
+        return MaterialPageRoute(settings: settings, builder: (_) => LanguagePage(arguments: arguments));
     }
   }
 
@@ -529,6 +535,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.flutterPickerPage:
         pageRouteName = _pageRouteNameFrom(FlutterPickerPage);
+        break;
+      case PageRouteEnum.languagePage:
+        pageRouteName = _pageRouteNameFrom(LanguagePage);
         break;
     }
 
