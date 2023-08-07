@@ -1,8 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-
-const bool _isReleaseCheck = bool.fromEnvironment('dart.vm.product');
 
 extension WidgetExtensions on Widget {
   /// 控件添加点击事件(用GestureDetector包裹)
@@ -198,7 +197,7 @@ extension WidgetExtensions on Widget {
 
   /// (Debug) debug用,给控件添加边框
   Widget addDebugContainer({Color? color, Color? borderColor, double borderWidth = 1}) {
-    return _isReleaseCheck
+    return kReleaseMode
         ? this
         : Container(
             decoration:

@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base/managers/maybe_pop_manager.dart';
+import 'package:project_base_libs_pkg/base/tools/app_print.dart';
 import 'package:project_examples/base/normal_page_build_mixin.dart';
 import 'package:project_base_libs_pkg/base/tools/hex_color.dart';
 import 'package:project_base_libs_pkg/base/widgets/base_stateful_widget.dart';
@@ -33,4 +35,10 @@ abstract class NormalStatefulWidgetState<T extends NormalStatefulWidget> extends
 
   @override
   Future? checkWillPop(BuildContext context) => Future.value(MaybePopManager.getInstance.canPop());
+
+  @override
+  void dispose() {
+    super.dispose();
+    if (kDebugMode) print('⚪️ $widget dispose ⚪️');
+  }
 }
