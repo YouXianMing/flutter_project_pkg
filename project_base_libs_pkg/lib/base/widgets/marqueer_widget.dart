@@ -151,7 +151,7 @@ class MarqueerWidget extends StatefulWidget {
   final Duration restartAfterInteractionDuration;
 
   /// Controller
-  final MarqueerController? controller;
+  final MarqueerWidgetController? controller;
 
   /// auto start
   final bool autoStart;
@@ -381,8 +381,8 @@ class _MarqueerWidgetState extends State<MarqueerWidget> {
   }
 }
 
-class MarqueerController {
-  MarqueerController();
+class MarqueerWidgetController {
+  MarqueerWidgetController();
 
   final _marquees = <_MarqueerWidgetState>[];
 
