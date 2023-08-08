@@ -101,6 +101,7 @@ export 'base/widgets/base_app_bar.dart'; // appBar
 export 'base/widgets/expandable_widget.dart'; // 展开缩放组件
 export 'base/widgets/lazy_load_indexed_stack.dart'; // 懒加载版本的IndexedStack
 export 'base/widgets/animated_rotate.dart'; // 旋转动画控件
+export 'base/widgets/animated_scale_repeat.dart'; // 缩放重复动画控件
 export 'base/widgets/lottery_carousel_widget.dart'; // 轮盘抽奖控件
 export 'base/widgets/base_page_build_mixin.dart'; // 页面构建mixin
 export 'base/widgets/button/base_button_widget.dart'; // 按钮基础控件
@@ -126,3 +127,4 @@ export 'base/widgets/parallax_carousel_slider_widget.dart'; // 视差效果组�
 export 'base/widgets/slidable_widget/action_pane_builder.dart'; // 侧滑组件pane构造器
 export 'base/widgets/slidable_widget/slidable_widget.dart'; // slidable封装
 export 'base/widgets/slidable_widget/slidable_widget_mixin.dart'; // slidable无侵入mixin
+export 'base/widgets/marqueer_widget.dart'; // MarqueerWidget
