@@ -127,4 +127,4 @@ export 'base/widgets/parallax_carousel_slider_widget.dart'; // 视差效果组�
 export 'base/widgets/slidable_widget/action_pane_builder.dart'; // 侧滑组件pane构造器
 export 'base/widgets/slidable_widget/slidable_widget.dart'; // slidable封装
 export 'base/widgets/slidable_widget/slidable_widget_mixin.dart'; // slidable无侵入mixin
-export 'base/widgets/marqueer_widget.dart'; // MarqueerWidget
+export 'base/widgets/marquee_scroll_widget.dart'; // MarqueerScrollWidget

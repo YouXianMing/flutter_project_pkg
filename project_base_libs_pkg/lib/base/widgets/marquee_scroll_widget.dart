@@ -9,7 +9,7 @@ import 'package:flutter/widgets.dart';
 // https://pub.dev/packages/marqueer (https://github.com/GeceGibi/marqueer)
 // 在上述开源库代码基础上进行了部分改动,支持垂直方向的移动
 
-enum MarqueerMoveDirection {
+enum MarqueeScrollDirection {
   /// scrollDirection = Axis.horizontal 从右往左移动
   /// scrollDirection = Axis.vertical   从下往上移动
   rtl,
@@ -19,15 +19,16 @@ enum MarqueerMoveDirection {
   ltr,
 }
 
-class MarqueerWidget extends StatefulWidget {
-  MarqueerWidget({
+/// 注意: 作为child的组件必须有宽高才行,否则会导致加载卡死现象(因为如果组件没有宽高,则会加载无数的组件导致卡死)
+class MarqueeScrollWidget extends StatefulWidget {
+  MarqueeScrollWidget({
     Key? key,
     required Widget child,
     Widget Function(BuildContext context, int index)? separatorBuilder,
     this.pps = 15.0,
     this.infinity = true,
     this.autoStart = true,
-    this.moveDirection = MarqueerMoveDirection.rtl,
+    this.direction = MarqueeScrollDirection.rtl,
     this.scrollDirection = Axis.horizontal,
     this.interaction = true,
     this.restartAfterInteractionDuration = const Duration(seconds: 3),
@@ -53,7 +54,7 @@ class MarqueerWidget extends StatefulWidget {
             if (separatorBuilder != null) {
               final children = [child];
 
-              if (moveDirection == MarqueerMoveDirection.rtl) {
+              if (direction == MarqueeScrollDirection.rtl) {
                 children.add(separatorBuilder(context, index));
               } else {
                 children.insert(0, separatorBuilder(context, index));
@@ -72,14 +73,14 @@ class MarqueerWidget extends StatefulWidget {
         ),
         super(key: key);
 
-  MarqueerWidget.builder({
+  MarqueeScrollWidget.builder({
     Key? key,
     required Widget Function(BuildContext context, int index) itemBuilder,
     Widget Function(BuildContext context, int index)? separatorBuilder,
     int? itemCount,
     this.pps = 15.0,
     this.autoStart = true,
-    this.moveDirection = MarqueerMoveDirection.rtl,
+    this.direction = MarqueeScrollDirection.rtl,
     this.scrollDirection = Axis.horizontal,
     this.interaction = true,
     this.restartAfterInteractionDuration = const Duration(seconds: 3),
@@ -108,7 +109,7 @@ class MarqueerWidget extends StatefulWidget {
             if (separatorBuilder != null && index + 1 != itemCount) {
               final children = [widget];
 
-              if (moveDirection == MarqueerMoveDirection.rtl) {
+              if (direction == MarqueeScrollDirection.rtl) {
                 children.add(separatorBuilder(context, index));
               } else {
                 children.insert(0, separatorBuilder(context, index));
@@ -129,10 +130,10 @@ class MarqueerWidget extends StatefulWidget {
 
   final SliverChildDelegate delegate;
 
-  /// Moved direction
-  final MarqueerMoveDirection moveDirection;
-
   /// Direction
+  final MarqueeScrollDirection direction;
+
+  /// Scroll direction
   final Axis scrollDirection;
 
   /// List View Padding
@@ -151,7 +152,7 @@ class MarqueerWidget extends StatefulWidget {
   final Duration restartAfterInteractionDuration;
 
   /// Controller
-  final MarqueerWidgetController? controller;
+  final MarqueeScrollWidgetController? controller;
 
   /// auto start
   final bool autoStart;
@@ -159,7 +160,7 @@ class MarqueerWidget extends StatefulWidget {
   /// Auto Start after duration
   final Duration autoStartAfter;
 
-  ///
+  /// Infinity scroll
   final bool infinity;
 
   /// callbacks
@@ -169,10 +170,10 @@ class MarqueerWidget extends StatefulWidget {
   final void Function(int index)? onChangeItemInViewPort;
 
   @override
-  State<MarqueerWidget> createState() => _MarqueerWidgetState();
+  State<MarqueeScrollWidget> createState() => _MarqueeScrollWidgetState();
 }
 
-class _MarqueerWidgetState extends State<MarqueerWidget> {
+class _MarqueeScrollWidgetState extends State<MarqueeScrollWidget> {
   final controller = ScrollController();
 
   var step = 0.0;
@@ -336,7 +337,7 @@ class _MarqueerWidgetState extends State<MarqueerWidget> {
 
   bool get isWebOrDesktop => kIsWeb || (!Platform.isAndroid && !Platform.isIOS);
 
-  bool get isReverse => widget.moveDirection == MarqueerMoveDirection.ltr;
+  bool get isReverse => widget.direction == MarqueeScrollDirection.ltr;
 
   @override
   void dispose() {
@@ -381,16 +382,16 @@ class _MarqueerWidgetState extends State<MarqueerWidget> {
   }
 }
 
-class MarqueerWidgetController {
-  MarqueerWidgetController();
+class MarqueeScrollWidgetController {
+  MarqueeScrollWidgetController();
 
-  final _marquees = <_MarqueerWidgetState>[];
+  final _marquees = <_MarqueeScrollWidgetState>[];
 
-  void _attach(_MarqueerWidgetState marqueer) {
+  void _attach(_MarqueeScrollWidgetState marqueer) {
     _marquees.add(marqueer);
   }
 
-  void _detach(_MarqueerWidgetState marqueer) {
+  void _detach(_MarqueeScrollWidgetState marqueer) {
     _marquees.remove(marqueer);
   }
 

@@ -30,13 +30,13 @@ class LaunchImageWidgetState extends State<LaunchImageWidget> {
     return Obx(() {
       switch (status.value) {
         case LaunchImageWidgetStatus.idle:
-          return AnimatedOpacity(opacity: 1, duration: Duration.zero, child: _widgetText());
+          return AnimatedOpacity(opacity: 1, duration: Duration.zero, child: _widgetItem());
 
         case LaunchImageWidgetStatus.start:
           return AnimatedOpacity(
             opacity: 0,
-            duration: const Duration(milliseconds: 250),
-            child: _widgetText(),
+            duration: const Duration(milliseconds: 550),
+            child: _widgetItem(),
             onEnd: () => status.value = LaunchImageWidgetStatus.didHide,
           );
 
@@ -46,13 +46,24 @@ class LaunchImageWidgetState extends State<LaunchImageWidget> {
     });
   }
 
-  Widget _widgetText() {
+  Widget _widgetItem() {
     return Container(
       width: double.infinity,
       height: double.infinity,
       alignment: Alignment.center,
       color: Colors.white,
-      child: WidgetsFactory.text('YouXianMing', fontSize: 20.sp, color: Colors.blueAccent),
+      child: Stack(
+        children: [
+          MarqueeScrollWidget(
+            scrollDirection: Axis.vertical,
+            child: AspectRatio(
+              aspectRatio: 752 / 3000,
+              child: Util.image('login_longpic_background.webp').addOpacity(0.25),
+            ),
+          ),
+          Center(child: WidgetsFactory.text('YouXianMing', fontSize: 20.sp, color: Colors.blueAccent)),
+        ],
+      ),
     ).addDefaultTextStyle();
   }
 }
