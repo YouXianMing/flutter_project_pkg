@@ -31,8 +31,8 @@ class AsyncKnowledgePageState extends NormalStatefulWidgetState<AsyncKnowledgePa
         SliverListSection(
           padding: const EdgeInsets.only(bottom: 49),
           items: [
-            const MenuItemModel(title: 'async 与 await', pageRouteEnum: PageRouteEnum.asyncAwaitExamplePage),
-            const MenuItemModel(title: 'Dart的事件循环', pageRouteEnum: PageRouteEnum.dartAsyncPage),
+            MenuItemModel(title: 'async 与 await'.tr, pageRouteEnum: PageRouteEnum.asyncAwaitExamplePage),
+            MenuItemModel(title: 'Dart的事件循环'.tr, pageRouteEnum: PageRouteEnum.dartAsyncPage),
             const MenuItemModel(title: 'Future', pageRouteEnum: PageRouteEnum.dartFuturePage),
             const MenuItemModel(title: 'Stream', pageRouteEnum: PageRouteEnum.dartStreamPage),
             const MenuItemModel(title: 'FutureBuilder', pageRouteEnum: PageRouteEnum.futureBuilderPage),
