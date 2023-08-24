@@ -1,16 +1,25 @@
 import 'dart:convert';
+
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
+import 'package:path/path.dart' as p;
 
 extension StringExtensions on String {
   // https://pub.flutter-io.cn/packages/crypto
   String get md5String => md5.convert(const Utf8Encoder().convert(this)).toString();
+
   String get sha1String => sha1.convert(const Utf8Encoder().convert(this)).toString();
+
   String get sha224String => sha224.convert(const Utf8Encoder().convert(this)).toString();
+
   String get sha256String => sha256.convert(const Utf8Encoder().convert(this)).toString();
+
   String get sha384String => sha384.convert(const Utf8Encoder().convert(this)).toString();
+
   String get sha512String => sha512.convert(const Utf8Encoder().convert(this)).toString();
+
   String get sha512224String => sha512224.convert(const Utf8Encoder().convert(this)).toString();
+
   String get sha512256String => sha512256.convert(const Utf8Encoder().convert(this)).toString();
 
   /// 计算文本宽度
@@ -19,6 +28,23 @@ extension StringExtensions on String {
       ..layout(minWidth: 0, maxWidth: double.infinity);
     return textPainter.size.width;
   }
+}
+
+extension StringPathExtensions on String {
+  /// 获取字符串路径的后缀名
+  String pathExtension({int level = 1}) => p.extension(this, level);
+
+  /// 获取字符串路径的文件夹名字
+  String get pathDirName => p.dirname(this);
+
+  /// 获取字符串路径的文件名字
+  String get pathBaseName => p.basename(this);
+
+  /// 获取字符串路径的文件名字,不带后缀名字
+  String get pathBasenameWithoutExtension => p.basenameWithoutExtension(this);
+
+  /// 获取字符串路径的分割后的数组
+  List<String> get pathSplit => p.split(this);
 }
 
 extension StringRegExpExtensions on String {
