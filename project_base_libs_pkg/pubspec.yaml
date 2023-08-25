@@ -51,6 +51,10 @@ dependencies:
   # https://pub.flutter-io.cn/packages/path
   path: ^1.8.2
 
+  # [mrgnhnt.com] 转换命名方式
+  # https://pub.flutter-io.cn/packages/change_case
+  change_case: ^1.1.0
+
   # [flutter.dev] 本地持久化工具
   # https://pub.flutter-io.cn/packages/shared_preferences
   shared_preferences: 2.0.15

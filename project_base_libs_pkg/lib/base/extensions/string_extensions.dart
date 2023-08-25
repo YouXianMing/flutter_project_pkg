@@ -1,11 +1,62 @@
 import 'dart:convert';
-
+import 'package:change_case/change_case.dart';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as p;
 
 extension StringExtensions on String {
-  // https://pub.flutter-io.cn/packages/crypto
+  /// 计算文本宽度
+  double widthWithTextStyle(TextStyle style, {TextDirection direction = TextDirection.ltr}) {
+    final TextPainter textPainter = TextPainter(text: TextSpan(text: this, style: style), maxLines: 1, textDirection: direction)
+      ..layout(minWidth: 0, maxWidth: double.infinity);
+    return textPainter.size.width;
+  }
+}
+
+// https://pub.dev/packages/change_case
+extension StringChangeCaseExtensions on String {
+  /// 'hello_world' -> 'helloWorld'
+  String get camelCaseString => toCamelCase();
+
+  /// 'hello world' -> 'Hello World'
+  String get capitalCaseString => toCapitalCase();
+
+  /// 'hello world' -> 'HELLO_WORLD'
+  String get constantCaseString => toConstantCase();
+
+  /// 'hello World' -> 'hello.world'
+  String get dotCaseString => toDotCase();
+
+  /// 'hello world' -> 'Hello-World'
+  String get headerCaseString => toHeaderCase();
+
+  /// 'Hello-World' -> 'hello world'
+  String get noCaseString => toNoCase();
+
+  /// 'hello World' -> 'hello-world'
+  String get paramCaseString => toParamCase();
+
+  /// 'hello_world' -> 'HelloWorld'
+  String get pascalCaseString => toPascalCase();
+
+  /// 'hello World' -> 'hello/world'
+  String pathCaseString([String? separator]) => toPathCase(separator);
+
+  /// 'hello World' -> 'Hello world'
+  String get sentenceCaseString => toSentenceCase();
+
+  /// 'hello World' -> 'hello_world'
+  String get snakeCaseString => toSnakeCase();
+
+  /// 'hello world' -> 'Hello World'
+  String get titleCaseString => toTitleCase();
+
+  /// 'Hello World' -> 'hELLO wORLD'
+  String get swapCaseString => toSwapCase();
+}
+
+// https://pub.flutter-io.cn/packages/crypto
+extension StringCrytoExtensions on String {
   String get md5String => md5.convert(const Utf8Encoder().convert(this)).toString();
 
   String get sha1String => sha1.convert(const Utf8Encoder().convert(this)).toString();
@@ -21,13 +72,6 @@ extension StringExtensions on String {
   String get sha512224String => sha512224.convert(const Utf8Encoder().convert(this)).toString();
 
   String get sha512256String => sha512256.convert(const Utf8Encoder().convert(this)).toString();
-
-  /// 计算文本宽度
-  double widthWithTextStyle(TextStyle style, {TextDirection direction = TextDirection.ltr}) {
-    final TextPainter textPainter = TextPainter(text: TextSpan(text: this, style: style), maxLines: 1, textDirection: direction)
-      ..layout(minWidth: 0, maxWidth: double.infinity);
-    return textPainter.size.width;
-  }
 }
 
 extension StringPathExtensions on String {
