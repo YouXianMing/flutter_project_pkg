@@ -1,7 +1,8 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/base/normal_page_build_mixin.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_examples/file_headers.dart';
+import 'package:project_examples/widgets/app_button.dart';
 
 class InformationViewPage extends NormalStatefulWidget {
   @override
@@ -32,6 +33,8 @@ class InformationViewPageState extends NormalStatefulWidgetState<InformationView
           InformationViewTestModel.use5(context, this),
           InformationViewTestModel.use6(context, this),
           InformationViewTestModel.use7(context, this),
+          InformationViewTestModel.use8(context, this),
+          InformationViewTestModel.use9(context, this),
         ], builder: (c, i, d) => itemWidget((d as InformationViewTestModel).title, d.tap)),
       ],
     );
@@ -133,7 +136,7 @@ class InformationViewTestModel {
                     ]),
                     child: IndicatorWidget(
                       config: CytrynIndicatorConfig(
-                        type: CytrynIndicatorType.bouncingGridCircle,
+                        type: CytrynIndicatorType.bouncingLineSquare,
                         borderColor: Colors.transparent,
                         backgroundColor: Colors.blueGrey,
                       ),
@@ -247,7 +250,7 @@ class InformationViewTestModel {
                         Expanded(
                           child: CustomScrollView(
                             slivers: [
-                              SliverListSection.builderTypeWidget(
+                              SliverGridSection.builderTypeWidget(
                                 items: [
                                   Util.randomWordPairAsCamelCase,
                                   Util.randomWordPairAsCamelCase,
@@ -262,12 +265,30 @@ class InformationViewTestModel {
                                   Util.randomWordPairAsCamelCase,
                                   Util.randomWordPairAsCamelCase,
                                   Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
                                 ],
-                                builder: (c, i, d) => WidgetsFactory.text(d, color: Util.randomOpaqueColor).addDefaultTextStyle(),
+                                builder: (c, i, d) => Center(
+                                  child: WidgetsFactory.text((d as String).capitalCaseString,
+                                      color: Util.randomOpaqueColor, textAlign: TextAlign.center),
+                                ),
+                                crossAxisCount: 2,
+                                childAspectRatio: 3,
                               ),
                               SliverBoxAdapterSection.widget(builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
                             ],
-                          ),
+                          ).addDefaultTextStyle(),
                         ),
                       ],
                     ),
@@ -315,12 +336,25 @@ class InformationViewTestModel {
                                   Util.randomWordPairAsCamelCase,
                                   Util.randomWordPairAsCamelCase,
                                   Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
+                                  Util.randomWordPairAsCamelCase,
                                 ],
-                                builder: (c, i, d) => WidgetsFactory.text(d, color: Util.randomOpaqueColor).addDefaultTextStyle(),
+                                builder: (c, i, d) => WidgetsFactory.text((d as String).capitalCaseString, color: Util.randomOpaqueColor)
+                                    .addPaddingOnly(left: 10, top: 10, bottom: 10),
                               ),
-                              SliverBoxAdapterSection.widget(builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
                             ],
-                          ),
+                          ).addDefaultTextStyle(),
                         ),
                         // 线条
                         Container(height: 1, color: Colors.grey.withOpacity(0.2)),
@@ -360,7 +394,7 @@ class InformationViewTestModel {
             return Row(
               children: [
                 Flexible(
-                  flex: 3,
+                  flex: 1,
                   child: Container(
                     color: Colors.white,
                     child: Column(
@@ -368,6 +402,7 @@ class InformationViewTestModel {
                         Expanded(
                           child: CustomScrollView(
                             slivers: [
+                              SliverBoxAdapterSection.widget(builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.top)),
                               SliverListSection.builderTypeWidget(
                                 items: [
                                   Util.randomWordPairAsCamelCase,
@@ -384,17 +419,25 @@ class InformationViewTestModel {
                                   Util.randomWordPairAsCamelCase,
                                   Util.randomWordPairAsCamelCase,
                                 ],
-                                builder: (c, i, d) => WidgetsFactory.text(d, color: Util.randomOpaqueColor).addDefaultTextStyle(),
+                                builder: (c, i, d) => WidgetsFactory.text((d as String).capitalCaseString, color: Util.randomOpaqueColor),
                               ),
-                              SliverBoxAdapterSection.widget(builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
+                              SliverBoxAdapterSection.widget(
+                                builder: (_) => AppButton(
+                                  padding: const EdgeInsets.all(10),
+                                  margin: const EdgeInsets.only(left: 10, right: 10, top: 10),
+                                  style: AppButtonStyle.blue,
+                                  onTap: () => v.hide(),
+                                  child: WidgetsFactory.text('收起', color: Colors.white),
+                                ),
+                              ),
                             ],
-                          ),
+                          ).addDefaultTextStyle(),
                         ),
                       ],
                     ),
                   ),
                 ),
-                Flexible(flex: 5, child: Container(color: Colors.transparent).addTapEvent(() => v.hide())),
+                Flexible(flex: 1, child: Container(color: Colors.transparent).addTapEvent(() => v.hide())),
               ],
             );
           }).show();
@@ -439,11 +482,10 @@ class InformationViewTestModel {
                                   Util.randomWordPairAsCamelCase,
                                   Util.randomWordPairAsCamelCase,
                                 ],
-                                builder: (c, i, d) => WidgetsFactory.text(d, color: Util.randomOpaqueColor).addDefaultTextStyle(),
+                                builder: (c, i, d) => WidgetsFactory.text((d as String).capitalCaseString, color: Util.randomOpaqueColor),
                               ),
-                              SliverBoxAdapterSection.widget(builder: (v) => const SafeAreaPaddingWidget(type: SafeAreaPadding.bottom)),
                             ],
-                          ),
+                          ).addDefaultTextStyle(),
                         ),
                       ],
                     ),
