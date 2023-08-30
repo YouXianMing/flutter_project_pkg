@@ -22,7 +22,7 @@ class LoadingAnimationsPageState extends NormalStatefulWidgetState<LoadingAnimat
   Widget _widgetHeader({required String title}) => Container(
         color: Colors.blueGrey,
         height: 40,
-        child: Center(child: WidgetsFactory.text(title, color: Colors.white)),
+        child: Center(child: WidgetsFactory.text(title.capitalCaseString, color: Colors.white)),
       );
 
   @override
@@ -39,11 +39,12 @@ class LoadingAnimationsPageState extends NormalStatefulWidgetState<LoadingAnimat
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IndicatorWidget(config: SpinKitIndicatorConfig(type: d, color: Util.randomOpaqueColor)),
-                  const SizedBox(height: 20),
-                  WidgetsFactory.text(d.toString().split('.').last, fontSize: 12),
+                  _widgetAnimationItemTitle(d.toString().split('.').last),
                 ],
               ),
-            );
+            ).addTapEvent(() {
+              appPrint(d);
+            }, includeContainer: true);
           },
         ),
         SliverGridSection.builderTypeWidget(
@@ -74,11 +75,12 @@ class LoadingAnimationsPageState extends NormalStatefulWidgetState<LoadingAnimat
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
-                  WidgetsFactory.text(d.toString().split('.').last, fontSize: 12),
+                  _widgetAnimationItemTitle(d.toString().split('.').last),
                 ],
               ),
-            );
+            ).addTapEvent(() {
+              appPrint(d);
+            }, includeContainer: true);
           },
         ),
         SliverGridSection.builderTypeWidget(
@@ -91,11 +93,12 @@ class LoadingAnimationsPageState extends NormalStatefulWidgetState<LoadingAnimat
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IndicatorWidget(config: CytrynIndicatorConfig(type: d, backgroundColor: Util.randomOpaqueColor)),
-                  const SizedBox(height: 20),
-                  WidgetsFactory.text(d.toString().split('.').last, fontSize: 12),
+                  _widgetAnimationItemTitle(d.toString().split('.').last),
                 ],
               ),
-            );
+            ).addTapEvent(() {
+              appPrint(d);
+            }, includeContainer: true);
           },
         ),
         SliverGridSection.builderTypeWidget(
@@ -108,14 +111,21 @@ class LoadingAnimationsPageState extends NormalStatefulWidgetState<LoadingAnimat
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IndicatorWidget(config: WateryDesertIndicatorConfig(indicatorType: d, size: 50.w, color: Util.randomOpaqueColor)),
-                  const SizedBox(height: 20),
-                  WidgetsFactory.text(d.toString().split('.').last, fontSize: 12),
+                  _widgetAnimationItemTitle(d.toString().split('.').last),
                 ],
               ),
-            );
+            ).addTapEvent(() {
+              appPrint(d);
+            }, includeContainer: true);
           },
         ),
+        SliverBoxAdapterSection.widget(builder: (_) => SafeAreaPaddingWidget.bottom()),
       ],
     );
+  }
+
+  Widget _widgetAnimationItemTitle(String text) {
+    return WidgetsFactory.text(text.toString().split('.').last.capitalCaseString, fontSize: 12, textAlign: TextAlign.center)
+        .addPaddingOnly(top: 20);
   }
 }
