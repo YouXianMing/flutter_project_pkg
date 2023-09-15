@@ -1,8 +1,8 @@
 import 'package:project_base_libs_pkg/base_file_headers.dart';
-import 'package:project_examples/route/page_route_enum.dart';
-import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/base/widget_callback_mixin.dart';
 import 'package:project_examples/file_headers.dart';
+import 'package:project_examples/route/page_route_enum.dart';
+import 'package:project_examples/widgets/card_item_widget.dart';
 
 class ThirdLibPage extends NormalStatefulWidget {
   @override
@@ -58,6 +58,7 @@ class ThirdLibPageState extends NormalStatefulWidgetState<ThirdLibPage> with Wid
             const MenuItemModel(title: 'FlutterPicker', pageRouteEnum: PageRouteEnum.flutterPickerPage),
             const MenuItemModel(title: 'FlutterAnimatedButton', pageRouteEnum: PageRouteEnum.flutterAnimatedButtonPage),
             const MenuItemModel(title: 'LiquidProgressIndicator', pageRouteEnum: PageRouteEnum.liquidProgressIndicatorPage),
+            const MenuItemModel(title: 'WidgetAndTextAnimator', pageRouteEnum: PageRouteEnum.widgetAndTextAnimatorPage),
           ],
           builder: (c, i, d) => MenuItemWidget(model: d, callback: widgetEventCallback),
         ).buildWidget(),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_examples/pages/animations/animated_widget/animated_widget_page.dart';
 import 'package:project_examples/pages/animations/animation_list_page.dart';
+import 'package:project_examples/pages/animations/animations_manager/animations_manager_page.dart';
 import 'package:project_examples/pages/animations/animations_manager_curves/animations_manager_curves_page.dart';
 import 'package:project_examples/pages/animations/animations_manager_interval/animations_manager_interval_page.dart';
-import 'package:project_examples/pages/animations/animations_manager/animations_manager_page.dart';
 import 'package:project_examples/pages/animations/animations_manager_random/animations_manager_random_page.dart';
 import 'package:project_examples/pages/animations/animations_manager_sequence/animations_manager_sequence_page.dart';
 import 'package:project_examples/pages/animations/base_animated/base_animated_page.dart';
@@ -70,6 +70,7 @@ import 'package:project_examples/pages/third_libs/snapping_sheet/snapping_sheet_
 import 'package:project_examples/pages/third_libs/third_lib_page.dart';
 import 'package:project_examples/pages/third_libs/timer_count_down/timer_count_down_page.dart';
 import 'package:project_examples/pages/third_libs/wave/wave_page.dart';
+import 'package:project_examples/pages/third_libs/widget_and_text_animator/widget_and_text_animator_page.dart';
 
 enum PageRouteEnum {
   /* 第三方库 */
@@ -101,6 +102,7 @@ enum PageRouteEnum {
   confettiWidgetPage,
   slidingUpPanelPage,
   lottiePage,
+  widgetAndTextAnimatorPage,
 
   /* 项目用库 */
   projectUsePage, // 列表页
@@ -315,6 +317,8 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => FlutterPickerPage(arguments: arguments));
       case PageRouteEnum.languagePage:
         return MaterialPageRoute(settings: settings, builder: (_) => LanguagePage(arguments: arguments));
+      case PageRouteEnum.widgetAndTextAnimatorPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => WidgetAndTextAnimatorPage(arguments: arguments));
     }
   }
 
@@ -538,6 +542,9 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.languagePage:
         pageRouteName = _pageRouteNameFrom(LanguagePage);
+        break;
+      case PageRouteEnum.widgetAndTextAnimatorPage:
+        pageRouteName = _pageRouteNameFrom(WidgetAndTextAnimatorPage);
         break;
     }
 

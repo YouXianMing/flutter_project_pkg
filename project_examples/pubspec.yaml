@@ -164,6 +164,16 @@ dependencies:
   # Flutter: Android iOS Linux MacOS Web Windows
   flutter_picker: ^2.1.0
 
+  # [reactle.com] 文本动画
+  # https://pub.flutter-io.cn/packages/widget_and_text_animator
+  # Flutter: Android iOS Linux MacOS Web Windows
+  widget_and_text_animator: ^1.0.9
+
+  # [material.io] 谷歌字体
+  # https://pub.flutter-io.cn/packages/google_fonts
+  # Flutter: Android iOS Linux MacOS Web Windows
+  google_fonts: ^4.0.4
+
   # 基础组件库(通过Git的方式引入)
   # Flutter: Android iOS Linux MacOS Web Windows
   #  project_base_libs_pkg:
