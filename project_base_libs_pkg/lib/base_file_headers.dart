@@ -66,6 +66,7 @@ export 'base/typedef/project_typedef.dart';
 export 'base/widgets/animated_opacity_repeat.dart'; // opacity重复动画控件
 export 'base/widgets/animated_rotate.dart'; // 旋转动画控件
 export 'base/widgets/animated_scale_repeat.dart'; // 缩放重复动画控件
+export 'base/widgets/animated_slide_repeat.dart'; // 位移重复动画控件
 export 'base/widgets/animated_switcher_widget.dart'; // 对AnimatedSwitcher进行封装,简化使用
 export 'base/widgets/base_app_bar.dart'; // appBar
 export 'base/widgets/base_page_build_mixin.dart'; // 页面构建mixin
