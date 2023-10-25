@@ -1,7 +1,7 @@
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_base_libs_pkg/third_lib_dio.dart' as dio;
-import 'package:project_examples/widgets/app_button.dart';
 import 'package:project_examples/file_headers.dart';
+import 'package:project_examples/widgets/app_button.dart';
 
 class NetworksPage extends NormalStatefulWidget {
   @override
@@ -22,14 +22,9 @@ enum GetPictureState {
 }
 
 class NetworksPageState extends NormalStatefulWidgetState<NetworksPage> {
-  DioNetwork? weatherNetwork;
-  DioNetwork? pictureNetwork;
-  final pictureState = GetPictureState.idle.obs;
-
-  @override
-  void initState() {
-    super.initState();
-  }
+  DioNetwork? _weatherNetwork;
+  DioNetwork? _pictureNetwork;
+  final _pictureState = GetPictureState.idle.obs;
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
@@ -49,12 +44,12 @@ class NetworksPageState extends NormalStatefulWidgetState<NetworksPage> {
               margin: const EdgeInsets.only(bottom: 10),
               onTap: () {
                 // 普通的get请求,使用的都是默认的配置
-                weatherNetwork ??= DioNetwork(url: 'http://www.weather.com.cn/data/sk/101010100.html');
+                _weatherNetwork ??= DioNetwork(url: 'http://www.weather.com.cn/data/sk/101010100.html');
 
                 // 使用isRunning可以防止网络请求重复创建
-                if (weatherNetwork!.isRunning == false) {
+                if (_weatherNetwork!.isRunning == false) {
                   innerLoading.show();
-                  weatherNetwork?.startRequest().then((value) {
+                  _weatherNetwork?.startRequest().then((value) {
                     innerLoading.hide();
                     showMessage(context, value.toString(), success: true);
                   }, onError: (e) {
@@ -74,10 +69,10 @@ class NetworksPageState extends NormalStatefulWidgetState<NetworksPage> {
                 String url =
                     'https://desk-fd.zol-img.com.cn/t_s4096x2160c5/g6/M00/0C/01/ChMkKmHnsAqIFt8vABqTH0iFN-EAAXvNgENmLQAGpM3114.jpg';
 
-                pictureNetwork ??= DioNetwork(url: url);
-                if (pictureNetwork!.isRunning == false) {
-                  pictureState.value = GetPictureState.start;
-                  pictureNetwork
+                _pictureNetwork ??= DioNetwork(url: url);
+                if (_pictureNetwork!.isRunning == false) {
+                  _pictureState.value = GetPictureState.start;
+                  _pictureNetwork
                       ?.setResultTransform(DownloadNetworkResultDataTransform())
                       .setConfig(DownloadNetworkConfig())
                       .setOnReceiveProgress((count, total) {
@@ -85,21 +80,21 @@ class NetworksPageState extends NormalStatefulWidgetState<NetworksPage> {
                       })
                       .startRequest()
                       .then((value) {
-                        pictureState.value = GetPictureState.success;
+                        _pictureState.value = GetPictureState.success;
                         appPrint(value.runtimeType);
-                        showMessage(context, '成功', success: true, didHide: () => pictureState.value = GetPictureState.idle);
+                        showMessage(context, '成功', success: true, didHide: () => _pictureState.value = GetPictureState.idle);
                       }, onError: (e) {
                         if (e is dio.DioError && e.error is String && e.error == 'cancelled') {
-                          showMessage(context, '网络请求取消了', success: false, didHide: () => pictureState.value = GetPictureState.idle);
+                          showMessage(context, '网络请求取消了', success: false, didHide: () => _pictureState.value = GetPictureState.idle);
                         } else {
-                          pictureState.value = GetPictureState.error;
-                          showMessage(context, e.toString(), success: false, didHide: () => pictureState.value = GetPictureState.idle);
+                          _pictureState.value = GetPictureState.error;
+                          showMessage(context, e.toString(), success: false, didHide: () => _pictureState.value = GetPictureState.idle);
                         }
                       });
                 }
               },
               child: Obx(() {
-                switch (pictureState.value) {
+                switch (_pictureState.value) {
                   case GetPictureState.idle:
                     return WidgetsFactory.text('获取二进制文件 (GET)', color: Colors.white);
                   case GetPictureState.start:
@@ -115,7 +110,7 @@ class NetworksPageState extends NormalStatefulWidgetState<NetworksPage> {
             ),
             Obx(() {
               late bool disable;
-              switch (pictureState.value) {
+              switch (_pictureState.value) {
                 case GetPictureState.cancel:
                 case GetPictureState.success:
                 case GetPictureState.error:
@@ -133,8 +128,8 @@ class NetworksPageState extends NormalStatefulWidgetState<NetworksPage> {
                 padding: const EdgeInsets.all(15),
                 margin: const EdgeInsets.only(bottom: 10),
                 onTap: () {
-                  pictureState.value = GetPictureState.cancel;
-                  pictureNetwork?.cancel();
+                  _pictureState.value = GetPictureState.cancel;
+                  _pictureNetwork?.cancel();
                 },
                 child: WidgetsFactory.text('取消 获取二进制文件 (GET)', color: Colors.white),
               );

@@ -13,8 +13,8 @@ class IsolatePage extends NormalStatefulWidget {
 }
 
 class CompleterPageState extends NormalStatefulWidgetState<IsolatePage> {
-  final receivePort = ReceivePort();
-  late String info = '等待中';
+  final _receivePort = ReceivePort();
+  late String _info = '等待中';
 
   @override
   void initState() {
@@ -25,15 +25,15 @@ class CompleterPageState extends NormalStatefulWidgetState<IsolatePage> {
   void startIsolate() async {
     // 传输多个参数
     // https://stackoverflow.com/questions/63707220/how-to-pass-arguments-besides-sendport-to-a-spawned-isolate-in-dart
-    final isolate = await Isolate.spawn(isolateMethod, [receivePort.sendPort, 3]);
+    final isolate = await Isolate.spawn(isolateMethod, [_receivePort.sendPort, 3]);
 
-    receivePort.listen((message) {
+    _receivePort.listen((message) {
       // 更新数据
-      info = message.toString();
+      _info = message.toString();
       setState(() {});
 
       // 关闭receivePort
-      receivePort.close();
+      _receivePort.close();
 
       // 杀死isolate
       isolate.kill();
@@ -48,7 +48,7 @@ class CompleterPageState extends NormalStatefulWidgetState<IsolatePage> {
 
   @override
   Widget body(BuildContext context) {
-    return Center(child: WidgetsFactory.text(info));
+    return Center(child: WidgetsFactory.text(_info));
   }
 }
 

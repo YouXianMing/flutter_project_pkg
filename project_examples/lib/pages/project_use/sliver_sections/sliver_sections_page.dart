@@ -15,16 +15,16 @@ class SliverSectionsPage extends NormalStatefulWidget {
 }
 
 class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPage> {
-  final LinearEquation linearEquation = LinearEquation();
-  final ScrollController scrollController = ScrollController();
-  final StickyHeaderController stickyHeaderController = StickyHeaderController();
-  bool useSliverAppBar = false;
+  final LinearEquation _linearEquation = LinearEquation();
+  final ScrollController _scrollController = ScrollController();
+  final StickyHeaderController _stickyHeaderController = StickyHeaderController();
+  final bool _useSliverAppBar = false;
 
   @override
   void dispose() {
     super.dispose();
-    scrollController.dispose();
-    stickyHeaderController.dispose();
+    _scrollController.dispose();
+    _stickyHeaderController.dispose();
   }
 
   List<double> waterfallHeights = [
@@ -64,10 +64,10 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
       children: [
         Expanded(
           child: CustomScrollView(
-            controller: scrollController,
+            controller: _scrollController,
             slivers: [
               /// SliverAppBarSection
-              useSliverAppBar
+              _useSliverAppBar
                   ? SliverAppBarSection.widget(
                       backgroundColor: Colors.grey,
                       // title: NormalAppBar.titleWidget((Get.arguments as CartItemModel).title),
@@ -185,25 +185,25 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
 
               /// SliverWaterfallFlowSection.builder
               SliverWaterfallFlowSection.builderTypeWidget(
-                stickyHeaderController: stickyHeaderController,
+                stickyHeaderController: _stickyHeaderController,
                 headerBuilder: (_) => header('SliverWaterfallFlowSection.builder (点击我)').addTapEvent(
                   () {
-                    if (stickyHeaderController.stickyHeaderScrollOffset <= 0) return;
-                    if (useSliverAppBar) {
+                    if (_stickyHeaderController.stickyHeaderScrollOffset <= 0) return;
+                    if (_useSliverAppBar) {
                       // 使用SliverAppBar高度计算
-                      if (scrollController.offset >
-                          stickyHeaderController.stickyHeaderScrollOffset - (MediaQuery.of(context).padding.top + kToolbarHeight)) {
-                        scrollController.animateTo(
-                          stickyHeaderController.stickyHeaderScrollOffset - (MediaQuery.of(context).padding.top + kToolbarHeight),
+                      if (_scrollController.offset >
+                          _stickyHeaderController.stickyHeaderScrollOffset - (MediaQuery.of(context).padding.top + kToolbarHeight)) {
+                        _scrollController.animateTo(
+                          _stickyHeaderController.stickyHeaderScrollOffset - (MediaQuery.of(context).padding.top + kToolbarHeight),
                           duration: const Duration(milliseconds: 500),
                           curve: Curves.easeInOut,
                         );
                       }
                     } else {
                       // 不用SliverAppBar高度计算
-                      if (scrollController.offset > stickyHeaderController.stickyHeaderScrollOffset) {
-                        scrollController.animateTo(
-                          stickyHeaderController.stickyHeaderScrollOffset,
+                      if (_scrollController.offset > _stickyHeaderController.stickyHeaderScrollOffset) {
+                        _scrollController.animateTo(
+                          _stickyHeaderController.stickyHeaderScrollOffset,
                           duration: const Duration(milliseconds: 500),
                           curve: Curves.easeInOut,
                         );
@@ -253,9 +253,9 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
                   double max = constraints.viewportMainAxisExtent;
                   double height1 = 50;
                   double height2 = height1 + 30;
-                  linearEquation.startCalculateOnlyOnceWith(
+                  _linearEquation.startCalculateOnlyOnceWith(
                       pointA: MATHPoint(x: max - height2, y: height1), pointB: MATHPoint(x: max, y: height2));
-                  double height = linearEquation.k * constraints.remainingPaintExtent + linearEquation.b;
+                  double height = _linearEquation.k * constraints.remainingPaintExtent + _linearEquation.b;
                   if (height < height1) {
                     height = height1;
                   } else if (height > height2) {

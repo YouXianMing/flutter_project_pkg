@@ -13,7 +13,7 @@ class MarqueerPage extends NormalStatefulWidget {
 }
 
 class MarqueerPageState extends NormalStatefulWidgetState<MarqueerPage> {
-  final controller = MarqueerController();
+  final _controller = MarqueerController();
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
@@ -33,7 +33,7 @@ class MarqueerPageState extends NormalStatefulWidgetState<MarqueerPage> {
             pps: 40,
 
             /// optional
-            controller: controller,
+            controller: _controller,
 
             /// optional
             direction: MarqueerDirection.rtl,

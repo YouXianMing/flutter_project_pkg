@@ -12,7 +12,7 @@ class GetChildSizePage extends NormalStatefulWidget {
 }
 
 class GetChildSizePageState extends NormalStatefulWidgetState<GetChildSizePage> {
-  final sizeStr = ''.obs;
+  final _sizeStr = ''.obs;
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
@@ -34,14 +34,14 @@ class GetChildSizePageState extends NormalStatefulWidgetState<GetChildSizePage> 
         ).addPaddingOnly(bottom: 20, top: 20),
         Center(
           child: GetChildSize(
-            onChange: (Size size) => sizeStr.value = '${size.width.toInt()} x ${size.height.toInt()}',
+            onChange: (Size size) => _sizeStr.value = '${size.width.toInt()} x ${size.height.toInt()}',
             child: Stack(
               children: [
                 SizedBox(
                   width: Util.randomDouble(min: 100, max: 200),
                   height: Util.randomDouble(min: 100, max: 200),
                 ).addDebugContainer(),
-                Positioned(child: Obx(() => WidgetsFactory.text(sizeStr.value).addContainerBorderRadius(color: Colors.white))),
+                Positioned(child: Obx(() => WidgetsFactory.text(_sizeStr.value).addContainerBorderRadius(color: Colors.white))),
               ],
             ),
           ),

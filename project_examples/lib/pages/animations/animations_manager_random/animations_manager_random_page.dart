@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/file_headers.dart';
 
@@ -32,77 +33,77 @@ class AnimationsManagerUseDemo extends StatefulWidget {
 }
 
 class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> with SingleTickerProviderStateMixin {
-  late Timer timer;
+  late Timer _timer;
 
-  static const String bgColor = 'bgColor';
-  static const String percent = 'percent';
+  static const String _bgColor = 'bgColor';
+  static const String _percent = 'percent';
 
-  late AnimationsManager manager;
+  late AnimationsManager _manager;
 
-  late double beginPercentValue;
-  late double endPercentValue;
+  late double _beginPercentValue;
+  late double _endPercentValue;
 
-  late Color beginColor;
-  late Color endColor;
+  late Color _beginColor;
+  late Color _endColor;
 
   @override
   void initState() {
     super.initState();
 
     // 设置初始值结束值
-    beginPercentValue = 0;
-    endPercentValue = Util.randomPercent;
-    beginColor = Colors.black;
-    endColor = ([...Colors.primaries]..shuffle()).first;
+    _beginPercentValue = 0;
+    _endPercentValue = Util.randomPercent;
+    _beginColor = Colors.black;
+    _endColor = ([...Colors.primaries]..shuffle()).first;
 
-    manager = AnimationsManager(
+    _manager = AnimationsManager(
       tickerProvider: this,
       duration: const Duration(seconds: 1),
       animationObjectMap: {
-        bgColor: CurveTweenObject(tween: ColorTween(begin: beginColor, end: endColor), curve: Curves.linear),
-        percent: CurveTweenObject(tween: Tween<double>(begin: beginPercentValue, end: endPercentValue), curve: Curves.easeOutQuint),
+        _bgColor: CurveTweenObject(tween: ColorTween(begin: _beginColor, end: _endColor), curve: Curves.linear),
+        _percent: CurveTweenObject(tween: Tween<double>(begin: _beginPercentValue, end: _endPercentValue), curve: Curves.easeOutQuint),
       },
     );
 
     startAnimation();
 
     // 设置定时器
-    timer = Timer.periodic(const Duration(milliseconds: 1600), (timer) => startAnimation());
+    _timer = Timer.periodic(const Duration(milliseconds: 1600), (timer) => startAnimation());
   }
 
   void startAnimation() {
     // 更新动画对象
-    manager.setAnimationObject(
-        key: bgColor, value: CurveTweenObject(tween: ColorTween(begin: beginColor, end: endColor), curve: Curves.linear));
+    _manager.setAnimationObject(
+        key: _bgColor, value: CurveTweenObject(tween: ColorTween(begin: _beginColor, end: _endColor), curve: Curves.linear));
 
     // 更新动画对象
-    manager.setAnimationObject(
-        key: percent,
-        value: CurveTweenObject(tween: Tween<double>(begin: beginPercentValue, end: endPercentValue), curve: Curves.easeOutQuint));
+    _manager.setAnimationObject(
+        key: _percent,
+        value: CurveTweenObject(tween: Tween<double>(begin: _beginPercentValue, end: _endPercentValue), curve: Curves.easeOutQuint));
 
     // 更新动画参数
-    beginPercentValue = endPercentValue;
-    endPercentValue = Random().nextDouble();
-    beginColor = endColor;
-    endColor = ([...Colors.primaries]..shuffle()).first;
+    _beginPercentValue = _endPercentValue;
+    _endPercentValue = Random().nextDouble();
+    _beginColor = _endColor;
+    _endColor = ([...Colors.primaries]..shuffle()).first;
 
     // 更新动画时间
-    manager.duration = Duration(milliseconds: Util.randomInt(min: 100, max: 1500));
+    _manager.duration = Duration(milliseconds: Util.randomInt(min: 100, max: 1500));
 
     // 开始执行动画
-    manager.forward(from: 0);
+    _manager.forward(from: 0);
   }
 
   @override
   void dispose() {
-    timer.cancel();
-    manager.dispose();
+    _timer.cancel();
+    _manager.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return manager.animatedBuilder(
+    return _manager.animatedBuilder(
       child: null,
       builder: (context, child) {
         return Center(
@@ -112,9 +113,9 @@ class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> wit
             width: double.infinity,
             alignment: Alignment.centerLeft,
             child: FractionallySizedBox(
-              widthFactor: manager.animationByKey(percent).value,
+              widthFactor: _manager.animationByKey(_percent).value,
               heightFactor: 1,
-              child: Container(color: manager.animationByKey(bgColor).value),
+              child: Container(color: _manager.animationByKey(_bgColor).value),
             ),
           ),
         );

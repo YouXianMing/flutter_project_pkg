@@ -1,6 +1,6 @@
+import 'package:project_examples/file_headers.dart';
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
-import 'package:project_examples/file_headers.dart';
 
 class WavePage extends NormalStatefulWidget {
   @override
@@ -13,32 +13,6 @@ class WavePage extends NormalStatefulWidget {
 }
 
 class WavePageState extends NormalStatefulWidgetState<WavePage> {
-  /// 卡片
-  SizedBox _widgetCard({
-    required Config config,
-    Color? backgroundColor = Colors.transparent,
-    DecorationImage? backgroundImage,
-    double height = 152.0,
-  }) {
-    return SizedBox(
-      height: height,
-      width: double.infinity,
-      child: Card(
-        elevation: 12.0,
-        margin: const EdgeInsets.only(right: 16, left: 16, bottom: 16.0),
-        clipBehavior: Clip.antiAlias,
-        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16.0))),
-        child: WaveWidget(
-          config: config,
-          backgroundColor: backgroundColor,
-          backgroundImage: backgroundImage,
-          size: const Size(double.infinity, double.infinity),
-          waveAmplitude: 0,
-        ),
-      ),
-    );
-  }
-
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
         context: context,
@@ -134,6 +108,32 @@ class WavePageState extends NormalStatefulWidgetState<WavePage> {
           ),
         ),
       ],
+    );
+  }
+
+  /// 卡片
+  SizedBox _widgetCard({
+    required Config config,
+    Color? backgroundColor = Colors.transparent,
+    DecorationImage? backgroundImage,
+    double height = 152.0,
+  }) {
+    return SizedBox(
+      height: height,
+      width: double.infinity,
+      child: Card(
+        elevation: 12.0,
+        margin: const EdgeInsets.only(right: 16, left: 16, bottom: 16.0),
+        clipBehavior: Clip.antiAlias,
+        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16.0))),
+        child: WaveWidget(
+          config: config,
+          backgroundColor: backgroundColor,
+          backgroundImage: backgroundImage,
+          size: const Size(double.infinity, double.infinity),
+          waveAmplitude: 0,
+        ),
+      ),
     );
   }
 }

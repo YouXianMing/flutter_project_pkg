@@ -1,5 +1,5 @@
-import 'package:project_examples/file_headers.dart';
 import 'package:project_base_libs_pkg/base/managers/animations_manager.dart';
+import 'package:project_examples/file_headers.dart';
 
 class AnimationsManagerPage extends NormalStatefulWidget {
   @override
@@ -30,42 +30,42 @@ class AnimationsManagerUseDemo extends StatefulWidget {
 }
 
 class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> with SingleTickerProviderStateMixin {
-  static const String textBgColor = 'bgColor';
-  static const String containerHeight = 'containerHeight';
-  late AnimationsManager manager;
+  static const String _textBgColor = 'bgColor';
+  static const String _containerHeight = 'containerHeight';
+  late AnimationsManager _manager;
 
   @override
   void initState() {
     super.initState();
 
-    manager = AnimationsManager(
+    _manager = AnimationsManager(
       tickerProvider: this,
       duration: const Duration(seconds: 1),
       animationObjectMap: {
-        textBgColor: CurveTweenObject(tween: IntTween(begin: 0, end: 255)),
-        containerHeight: CurveTweenObject(tween: Tween<double>(begin: 40, end: 200), curve: Curves.easeOutQuint),
+        _textBgColor: CurveTweenObject(tween: IntTween(begin: 0, end: 255)),
+        _containerHeight: CurveTweenObject(tween: Tween<double>(begin: 40, end: 200), curve: Curves.easeOutQuint),
       },
-      completedCallback: () => manager.reverse(),
-      dismissedCallback: () => manager.forward(),
+      completedCallback: () => _manager.reverse(),
+      dismissedCallback: () => _manager.forward(),
     );
 
-    manager.forward();
+    _manager.forward();
   }
 
   @override
   void dispose() {
-    manager.dispose();
+    _manager.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return manager.animatedBuilder(
+    return _manager.animatedBuilder(
       child: const Text('AnimationsManager的使用'),
       builder: (context, child) {
         return Container(
-          color: Color.fromARGB(manager.animationByKey(textBgColor).value, 255, 1, 1),
-          height: manager.animationByKey(containerHeight).value,
+          color: Color.fromARGB(_manager.animationByKey(_textBgColor).value, 255, 1, 1),
+          height: _manager.animationByKey(_containerHeight).value,
           alignment: Alignment.center,
           child: child,
         );

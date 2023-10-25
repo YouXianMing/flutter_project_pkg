@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/file_headers.dart';
 
@@ -31,14 +32,14 @@ class AnimationsManagerUseDemo extends StatefulWidget {
 }
 
 class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> with SingleTickerProviderStateMixin {
-  static const String percent = 'percent';
+  static const String _percent = 'percent';
 
-  late AnimationsManager manager;
-  late Curve currentCurve;
-  RxString currentCurveKey = ''.obs;
+  late AnimationsManager _manager;
+  late Curve _currentCurve;
+  final RxString _currentCurveKey = ''.obs;
 
-  late Map<String, dynamic> curvesMap;
-  late List<String> sortKeys;
+  late Map<String, dynamic> _curvesMap;
+  late List<String> _sortKeys;
 
   @override
   void initState() {
@@ -47,7 +48,7 @@ class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> wit
     // 自定义的curve的参数
     // https://cubic-bezier.com/
 
-    curvesMap = {
+    _curvesMap = {
       '[特殊] linear': Curves.linear,
       '[特殊] decelerate': Curves.decelerate,
       '[特殊] bounceIn': Curves.bounceIn,
@@ -93,21 +94,21 @@ class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> wit
       'slowMiddle': Curves.slowMiddle,
     };
 
-    sortKeys = curvesMap.keys.toList();
-    sortKeys.sort();
+    _sortKeys = _curvesMap.keys.toList();
+    _sortKeys.sort();
 
-    currentCurve = curvesMap[sortKeys.first];
-    currentCurveKey.value = sortKeys.first;
-    manager = AnimationsManager(
+    _currentCurve = _curvesMap[_sortKeys.first];
+    _currentCurveKey.value = _sortKeys.first;
+    _manager = AnimationsManager(
       tickerProvider: this,
       duration: const Duration(milliseconds: 800),
-      animationObjectMap: {percent: CurveTweenObject(tween: Tween<double>(begin: 0.25, end: 0.75), curve: currentCurve)},
+      animationObjectMap: {_percent: CurveTweenObject(tween: Tween<double>(begin: 0.25, end: 0.75), curve: _currentCurve)},
     );
   }
 
   @override
   void dispose() {
-    manager.dispose();
+    _manager.dispose();
     super.dispose();
   }
 
@@ -124,17 +125,18 @@ class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> wit
                   child: CustomScrollView(
                     slivers: [
                       SliverListSection.builderTypeWidget(
-                          items: sortKeys,
+                          items: _sortKeys,
                           builder: (c, i, d) {
                             return Container(
                               padding: const EdgeInsets.all(20),
                               color: i % 2 == 0 ? Colors.white : Colors.grey.withOpacity(0.1),
                               child: WidgetsFactory.text(d.toString()),
                             ).addTapEvent(() {
-                              currentCurveKey.value = d;
-                              manager.setAnimationObject(
-                                  key: percent, value: CurveTweenObject(tween: Tween<double>(begin: 0.25, end: 0.75), curve: curvesMap[d]));
-                              manager.forward(from: 0);
+                              _currentCurveKey.value = d;
+                              _manager.setAnimationObject(
+                                  key: _percent,
+                                  value: CurveTweenObject(tween: Tween<double>(begin: 0.25, end: 0.75), curve: _curvesMap[d]));
+                              _manager.forward(from: 0);
                             });
                           }),
                     ],
@@ -143,12 +145,12 @@ class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> wit
                 Container(height: 1, color: Colors.grey.withOpacity(0.5)),
                 Expanded(
                   flex: 1,
-                  child: manager.animatedBuilder(
+                  child: _manager.animatedBuilder(
                     child: null,
                     builder: (context, child) {
                       return SizedBox(
                         width: double.infinity,
-                        child: CustomPaint(painter: DrawPainter(percent: manager.animationByKey(percent).value)),
+                        child: CustomPaint(painter: DrawPainter(percent: _manager.animationByKey(_percent).value)),
                       );
                     },
                   ),
@@ -156,12 +158,12 @@ class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> wit
               ],
             ),
           ),
-          Obx(() => WidgetsFactory.text(currentCurveKey.value)),
+          Obx(() => WidgetsFactory.text(_currentCurveKey.value)),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SizedBox(child: TextButton(onPressed: () => manager.forward(from: 0), child: const Icon(Icons.play_arrow))),
-              SizedBox(child: TextButton(onPressed: () => manager.animateTo(0, duration: Duration.zero), child: const Icon(Icons.stop))),
+              SizedBox(child: TextButton(onPressed: () => _manager.forward(from: 0), child: const Icon(Icons.play_arrow))),
+              SizedBox(child: TextButton(onPressed: () => _manager.animateTo(0, duration: Duration.zero), child: const Icon(Icons.stop))),
             ],
           ),
         ],

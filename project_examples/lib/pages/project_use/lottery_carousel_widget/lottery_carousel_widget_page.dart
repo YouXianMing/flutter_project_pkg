@@ -13,7 +13,7 @@ class LotteryCarouselWidgetPage extends NormalStatefulWidget {
 }
 
 class LotteryCarouselWidgetPageState extends NormalStatefulWidgetState<LotteryCarouselWidgetPage> {
-  final manager = LotteryCarouselManager();
+  final _manager = LotteryCarouselManager();
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
@@ -31,11 +31,11 @@ class LotteryCarouselWidgetPageState extends NormalStatefulWidgetState<LotteryCa
             clipBehavior: Clip.none,
             children: [
               Util.image('lottery_bg.png'),
-              Positioned.fill(child: LotteryCarouselWidget(manager: manager, rotateChild: Util.image('lottery_round_plate.png'))),
+              Positioned.fill(child: LotteryCarouselWidget(manager: _manager, rotateChild: Util.image('lottery_round_plate.png'))),
               Positioned.fill(
                 child: ScaleButtonWidget(
                   child: Util.image('lottery_button.png'),
-                  onTap: () => manager.startRotating(),
+                  onTap: () => _manager.startRotating(),
                 ),
               ),
               Positioned(
@@ -51,12 +51,12 @@ class LotteryCarouselWidgetPageState extends NormalStatefulWidgetState<LotteryCa
           ),
           OpacityButtonWidget(
             margin: EdgeInsets.only(top: 15.w),
-            onTap: () => manager.endRotatingAtPercent(Util.randomPercent),
+            onTap: () => _manager.endRotatingAtPercent(Util.randomPercent),
             child: WidgetsFactory.text('停止', fontSize: 21.sp, fontWeight: FontWeight.bold, color: Colors.red),
           ),
           OpacityButtonWidget(
             margin: EdgeInsets.only(top: 15.w),
-            onTap: () => manager.reset(),
+            onTap: () => _manager.reset(),
             child: WidgetsFactory.text('重置', fontSize: 21.sp, fontWeight: FontWeight.bold, color: Colors.blue),
           ),
         ],

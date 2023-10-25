@@ -14,7 +14,7 @@ class CarouselSliderPage extends NormalStatefulWidget {
 }
 
 class CarouselSliderPageState extends NormalStatefulWidgetState<CarouselSliderPage> {
-  late FlipCardController controller;
+  late FlipCardController _controller;
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
@@ -25,7 +25,7 @@ class CarouselSliderPageState extends NormalStatefulWidgetState<CarouselSliderPa
   @override
   void initState() {
     super.initState();
-    controller = FlipCardController();
+    _controller = FlipCardController();
   }
 
   @override

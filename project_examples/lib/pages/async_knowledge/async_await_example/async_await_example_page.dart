@@ -11,9 +11,9 @@ class AsyncAwaitExamplePage extends NormalStatefulWidget {
 }
 
 class AsyncAwaitExamplePageState extends NormalStatefulWidgetState<AsyncAwaitExamplePage> {
-  final info = ''.obs;
+  final _info = ''.obs;
 
-  void updateInfo(text) => info.value = text;
+  void updateInfo(text) => _info.value = text;
 
   Future<String> futureEvent() => Future.delayed(const Duration(seconds: 2), () => '数据');
 
@@ -37,5 +37,5 @@ class AsyncAwaitExamplePageState extends NormalStatefulWidgetState<AsyncAwaitExa
       );
 
   @override
-  Widget body(BuildContext context) => Center(child: Obx(() => Text(info.value)));
+  Widget body(BuildContext context) => Center(child: Obx(() => Text(_info.value)));
 }

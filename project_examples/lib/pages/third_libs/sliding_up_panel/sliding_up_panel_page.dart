@@ -13,12 +13,12 @@ class SlidingUpPanelPage extends NormalStatefulWidget {
 }
 
 class SlidingUpPanelPageState extends NormalStatefulWidgetState<SlidingUpPanelPage> {
-  final controller = SlidingUpPanelWidgetController();
+  final _controller = SlidingUpPanelWidgetController();
 
   @override
   void initState() {
     super.initState();
-    controller.data = _randomData();
+    _controller.data = _randomData();
   }
 
   List<String> _randomData() {
@@ -43,7 +43,7 @@ class SlidingUpPanelPageState extends NormalStatefulWidgetState<SlidingUpPanelPa
       children: [
         Center(
           child: OpacityButtonWidget(
-            onTap: () => controller.update(data: _randomData()),
+            onTap: () => _controller.update(data: _randomData()),
             child: WidgetsFactory.text('更新数据', fontSize: 22, color: Colors.white).addContainerBorderRadius(
               radius: 6,
               color: Colors.blue,
@@ -52,7 +52,7 @@ class SlidingUpPanelPageState extends NormalStatefulWidgetState<SlidingUpPanelPa
           ),
         ),
         SlidingUpPanelWidget(
-          controller: controller,
+          controller: _controller,
           fixedWidth: Get.width,
           minHeight: MediaQuery.of(context).padding.bottom + 70,
           builder: (dynamic data, bool onPanelOpened, SlidingUpPanelWidgetController controller) => BottomPanelItemWidget(

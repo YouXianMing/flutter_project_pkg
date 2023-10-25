@@ -14,19 +14,19 @@ class SmoothPageIndicatorPage extends NormalStatefulWidget {
 }
 
 class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageIndicatorPage> {
-  final controller = PageController(viewportFraction: 0.8, keepPage: true);
+  final _controller = PageController(viewportFraction: 0.8, keepPage: true);
 
   /// 无限循环滑动(PageView如果不设定itemCount,就能无限滑动)
-  bool infiniteLooping = false;
+  final bool _infiniteLooping = false;
 
   /// 颜色数组
-  List<Color> colors = [];
+  final List<Color> _colors = [];
 
   @override
   void initState() {
     super.initState();
     for (int i = 0; i < 20; i++) {
-      colors.add(Util.randomColor);
+      _colors.add(Util.randomColor);
     }
   }
 
@@ -53,7 +53,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
             _widgetJumpingDotEffect(pages.length),
             _widgetScaleEffect(pages.length),
             _widgetSlideEffect(pages.length),
-            infiniteLooping ? const SizedBox() : _widgetSwapEffect(pages.length),
+            _infiniteLooping ? const SizedBox() : _widgetSwapEffect(pages.length),
             _widgetScrollingDotsEffect(pages.length),
             /* SmoothPageIndicator - end */
 
@@ -69,7 +69,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
       children: [
         WidgetsFactory.text('JumpingDotEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
-          controller: controller,
+          controller: _controller,
           count: count,
           effect: const JumpingDotEffect(dotHeight: 16, dotWidth: 16, jumpScale: .7, verticalOffset: 15),
         ).addDebugContainer(),
@@ -82,7 +82,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
       children: [
         WidgetsFactory.text('ColorTransitionEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
-          controller: controller,
+          controller: _controller,
           count: count,
           effect: const ColorTransitionEffect(),
         ).addDebugContainer(),
@@ -95,7 +95,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
       children: [
         WidgetsFactory.text('ExpandingDotsEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
-          controller: controller,
+          controller: _controller,
           count: count,
           effect: const ExpandingDotsEffect(),
         ).addDebugContainer(),
@@ -108,7 +108,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
       children: [
         WidgetsFactory.text('ScaleEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
-          controller: controller,
+          controller: _controller,
           count: count,
           effect: const ScaleEffect(),
         ).addDebugContainer(),
@@ -121,7 +121,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
       children: [
         WidgetsFactory.text('SlideEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
-          controller: controller,
+          controller: _controller,
           count: count,
           effect: const SlideEffect(),
         ).addDebugContainer(),
@@ -134,7 +134,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
       children: [
         WidgetsFactory.text('WormEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
-          controller: controller,
+          controller: _controller,
           count: count,
           effect: const WormEffect(dotHeight: 16, dotWidth: 16, type: WormType.thin, strokeWidth: 5),
         ).addDebugContainer(),
@@ -147,7 +147,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
       children: [
         WidgetsFactory.text('SwapEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
-          controller: controller,
+          controller: _controller,
           count: count,
           effect: const SwapEffect(dotHeight: 16, dotWidth: 16, type: SwapType.yRotation),
         ).addDebugContainer(),
@@ -160,7 +160,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
       children: [
         WidgetsFactory.text('ScrollingDotsEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
-          controller: controller,
+          controller: _controller,
           count: count,
           effect: const ScrollingDotsEffect(
             activeStrokeWidth: 2.6,
@@ -181,7 +181,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
       children: [
         WidgetsFactory.text('CustomizableEffect', color: Colors.black54).addPaddingOnly(top: 5.w, bottom: 5.w),
         SmoothPageIndicator(
-          controller: controller,
+          controller: _controller,
           count: count,
           effect: CustomizableEffect(
             activeDotDecoration: DotDecoration(
@@ -203,7 +203,7 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
             ),
             spacing: 6.0,
             // activeColorOverride: (i) => colors[i],
-            inActiveColorOverride: (i) => colors[i],
+            inActiveColorOverride: (i) => _colors[i],
           ),
         ).addDebugContainer(),
       ],
@@ -216,8 +216,8 @@ class SmoothPageIndicatorPageState extends NormalStatefulWidgetState<SmoothPageI
       height: 120,
       margin: EdgeInsets.only(top: 10.w, bottom: 10.w),
       child: PageView.builder(
-        controller: controller,
-        itemCount: infiniteLooping ? null : widgets.length,
+        controller: _controller,
+        itemCount: _infiniteLooping ? null : widgets.length,
         itemBuilder: (_, index) => widgets[index % widgets.length],
       ),
     );

@@ -12,21 +12,21 @@ class SliverSectionsRefreshWidgetPage extends NormalStatefulWidget {
 }
 
 class SliverSectionsRefreshWidgetPageState extends NormalStatefulWidgetState<SliverSectionsRefreshWidgetPage> {
-  final SliverWaterfallFlowSection itemsSection = SliverWaterfallFlowSection();
-  final controller = SliverSectionsRefreshWidgetController(loadMoreFooterWidgetAddSafeBottom: true);
+  final SliverWaterfallFlowSection _itemsSection = SliverWaterfallFlowSection();
+  final _controller = SliverSectionsRefreshWidgetController(loadMoreFooterWidgetAddSafeBottom: true);
 
   @override
   void initState() {
     super.initState();
 
     // 配置刷新回调,加载回调
-    controller.setPullRefreshCallback(
+    _controller.setPullRefreshCallback(
       (refreshController) {
         // 模拟刷新的网络请求
         Future.delayed(const Duration(seconds: 1), () {
           if (Util.randomPercent > 0.2) {
-            itemsSection.items!.clear();
-            itemsSection.items!.addAll(randomItems(20));
+            _itemsSection.items!.clear();
+            _itemsSection.items!.addAll(randomItems(20));
             refreshController.endRefresh();
           } else {
             refreshController.endRefresh(failed: true);
@@ -38,7 +38,7 @@ class SliverSectionsRefreshWidgetPageState extends NormalStatefulWidgetState<Sli
         // 模拟加载更多的网络请求
         Future.delayed(const Duration(seconds: 1), () {
           if (Util.randomPercent > 0.2) {
-            itemsSection.items!.addAll(randomItems(20));
+            _itemsSection.items!.addAll(randomItems(20));
             refreshController.endLoadData();
           } else {
             refreshController.endLoadData(failed: true);
@@ -55,15 +55,15 @@ class SliverSectionsRefreshWidgetPageState extends NormalStatefulWidgetState<Sli
       );
 
   @override
-  Widget body(BuildContext context) => SliverSectionsRefreshWidget(controller: controller);
+  Widget body(BuildContext context) => SliverSectionsRefreshWidget(controller: _controller);
 
   @override
   Widget firstTimeLoadingWidgetStartLoading(BuildContext context) {
     return firstTimeLoadingWidget.listenFuture(() => Future.delayed(const Duration(seconds: 1), () {})).onSuccess((d) {
       itemsSectionConfig();
-      itemsSection.items!.addAll(randomItems(30));
-      controller.sliverSections.add(itemsSection);
-      controller.updateWidget();
+      _itemsSection.items!.addAll(randomItems(30));
+      _controller.sliverSections.add(_itemsSection);
+      _controller.updateWidget();
     });
   }
 
@@ -78,11 +78,11 @@ class SliverSectionsRefreshWidgetPageState extends NormalStatefulWidgetState<Sli
 
   /// 对section进行一些配置
   void itemsSectionConfig() {
-    itemsSection.padding = const EdgeInsets.all(10);
-    itemsSection.crossAxisCount = 3;
-    itemsSection.mainAxisSpacing = 10;
-    itemsSection.crossAxisSpacing = 10;
-    itemsSection.builder = (c, i, d) {
+    _itemsSection.padding = const EdgeInsets.all(10);
+    _itemsSection.crossAxisCount = 3;
+    _itemsSection.mainAxisSpacing = 10;
+    _itemsSection.crossAxisSpacing = 10;
+    _itemsSection.builder = (c, i, d) {
       ItemData data = d as ItemData;
       return Container(height: data.height, color: Colors.white, alignment: Alignment.center, child: Text(data.data));
     };

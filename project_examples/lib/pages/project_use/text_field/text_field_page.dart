@@ -1,9 +1,9 @@
 import 'package:project_base_libs_pkg/base_file_headers.dart';
+import 'package:project_examples/file_headers.dart';
 import 'package:project_examples/pages/project_use/text_field/widgets/alert_field.dart';
 import 'package:project_examples/pages/project_use/text_field/widgets/alert_view_button.dart';
 import 'package:project_examples/pages/project_use/text_field/widgets/text_field_alert_view.dart';
 import 'package:project_examples/widgets/app_button.dart';
-import 'package:project_examples/file_headers.dart';
 
 class TextFieldPage extends NormalStatefulWidget {
   @override
@@ -16,9 +16,9 @@ class TextFieldPage extends NormalStatefulWidget {
 }
 
 class TextFieldPageState extends NormalStatefulWidgetState<TextFieldPage> {
-  final inputText = ''.obs;
+  final _inputText = ''.obs;
 
-  final controller = TextEditingController();
+  final _controller = TextEditingController();
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
@@ -32,7 +32,7 @@ class TextFieldPageState extends NormalStatefulWidgetState<TextFieldPage> {
       children: [
         // Field
         CustomTextField(
-          editingController: controller,
+          editingController: _controller,
           placeHolder: 'Input your text.',
           padding: const EdgeInsets.symmetric(horizontal: 10),
           textStyle: const TextStyle(color: Colors.black87, fontWeight: FontWeight.bold),
@@ -44,26 +44,26 @@ class TextFieldPageState extends NormalStatefulWidgetState<TextFieldPage> {
           prefixWidget: const Icon(Icons.verified_user, color: Colors.grey).addPaddingOnly(right: 10),
           suffixWidget: Obx(() => AnimatedOpacity(
                 duration: const Duration(milliseconds: 100),
-                opacity: inputText.value.isEmpty ? 0 : 1,
+                opacity: _inputText.value.isEmpty ? 0 : 1,
                 child: OpacityButtonWidget(
                   color: Colors.transparent,
                   onTap: () {
-                    inputText.value = '';
-                    controller.clear();
+                    _inputText.value = '';
+                    _controller.clear();
                   },
                   child: const Icon(Icons.clear_rounded, color: Colors.black45),
                 ),
               )),
-          onChanged: (text) => inputText.value = text,
+          onChanged: (text) => _inputText.value = text,
         ).addPaddingOnly(left: 10, right: 10, top: 10),
 
         // 按钮
         Obx(() => AppButton(
-              disable: inputText.value.isEmpty,
+              disable: _inputText.value.isEmpty,
               height: 45,
               borderRadius: 10,
               onTap: () {
-                showMessage(context, inputText.value);
+                showMessage(context, _inputText.value);
                 hideKeyBoard(context);
               },
               style: AppButtonStyle.blue,

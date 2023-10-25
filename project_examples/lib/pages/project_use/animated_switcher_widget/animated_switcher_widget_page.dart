@@ -14,8 +14,8 @@ class AnimatedSwitcherWidgetPage extends NormalStatefulWidget {
 enum WidgetStatus { idle, startLoading, success, error }
 
 class AnimatedSwitcherWidgetPageState extends NormalStatefulWidgetState<AnimatedSwitcherWidgetPage> {
-  List<WidgetStatus> statusList = [WidgetStatus.idle, WidgetStatus.startLoading, WidgetStatus.success, WidgetStatus.error];
-  int start = 0;
+  final List<WidgetStatus> _statusList = [WidgetStatus.idle, WidgetStatus.startLoading, WidgetStatus.success, WidgetStatus.error];
+  int _start = 0;
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
@@ -26,14 +26,14 @@ class AnimatedSwitcherWidgetPageState extends NormalStatefulWidgetState<Animated
   @override
   Widget body(BuildContext context) {
     List<ValueKey> valueKeyList = [];
-    for (var element in statusList) {
+    for (var element in _statusList) {
       valueKeyList.add(ValueKey(element));
     }
-    int index = start++ % statusList.length;
+    int index = _start++ % _statusList.length;
 
     return AnimatedSwitcherWidget(
       valueKey: valueKeyList[index],
-      data: statusList[index],
+      data: _statusList[index],
       builder: (c, d) {
         late Widget child;
         switch ((d as WidgetStatus)) {

@@ -15,7 +15,7 @@ class ToastWidgetPage extends NormalStatefulWidget {
 }
 
 class ToastWidgetPageState extends NormalStatefulWidgetState<ToastWidgetPage> {
-  final ToastWidget toastWidget = ToastWidget();
+  final ToastWidget _toastWidget = ToastWidget();
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
@@ -31,7 +31,7 @@ class ToastWidgetPageState extends NormalStatefulWidgetState<ToastWidgetPage> {
           alignment: Alignment.center,
           child: TextButton(
               onPressed: () {
-                toastWidget
+                _toastWidget
                     .setData(Util.randomObjectFromList(['desktop', 'radiation', 'lemon', 'tablet']))
                     .setWidgetBuilder((v) {
                       return Container(
@@ -61,7 +61,7 @@ class ToastWidgetPageState extends NormalStatefulWidgetState<ToastWidgetPage> {
               },
               child: const Text('点击我')),
         ),
-        toastWidget,
+        _toastWidget,
       ],
     );
   }

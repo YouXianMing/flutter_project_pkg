@@ -30,43 +30,43 @@ class AnimationsManagerUseDemo extends StatefulWidget {
 }
 
 class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> with SingleTickerProviderStateMixin {
-  static const String offsetY = 'offsetY';
-  late AnimationsManager manager;
+  static const String _offsetY = 'offsetY';
+  late AnimationsManager _manager;
 
   @override
   void initState() {
     super.initState();
 
-    manager = AnimationsManager(
+    _manager = AnimationsManager(
       tickerProvider: this,
       duration: const Duration(seconds: 3),
       animationObjectMap: {
-        offsetY: TweenSequenceObject(items: [
+        _offsetY: TweenSequenceObject(items: [
           TweenSequenceItem(tween: Tween(begin: 0.0, end: 100.0).chain(CurveTween(curve: Curves.easeIn)), weight: 40),
           TweenSequenceItem(tween: ConstantTween<double>(100.0), weight: 40), // 常量值动画
           TweenSequenceItem(tween: Tween(begin: 100.0, end: 200.0).chain(CurveTween(curve: Curves.easeIn)), weight: 40),
         ]),
       },
-      completedCallback: () => manager.reverse(),
-      dismissedCallback: () => manager.forward(),
+      completedCallback: () => _manager.reverse(),
+      dismissedCallback: () => _manager.forward(),
     );
 
-    manager.forward();
+    _manager.forward();
   }
 
   @override
   void dispose() {
-    manager.dispose();
+    _manager.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return manager.animatedBuilder(
+    return _manager.animatedBuilder(
       child: const Text('AnimationsManager与Sequence配合使用'),
       builder: (context, child) {
         return Transform.translate(
-          offset: Offset(0, manager.animationByKey(offsetY).value),
+          offset: Offset(0, _manager.animationByKey(_offsetY).value),
           child: Container(
             color: Colors.red.withOpacity(0.2),
             height: 40,

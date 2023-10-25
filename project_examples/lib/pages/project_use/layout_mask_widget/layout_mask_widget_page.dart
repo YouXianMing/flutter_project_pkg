@@ -12,12 +12,12 @@ class LayoutMaskWidgetPage extends NormalStatefulWidget {
 }
 
 class LayoutMaskWidgetPageState extends NormalStatefulWidgetState<LayoutMaskWidgetPage> {
-  final step = 0.obs;
-  late Widget layoutMaskWidget;
-  final GlobalKey messageKey = GlobalKey();
-  final GlobalKey starKey = GlobalKey();
-  final GlobalKey titleKey = GlobalKey();
-  final GlobalKey textKey = GlobalKey();
+  final _step = 0.obs;
+  late Widget _layoutMaskWidget;
+  final GlobalKey _messageKey = GlobalKey();
+  final GlobalKey _starKey = GlobalKey();
+  final GlobalKey _titleKey = GlobalKey();
+  final GlobalKey _textKey = GlobalKey();
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
@@ -27,7 +27,7 @@ class LayoutMaskWidgetPageState extends NormalStatefulWidgetState<LayoutMaskWidg
           OpacityButtonWidget(
             color: Colors.transparent,
             padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 15),
-            onTap: () => step.value += 1,
+            onTap: () => _step.value += 1,
             child: WidgetsFactory.text('点击我', color: Colors.blue),
           ),
         ],
@@ -38,22 +38,22 @@ class LayoutMaskWidgetPageState extends NormalStatefulWidgetState<LayoutMaskWidg
     super.initState();
 
     Util.delayedSeconds(0, () {
-      layoutMaskWidget = Obx(() {
+      _layoutMaskWidget = Obx(() {
         late Rect rect;
-        switch (step.value % 5) {
+        switch (_step.value % 5) {
           case 0:
             return const SizedBox();
           case 1:
-            rect = messageKey.globalPaintBounds!;
+            rect = _messageKey.globalPaintBounds!;
             break;
           case 2:
-            rect = starKey.globalPaintBounds!;
+            rect = _starKey.globalPaintBounds!;
             break;
           case 3:
-            rect = titleKey.globalPaintBounds!;
+            rect = _titleKey.globalPaintBounds!;
             break;
           case 4:
-            rect = textKey.globalPaintBounds!;
+            rect = _textKey.globalPaintBounds!;
             break;
           default:
             break;
@@ -72,10 +72,10 @@ class LayoutMaskWidgetPageState extends NormalStatefulWidgetState<LayoutMaskWidg
               ),
             ),
           ],
-        ).addTapEvent(() => step.value += 1);
+        ).addTapEvent(() => _step.value += 1);
       });
 
-      outerStackContainer.insertWidget(layoutMaskWidget);
+      outerStackContainer.insertWidget(_layoutMaskWidget);
     });
   }
 
@@ -84,10 +84,10 @@ class LayoutMaskWidgetPageState extends NormalStatefulWidgetState<LayoutMaskWidg
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Icon(Icons.message, key: messageKey).addPaddingOnly(bottom: 20),
-        Icon(Icons.star, key: starKey).addPaddingOnly(bottom: 40),
-        Icon(Icons.title, key: titleKey, size: 60).addPaddingOnly(bottom: 20),
-        WidgetsFactory.text('可以用作用户引导', key: textKey),
+        Icon(Icons.message, key: _messageKey).addPaddingOnly(bottom: 20),
+        Icon(Icons.star, key: _starKey).addPaddingOnly(bottom: 40),
+        Icon(Icons.title, key: _titleKey, size: 60).addPaddingOnly(bottom: 20),
+        WidgetsFactory.text('可以用作用户引导', key: _textKey),
       ],
     ).addPadding(const EdgeInsets.all(30));
   }

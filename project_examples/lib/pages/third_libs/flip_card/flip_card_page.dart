@@ -14,7 +14,7 @@ class FlipCardPage extends NormalStatefulWidget {
 }
 
 class FlipCardPageState extends NormalStatefulWidgetState<FlipCardPage> {
-  late FlipCardController controller;
+  late FlipCardController _controller;
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
@@ -25,7 +25,7 @@ class FlipCardPageState extends NormalStatefulWidgetState<FlipCardPage> {
   @override
   void initState() {
     super.initState();
-    controller = FlipCardController();
+    _controller = FlipCardController();
   }
 
   @override
@@ -35,7 +35,7 @@ class FlipCardPageState extends NormalStatefulWidgetState<FlipCardPage> {
         mainAxisSize: MainAxisSize.min,
         children: [
           FlipCard(
-            controller: controller,
+            controller: _controller,
             direction: FlipDirection.HORIZONTAL,
             front: Container(
               width: 100,
@@ -52,13 +52,13 @@ class FlipCardPageState extends NormalStatefulWidgetState<FlipCardPage> {
               child: WidgetsFactory.text('反面', fontSize: 20, color: Colors.white),
             ),
           ),
-          TextButton(onPressed: () => controller.toggleCard(), child: WidgetsFactory.text('翻转')),
+          TextButton(onPressed: () => _controller.toggleCard(), child: WidgetsFactory.text('翻转')),
           TextButton(
               onPressed: () =>
-                  controller.skew(Util.randomPercent, duration: const Duration(milliseconds: 500), curve: Curves.easeInOutCubic),
+                  _controller.skew(Util.randomPercent, duration: const Duration(milliseconds: 500), curve: Curves.easeInOutCubic),
               child: WidgetsFactory.text('随机角度')),
           TextButton(
-              onPressed: () => controller.hint(duration: const Duration(milliseconds: 1100), total: const Duration(milliseconds: 1000)),
+              onPressed: () => _controller.hint(duration: const Duration(milliseconds: 1100), total: const Duration(milliseconds: 1000)),
               child: WidgetsFactory.text('暗示(该控件可以翻转)')),
         ],
       ),

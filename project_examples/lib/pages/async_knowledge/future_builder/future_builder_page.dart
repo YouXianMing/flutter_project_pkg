@@ -11,7 +11,7 @@ class FutureBuilderPage extends NormalStatefulWidget {
 }
 
 class FutureBuilderPageState extends NormalStatefulWidgetState<FutureBuilderPage> {
-  final RxBool start = false.obs;
+  final RxBool _start = false.obs;
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
@@ -22,13 +22,13 @@ class FutureBuilderPageState extends NormalStatefulWidgetState<FutureBuilderPage
   @override
   Widget body(BuildContext context) {
     return Obx(() => FutureBuilder(
-          future: start.value == true ? Future<String>.delayed(const Duration(seconds: 3), () => '结束') : null,
+          future: _start.value == true ? Future<String>.delayed(const Duration(seconds: 3), () => '结束') : null,
           builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.none:
                 return GestureDetector(
                   onTap: () {
-                    start.value = true;
+                    _start.value = true;
                     innerLoading.show();
                   },
                   child: Container(

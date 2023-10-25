@@ -15,16 +15,16 @@ class FilesScanPage extends NormalStatefulWidget {
 
 class FilesScanPageState extends NormalStatefulWidgetState<FilesScanPage> {
   /// 是否可以加载数据
-  bool canLoadData = false;
+  bool _canLoadData = false;
 
   /// completer
-  Completer completer = Completer();
+  final Completer _completer = Completer();
 
   /// 文件扫描工具
-  late ScanFilesTool scanFilesTool;
+  late ScanFilesTool _scanFilesTool;
 
   /// 根文件
-  late FileInfo fileInfo;
+  late FileInfo _fileInfo;
 
   @override
   void initState() {
@@ -34,9 +34,9 @@ class FilesScanPageState extends NormalStatefulWidgetState<FilesScanPage> {
     if (file == null) {
       _eventScanFiles();
     } else {
-      fileInfo = file;
-      completer.complete();
-      canLoadData = true;
+      _fileInfo = file;
+      _completer.complete();
+      _canLoadData = true;
     }
   }
 
@@ -52,12 +52,12 @@ class FilesScanPageState extends NormalStatefulWidgetState<FilesScanPage> {
     );
 
     Util.delayedMilliseconds(900, () async {
-      scanFilesTool = ScanFilesTool(directoryPath: FilesManager.documentsPath);
-      scanFilesTool.startScanFiles().then((value) {
+      _scanFilesTool = ScanFilesTool(directoryPath: FilesManager.documentsPath);
+      _scanFilesTool.startScanFiles().then((value) {
         if (value != null) {
-          fileInfo = value;
-          canLoadData = true;
-          completer.complete();
+          _fileInfo = value;
+          _canLoadData = true;
+          _completer.complete();
           setState(() {});
         }
       });
@@ -72,15 +72,15 @@ class FilesScanPageState extends NormalStatefulWidgetState<FilesScanPage> {
 
   @override
   Widget firstTimeLoadingWidgetStartLoading(BuildContext context) =>
-      canLoadData ? firstTimeLoadingWidget.setDone() : firstTimeLoadingWidget.listenFuture(() => completer.future);
+      _canLoadData ? firstTimeLoadingWidget.setDone() : firstTimeLoadingWidget.listenFuture(() => _completer.future);
 
   @override
   Widget body(BuildContext context) {
-    return canLoadData
+    return _canLoadData
         ? CustomScrollView(
             slivers: [
               SliverListSection.builderTypeWidget(
-                items: fileInfo.subFiles,
+                items: _fileInfo.subFiles,
                 builder: (c, i, d) {
                   FileInfo file = d;
                   return OpacityButtonWidget(

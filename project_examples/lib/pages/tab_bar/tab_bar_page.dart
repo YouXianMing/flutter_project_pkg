@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:project_base_libs_pkg/base/managers/page_view_manager.dart';
 import 'package:project_examples/pages/tab_bar/account_page.dart';
 import 'package:project_examples/pages/tab_bar/cart_page.dart';
 import 'package:project_examples/pages/tab_bar/category_page.dart';
 import 'package:project_examples/pages/tab_bar/home_page.dart';
 import 'package:project_examples/pages/tab_bar/widgets/tab_bar_button_view.dart';
 import 'package:project_examples/pages/tab_bar/widgets/tar_bar_button.dart';
-import 'package:project_base_libs_pkg/base/managers/page_view_manager.dart';
 
 class TabBarPage extends StatefulWidget {
   const TabBarPage({Key? key}) : super(key: key);
@@ -15,18 +15,18 @@ class TabBarPage extends StatefulWidget {
 }
 
 class TabBarPageState extends State<TabBarPage> {
-  Key key = UniqueKey();
-  final PageViewManager pageViewManager = PageViewManager();
-  final List pages = [const HomePage(), const CategoryPage(), const CartPage(), const AccountPage()];
+  Key _key = UniqueKey();
+  final PageViewManager _pageViewManager = PageViewManager();
+  final List _pages = [const HomePage(), const CategoryPage(), const CartPage(), const AccountPage()];
 
   void resetPages() {
-    key = UniqueKey();
+    _key = UniqueKey();
   }
 
   @override
   Widget build(BuildContext context) {
     return KeyedSubtree(
-      key: key,
+      key: _key,
       child: Container(
         color: Colors.white,
         child: Stack(
@@ -37,7 +37,7 @@ class TabBarPageState extends State<TabBarPage> {
                 Expanded(
                   child: Container(
                     color: Colors.white,
-                    child: pageViewManager.buildPageView(itemBuilder: (context, index) => pages[index], itemCount: pages.length),
+                    child: _pageViewManager.buildPageView(itemBuilder: (context, index) => _pages[index], itemCount: _pages.length),
                   ),
                 ),
 
@@ -62,6 +62,6 @@ class TabBarPageState extends State<TabBarPage> {
   }
 
   void didTap(TabBarButton button) {
-    pageViewManager.makeSelectIndex(button.index);
+    _pageViewManager.makeSelectIndex(button.index);
   }
 }

@@ -33,9 +33,7 @@ class _TweenSequenceAnimationDemoState extends State<_TweenSequenceAnimationDemo
   @override
   void initState() {
     _animationController = AnimationController(duration: const Duration(seconds: 5), vsync: this);
-    _animationController.addListener(() {
-      setState(() {});
-    });
+    _animationController.addListener(() => setState(() {}));
 
     /// weight是权重,40+20+40=100,第一段动画时间是5x0.4=2s,第二段动画是5x0.2=1s,第三段动画是5x0.4=2s
     _animation = TweenSequence([

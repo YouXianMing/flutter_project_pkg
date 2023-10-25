@@ -1,5 +1,6 @@
-import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'dart:math' as math;
+
+import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/file_headers.dart';
 
 class GoodsAddToCartPage extends NormalStatefulWidget {
@@ -31,15 +32,15 @@ class AnimationsManagerUseDemo extends StatefulWidget {
 }
 
 class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> with TickerProviderStateMixin {
-  static const String alpha = 'alpha';
-  static const String scale = 'scale';
-  static const String offsetX = 'offsetX';
-  static const String offsetY = 'offsetY';
+  static const String _alpha = 'alpha';
+  static const String _scale = 'scale';
+  static const String _offsetX = 'offsetX';
+  static const String _offsetY = 'offsetY';
   late AnimationsManager cartAnimationsManager;
 
-  late Widget itemWidget;
-  GlobalKey cartKey = GlobalKey();
-  GlobalKey itemKey = GlobalKey();
+  late Widget _itemWidget;
+  final GlobalKey _cartKey = GlobalKey();
+  final GlobalKey _itemKey = GlobalKey();
 
   static const String rotate = 'rotate';
   late AnimationsManager rotateAnimationsManager;
@@ -48,7 +49,7 @@ class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> wit
   void initState() {
     super.initState();
 
-    itemWidget = Container(width: 80, height: 80, color: Colors.red, key: itemKey);
+    _itemWidget = Container(width: 80, height: 80, color: Colors.red, key: _itemKey);
 
     rotateAnimationsManager = AnimationsManager(
       tickerProvider: this,
@@ -70,22 +71,22 @@ class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> wit
         tickerProvider: this,
         duration: const Duration(seconds: 2, milliseconds: 100),
         animationObjectMap: {
-          alpha: TweenSequenceObject(
+          _alpha: TweenSequenceObject(
             items: [
               TweenSequenceItem(tween: ConstantTween<double>(0), weight: 0.1), // 为了解决获取中点有误差的问题
               TweenSequenceItem(tween: Tween<double>(begin: 0, end: 1).chain(CurveTween(curve: Curves.linear)), weight: 1),
               TweenSequenceItem(tween: Tween<double>(begin: 1, end: 0.1).chain(CurveTween(curve: Curves.linear)), weight: 1),
             ],
           ),
-          scale: TweenSequenceObject(
+          _scale: TweenSequenceObject(
             items: [
               TweenSequenceItem(tween: ConstantTween<double>(1), weight: 0.1), // 为了解决获取中点有误差的问题
               TweenSequenceItem(tween: Tween<double>(begin: 2, end: 1).chain(CurveTween(curve: Curves.easeOutQuint)), weight: 1),
               TweenSequenceItem(tween: Tween<double>(begin: 1, end: 0.4).chain(CurveTween(curve: Curves.easeOutQuint)), weight: 1),
             ],
           ),
-          offsetX: TweenSequenceObject(items: [TweenSequenceItem(tween: ConstantTween<double>(0), weight: 1)]),
-          offsetY: TweenSequenceObject(items: [TweenSequenceItem(tween: ConstantTween<double>(0), weight: 1)]),
+          _offsetX: TweenSequenceObject(items: [TweenSequenceItem(tween: ConstantTween<double>(0), weight: 1)]),
+          _offsetY: TweenSequenceObject(items: [TweenSequenceItem(tween: ConstantTween<double>(0), weight: 1)]),
         },
         completedCallback: () {
           rotateAnimationsManager.forward();
@@ -93,14 +94,14 @@ class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> wit
 
     // 延迟1秒后执行动画
     Util.delayedSeconds(1, () {
-      Offset offsetCart = cartKey.globalPaintCenterPoint!;
-      Offset offsetItem = itemKey.globalPaintCenterPoint!;
+      Offset offsetCart = _cartKey.globalPaintCenterPoint!;
+      Offset offsetItem = _itemKey.globalPaintCenterPoint!;
       Offset offset = offsetCart - offsetItem;
 
       // 更新offsetX与offsetY的值
       cartAnimationsManager
           .setAnimationObject(
-            key: offsetX,
+            key: _offsetX,
             value: TweenSequenceObject(
               items: [
                 TweenSequenceItem(tween: ConstantTween<double>(0), weight: 0.1), // 为了解决获取中点有误差的问题
@@ -110,7 +111,7 @@ class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> wit
             ),
           )
           .setAnimationObject(
-            key: offsetY,
+            key: _offsetY,
             value: TweenSequenceObject(
               items: [
                 TweenSequenceItem(tween: ConstantTween<double>(0), weight: 0.1), // 为了解决获取中点有误差的问题
@@ -139,13 +140,13 @@ class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> wit
 
   Widget cartItemsAnimationWidget() {
     return cartAnimationsManager.animatedBuilder(
-      child: itemWidget,
+      child: _itemWidget,
       builder: (context, child) => Opacity(
-        opacity: cartAnimationsManager.animationByKey(alpha).value,
+        opacity: cartAnimationsManager.animationByKey(_alpha).value,
         child: Transform.translate(
-          offset: Offset(cartAnimationsManager.animationByKey(offsetX).value, cartAnimationsManager.animationByKey(offsetY).value),
+          offset: Offset(cartAnimationsManager.animationByKey(_offsetX).value, cartAnimationsManager.animationByKey(_offsetY).value),
           child: Transform.scale(
-              scale: cartAnimationsManager.animationByKey(scale).value, child: Container(alignment: Alignment.center, child: child)),
+              scale: cartAnimationsManager.animationByKey(_scale).value, child: Container(alignment: Alignment.center, child: child)),
         ),
       ),
     );
@@ -153,7 +154,7 @@ class _AnimationsManagerUseDemoState extends State<AnimationsManagerUseDemo> wit
 
   Widget cartIconAnimationWidget() {
     return rotateAnimationsManager.animatedBuilder(
-        child: Icon(Icons.add_shopping_cart, size: 40, key: cartKey),
+        child: Icon(Icons.add_shopping_cart, size: 40, key: _cartKey),
         builder: (context, child) {
           return Transform.rotate(angle: rotateAnimationsManager.animationByKey(rotate).value, child: child);
         });

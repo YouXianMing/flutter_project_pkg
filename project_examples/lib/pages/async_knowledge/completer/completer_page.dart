@@ -14,19 +14,19 @@ class CompleterPage extends NormalStatefulWidget {
 
 class CompleterPageState extends NormalStatefulWidgetState<CompleterPage> {
   // 相当于信号量
-  late Completer completer;
-  String info = '等待中';
+  late Completer _completer;
+  String _info = '等待中';
 
   @override
   void initState() {
     super.initState();
-    completer = Completer();
+    _completer = Completer();
     startFuture();
   }
 
   void startFuture() async {
-    Future.delayed(Duration(seconds: Util.randomInt(max: 4, min: 1)), () => completer.complete('结果'));
-    info = await completer.future;
+    Future.delayed(Duration(seconds: Util.randomInt(max: 4, min: 1)), () => _completer.complete('结果'));
+    _info = await _completer.future;
     setState(() {});
   }
 
@@ -38,6 +38,6 @@ class CompleterPageState extends NormalStatefulWidgetState<CompleterPage> {
 
   @override
   Widget body(BuildContext context) {
-    return Center(child: WidgetsFactory.text(info));
+    return Center(child: WidgetsFactory.text(_info));
   }
 }
