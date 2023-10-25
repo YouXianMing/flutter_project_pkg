@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 enum AppLanguage {
   english,
   chinese,
+  japanese,
 }
 
 /// 本地语言的枚举值扩展
@@ -15,6 +16,8 @@ extension AppLanguageExtension on AppLanguage {
         return const Locale('en', 'US');
       case AppLanguage.chinese:
         return const Locale('zh', 'CN');
+      case AppLanguage.japanese:
+        return const Locale('ja', 'JP');
     }
   }
 
@@ -25,6 +28,8 @@ extension AppLanguageExtension on AppLanguage {
         return 1;
       case AppLanguage.chinese:
         return 2;
+      case AppLanguage.japanese:
+        return 3;
     }
   }
 }

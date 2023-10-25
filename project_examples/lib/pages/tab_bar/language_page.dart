@@ -36,6 +36,13 @@ class AnimatedWidgetPageState extends NormalStatefulWidgetState<LanguagePage> {
             title: '中文'.tr,
           ));
           break;
+        case AppLanguage.japanese:
+          _languageItems.add(LanguageItem(
+            appLanguage: appLanguage,
+            selected: AppInfo.language == appLanguage,
+            title: '日文'.tr,
+          ));
+          break;
       }
     }
   }

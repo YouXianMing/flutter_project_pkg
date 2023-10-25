@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flip_card/flip_card_controller.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/file_headers.dart';
 
@@ -14,19 +13,11 @@ class CarouselSliderPage extends NormalStatefulWidget {
 }
 
 class CarouselSliderPageState extends NormalStatefulWidgetState<CarouselSliderPage> {
-  late FlipCardController _controller;
-
   @override
   PreferredSizeWidget? appBar(BuildContext context) => NormalAppBar(
         context: context,
         title: NormalAppBar.titleWidget(appGetTitle(arguments: widget.arguments)),
       );
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = FlipCardController();
-  }
 
   @override
   Widget body(BuildContext context) {

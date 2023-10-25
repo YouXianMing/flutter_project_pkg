@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:project_base_libs_pkg/base_file_headers.dart';
+import 'package:project_base_libs_pkg/third_lib_get.dart';
+import 'package:project_examples/app_route_style.dart';
 import 'package:project_examples/languages/app_language.dart';
 import 'package:project_examples/languages/app_translations.dart';
 import 'package:project_examples/pages/tab_bar/tab_bar_page.dart';
 import 'package:project_examples/pages/unknown/unknown_page.dart';
 import 'package:project_examples/route/getx_route_config.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:project_base_libs_pkg/base_file_headers.dart';
-import 'package:project_base_libs_pkg/third_lib_get.dart';
 import 'package:project_examples/route/page_route_enum.dart';
-import 'package:project_examples/app_route_style.dart';
 import 'package:project_examples/utils/app_data_init.dart';
 import 'package:project_examples/utils/app_info.dart';
 import 'package:project_examples/widgets/launch_image_widget.dart';
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
           designSize: designSize,
           builder: (context, wgt) => GetMaterialApp(
             translations: AppTranslations(),
-            locale: AppInfo.language == AppLanguage.chinese ? AppLanguage.chinese.locale : AppLanguage.english.locale,
+            locale: _locale,
             theme: ThemeData.light(),
             debugShowCheckedModeBanner: false,
             builder: (context, widget) => _widgetMain(context, widget),
@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
           designSize: designSize,
           builder: (context, wgt) => GetMaterialApp(
             translations: AppTranslations(),
-            locale: AppInfo.language == AppLanguage.chinese ? AppLanguage.chinese.locale : AppLanguage.english.locale,
+            locale: _locale,
             theme: ThemeData.light(),
             debugShowCheckedModeBanner: false,
             builder: (context, widget) => _widgetMain(context, widget),
@@ -79,6 +79,17 @@ class MyApp extends StatelessWidget {
             },
           ),
         );
+    }
+  }
+
+  Locale get _locale {
+    switch (AppInfo.language) {
+      case AppLanguage.english:
+        return AppLanguage.english.locale;
+      case AppLanguage.chinese:
+        return AppLanguage.chinese.locale;
+      case AppLanguage.japanese:
+        return AppLanguage.japanese.locale;
     }
   }
 
