@@ -48,9 +48,7 @@ class LineIconsPageState extends NormalStatefulWidgetState<LineIconsPage> {
                 ).addPaddingOnly(left: 5, right: 5),
                 Expanded(child: WidgetsFactory.text(name, maxLines: 2).addPaddingOnly(right: 5)),
               ],
-            ).addTapEvent(() {
-              appPrint('${map[d]} LineIcons.$d');
-            }, includeContainer: true);
+            ).addTapEvent(() => appPrint('${map[d]} LineIcons.$d'), includeContainer: true);
           },
         ),
       ],

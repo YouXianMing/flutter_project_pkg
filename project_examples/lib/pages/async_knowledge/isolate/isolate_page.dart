@@ -1,4 +1,5 @@
 import 'dart:isolate';
+
 import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/file_headers.dart';
 
@@ -14,7 +15,7 @@ class IsolatePage extends NormalStatefulWidget {
 
 class CompleterPageState extends NormalStatefulWidgetState<IsolatePage> {
   final _receivePort = ReceivePort();
-  late String _info = '等待中';
+  late String _info = '等待中'.tr;
 
   @override
   void initState() {
@@ -30,7 +31,7 @@ class CompleterPageState extends NormalStatefulWidgetState<IsolatePage> {
     _receivePort.listen((message) {
       // 更新数据
       _info = message.toString();
-      setState(() {});
+      safeSetState(() {});
 
       // 关闭receivePort
       _receivePort.close();

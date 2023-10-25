@@ -104,7 +104,7 @@ class DartFuturePageState extends NormalStatefulWidgetState<DartFuturePage> {
             content: '[factory] Future.delay\n延时操作',
             onTap: (_) {
               innerLoading.show();
-              Future.delayed(const Duration(seconds: 1), () => Util.randomBool == true ? Future.value('结果') : Future.error('出错')).then((v) {
+              Future.delayed(const Duration(seconds: 1), () => Util.randomBool == true ? Future.value('结果'.tr) : Future.error('错误')).then((v) {
                 innerLoading.hide();
                 showMessage(context, v.toString());
               }).catchError((e) {

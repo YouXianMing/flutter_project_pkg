@@ -1,6 +1,6 @@
 import 'package:project_base_libs_pkg/base_file_headers.dart';
-import 'package:scratcher/widgets.dart';
 import 'package:project_examples/file_headers.dart';
+import 'package:scratcher/widgets.dart';
 
 class ScratcherPage extends NormalStatefulWidget {
   @override
@@ -42,9 +42,9 @@ class ScratcherPageState extends NormalStatefulWidgetState<ScratcherPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(onPressed: () => scratchKey.currentState!.reset(), child: const Text('重置')),
+              TextButton(onPressed: () => scratchKey.currentState!.reset(), child: Text('重置'.tr)),
               TextButton(
-                  onPressed: () => scratchKey.currentState!.reveal(duration: const Duration(milliseconds: 500)), child: const Text('刮开')),
+                  onPressed: () => scratchKey.currentState!.reveal(duration: const Duration(milliseconds: 500)), child: Text('刮开'.tr)),
             ],
           ),
         ],

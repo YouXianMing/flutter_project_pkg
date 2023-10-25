@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base_file_headers.dart';
+import 'package:project_examples/file_headers.dart';
 
 enum ProjectLoadingWidgetType {
   loading,
@@ -36,12 +36,12 @@ class ProjectLoadingWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               const Icon(Icons.warning_rounded, color: Colors.yellow, size: 60),
-              WidgetsFactory.text('很抱歉,出错啦', fontSize: 20, color: Colors.black).addPaddingOnly(bottom: 40),
+              WidgetsFactory.text('很抱歉,出错啦'.tr, fontSize: 20, color: Colors.black).addPaddingOnly(bottom: 40),
               OpacityButtonWidget(
                 onTap: () {
                   if (onTap != null) onTap!();
                 },
-                child: WidgetsFactory.text('点击重试', fontSize: 20, color: Colors.white).addContainerBorderRadius(
+                child: WidgetsFactory.text('点击重试'.tr, fontSize: 20, color: Colors.white).addContainerBorderRadius(
                   radius: 4,
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                   color: Colors.blueAccent,

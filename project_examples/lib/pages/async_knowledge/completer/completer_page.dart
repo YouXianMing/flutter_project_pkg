@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:project_base_libs_pkg/base/widgets/widgets_factory/widgets_factory.dart';
 import 'package:project_examples/file_headers.dart';
 
@@ -15,7 +16,7 @@ class CompleterPage extends NormalStatefulWidget {
 class CompleterPageState extends NormalStatefulWidgetState<CompleterPage> {
   // 相当于信号量
   late Completer _completer;
-  String _info = '等待中';
+  String _info = '等待中'.tr;
 
   @override
   void initState() {
@@ -25,9 +26,9 @@ class CompleterPageState extends NormalStatefulWidgetState<CompleterPage> {
   }
 
   void startFuture() async {
-    Future.delayed(Duration(seconds: Util.randomInt(max: 4, min: 1)), () => _completer.complete('结果'));
+    Future.delayed(Duration(seconds: Util.randomInt(max: 4, min: 1)), () => _completer.complete('结果'.tr));
     _info = await _completer.future;
-    setState(() {});
+    safeSetState(() {});
   }
 
   @override

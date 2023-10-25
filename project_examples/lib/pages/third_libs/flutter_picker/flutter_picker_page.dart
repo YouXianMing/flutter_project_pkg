@@ -22,7 +22,7 @@ class FlutterPickerPageState extends NormalStatefulWidgetState<FlutterPickerPage
   @override
   Widget body(BuildContext context) {
     return DatePickerWidget(
-      locale: DatePickerLocale.chinese,
+      locale: AppInt.language.value == AppLanguage.chinese.code ? DatePickerLocale.chinese : DatePickerLocale.english,
       onSelect: (DateTime? dateTime) {
         appPrint(dateTime);
       },

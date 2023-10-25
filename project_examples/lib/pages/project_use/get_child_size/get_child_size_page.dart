@@ -26,7 +26,7 @@ class GetChildSizePageState extends NormalStatefulWidgetState<GetChildSizePage> 
       children: [
         OpacityButtonWidget(
           onTap: () => setState(() {}),
-          child: WidgetsFactory.text('点击更新', color: Colors.white).addContainerBorderRadius(
+          child: WidgetsFactory.text('点击更新'.tr, color: Colors.white).addContainerBorderRadius(
             radius: 6,
             color: Colors.blue,
             padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),

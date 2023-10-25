@@ -72,7 +72,7 @@ class DartStreamPageState extends NormalStatefulWidgetState<DartStreamPage> {
 
               // 创建Stream
               Stream<String> stream = Stream.fromFuture(
-                  Future.delayed(const Duration(seconds: 3), () => Util.randomBool == true ? Future.value('结果') : Future.error('错误')));
+                  Future.delayed(const Duration(seconds: 3), () => Util.randomBool == true ? Future.value('结果'.tr) : Future.error('错误')));
 
               // 开始订阅
               StreamSubscription subscription = stream.listen(

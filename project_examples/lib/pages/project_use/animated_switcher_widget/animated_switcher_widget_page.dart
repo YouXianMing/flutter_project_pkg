@@ -55,7 +55,7 @@ class AnimatedSwitcherWidgetPageState extends NormalStatefulWidgetState<Animated
           case WidgetStatus.error:
             child = OpacityButtonWidget(
               onTap: () => setState(() {}),
-              child: WidgetsFactory.text('点击重试', color: Colors.white, fontSize: 24).addContainerBorderRadius(
+              child: WidgetsFactory.text('点击重试'.tr, color: Colors.white, fontSize: 24).addContainerBorderRadius(
                 radius: 6,
                 color: Colors.indigoAccent,
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),

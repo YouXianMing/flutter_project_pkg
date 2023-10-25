@@ -22,7 +22,7 @@ class FutureBuilderPageState extends NormalStatefulWidgetState<FutureBuilderPage
   @override
   Widget body(BuildContext context) {
     return Obx(() => FutureBuilder(
-          future: _start.value == true ? Future<String>.delayed(const Duration(seconds: 3), () => '结束') : null,
+          future: _start.value == true ? Future<String>.delayed(const Duration(seconds: 3), () => '结束'.tr) : null,
           builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.none:
@@ -34,7 +34,7 @@ class FutureBuilderPageState extends NormalStatefulWidgetState<FutureBuilderPage
                   child: Container(
                     padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
                     color: Colors.black,
-                    child: const Text('开始', style: TextStyle(color: Colors.white)),
+                    child: Text('开始'.tr, style: const TextStyle(color: Colors.white)),
                   ),
                 );
 
@@ -42,7 +42,7 @@ class FutureBuilderPageState extends NormalStatefulWidgetState<FutureBuilderPage
                 return Container(
                   padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
                   color: Colors.green,
-                  child: const Text('运行中', style: TextStyle(color: Colors.white)),
+                  child: Text('运行中'.tr, style: const TextStyle(color: Colors.white)),
                 );
 
               case ConnectionState.done:

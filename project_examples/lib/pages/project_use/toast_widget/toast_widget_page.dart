@@ -1,8 +1,8 @@
-import 'package:project_base_libs_pkg/base_file_headers.dart';
-import 'package:line_icons/line_icons.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:line_icons/line_icons.dart';
+import 'package:project_base_libs_pkg/base_file_headers.dart';
 import 'package:project_examples/file_headers.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ToastWidgetPage extends NormalStatefulWidget {
   @override
@@ -59,7 +59,7 @@ class ToastWidgetPageState extends NormalStatefulWidgetState<ToastWidgetPage> {
                     .show()
                     .hide(afterDelay: const Duration(seconds: 3), complete: (v) => appPrint('did hide'));
               },
-              child: const Text('点击我')),
+              child: Text('点击我'.tr)),
         ),
         _toastWidget,
       ],

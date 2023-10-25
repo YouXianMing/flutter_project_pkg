@@ -27,7 +27,7 @@ class MaybePopPageState extends NormalStatefulWidgetState<MaybePopPage> {
           Util.delayedMilliseconds(800, () => showInformationView());
           Util.delayedMilliseconds(1600, () => showInformationView());
         },
-        child: const Text('点击我'),
+        child: Text('点击我'.tr),
       ),
     );
   }

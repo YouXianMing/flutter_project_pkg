@@ -44,7 +44,7 @@ class SlidingUpPanelPageState extends NormalStatefulWidgetState<SlidingUpPanelPa
         Center(
           child: OpacityButtonWidget(
             onTap: () => _controller.update(data: _randomData()),
-            child: WidgetsFactory.text('更新数据', fontSize: 22, color: Colors.white).addContainerBorderRadius(
+            child: WidgetsFactory.text('更新数据'.tr, fontSize: 22, color: Colors.white).addContainerBorderRadius(
               radius: 6,
               color: Colors.blue,
               padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),

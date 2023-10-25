@@ -186,7 +186,7 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
               /// SliverWaterfallFlowSection.builder
               SliverWaterfallFlowSection.builderTypeWidget(
                 stickyHeaderController: _stickyHeaderController,
-                headerBuilder: (_) => header('SliverWaterfallFlowSection.builder (点击我)').addTapEvent(
+                headerBuilder: (_) => header('SliverSectionTip1'.tr).addTapEvent(
                   () {
                     if (_stickyHeaderController.stickyHeaderScrollOffset <= 0) return;
                     if (_useSliverAppBar) {
@@ -310,7 +310,7 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
               /// SliverBoxAdapterSection
               SliverBoxAdapterSection.widget(
                 headerBuilder: (_) => header('SliverBoxAdapterSection'),
-                data: '数据',
+                data: '数据'.tr,
                 builder: (d) => SizedBox(height: 150.w, child: Card(child: Center(child: Text(d.toString())))),
               ),
 
@@ -326,7 +326,7 @@ class SliverSectionsPageState extends NormalStatefulWidgetState<SliverSectionsPa
 
               /// SliverStaggeredGridCountBuilderSection
               SliverStaggeredGridCountBuilderSection.widget(
-                headerBuilder: (_) => header('SliverStaggeredGridCountBuilderSection\n瀑布流不建议使用此控件的sliver版本,有bug'),
+                headerBuilder: (_) => header('SliverSectionTip2'.tr),
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
                 crossAxisCount: 2,
