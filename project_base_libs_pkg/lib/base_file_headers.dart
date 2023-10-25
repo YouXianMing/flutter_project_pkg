@@ -1,11 +1,11 @@
 library project_base_libs_pkg;
 
+/// extensions
 export 'base/extensions/curve_extensions.dart'; // Curve的扩展
 export 'base/extensions/global_key_extensions.dart'; // GlobalKey的扩展
 export 'base/extensions/iterable_extensions.dart'; // 迭代器的扩展
 export 'base/extensions/json_extensions.dart'; // json的便利扩展
 export 'base/extensions/string_extensions.dart'; // String的扩展
-/// extensions
 export 'base/extensions/widget_extensions.dart'; // Widget的扩展
 /// managers
 export 'base/managers/animations_manager.dart'; // 动画管理类
@@ -15,14 +15,13 @@ export 'base/managers/page_view_manager.dart'; // PageView用管理器
 /// network
 export 'base/network/base_network.dart'; // 网络请求基类
 export 'base/network/dio_network.dart'; // dio的网络请求实现
+/// other
 export 'base/others/linear_equation.dart';
 export 'base/others/no_shadow_scroll_behavior.dart';
 export 'base/others/no_splash_theme.dart';
 export 'base/others/on_scrolls_to_top_config.dart';
 export 'base/others/scroll_config/base_scroll_style_config.dart';
 export 'base/others/scroll_config/scroll_style_config.dart';
-
-/// other
 export 'base/others/sliver_section/base_sliver_section.dart'; // sliverSection基类
 export 'base/others/sliver_section/sliver_app_bar/sliver_app_bar_section.dart'; // sliverSection相关
 export 'base/others/sliver_section/sliver_box_adapter/sliver_box_adapter_section.dart'; // sliverSection相关
@@ -43,7 +42,6 @@ export 'base/others/sliver_section/sliver_third_libs/sliver_quilted_grid_section
 export 'base/others/sliver_section/sliver_third_libs/sliver_staggered_grid_count_builder_section.dart'; // sliverSection相关
 export 'base/others/sliver_section/sliver_third_libs/sliver_waterfall_flow_section.dart'; // sliverSection相关
 export 'base/others/staggered_grid_data.dart';
-
 /// tools
 export 'base/tools/app_print.dart'; // 打印
 export 'base/tools/auto_obx.dart'; // 手动使用的Obx控制器
@@ -55,14 +53,16 @@ export 'base/tools/file_util.dart'; // 文件相关处理工具
 export 'base/tools/files_manager.dart'; // 文件相关处理工具
 export 'base/tools/hex_color.dart'; // hexColor
 export 'base/tools/map_uri_creator.dart'; // 根据给定的经纬度或者地址字符串创建地图用uri
+export 'base/tools/math_int_number.dart'; // int数据
 export 'base/tools/parse_value.dart'; // 尝试转换数据类型工具
 export 'base/tools/plat_form_info.dart'; // 平台信息
 export 'base/tools/scan_files_tool.dart'; // 文件夹扫描工具
 export 'base/tools/shared_preferences_util.dart'; // 本地化存储工具
 export 'base/tools/sp_val.dart'; // 本地存储
 export 'base/tools/util.dart'; // 常用工具
-/// tools
-export 'base/typedef/project_typedef.dart';
+/// typedef
+export 'base/typedef/project_typedef.dart'; // 定义
+/// widgets
 export 'base/widgets/animated_opacity_repeat.dart'; // opacity重复动画控件
 export 'base/widgets/animated_rotate.dart'; // 旋转动画控件
 export 'base/widgets/animated_scale_repeat.dart'; // 缩放重复动画控件
@@ -91,7 +91,6 @@ export 'base/widgets/indicators/indicator_configs/spin_kit_indicator_config.dart
 export 'base/widgets/indicators/indicator_configs/tino_guo_indicator_config.dart'; // 菊花控件配置
 export 'base/widgets/indicators/indicator_configs/watery_desert_indicator_config.dart'; // 菊花控件配置
 export 'base/widgets/indicators/indicator_widget.dart'; // 菊花控件
-/// widgets
 export 'base/widgets/information_view/animated_pop_view.dart'; // InformationView相关
 export 'base/widgets/information_view/animated_sheet_view.dart'; // InformationView相关
 export 'base/widgets/information_view/animated_simple_toast_view.dart'; // InformationView相关
