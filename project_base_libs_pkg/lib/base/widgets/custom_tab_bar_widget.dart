@@ -82,6 +82,9 @@ class CustomTabBarWidget extends StatefulWidget {
   /// tab的排列方式,如果为false,则为均分;如果为true,则按照tab的实际大小排列
   final bool isScrollable;
 
+  /// padding
+  final EdgeInsets? padding;
+
   /// label的padding
   final EdgeInsets? labelPadding;
 
@@ -126,6 +129,7 @@ class CustomTabBarWidget extends StatefulWidget {
     this.initialIndex = 0,
     this.appBarHeight = kToolbarHeight,
     this.isScrollable = false,
+    this.padding,
     this.labelPadding,
     this.labelColor,
     this.labelStyle,
@@ -188,6 +192,7 @@ class CustomTabBarWidgetState extends State<CustomTabBarWidget> with TickerProvi
             tabs: tabs,
             controller: tabController,
             isScrollable: widget.isScrollable,
+            padding: widget.padding,
             indicator: widget.indicator,
             indicatorPadding: widget.indicatorPadding,
             indicatorColor: widget.indicatorColor,
