@@ -26,6 +26,17 @@ bool checkStringIsEmpty(dynamic str) {
   }
 }
 
+/// 检查string是否不为空
+bool checkStringIsNotEmpty(dynamic str) {
+  if (str is String) {
+    return str.isNotEmpty;
+  } else if (str is String?) {
+    return str == null ? false : str.isNotEmpty;
+  } else {
+    return false;
+  }
+}
+
 /// 检查数组是否为空
 bool checkListIsEmpty(dynamic list) {
   if (list is List) {
@@ -34,6 +45,17 @@ bool checkListIsEmpty(dynamic list) {
     return list == null ? true : list.isEmpty;
   } else {
     return true;
+  }
+}
+
+/// 检查数组是否不为空
+bool checkListIsNotEmpty(dynamic list) {
+  if (list is List) {
+    return list.isNotEmpty;
+  } else if (list is List?) {
+    return list == null ? false : list.isNotEmpty;
+  } else {
+    return false;
   }
 }
 
@@ -48,6 +70,17 @@ bool checkMapIsEmpty(dynamic map) {
   }
 }
 
+/// 检查字典是否不为空
+bool checkMapIsNotEmpty(dynamic map) {
+  if (map is Map) {
+    return map.isNotEmpty;
+  } else if (map is Map?) {
+    return map == null ? false : map.isNotEmpty;
+  } else {
+    return false;
+  }
+}
+
 /// 检查集合是否为空
 bool checkSetIsEmpty(dynamic set) {
   if (set is Set) {
@@ -56,5 +89,16 @@ bool checkSetIsEmpty(dynamic set) {
     return set == null ? true : set.isEmpty;
   } else {
     return true;
+  }
+}
+
+/// 检查集合是否不为空
+bool checkSetIsNotEmpty(dynamic set) {
+  if (set is Set) {
+    return set.isNotEmpty;
+  } else if (set is Set?) {
+    return set == null ? false : set.isNotEmpty;
+  } else {
+    return false;
   }
 }
