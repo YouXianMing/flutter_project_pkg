@@ -42,10 +42,10 @@ export 'base/others/sliver_section/sliver_third_libs/sliver_quilted_grid_section
 export 'base/others/sliver_section/sliver_third_libs/sliver_staggered_grid_count_builder_section.dart'; // sliverSection相关
 export 'base/others/sliver_section/sliver_third_libs/sliver_waterfall_flow_section.dart'; // sliverSection相关
 export 'base/others/staggered_grid_data.dart';
+
 /// tools
 export 'base/tools/app_print.dart'; // 打印
 export 'base/tools/auto_obx.dart'; // 手动使用的Obx控制器
-export 'base/tools/check_value.dart'; // 检验获取参数的类型
 export 'base/tools/dart_semaphore.dart'; // 信号量工具
 export 'base/tools/data_monitoring.dart'; // 数值变化监控
 export 'base/tools/delayed_execution_manager.dart'; // 延时执行工具
@@ -54,12 +54,14 @@ export 'base/tools/files_manager.dart'; // 文件相关处理工具
 export 'base/tools/hex_color.dart'; // hexColor
 export 'base/tools/map_uri_creator.dart'; // 根据给定的经纬度或者地址字符串创建地图用uri
 export 'base/tools/math_int_number.dart'; // int数据
-export 'base/tools/parse_value.dart'; // 尝试转换数据类型工具
 export 'base/tools/plat_form_info.dart'; // 平台信息
 export 'base/tools/scan_files_tool.dart'; // 文件夹扫描工具
 export 'base/tools/shared_preferences_util.dart'; // 本地化存储工具
 export 'base/tools/sp_val.dart'; // 本地存储
 export 'base/tools/util.dart'; // 常用工具
+export 'base/tools/value_check.dart'; // 检验获取参数的类型
+export 'base/tools/value_parse.dart'; // 尝试转换数据类型工具
+export 'base/tools/value_safe_get.dart'; // 获取安全值
 /// typedef
 export 'base/typedef/project_typedef.dart'; // 定义
 /// widgets

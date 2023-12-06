@@ -1,20 +1,3 @@
-/// 获取空安全泛型对象(如果值不是需要的类型,则返回空)
-T? getSafeT<T>(dynamic value) {
-  if (value is T) return value;
-  return null;
-}
-
-/// 获取泛型对象(如果值不是需要的类型,则返回默认值)
-T getT<T>(dynamic value, {required T defaultValue}) {
-  if (value is T) return value;
-  return defaultValue;
-}
-
-/// 使用泛型对象(如果值不是需要的类型,则call不会调用)
-void useT<T>(dynamic value, Function(T) call) {
-  if (value is T) call(value);
-}
-
 /// 检查string是否为空
 bool checkStringIsEmpty(dynamic str) {
   if (str is String) {
@@ -48,6 +31,12 @@ bool checkListIsEmpty(dynamic list) {
   }
 }
 
+/// 检查数组T是否为空
+bool checkListTypeIsEmpty<T>(dynamic list) {
+  if (list is List<T>) return list.isEmpty;
+  return true;
+}
+
 /// 检查数组是否不为空
 bool checkListIsNotEmpty(dynamic list) {
   if (list is List) {
@@ -57,6 +46,12 @@ bool checkListIsNotEmpty(dynamic list) {
   } else {
     return false;
   }
+}
+
+/// 检查数组T是否不为空
+bool checkListTypeIsNotEmpty<T>(dynamic list) {
+  if (list is List<T>) return list.isNotEmpty;
+  return false;
 }
 
 /// 检查字典是否为空
