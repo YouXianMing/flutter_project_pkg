@@ -34,6 +34,9 @@ class GridViewBuilderConfig extends BaseScrollViewBuilderConfig {
   @override
   bool reverse;
 
+  @override
+  Clip clipBehavior;
+
   final int crossAxisCount;
   final double childAspectRatio;
   final double mainAxisSpacing;
@@ -51,6 +54,7 @@ class GridViewBuilderConfig extends BaseScrollViewBuilderConfig {
     this.crossAxisSpacing = 0,
     this.shrinkWrap = false,
     this.reverse = false,
+    this.clipBehavior = Clip.hardEdge,
     this.physics,
     this.padding = EdgeInsets.zero,
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
@@ -62,6 +66,7 @@ class GridViewBuilderConfig extends BaseScrollViewBuilderConfig {
       key: builderKey,
       shrinkWrap: shrinkWrap,
       reverse: reverse,
+      clipBehavior: clipBehavior,
       physics: physics,
       itemCount: items.length,
       padding: padding,
@@ -112,6 +117,9 @@ class ConstraintsGridViewBuilderConfig extends BaseScrollViewBuilderConfig {
   @override
   bool reverse;
 
+  @override
+  Clip clipBehavior;
+
   final BoxConstraints constraints;
   final int crossAxisCount;
   final double childAspectRatio;
@@ -131,6 +139,7 @@ class ConstraintsGridViewBuilderConfig extends BaseScrollViewBuilderConfig {
     this.crossAxisSpacing = 0,
     this.shrinkWrap = false,
     this.reverse = false,
+    this.clipBehavior = Clip.hardEdge,
     this.physics,
     this.padding = EdgeInsets.zero,
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
@@ -144,6 +153,7 @@ class ConstraintsGridViewBuilderConfig extends BaseScrollViewBuilderConfig {
         key: builderKey,
         shrinkWrap: true,
         reverse: reverse,
+        clipBehavior: clipBehavior,
         physics: physics,
         itemCount: items.length,
         padding: padding,

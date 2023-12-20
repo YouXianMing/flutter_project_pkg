@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_base_libs_pkg/base/widgets/widgets_factory/base_scroll_view_builder_config.dart';
 import 'package:project_base_libs_pkg/base/typedef/project_typedef.dart';
+import 'package:project_base_libs_pkg/base/widgets/widgets_factory/base_scroll_view_builder_config.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
@@ -36,6 +36,9 @@ class ListViewBuilderConfig extends BaseScrollViewBuilderConfig {
   @override
   bool reverse;
 
+  @override
+  Clip clipBehavior;
+
   ListViewBuilderConfig({
     required this.items,
     required this.builder,
@@ -45,6 +48,7 @@ class ListViewBuilderConfig extends BaseScrollViewBuilderConfig {
     this.padding = EdgeInsets.zero,
     this.shrinkWrap = false,
     this.reverse = false,
+    this.clipBehavior = Clip.hardEdge,
     this.physics,
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
   });
@@ -56,6 +60,7 @@ class ListViewBuilderConfig extends BaseScrollViewBuilderConfig {
       padding: padding,
       shrinkWrap: shrinkWrap,
       reverse: reverse,
+      clipBehavior: clipBehavior,
       physics: physics,
       itemCount: items.length,
       scrollDirection: scrollDirection,
@@ -99,6 +104,9 @@ class ConstraintsListViewBuilderConfig extends BaseScrollViewBuilderConfig {
   @override
   bool reverse;
 
+  @override
+  Clip clipBehavior;
+
   final BoxConstraints constraints;
 
   ConstraintsListViewBuilderConfig({
@@ -111,6 +119,7 @@ class ConstraintsListViewBuilderConfig extends BaseScrollViewBuilderConfig {
     this.padding = EdgeInsets.zero,
     this.shrinkWrap = false,
     this.reverse = false,
+    this.clipBehavior = Clip.hardEdge,
     this.physics,
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
   });
@@ -124,6 +133,7 @@ class ConstraintsListViewBuilderConfig extends BaseScrollViewBuilderConfig {
         padding: padding,
         shrinkWrap: true,
         reverse: reverse,
+        clipBehavior: clipBehavior,
         physics: physics,
         itemCount: items.length,
         scrollDirection: scrollDirection,
@@ -170,6 +180,9 @@ class ScrollablePositionedListViewBuilderConfig extends BaseScrollViewBuilderCon
   @override
   bool reverse;
 
+  @override
+  Clip clipBehavior;
+
   /// Controller for jumping or scrolling to an item.
   ItemScrollController? itemScrollController;
 
@@ -200,6 +213,7 @@ class ScrollablePositionedListViewBuilderConfig extends BaseScrollViewBuilderCon
     this.padding = EdgeInsets.zero,
     this.shrinkWrap = false,
     this.reverse = false,
+    this.clipBehavior = Clip.hardEdge,
     this.physics,
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
     this.itemScrollController,
@@ -265,6 +279,9 @@ class ScrollToIndexListViewBuilderConfig extends BaseScrollViewBuilderConfig {
   @override
   bool reverse;
 
+  @override
+  Clip clipBehavior;
+
   /// 自动滑动控制器
   AutoScrollController autoScrollController;
 
@@ -283,6 +300,7 @@ class ScrollToIndexListViewBuilderConfig extends BaseScrollViewBuilderConfig {
     this.padding = EdgeInsets.zero,
     this.shrinkWrap = false,
     this.reverse = false,
+    this.clipBehavior = Clip.hardEdge,
     this.physics,
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
   });
@@ -295,6 +313,7 @@ class ScrollToIndexListViewBuilderConfig extends BaseScrollViewBuilderConfig {
         padding: padding,
         shrinkWrap: shrinkWrap,
         reverse: reverse,
+        clipBehavior: clipBehavior,
         physics: physics,
         itemCount: items.length,
         scrollDirection: scrollDirection,

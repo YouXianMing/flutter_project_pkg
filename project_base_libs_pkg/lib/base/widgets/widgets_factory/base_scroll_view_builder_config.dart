@@ -42,6 +42,10 @@ abstract class BaseScrollViewBuilderConfig {
   bool get reverse;
   set reverse(bool reverse);
 
+  /// clipBehavior
+  Clip get clipBehavior;
+  set clipBehavior(Clip clipBehavior);
+
   /// 构建widget
   Widget build();
 }
