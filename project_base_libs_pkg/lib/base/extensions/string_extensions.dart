@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:change_case/change_case.dart';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
@@ -89,6 +90,11 @@ extension StringPathExtensions on String {
 
   /// 获取字符串路径的分割后的数组
   List<String> get pathSplit => p.split(this);
+}
+
+extension StringDateTime on String {
+  /// 尝试解析成DateTime
+  DateTime? get tryParseToDateTime => DateTime.tryParse(this);
 }
 
 extension StringRegExpExtensions on String {

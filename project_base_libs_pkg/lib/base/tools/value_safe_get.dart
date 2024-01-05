@@ -21,6 +21,12 @@ String getSafeString(dynamic value) {
   return '';
 }
 
+/// 获取安全的字符串,如果字符串为空,则返回指定的默认值
+String getSafeDefaultString(dynamic value, {String defaultValue = ''}) {
+  if (value is String) return value.isNotEmpty ? value : defaultValue;
+  return defaultValue;
+}
+
 /// 获取安全的数组,如果值不匹配,返回空数组
 List<T> getSafeList<T>(dynamic value) {
   if (value is List<T>) return value;
