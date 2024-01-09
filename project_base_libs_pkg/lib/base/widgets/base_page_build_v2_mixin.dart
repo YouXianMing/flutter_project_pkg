@@ -57,6 +57,9 @@ mixin BasePageBuildV2Mixin {
   /// firstTimeLoadingWidget是否在AppBar的外面,默认为false
   bool get firstTimeLoadingWidgetIsOutSideAppBar => false;
 
+  /// Scaffold中的resizeToAvoidBottomInset的值,默认为false
+  bool get resizeToAvoidBottomInset => false;
+
   /// 获取当前的context
   /// 注意: 只在BaseStatefulWidgetState中进行重写,根据mounted来判断是否返回context
   BuildContext? get currentContext => null;
@@ -91,7 +94,7 @@ mixin BasePageBuildV2Mixin {
   /// 主控件
   Widget buildMainWidget(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       appBar: appBar(context),
       body: Stack(
         children: [
