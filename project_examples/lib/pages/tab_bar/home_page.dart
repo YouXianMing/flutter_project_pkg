@@ -1,8 +1,8 @@
 import 'package:project_base_libs_pkg/base_file_headers.dart';
-import 'package:project_examples/route/page_route_enum.dart';
-import 'package:project_examples/widgets/card_item_widget.dart';
 import 'package:project_examples/base/widget_callback_mixin.dart';
 import 'package:project_examples/file_headers.dart';
+import 'package:project_examples/route/page_route_enum.dart';
+import 'package:project_examples/widgets/card_item_widget.dart';
 
 class HomePage extends NormalStatefulWidget {
   @override
@@ -32,6 +32,7 @@ class HomePageState extends NormalStatefulWidgetState<HomePage> with WidgetEvent
               MenuItemModel(title: '项目用库'.tr, pageRouteEnum: PageRouteEnum.projectUsePage),
               MenuItemModel(title: '动画'.tr, pageRouteEnum: PageRouteEnum.animationListPage),
               MenuItemModel(title: '异步编程'.tr, pageRouteEnum: PageRouteEnum.asyncKnowledgePage),
+              MenuItemModel(title: '实用技巧'.tr, pageRouteEnum: PageRouteEnum.practicalTipsPage),
               MenuItemModel(title: '语言设置'.tr, pageRouteEnum: PageRouteEnum.languagePage),
             ],
             builder: (c, i, d) => MenuItemWidget(model: d, callback: widgetEventCallback),

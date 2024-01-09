@@ -19,6 +19,8 @@ import 'package:project_examples/pages/async_knowledge/dart_stream/dart_stream_p
 import 'package:project_examples/pages/async_knowledge/future_builder/future_builder_page.dart';
 import 'package:project_examples/pages/async_knowledge/isolate/isolate_page.dart';
 import 'package:project_examples/pages/async_knowledge/stream_builder/stream_builder_page.dart';
+import 'package:project_examples/pages/practical_tips/practical_tips_page.dart';
+import 'package:project_examples/pages/practical_tips/resizeToAvoidBottomInset/resize_to_avoid_bottom_inset_page.dart';
 import 'package:project_examples/pages/project_use/animated_switcher_widget/animated_switcher_widget_page.dart';
 import 'package:project_examples/pages/project_use/confetti/confetti_page.dart';
 import 'package:project_examples/pages/project_use/custom_buttons/custom_buttons_page.dart';
@@ -151,6 +153,10 @@ enum PageRouteEnum {
   futureBuilderPage,
   isolatePage,
   streamBuilderPage,
+
+  /* 实用技巧 */
+  practicalTipsPage, // 列表页
+  resizeToAvoidBottomInsetPage,
 
   /* 其他 */
   languagePage,
@@ -319,6 +325,10 @@ extension PageRouteEnumExtension on PageRouteEnum {
         return MaterialPageRoute(settings: settings, builder: (_) => LanguagePage(arguments: arguments));
       case PageRouteEnum.widgetAndTextAnimatorPage:
         return MaterialPageRoute(settings: settings, builder: (_) => WidgetAndTextAnimatorPage(arguments: arguments));
+      case PageRouteEnum.practicalTipsPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => PracticalTipsPage(arguments: arguments));
+      case PageRouteEnum.resizeToAvoidBottomInsetPage:
+        return MaterialPageRoute(settings: settings, builder: (_) => ResizeToAvoidBottomInsetPage(arguments: arguments));
     }
   }
 
@@ -545,6 +555,12 @@ extension PageRouteEnumExtension on PageRouteEnum {
         break;
       case PageRouteEnum.widgetAndTextAnimatorPage:
         pageRouteName = _pageRouteNameFrom(WidgetAndTextAnimatorPage);
+        break;
+      case PageRouteEnum.practicalTipsPage:
+        pageRouteName = _pageRouteNameFrom(PracticalTipsPage);
+        break;
+      case PageRouteEnum.resizeToAvoidBottomInsetPage:
+        pageRouteName = _pageRouteNameFrom(ResizeToAvoidBottomInsetPage);
         break;
     }
 

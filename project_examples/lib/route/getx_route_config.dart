@@ -19,6 +19,8 @@ import 'package:project_examples/pages/async_knowledge/dart_stream/dart_stream_p
 import 'package:project_examples/pages/async_knowledge/future_builder/future_builder_page.dart';
 import 'package:project_examples/pages/async_knowledge/isolate/isolate_page.dart';
 import 'package:project_examples/pages/async_knowledge/stream_builder/stream_builder_page.dart';
+import 'package:project_examples/pages/practical_tips/practical_tips_page.dart';
+import 'package:project_examples/pages/practical_tips/resizeToAvoidBottomInset/resize_to_avoid_bottom_inset_page.dart';
 import 'package:project_examples/pages/project_use/animated_switcher_widget/animated_switcher_widget_page.dart';
 import 'package:project_examples/pages/project_use/confetti/confetti_page.dart';
 import 'package:project_examples/pages/project_use/custom_buttons/custom_buttons_page.dart';
@@ -229,6 +231,10 @@ class RouteConfig {
                 return const LanguagePage();
               case PageRouteEnum.widgetAndTextAnimatorPage:
                 return const WidgetAndTextAnimatorPage();
+              case PageRouteEnum.practicalTipsPage:
+                return const PracticalTipsPage();
+              case PageRouteEnum.resizeToAvoidBottomInsetPage:
+                return const ResizeToAvoidBottomInsetPage();
             }
           },
         ),

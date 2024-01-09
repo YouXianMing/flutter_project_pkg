@@ -64,6 +64,11 @@ const Map<String, dynamic> _translations = {
   '异步编程': {
     _zh: '异步编程',
     _en: 'Asynchronous programming',
+    _jp: '実践的なヒント',
+  },
+  '实用技巧': {
+    _zh: '实用技巧',
+    _en: 'Practical Tips',
     _jp: '非同期プログラミング',
   },
   '语言设置': {
