@@ -42,17 +42,24 @@ class MyApp extends StatelessWidget {
       case AppRouteStyle.getxType:
         return ScreenUtilInit(
           designSize: designSize,
-          builder: (context, wgt) => GetMaterialApp(
-            translations: AppTranslations(),
-            locale: _locale,
-            theme: ThemeData.light(),
-            debugShowCheckedModeBanner: false,
-            builder: (context, widget) => _widgetMain(context, widget),
-            getPages: RouteConfig.getPages(),
-            unknownRoute: GetPage(name: '/notFound', page: () => const UnknownPage()),
-            initialRoute: '/',
-            routingCallback: (routing) {
-              appPrint("上一个界面: ${routing?.previous ?? "空"} 当前界面: ${routing?.current ?? "空"}", level: PrintLevel.verbose);
+          builder: (context, wgt) => Builder(
+            builder: (c) {
+              // 获取当前的屏幕的padding并存储
+              AppInfo.setScreenPadding(MediaQuery.of(c).padding);
+
+              return GetMaterialApp(
+                translations: AppTranslations(),
+                locale: _locale,
+                theme: ThemeData.light(),
+                debugShowCheckedModeBanner: false,
+                builder: (context, widget) => _widgetMain(context, widget),
+                getPages: RouteConfig.getPages(),
+                unknownRoute: GetPage(name: '/notFound', page: () => const UnknownPage()),
+                initialRoute: '/',
+                routingCallback: (routing) {
+                  appPrint("上一个界面: ${routing?.previous ?? "空"} 当前界面: ${routing?.current ?? "空"}", level: PrintLevel.verbose);
+                },
+              );
             },
           ),
         );
@@ -60,24 +67,29 @@ class MyApp extends StatelessWidget {
       case AppRouteStyle.namedRouteType:
         return ScreenUtilInit(
           designSize: designSize,
-          builder: (context, wgt) => GetMaterialApp(
-            translations: AppTranslations(),
-            locale: _locale,
-            theme: ThemeData.light(),
-            debugShowCheckedModeBanner: false,
-            builder: (context, widget) => _widgetMain(context, widget),
-            unknownRoute: GetPage(name: '/notFound', page: () => const UnknownPage()),
-            routes: {'/': (_) => const TabBarPage()},
-            routingCallback: (routing) {
-              appPrint("上一个界面: ${routing?.previous ?? "空"} 当前界面: ${routing?.current ?? "空"}", level: PrintLevel.verbose);
-            },
-            onGenerateRoute: (settings) {
-              // 通过拦截有名路由的方式进行页面跳转
-              PageRouteEnum? routePage = pageRouteEnumFromName(settings.name ?? '');
-              if (routePage != null) return routePage.getMaterialPageRouteFromSetting(settings);
-              return null;
-            },
-          ),
+          builder: (context, wgt) => Builder(builder: (c) {
+            // 获取当前的屏幕的padding并存储
+            AppInfo.setScreenPadding(MediaQuery.of(c).padding);
+
+            return GetMaterialApp(
+              translations: AppTranslations(),
+              locale: _locale,
+              theme: ThemeData.light(),
+              debugShowCheckedModeBanner: false,
+              builder: (context, widget) => _widgetMain(context, widget),
+              unknownRoute: GetPage(name: '/notFound', page: () => const UnknownPage()),
+              routes: {'/': (_) => const TabBarPage()},
+              routingCallback: (routing) {
+                appPrint("上一个界面: ${routing?.previous ?? "空"} 当前界面: ${routing?.current ?? "空"}", level: PrintLevel.verbose);
+              },
+              onGenerateRoute: (settings) {
+                // 通过拦截有名路由的方式进行页面跳转
+                PageRouteEnum? routePage = pageRouteEnumFromName(settings.name ?? '');
+                if (routePage != null) return routePage.getMaterialPageRouteFromSetting(settings);
+                return null;
+              },
+            );
+          }),
         );
     }
   }

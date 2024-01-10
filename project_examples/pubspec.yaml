@@ -69,6 +69,11 @@ dependencies:
   # Flutter: Android iOS Linux MacOS Web Windows
   liquid_progress_indicator: ^0.4.0
 
+  # [fullstackaction.com] scrollview监听
+  # https://pub.flutter-io.cn/packages/scrollview_observer
+  # Flutter: Android iOS Linux MacOS Web Windows
+  scrollview_observer: ^1.19.0
+
   # 水波纹效果
   # https://pub.flutter-io.cn/packages/wave
   # Flutter: Android iOS Linux MacOS Web Windows
