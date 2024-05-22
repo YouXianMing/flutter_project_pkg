@@ -1,6 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_libs_pkg/base/typedef/project_typedef.dart';
 
+class ParallaxCarouselSliderController {
+  PageController? _pageController;
+
+  void jumpTo(double value) {
+    _pageController?.jumpTo(value);
+  }
+
+  void jumpToPage(int value) {
+    _pageController?.jumpToPage(value);
+  }
+}
+
 /// 一个处理视差效果的组件
 class ParallaxCarouselSliderWidget extends StatefulWidget {
   /// 数据源
@@ -8,6 +20,9 @@ class ParallaxCarouselSliderWidget extends StatefulWidget {
 
   /// ItemWidgetBuilder
   final ItemWidgetBuilder builder;
+
+  /// 控制器
+  final ParallaxCarouselSliderController? controller;
 
   /// 页面滑动回调
   final ValueChanged<int>? onPageChanged;
@@ -39,10 +54,17 @@ class ParallaxCarouselSliderWidget extends StatefulWidget {
   /// 滑动风格
   final ScrollPhysics? physics;
 
+  /// 页面粘滞效果
+  final bool pageSnapping;
+
+  /// 页面偏移量回调
+  final Function(double pageOffset)? onPageOffset;
+
   const ParallaxCarouselSliderWidget({
     Key? key,
     required this.items,
     required this.builder,
+    this.controller,
     this.onPageChanged,
     this.itemPadding,
     this.scrollDirection = Axis.horizontal,
@@ -53,6 +75,8 @@ class ParallaxCarouselSliderWidget extends StatefulWidget {
     this.height,
     this.parallaxValue = 0,
     this.physics,
+    this.pageSnapping = true,
+    this.onPageOffset,
   }) : super(key: key);
 
   @override
@@ -61,6 +85,7 @@ class ParallaxCarouselSliderWidget extends StatefulWidget {
 
 class ParallaxCarouselSliderWidgetState extends State<ParallaxCarouselSliderWidget> {
   late PageController pageController;
+  ParallaxCarouselSliderController? controller;
   double pageOffset = 0;
 
   @override
@@ -70,9 +95,13 @@ class ParallaxCarouselSliderWidgetState extends State<ParallaxCarouselSliderWidg
     pageController = PageController(viewportFraction: widget.viewportFraction, initialPage: widget.initialPage);
     pageOffset = widget.initialPage.toDouble();
 
+    controller = widget.controller;
+    controller?._pageController = pageController;
+
     // 添加监听
     pageController.addListener(() {
       pageOffset = pageController.page ?? 0;
+      if (widget.onPageOffset != null) widget.onPageOffset!(pageOffset);
       setState(() {});
     });
   }
@@ -90,6 +119,7 @@ class ParallaxCarouselSliderWidgetState extends State<ParallaxCarouselSliderWidg
         controller: pageController,
         onPageChanged: widget.onPageChanged,
         physics: widget.physics,
+        pageSnapping: widget.pageSnapping,
         itemBuilder: (c, i) {
           double percentOffset = pageOffset - i;
           late double x = 0;

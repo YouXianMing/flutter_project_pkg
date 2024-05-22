@@ -88,6 +88,7 @@ export 'base/widgets/expandable_widget.dart'; // 展开缩放组件
 export 'base/widgets/first_time_loading_widget.dart'; // 首次加载控件
 export 'base/widgets/future_loading_widget.dart'; // 首次加载控件v2
 export 'base/widgets/get_child_size.dart'; // 监听widget尺寸修改
+export 'base/widgets/horizontal_parallax_slider_widget.dart'; // 视差效果组件
 export 'base/widgets/indicators/indicator_configs/cytryn_indicator_config.dart'; // 菊花控件配置
 export 'base/widgets/indicators/indicator_configs/spin_kit_indicator_config.dart'; // 菊花控件配置
 export 'base/widgets/indicators/indicator_configs/tino_guo_indicator_config.dart'; // 菊花控件配置
